@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "abhishek-kumar-singh",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Abhishek Kumar Singh, a Full-Stack Developer and a Designer!",
+  "version": "0.0.1",
+  "author": "Abhishek Kumar Singh <hi@abheist.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/abheist/abheist/issues"
   },
   "dependencies": {
     "gatsby": "^2.24.67",
@@ -34,15 +34,15 @@
   "devDependencies": {
     "prettier": "2.1.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "abheist"
   ],
-  "license": "0BSD",
+  "license": "MIT",
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/abheist/abheist.git"
   },
   "scripts": {
     "build": "gatsby build",
