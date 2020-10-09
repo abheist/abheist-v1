@@ -5,8 +5,8 @@ module.exports = {
       name: `Abhishek Kumar Singh`,
       summary: `A Full Stack Developer and a Designer.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `Thoughts on Life, career and computer science.`,
+    siteUrl: `https://abheist.com/`,
     social: {
       twitter: `abheist`,
     },
@@ -53,7 +53,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-180227032-1`,
       },
     },
     `gatsby-plugin-feed`,
