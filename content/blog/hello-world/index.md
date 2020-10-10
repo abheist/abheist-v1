@@ -24,7 +24,7 @@ Oh, and here's a great quote from this Wikipedia on
 You can also write code blocks here!
 yooo
 
-```js {1}
+```js
 const saltyDuckEgg = "chinese preserved food product"
 const saltyDuckEgg = "chinese preserved food product"
 const saltyDuckEgg = "chinese preserved food product"
