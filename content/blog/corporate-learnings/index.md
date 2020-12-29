@@ -17,3 +17,5 @@ description:
 11. Success lies in small wins
 12. Learn discipline — it’ll keep you on track when you are out of inspiration.
 13. Stay hungry
+
+🙏
