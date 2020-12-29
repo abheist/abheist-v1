@@ -4,11 +4,12 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { HitCounter } from "../components/hitCounter"
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = pageContext
+  const { previous, next, slug } = pageContext
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -42,6 +43,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
+        {HitCounter(slug)}
         <hr />
         <footer>
           <Bio />
