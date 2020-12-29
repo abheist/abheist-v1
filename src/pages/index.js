@@ -28,7 +28,10 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       <Bio />
       <p style={{ color: "red", fontFamily: "monospace" }}>
-        🚧 Currently Under Construction,
+        <span role="img" aria-label="construction emoji">
+          🚧
+        </span>{" "}
+        Currently Under Construction,
         <br /> Please visit soon...!!
       </p>
       <ol style={{ listStyle: `none` }}>
