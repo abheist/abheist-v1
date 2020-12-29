@@ -27,17 +27,9 @@ const BlogIndex = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <Bio />
-      <p style={{ color: "red", fontFamily: "monospace" }}>
-        <span role="img" aria-label="construction emoji">
-          🚧
-        </span>{" "}
-        Currently Under Construction,
-        <br /> Please visit soon...!!
-      </p>
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
           const title = post.frontmatter.title || post.fields.slug
-
           return (
             <li key={post.fields.slug}>
               <article
