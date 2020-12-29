@@ -167,3 +167,5 @@ Most of the apps use the bell 🔔 icon for the notification center. If your app
 ![divider](./divider.png)
 
 \*This can be changed according to the use-case of your app. Apps like messenger, WhatsApp lies in this category.
+
+🙏
