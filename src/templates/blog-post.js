@@ -29,6 +29,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 textTransform: "uppercase",
                 fontWeight: 700,
               }}
+              key={tag}
             >
               {tag}
               {post.frontmatter.tags.length - 1 !== i && ", "}
