@@ -22,6 +22,18 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         itemType="http://schema.org/Article"
       >
         <header>
+          {post.frontmatter.tags.map((tag, i) => (
+            <span
+              style={{
+                color: "darkgray",
+                textTransform: "uppercase",
+                fontWeight: 700,
+              }}
+            >
+              {tag}
+              {post.frontmatter.tags.length - 1 !== i && ", "}
+            </span>
+          ))}
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
@@ -81,6 +93,7 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        tags
       }
     }
   }
