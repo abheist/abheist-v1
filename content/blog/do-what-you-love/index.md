@@ -1,0 +1,19 @@
+---
+title: Do What You Love
+date: "2020-05-01"
+description:
+---
+
+![Do what you love](./do-what-you-love.jpeg)
+
+If you really want to do things that matters, then you’ll have to get used to this word ‘NO’.
+
+This isn’t about being a writer, an artist, designer, developer, player or an entrepreneur. Support to those who wants your mental presence but say NO to those who wants your Physical presence. You can’t be everywhere and you have a limited amount of time. Do what you love.
+
+> Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven’t found it yet, keep looking. Don’t settle. As with all matters of the heart, you’ll know when you find it. -Steve Jobs
+
+Because nobody is going to give you time that you need to focus. Instead, you have to cut out some of the things you’re currently saying ‘Yes’ to. You have to cut some short term pleasure to get the long term.
+
+> Your time is limited, so don’t waste it living someone else’s life. Don’t be trapped by dogma — which is living with the results of other people’s thinking. Don’t let the noise of others’ opinions drown out your own inner voice. And most important, have the courage to follow your heart and intuition.
+
+🙏
