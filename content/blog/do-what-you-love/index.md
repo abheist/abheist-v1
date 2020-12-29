@@ -2,6 +2,7 @@
 title: Do What You Love
 date: "2015-10-05"
 description:
+tags: ["life"]
 ---
 
 ![Do what you love](./do-what-you-love.jpeg)

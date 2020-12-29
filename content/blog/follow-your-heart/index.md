@@ -2,6 +2,7 @@
 title: Follow Your Heart
 date: "2015-10-25"
 description:
+tags: ["life"]
 ---
 
 ![Kid hanging on baloons](./follow-your-heart.jpeg)

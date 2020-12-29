@@ -2,6 +2,7 @@
 title: 9 tips to build trust through product site
 date: "2019-08-08"
 description:
+tags: ["design"]
 ---
 
 ## 1. Create a story:

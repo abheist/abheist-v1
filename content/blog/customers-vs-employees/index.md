@@ -2,6 +2,7 @@
 title: Customers vs Employees
 date: "2015-07-10"
 description:
+tags: ["management"]
 ---
 
 ![Customers vs Employees](./customer-employee.jpeg)
