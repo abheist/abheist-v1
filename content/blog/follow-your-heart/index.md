@@ -4,6 +4,8 @@ date: "2015-10-25"
 description:
 ---
 
+![Kid hanging on baloons](./follow-your-heart.jpeg)
+
 We all live a very different life, dreams are many, time is less. Some people hesitate to follow, some don’t want to take the risk and some are those who always compare themselves to others.
 
 > You, you are the only one who has to move forward and take a step and make it a stepping stone.
