@@ -43,7 +43,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
-        {HitCounter(slug)}
+        {HitCounter({ slug })}
         <hr />
         <footer>
           <Bio />

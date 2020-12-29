@@ -23,5 +23,5 @@ export function HitCounter({ slug }) {
     return null
   }
 
-  return <RetroHitCounter hits={hits} />
+  return <RetroHitCounter hits={hits} minLength={6} />
 }
