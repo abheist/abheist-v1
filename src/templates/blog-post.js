@@ -40,6 +40,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
+        { post.headings.length > 0 ? 
         <div style={{
             display: 'flex',
           }}>
@@ -71,7 +72,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             dangerouslySetInnerHTML={{ __html: post.html }}
             itemProp="articleBody"
           />
-        </div>
+        </div> : 
+        <section
+            dangerouslySetInnerHTML={{ __html: post.html }}
+            itemProp="articleBody"
+          />}
         {HitCounter({ slug })}
         <hr />
         <footer>
