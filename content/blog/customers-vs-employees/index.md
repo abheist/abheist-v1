@@ -3,6 +3,7 @@ title: Customers vs Employees
 date: "2015-07-10"
 description:
 tags: ["management"]
+tableContent: false
 ---
 
 ![Customers vs Employees](./customer-employee.jpeg)

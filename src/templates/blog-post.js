@@ -40,43 +40,52 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
-        { post.headings.length > 0 ? 
-        <div style={{
-            display: 'flex',
-          }}>
-          <div style={{ 
-            minWidth: '250px',
-            position: 'sticky',
-            top: '148px',
-            maxHeight: 'calc(100vh - 148px)',
-            marginLeft: '-354px',
-            marginRight: '100px'
-          }}>
-            {post.headings.map(heading => (
-              <pre>
-                <Link to={`#${kebabCase(heading.value)}/`} style={{
-                  overflow: 'hidden',
-                  display: 'inline-block',
-                  width: '250px',
-                  maxWidth: '250px',
-                  whiteSpace: 'nowrap',
-                  textOverflow: 'ellipsis'
-                }}>
-                  {heading.value}
-                </Link>
-                <br />
-              </pre>
-            ))}
+        {post.frontmatter.tableContent ? (
+          <div
+            style={{
+              display: "flex",
+            }}
+          >
+            <div
+              style={{
+                minWidth: "250px",
+                position: "sticky",
+                top: "148px",
+                maxHeight: "calc(100vh - 148px)",
+                marginLeft: "-354px",
+                marginRight: "100px",
+              }}
+            >
+              {post.headings.map(heading => (
+                <pre key={heading.value}>
+                  <Link
+                    to={`#${kebabCase(heading.value)}/`}
+                    style={{
+                      overflow: "hidden",
+                      display: "inline-block",
+                      width: "250px",
+                      maxWidth: "250px",
+                      whiteSpace: "nowrap",
+                      textOverflow: "ellipsis",
+                    }}
+                  >
+                    {heading.value}
+                  </Link>
+                  <br />
+                </pre>
+              ))}
+            </div>
+            <section
+              dangerouslySetInnerHTML={{ __html: post.html }}
+              itemProp="articleBody"
+            />
           </div>
+        ) : (
           <section
             dangerouslySetInnerHTML={{ __html: post.html }}
             itemProp="articleBody"
           />
-        </div> : 
-        <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />}
+        )}
         {HitCounter({ slug })}
         <hr />
         <footer>
@@ -135,6 +144,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         tags
+        tableContent
       }
     }
   }
