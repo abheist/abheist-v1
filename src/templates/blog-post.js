@@ -40,18 +40,38 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
           <p>{post.frontmatter.date}</p>
         </header>
-        <pre>
-          {post.headings.map(heading => (
-            <div>
-              <Link to={`#${kebabCase(heading.value)}/`}>{heading.value}</Link>
-              <br />
-            </div>
-          ))}
-        </pre>
-        <section
-          dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
-        />
+        <div style={{
+            display: 'flex',
+          }}>
+          <div style={{ 
+            minWidth: '250px',
+            position: 'sticky',
+            top: '148px',
+            maxHeight: 'calc(100vh - 148px)',
+            marginLeft: '-354px',
+            marginRight: '100px'
+          }}>
+            {post.headings.map(heading => (
+              <pre>
+                <Link to={`#${kebabCase(heading.value)}/`} style={{
+                  overflow: 'hidden',
+                  display: 'inline-block',
+                  width: '250px',
+                  maxWidth: '250px',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis'
+                }}>
+                  {heading.value}
+                </Link>
+                <br />
+              </pre>
+            ))}
+          </div>
+          <section
+            dangerouslySetInnerHTML={{ __html: post.html }}
+            itemProp="articleBody"
+          />
+        </div>
         {HitCounter({ slug })}
         <hr />
         <footer>
