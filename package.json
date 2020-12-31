@@ -40,6 +40,9 @@
     "use-sound": "^2.0.1"
   },
   "devDependencies": {
+    "@types/node": "^14.14.16",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "npm-check": "^5.9.2",
     "prettier": "2.2.1"
   },
