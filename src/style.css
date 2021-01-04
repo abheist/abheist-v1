@@ -1,3 +1,9 @@
 @tailwind base;
+
+body {
+  @apply text-gray-700;
+  @apply antialiased;
+}
+
 @tailwind components;
 @tailwind utilities;
