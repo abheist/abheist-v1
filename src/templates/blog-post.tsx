@@ -1,10 +1,10 @@
 import { graphql, Link } from 'gatsby'
 import kebabCase from 'lodash/kebabCase'
 import * as React from 'react'
-import Bio from '../components/bio'
-import { HitCounter } from '../components/hit-counter'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Bio from '../components/Bio'
+import { HitCounter } from '../components/HitCounter'
+import Layout from '../components/Layout'
+import SEO from '../components/Seo'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark

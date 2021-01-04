@@ -1,10 +1,10 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import BlogList from '../components/blog-list'
-import HomeHeader from '../components/header'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import TagList from '../components/tag-list'
+import BlogList from '../components/BlogList'
+import HomeHeader from '../components/Header'
+import Layout from '../components/Layout'
+import SEO from '../components/Seo'
+import TagList from '../components/TagList'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`

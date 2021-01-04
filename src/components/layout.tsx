@@ -1,8 +1,8 @@
 import React from 'react'
 import { GlobalStyles } from 'twin.macro'
-import Footer from './footer'
-import Navigation from './navigation'
-import Newsletter from './newletter'
+import Footer from './Footer'
+import Navigation from './Navigation'
+import Newsletter from './Newletter'
 
 const Layout = ({ location, title, children }) => {
   return (

@@ -1,13 +1,6 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import React from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
+import React from 'react'
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
