@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import { GlobalStyles } from "twin.macro"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -22,6 +23,7 @@ const Layout = ({ location, title, children }) => {
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
+      <GlobalStyles />
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
