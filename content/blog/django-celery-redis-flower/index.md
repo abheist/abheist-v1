@@ -1,8 +1,8 @@
 ---
 title: Django, Celery, Redis and Flower
-date: "2020-04-21"
+date: '2020-04-21'
 description: A step-by-step guide to wiredup Django, Celery, Redis and Flower
-tags: ["django"]
+tags: ['django']
 ---
 
 ![Django and Celery](./django-celery.jpeg)

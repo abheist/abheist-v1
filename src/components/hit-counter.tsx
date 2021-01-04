@@ -1,11 +1,11 @@
-import React from "react"
-import RetroHitCounter from "react-retro-hit-counter"
+import React from 'react'
+import RetroHitCounter from 'react-retro-hit-counter'
 
 export function HitCounter({ slug }) {
   const [hits, setHits] = React.useState(undefined)
   React.useEffect(() => {
     // Don't count hits on localhost
-    if (process.env.NODE_ENV !== "production") {
+    if (process.env.NODE_ENV !== 'production') {
       setHits(170)
       return
     }
@@ -14,12 +14,12 @@ export function HitCounter({ slug }) {
     fetch(`/.netlify/functions/register-hit?slug=${slug}`)
       .then(res => res.json())
       .then(json => {
-        if (typeof json.hits === "number") {
+        if (typeof json.hits === 'number') {
           setHits(json.hits)
         }
       })
   }, [slug])
-  if (typeof hits === "undefined") {
+  if (typeof hits === 'undefined') {
     return null
   }
 

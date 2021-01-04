@@ -1,8 +1,8 @@
 ---
 title: The Heart of The One
-date: "2013-05-01"
+date: '2013-05-01'
 description:
-tags: ["poem"]
+tags: ['poem']
 ---
 
 ![Heart of the one](./heart-of-the-one.jpeg)

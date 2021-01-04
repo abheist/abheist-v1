@@ -1,8 +1,8 @@
 ---
 title: Customers vs Employees
-date: "2015-07-10"
+date: '2015-07-10'
 description:
-tags: ["management"]
+tags: ['management']
 tableContent: false
 ---
 

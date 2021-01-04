@@ -1,8 +1,8 @@
 ---
 title: Learnings
-date: "2018-09-22"
+date: '2018-09-22'
 description:
-tags: ["career"]
+tags: ['career']
 tableContent:
 ---
 

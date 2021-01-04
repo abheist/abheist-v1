@@ -1,8 +1,8 @@
 ---
 title: I see that future
-date: "2019-08-18"
+date: '2019-08-18'
 description:
-tags: ["poem"]
+tags: ['poem']
 ---
 
 ![I see that future](./i-see-that-future.jpeg)

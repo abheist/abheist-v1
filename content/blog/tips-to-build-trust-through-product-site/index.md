@@ -1,8 +1,8 @@
 ---
 title: 9 tips to build trust through product site
-date: "2019-08-08"
+date: '2019-08-08'
 description:
-tags: ["design"]
+tags: ['design']
 tableContent: true
 ---
 

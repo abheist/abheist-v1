@@ -1,8 +1,8 @@
 ---
 title: Angular and Django integration into one project
-date: "2020-05-01"
+date: '2020-05-01'
 description: For those times, when you ought to do things which you don’t want to do.
-tags: ["django", "angular"]
+tags: ['django', 'angular']
 ---
 
 ![Django and Angular](./django-angular.jpeg)

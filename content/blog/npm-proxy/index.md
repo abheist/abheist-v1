@@ -1,8 +1,8 @@
 ---
 title: Set Corporate Proxy on NPM
-date: "2020-03-19"
+date: '2020-03-19'
 description: Sometime in need 😐
-tags: ["npm"]
+tags: ['npm']
 ---
 
 ![NPM image](./npm-proxy.jpeg)

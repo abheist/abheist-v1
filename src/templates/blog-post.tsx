@@ -1,11 +1,11 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
+import React from 'react'
+import { Link, graphql } from 'gatsby'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { HitCounter } from "../components/hit-counter"
-import kebabCase from "lodash/kebabCase"
+import Bio from '../components/bio'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import { HitCounter } from '../components/hit-counter'
+import kebabCase from 'lodash/kebabCase'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark
@@ -27,14 +27,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           {post.frontmatter.tags.map((tag, i) => (
             <span
               style={{
-                color: "darkgray",
-                textTransform: "uppercase",
+                color: 'darkgray',
+                textTransform: 'uppercase',
                 fontWeight: 700,
               }}
               key={tag}
             >
               {tag}
-              {post.frontmatter.tags.length - 1 !== i && ", "}
+              {post.frontmatter.tags.length - 1 !== i && ', '}
             </span>
           ))}
           <h1 itemProp="headline">{post.frontmatter.title}</h1>
@@ -43,17 +43,17 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         {post.frontmatter.tableContent ? (
           <div
             style={{
-              display: "flex",
+              display: 'flex',
             }}
           >
             <div
               style={{
-                minWidth: "250px",
-                position: "sticky",
-                top: "148px",
-                maxHeight: "calc(100vh - 148px)",
-                marginLeft: "-354px",
-                marginRight: "100px",
+                minWidth: '250px',
+                position: 'sticky',
+                top: '148px',
+                maxHeight: 'calc(100vh - 148px)',
+                marginLeft: '-354px',
+                marginRight: '100px',
               }}
             >
               {post.headings.map(heading => (
@@ -61,12 +61,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                   <Link
                     to={`#${kebabCase(heading.value)}/`}
                     style={{
-                      overflow: "hidden",
-                      display: "inline-block",
-                      width: "250px",
-                      maxWidth: "250px",
-                      whiteSpace: "nowrap",
-                      textOverflow: "ellipsis",
+                      overflow: 'hidden',
+                      display: 'inline-block',
+                      width: '250px',
+                      maxWidth: '250px',
+                      whiteSpace: 'nowrap',
+                      textOverflow: 'ellipsis',
                     }}
                   >
                     {heading.value}
