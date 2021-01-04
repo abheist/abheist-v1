@@ -1,23 +1,17 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import { GlobalStyles } from 'twin.macro'
+import Footer from './footer'
+import Navigation from './navigation'
+import Newsletter from './newletter'
 
 const Layout = ({ location, title, children }) => {
-  const header = (
-    <h1 className="main-heading">
-      <Link to="/">{title}</Link>
-    </h1>
-  )
-
   return (
     <div>
       <GlobalStyles />
-      <header>{header}</header>
+      <Navigation title={title} />
       <main>{children}</main>
-      <footer>
-        &copy; {new Date().getFullYear()}, Abhishek Kumar Singh
-        {` `}🤘
-      </footer>
+      <Newsletter />
+      <Footer />
     </div>
   )
 }
