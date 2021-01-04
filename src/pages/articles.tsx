@@ -1,8 +1,10 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import HomeHeader from '../components/Header'
+import Bio from '../components/Bio'
+import BlogList from '../components/BlogList'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
+import TagList from '../components/TagList'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -12,7 +14,15 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <HomeHeader />
+      <Bio />
+      {posts.length === 0 ? (
+        <p>No blog posts found.</p>
+      ) : (
+        <>
+          <TagList tags={tags} />
+          <BlogList posts={posts} />
+        </>
+      )}
     </Layout>
   )
 }
