@@ -1,12 +1,5 @@
-// custom typefaces
-import 'typeface-montserrat'
-import 'typeface-merriweather'
-
-// custom CSS styles
-import './src/style.css'
-
-// Highlighting for code blocks
+import '@fontsource/open-sans'
+import '@fontsource/playfair-display'
 import 'prismjs/themes/prism.css'
-
-// Tailwind CSS
 import 'tailwindcss/dist/base.min.css'
+import './src/style.css'
