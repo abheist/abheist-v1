@@ -3,6 +3,7 @@ import React from 'react'
 interface Props {
   children: React.ReactNode
   className?: string
+  style?: any
 }
 
 const H1 = ({ children, className }: Props) => {
@@ -25,10 +26,11 @@ const H2 = ({ children, className }: Props) => {
   )
 }
 
-const H3 = ({ children, className }: Props) => {
+const H3 = ({ children, className, style }: Props) => {
   return (
     <h3
       className={`font-serif text-5xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+      style={style}
     >
       {children}
     </h3>

@@ -15,7 +15,7 @@ const HomeHeader = ({}) => {
           boxShadow: '-16px 16px  var(--primary-color)',
         }}
       >
-        <div className="p-10 bg-white -ml-52" style={{ width: '600px' }}>
+        <div className="p-10 -mb-16 bg-white -ml-52" style={{ width: '600px' }}>
           <H2>
             Hi, I'm <span className="line-through">Abhishek</span> a Product
             Developer
