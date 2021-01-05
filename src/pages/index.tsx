@@ -10,35 +10,52 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.postsRemark.nodes
   const tags = data.tagsGroup.group
 
+  const bookNotesSection = {
+    heading: 'Book Notes',
+    description:
+      'Most of my essays are about business, education, and what it means to be a citizen of the Internet. These essays are a record of my intellectual quest to make sense of the world. They’re the diary of my contemplative life.',
+    to: '/',
+    linkName: 'All Book Notes',
+    latestArticle: {
+      pic: './book-notes.jpg',
+      overline: 'Latest',
+      heading: 'Atomic Habits',
+      description:
+        'I love exploring ideas, strategies & tools to develop a good software. Expore more about happiness, health and more product life.',
+      to: '/',
+    },
+    featured: [
+      {
+        pic: './1.jpeg',
+        heading: 'Pracatically generated content for this page',
+        excerpt:
+          'Hello metaDescription posts found route for this page with content for this page with content for',
+      },
+      {
+        pic: './2.jpeg',
+        heading: 'Pracatically generated content for this page',
+        excerpt:
+          'Hello metaDescription posts found route for this page with content for this page with content for',
+      },
+      {
+        pic: './3.jpeg',
+        heading: 'Pracatically generated content for this page',
+        excerpt:
+          'Hello metaDescription posts found route for this page with content for this page with content for',
+      },
+    ],
+  }
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
       <HomeHeader />
       <div className="mt-40">
-        <PicPageSection
-          picSide="left"
-          pic="./profile-pic.jpg"
-          picOverline="Latest"
-          picHeading="Atomic Habits"
-          picBody="I love exploring ideas, strategies & tools to develop a good software. Expore more about happiness, health and more product life."
-          picLinkTo="/"
-          sectionHeading="Book Notes"
-          sectionBody="Most of my essays are about business, education, and what it means to be a citizen of the Internet. These essays are a record of my intellectual quest to make sense of the world. They’re the diary of my contemplative life."
-          sectionLinkName="All Book Notes"
-          sectionLinkTo="/"
-        />
+        <PicPageSection data={bookNotesSection} />
         <PicPageSection
           backgroundColor="bg-indigo-50"
           picSide="right"
-          pic="./profile-pic.jpg"
-          picOverline="Latest"
-          picHeading="Material Headers"
-          picBody="I love exploring ideas, strategies & tools to develop a good software. Expore more about happiness, health and more product life."
-          picLinkTo="/"
-          sectionHeading="Development Articles"
-          sectionBody="Most of my essays are about business, education, and what it means to be a citizen of the Internet. These essays are a record of my intellectual quest to make sense of the world. They’re the diary of my contemplative life."
-          sectionLinkName="All Articles"
-          sectionLinkTo="/"
+          data={bookNotesSection}
         />
       </div>
     </Layout>

@@ -5,30 +5,31 @@ import { Body1, H3, H6, Overline } from './typography'
 
 interface PicPageSectionProps {
   backgroundColor?: string
-  picSide: 'left' | 'right'
-  pic: string
-  picOverline: string
-  picHeading: string
-  picBody: string
-  picLinkTo: string
-  sectionHeading: string
-  sectionBody: string
-  sectionLinkName: string
-  sectionLinkTo: string
+  picSide?: 'left' | 'right'
+  data: {
+    heading: string
+    description: string
+    to: string
+    linkName: string
+    latestArticle: {
+      pic: string
+      overline: string
+      heading: string
+      description: string
+      to: string
+    }
+    featured: {
+      pic: string
+      heading: string
+      excerpt: string
+    }[]
+  }
 }
 
 const PicPageSection = ({
   backgroundColor,
   picSide = 'left',
-  pic,
-  picOverline = 'Latest',
-  picHeading,
-  picBody,
-  picLinkTo,
-  sectionHeading,
-  sectionBody,
-  sectionLinkName,
-  sectionLinkTo,
+  data: { heading, description, to, linkName, latestArticle, featured },
 }: PicPageSectionProps) => {
   return (
     <div className={backgroundColor}>
@@ -40,7 +41,7 @@ const PicPageSection = ({
             } w-full bg-blue-400 md:w-1/2`}
             style={{
               height: '400px',
-              background: `url(${pic})`,
+              background: `url(${latestArticle.pic})`,
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
@@ -51,28 +52,28 @@ const PicPageSection = ({
               className={`p-10 pr-8 -mr-4 bg-white -mb-28 ${backgroundColor}`}
               style={{ width: '450px' }}
             >
-              <Overline className="mb-2">{picOverline}</Overline>
-              <Link to={picLinkTo}>
+              <Overline className="mb-2">{latestArticle.overline}</Overline>
+              <Link to={latestArticle.to}>
                 <H3
                   style={{
                     color: 'var(--primary-color)',
                   }}
                 >
-                  {picHeading}
+                  {latestArticle.heading}
                 </H3>
               </Link>
-              <Body1 className="mt-8">{picBody}</Body1>
+              <Body1 className="mt-8">{latestArticle.description}</Body1>
             </div>
           </div>
           <div className={`${picSide === 'left' ? 'order-2' : 'order-1'} py-8`}>
-            <H3>{sectionHeading}</H3>
-            <Body1 className="mt-8">{sectionBody}</Body1>
+            <H3>{heading}</H3>
+            <Body1 className="mt-8">{description}</Body1>
             <div className="mt-10">
               <Link
-                to={sectionLinkTo}
+                to={to}
                 className="px-10 py-3 text-lg text-indigo-500 border border-indigo-500"
               >
-                {sectionLinkName}
+                {linkName}
               </Link>
             </div>
           </div>
@@ -80,9 +81,9 @@ const PicPageSection = ({
         <div className="mt-44">
           <H6>FEATURED</H6>
           <div className="flex flex-row justify-between w-full gap-8 mt-8">
-            <Card pic={pic} />
-            <Card pic={pic} />
-            <Card pic={pic} />
+            {featured.map(card => (
+              <Card key={card.pic} data={card} />
+            ))}
           </div>
         </div>
       </div>

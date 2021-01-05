@@ -3,10 +3,10 @@ import { Body1, H6 } from './typography'
 
 interface CardProp {
   variant?: 'image-heading-body' | 'image-drop-heading-body'
-  pic: string
+  data: { pic: string; heading: string; excerpt: string }
 }
 
-const Card = ({ variant, pic }: CardProp) => {
+const Card = ({ variant, data: { pic, heading, excerpt } }: CardProp) => {
   return (
     <div className="flex-1">
       <div
@@ -18,11 +18,8 @@ const Card = ({ variant, pic }: CardProp) => {
           backgroundSize: 'cover',
         }}
       ></div>
-      <H6 className="mt-4">Pracatically generated content for this page</H6>
-      <Body1 className="mt-4">
-        Hello metaDescription posts found route for this page with content for
-        this page with content for
-      </Body1>
+      <H6 className="mt-4">{heading}</H6>
+      <Body1 className="mt-4">{excerpt}</Body1>
     </div>
   )
 }
