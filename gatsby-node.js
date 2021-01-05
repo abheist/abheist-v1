@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
+  const bookNote = path.resolve(`./src/templates/blog-post.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`)
 
   // Get all markdown blog posts sorted by date
@@ -14,7 +15,29 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
       {
         postsRemark: allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
+          sort: {
+            fields: [frontmatter___date]
+            order: DESC
+            filter: { frontmatter: { type: { ne: "book" } } }
+          }
+          limit: 1000
+        ) {
+          nodes {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              tags
+            }
+          }
+        }
+        bookRemark: allMarkdownRemark(
+          sort: {
+            fields: [frontmatter___date]
+            order: DESC
+            filter: { frontmatter: { type: { in: "book" } } }
+          }
           limit: 1000
         ) {
           nodes {
@@ -45,6 +68,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.postsRemark.nodes
+  const books = result.data.bookRemark.nodes
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -60,6 +84,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: blogPost,
         context: {
           slug: post.fields.slug,
+          previous,
+          next,
+        },
+      })
+    })
+  }
+
+  if (books.length > 0) {
+    books.forEach((book, index) => {
+      const previous = index === books.length - 1 ? null : books[index + 1]
+      const next = index === 0 ? null : books[index - 1]
+
+      createPage({
+        path: book.fields.slug,
+        component: bookNote,
+        context: {
+          slug: book.fields.slug,
           previous,
           next,
         },

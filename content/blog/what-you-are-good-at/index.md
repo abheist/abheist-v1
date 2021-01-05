@@ -3,6 +3,7 @@ title: What You Are Good At
 date: '2015-10-04'
 description: Not just what you’re good passionate about
 tags: ['life']
+type: 'book'
 ---
 
 ![What you are good at](./what-you-good-at.jpeg)
