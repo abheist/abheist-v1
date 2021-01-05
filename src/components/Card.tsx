@@ -1,7 +1,12 @@
 import React from 'react'
 import { Body1, H6 } from './typography'
 
-const Card = ({ pic }) => {
+interface CardProp {
+  variant?: 'image-heading-body' | 'image-drop-heading-body'
+  pic: string
+}
+
+const Card = ({ variant, pic }: CardProp) => {
   return (
     <div className="flex-1">
       <div

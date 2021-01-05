@@ -6,20 +6,22 @@ interface Props {
   style?: any
 }
 
-const H1 = ({ children, className }: Props) => {
+const H1 = ({ children, className, style }: Props) => {
   return (
     <h1
       className={`font-serif font-normal tracking-normal text-gray-700 capitalize text-8xl ${className}`}
+      style={style}
     >
       {children}
     </h1>
   )
 }
 
-const H2 = ({ children, className }: Props) => {
+const H2 = ({ children, className, style }: Props) => {
   return (
     <h2
       className={`font-serif text-6xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+      style={style}
     >
       {children}
     </h2>
@@ -37,90 +39,99 @@ const H3 = ({ children, className, style }: Props) => {
   )
 }
 
-const H4 = ({ children, className }: Props) => {
+const H4 = ({ children, className, style }: Props) => {
   return (
     <h4
       className={`font-serif text-4xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+      style={style}
     >
       {children}
     </h4>
   )
 }
 
-const H5 = ({ children, className }: Props) => {
+const H5 = ({ children, className, style }: Props) => {
   return (
     <h5
       className={`font-serif text-2xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+      style={style}
     >
       {children}
     </h5>
   )
 }
 
-const H6 = ({ children, className }: Props) => {
+const H6 = ({ children, className, style }: Props) => {
   return (
     <h6
       className={`font-sans text-xl font-normal tracking-normal text-gray-700 ${className}`}
+      style={style}
     >
       {children}
     </h6>
   )
 }
 
-const Subtitle1 = ({ children, className }: Props) => {
+const Subtitle1 = ({ children, className, style }: Props) => {
   return (
     <p
       className={`font-sans text-base font-normal tracking-normal text-gray-700 ${className}`}
+      style={style}
     >
       {children}
     </p>
   )
 }
 
-const Subtitle2 = ({ children, className }: Props) => {
+const Subtitle2 = ({ children, className, style }: Props) => {
   return (
     <p
       className={`font-sans text-sm font-normal tracking-normal text-gray-700 ${className}`}
+      style={style}
     >
       {children}
     </p>
   )
 }
 
-const Body1 = ({ children, className }: Props) => {
+const Body1 = ({ children, className, style }: Props) => {
   return (
     <p
       className={`font-sans text-base font-normal tracking-normal text-gray-700 ${className}`}
+      style={style}
     >
       {children}
     </p>
   )
 }
 
-const Body2 = ({ children, className }: Props) => {
+const Body2 = ({ children, className, style }: Props) => {
   return (
     <p
       className={`font-sans text-sm font-normal tracking-normal text-gray-700 ${className}`}
+      style={style}
     >
       {children}
     </p>
   )
 }
 
-const Caption = ({ children, className }: Props) => {
+const Caption = ({ children, className, style }: Props) => {
   return (
     <p
       className={`font-sans text-xs font-normal tracking-normal text-gray-700 ${className}`}
+      style={style}
     >
       {children}
     </p>
   )
 }
 
-const Overline = ({ children, className }: Props) => {
+const Overline = ({ children, className, style }: Props) => {
   return (
     <p
       className={`font-sans text-xs font-normal tracking-normal text-gray-700 uppercase ${className}`}
+      style={style}
     >
       {children}
     </p>

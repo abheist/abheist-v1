@@ -3,7 +3,8 @@ import React from 'react'
 import Card from './Card'
 import { Body1, H3, H6, Overline } from './typography'
 
-interface TwoSectionProps {
+interface PicPageSectionProps {
+  backgroundColor?: string
   picSide: 'left' | 'right'
   pic: string
   picOverline: string
@@ -17,6 +18,7 @@ interface TwoSectionProps {
 }
 
 const PicPageSection = ({
+  backgroundColor,
   picSide = 'left',
   pic,
   picOverline = 'Latest',
@@ -27,11 +29,11 @@ const PicPageSection = ({
   sectionBody,
   sectionLinkName,
   sectionLinkTo,
-}) => {
+}: PicPageSectionProps) => {
   return (
-    <div>
-      <div className="container py-64 mx-auto">
-        <div className="flex flex-row justify-between w-full gap-32 ">
+    <div className={backgroundColor}>
+      <div className="container py-40 mx-auto">
+        <div className="flex flex-row justify-between w-full gap-32">
           <div
             className={`flex flex-row items-end justify-end flex-shrink-0 ${
               picSide === 'left' ? 'order-1' : 'order-2'
