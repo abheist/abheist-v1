@@ -8,6 +8,7 @@ import SEO from '../components/Seo'
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.postsRemark.nodes
+  const books = data.booksRemark.nodes
   const tags = data.tagsGroup.group
 
   const bookNotesSection = {
@@ -73,6 +74,23 @@ export const pageQuery = graphql`
     }
     postsRemark: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { ne: "book" } } }
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+        }
+      }
+    }
+    booksRemark: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { in: "book" } } }
     ) {
       nodes {
         excerpt
