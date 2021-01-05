@@ -15,12 +15,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
       {
         postsRemark: allMarkdownRemark(
-          sort: {
-            fields: [frontmatter___date]
-            order: DESC
-            filter: { frontmatter: { type: { ne: "book" } } }
-          }
+          sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
+          filter: { frontmatter: { type: { ne: "book" } } }
         ) {
           nodes {
             fields {
@@ -33,12 +30,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
         bookRemark: allMarkdownRemark(
-          sort: {
-            fields: [frontmatter___date]
-            order: DESC
-            filter: { frontmatter: { type: { in: "book" } } }
-          }
+          sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
+          filter: { frontmatter: { type: { in: "book" } } }
         ) {
           nodes {
             fields {
