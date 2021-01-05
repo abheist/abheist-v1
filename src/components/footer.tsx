@@ -1,54 +1,52 @@
 import React from 'react'
+import FooterList from './FooterList'
 import Logo from './Logo'
-import { Body1, Caption, Subtitle1 } from './typography'
+import { Body2, Caption } from './typography'
 
 const Footer = () => {
+  const listItems1 = [
+    { name: 'Articles', link: '/' },
+    { name: 'Book Notes', link: '/' },
+    { name: 'About', link: '/' },
+    { name: 'Contact', link: '/' },
+    { name: 'SiteMap', link: '/' },
+    { name: 'RSS', link: '/' },
+  ]
+
+  const listItems2 = [
+    { name: 'Uses', link: '/' },
+    { name: 'Now', link: '/' },
+    { name: 'Poems', link: '/' },
+    { name: 'Sketches', link: '/' },
+    { name: 'Favourite Links', link: '/' },
+  ]
+
+  const socialLinks = [
+    { name: 'Twitter', link: '/' },
+    { name: 'Instagram', link: '/' },
+    { name: 'LinkedIn', link: '/' },
+  ]
+
   return (
     <footer className="text-white bg-black">
       <div className="container mx-auto py-28">
         <div className="flex flex-row">
-          <div className="w-2/5">
+          <div className="w-5/12">
             <Logo color="light" />
-            <Body1 className="mt-8" style={{ color: '#FFFFFF' }}>
+            <Body2 className="mt-8 leading-7 text-gray-400">
               Thanks for reading. It makes a difference. I donate 5 percent of
               profits to causes that improve the health of children, pregnant
               mothers, and families in low income communities. We have helped
               over 30,000 people so far.
-            </Body1>
+            </Body2>
           </div>
-          <div className="flex flex-row justify-between w-3/5 pl-24">
+          <div className="flex flex-row justify-between w-7/12 pl-32">
             <div className="flex flex-row justify-between flex-1">
-              <div>
-                <Subtitle1 style={{ color: '#FFFFFF' }}>PAGES</Subtitle1>
-                <ol className="mt-8">
-                  <li>Articles</li>
-                  <li>Book Notes</li>
-                  <li>About</li>
-                  <li>Contact</li>
-                  <li>SiteMap</li>
-                  <li>RSS</li>
-                </ol>
-              </div>
-              <div>
-                <Subtitle1 style={{ color: '#FFFFFF' }}>PAGES</Subtitle1>
-                <ol className="mt-8">
-                  <li>Uses</li>
-                  <li>Now</li>
-                  <li>Poems</li>
-                  <li>Sketches</li>
-                  <li>Favourite Links</li>
-                </ol>
-              </div>
+              <FooterList title="PAGES" listItems={listItems1} />
+              <FooterList listItems={listItems2} hidden />
             </div>
             <div className="flex flex-row justify-end flex-1">
-              <div>
-                <Subtitle1 style={{ color: '#FFFFFF' }}>Social</Subtitle1>
-                <ol className="mt-8">
-                  <li>Twitter</li>
-                  <li>Instagram</li>
-                  <li>LinkedIn</li>
-                </ol>
-              </div>
+              <FooterList title="SOCIAL" listItems={socialLinks} />
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ interface Props {
 const H1 = ({ children, className, style }: Props) => {
   return (
     <h1
-      className={`font-serif font-normal tracking-normal text-gray-700 capitalize text-8xl ${className}`}
+      className={`font-serif font-normal tracking-normal  capitalize text-8xl ${className}`}
       style={style}
     >
       {children}
@@ -20,7 +20,7 @@ const H1 = ({ children, className, style }: Props) => {
 const H2 = ({ children, className, style }: Props) => {
   return (
     <h2
-      className={`font-serif text-6xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+      className={`font-serif text-6xl font-normal tracking-normal  capitalize ${className}`}
       style={style}
     >
       {children}
@@ -31,7 +31,7 @@ const H2 = ({ children, className, style }: Props) => {
 const H3 = ({ children, className, style }: Props) => {
   return (
     <h3
-      className={`font-serif text-5xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+      className={`font-serif text-5xl font-normal tracking-normal  capitalize ${className}`}
       style={style}
     >
       {children}
@@ -42,7 +42,7 @@ const H3 = ({ children, className, style }: Props) => {
 const H4 = ({ children, className, style }: Props) => {
   return (
     <h4
-      className={`font-serif text-4xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+      className={`font-serif text-4xl font-normal tracking-normal  capitalize ${className}`}
       style={style}
     >
       {children}
@@ -53,7 +53,7 @@ const H4 = ({ children, className, style }: Props) => {
 const H5 = ({ children, className, style }: Props) => {
   return (
     <h5
-      className={`font-serif text-2xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+      className={`font-serif text-2xl font-normal tracking-normal  capitalize ${className}`}
       style={style}
     >
       {children}
@@ -64,7 +64,7 @@ const H5 = ({ children, className, style }: Props) => {
 const H6 = ({ children, className, style }: Props) => {
   return (
     <h6
-      className={`font-sans text-xl font-normal tracking-normal text-gray-700 ${className}`}
+      className={`font-sans text-xl font-normal tracking-normal  ${className}`}
       style={style}
     >
       {children}
@@ -75,7 +75,7 @@ const H6 = ({ children, className, style }: Props) => {
 const Subtitle1 = ({ children, className, style }: Props) => {
   return (
     <p
-      className={`font-sans text-base font-normal tracking-normal text-gray-700 ${className}`}
+      className={`font-sans text-base font-normal tracking-normal  ${className}`}
       style={style}
     >
       {children}
@@ -86,7 +86,7 @@ const Subtitle1 = ({ children, className, style }: Props) => {
 const Subtitle2 = ({ children, className, style }: Props) => {
   return (
     <p
-      className={`font-sans text-sm font-normal tracking-normal text-gray-700 ${className}`}
+      className={`font-sans text-sm font-normal tracking-normal  ${className}`}
       style={style}
     >
       {children}
@@ -97,7 +97,7 @@ const Subtitle2 = ({ children, className, style }: Props) => {
 const Body1 = ({ children, className, style }: Props) => {
   return (
     <p
-      className={`font-sans text-base font-normal tracking-normal text-gray-700 ${className}`}
+      className={`font-sans text-base font-normal tracking-normal  ${className}`}
       style={style}
     >
       {children}
@@ -108,7 +108,7 @@ const Body1 = ({ children, className, style }: Props) => {
 const Body2 = ({ children, className, style }: Props) => {
   return (
     <p
-      className={`font-sans text-sm font-normal tracking-normal text-gray-700 ${className}`}
+      className={`font-sans text-sm font-normal tracking-normal  ${className}`}
       style={style}
     >
       {children}
@@ -119,7 +119,7 @@ const Body2 = ({ children, className, style }: Props) => {
 const Caption = ({ children, className, style }: Props) => {
   return (
     <p
-      className={`font-sans text-xs font-normal tracking-normal text-gray-700 ${className}`}
+      className={`font-sans text-xs font-normal tracking-normal  ${className}`}
       style={style}
     >
       {children}
@@ -130,7 +130,7 @@ const Caption = ({ children, className, style }: Props) => {
 const Overline = ({ children, className, style }: Props) => {
   return (
     <p
-      className={`font-sans text-xs font-normal tracking-normal text-gray-700 uppercase ${className}`}
+      className={`font-sans text-xs font-normal tracking-normal  uppercase ${className}`}
       style={style}
     >
       {children}
