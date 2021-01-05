@@ -1,6 +1,6 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import HomeHeader from '../components/Header'
+import HomeHeader from '../components/HomeHeader'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 

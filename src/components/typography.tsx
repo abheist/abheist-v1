@@ -1,97 +1,126 @@
 import React from 'react'
 
-const H1 = ({ text }) => {
+interface Props {
+  children: React.ReactNode
+  className?: string
+}
+
+const H1 = ({ children, className }: Props) => {
   return (
-    <h1 className="font-serif font-normal tracking-normal text-gray-700 capitalize text-8xl">
-      {text}
+    <h1
+      className={`font-serif font-normal tracking-normal text-gray-700 capitalize text-8xl ${className}`}
+    >
+      {children}
     </h1>
   )
 }
 
-const H2 = ({ text }) => {
+const H2 = ({ children, className }: Props) => {
   return (
-    <h2 className="font-serif text-6xl font-normal tracking-normal text-gray-700 capitalize">
-      {text}
+    <h2
+      className={`font-serif text-6xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+    >
+      {children}
     </h2>
   )
 }
 
-const H3 = ({ text }) => {
+const H3 = ({ children, className }: Props) => {
   return (
-    <h3 className="font-serif text-5xl font-normal tracking-normal text-gray-700 capitalize">
-      {text}
+    <h3
+      className={`font-serif text-5xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+    >
+      {children}
     </h3>
   )
 }
 
-const H4 = ({ text }) => {
+const H4 = ({ children, className }: Props) => {
   return (
-    <h4 className="font-serif text-4xl font-normal tracking-normal text-gray-700 capitalize">
-      {text}
+    <h4
+      className={`font-serif text-4xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+    >
+      {children}
     </h4>
   )
 }
 
-const H5 = ({ text }) => {
+const H5 = ({ children, className }: Props) => {
   return (
-    <h5 className="font-serif text-2xl font-normal tracking-normal text-gray-700 capitalize">
-      {text}
+    <h5
+      className={`font-serif text-2xl font-normal tracking-normal text-gray-700 capitalize ${className}`}
+    >
+      {children}
     </h5>
   )
 }
 
-const H6 = ({ text }) => {
+const H6 = ({ children, className }: Props) => {
   return (
-    <h6 className="font-sans text-xl font-normal tracking-normal text-gray-700">
-      {text}
+    <h6
+      className={`font-sans text-xl font-normal tracking-normal text-gray-700 ${className}`}
+    >
+      {children}
     </h6>
   )
 }
 
-const Subtitle1 = ({ text }) => {
+const Subtitle1 = ({ children, className }: Props) => {
   return (
-    <p className="font-sans text-base font-normal tracking-normal text-gray-700">
-      {text}
+    <p
+      className={`font-sans text-base font-normal tracking-normal text-gray-700 ${className}`}
+    >
+      {children}
     </p>
   )
 }
 
-const Subtitle2 = ({ text }) => {
+const Subtitle2 = ({ children, className }: Props) => {
   return (
-    <p className="font-sans text-sm font-normal tracking-normal text-gray-700">
-      {text}
+    <p
+      className={`font-sans text-sm font-normal tracking-normal text-gray-700 ${className}`}
+    >
+      {children}
     </p>
   )
 }
 
-const Body1 = ({ text }) => {
+const Body1 = ({ children, className }: Props) => {
   return (
-    <p className="font-sans text-base font-normal tracking-normal text-gray-700">
-      {text}
+    <p
+      className={`font-sans text-base font-normal tracking-normal text-gray-700 ${className}`}
+    >
+      {children}
     </p>
   )
 }
 
-const Body2 = ({ text }) => {
+const Body2 = ({ children, className }: Props) => {
   return (
-    <p className="font-sans text-sm font-normal tracking-normal text-gray-700">
-      {text}
+    <p
+      className={`font-sans text-sm font-normal tracking-normal text-gray-700 ${className}`}
+    >
+      {children}
     </p>
   )
 }
 
-const Caption = ({ text }) => {
+const Caption = ({ children, className }: Props) => {
   return (
-    <p className="font-sans text-xs font-normal tracking-normal text-gray-700">
-      {text}
+    <p
+      className={`font-sans text-xs font-normal tracking-normal text-gray-700 ${className}`}
+    >
+      {children}
     </p>
   )
 }
 
-const Overline = ({ text }) => {
+const Overline = ({ children, className }: Props) => {
   return (
-    <p className="font-sans text-xs font-normal tracking-normal text-gray-700 uppercase">
-      {text}
+    <p
+      className={`font-sans text-xs font-normal tracking-normal text-gray-700 uppercase ${className}`}
+    >
+      {children}
     </p>
   )
 }

@@ -1,5 +1,9 @@
 @tailwind base;
 
+:root {
+  --primary-color: #5945e4;
+}
+
 body {
   @apply text-gray-700;
   @apply antialiased;
