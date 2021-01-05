@@ -48,7 +48,7 @@ const PicPageSection = ({
             }}
           >
             <div
-              className="p-10 pr-8 -mr-4 bg-white -mb-28"
+              className={`p-10 pr-8 -mr-4 bg-white -mb-28 ${backgroundColor}`}
               style={{ width: '450px' }}
             >
               <Overline className="mb-2">{picOverline}</Overline>
