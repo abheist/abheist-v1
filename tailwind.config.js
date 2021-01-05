@@ -46,6 +46,7 @@ module.exports = {
       lg: '768px',
       xl: '1024px',
     },
+    containers: { center: true, padding: '1rem' },
     extend: {},
   },
   variants: {
