@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { Body2, H5 } from './typography'
+import { H5 } from './typography'
 
 const BlogCard = ({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
@@ -23,14 +23,12 @@ const BlogCard = ({ post }) => {
         </H5>
       </header>
       <section className="mt-2">
-        <Body2>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: post.frontmatter.description || post.excerpt,
-            }}
-            itemProp="description"
-          />
-        </Body2>
+        <p
+          dangerouslySetInnerHTML={{
+            __html: post.frontmatter.description || post.excerpt,
+          }}
+          itemProp="description"
+        />
       </section>
     </article>
   )
