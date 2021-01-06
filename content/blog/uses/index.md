@@ -1,0 +1,25 @@
+---
+title: Uses
+date: '2018-09-22'
+description:
+tags: ['career']
+tableContent:
+image: './corp-learnings.jpg'
+featured: true
+---
+
+1. Stay away from toxic people, I learned it hard way but half of your life will get stress free if you follow it wholeheartedly.
+2. Always be precise & pragmatic
+3. No-one knows everything
+4. Avoid small mistakes
+5. Be in the pursuit of ideas — keep a small diary for it
+6. Receive feedback and work on them
+7. Make relationships
+8. Ask every bit — start with why
+9. Side project — keeps you motivated and on track
+10. Work-life balance
+11. Success lies in small wins
+12. Learn discipline — it’ll keep you on track when you are out of inspiration.
+13. Stay hungry
+
+🙏

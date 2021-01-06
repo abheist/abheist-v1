@@ -5,26 +5,30 @@ import { Body2, Caption } from './typography'
 
 const Footer = () => {
   const listItems1 = [
-    { name: 'Articles', link: '/' },
-    { name: 'Book Notes', link: '/' },
-    { name: 'About', link: '/' },
-    { name: 'Contact', link: '/' },
+    { name: 'Articles', link: '/articles' },
+    { name: 'Book Notes', link: '/book-notes' },
+    { name: 'About', link: '/me' },
+    { name: 'Contact', link: '/contact' },
     { name: 'SiteMap', link: '/' },
     { name: 'RSS', link: '/' },
   ]
 
   const listItems2 = [
-    { name: 'Uses', link: '/' },
-    { name: 'Now', link: '/' },
-    { name: 'Poems', link: '/' },
-    { name: 'Sketches', link: '/' },
-    { name: 'Favourite Links', link: '/' },
+    { name: 'Uses', link: '/uses' },
+    { name: 'Now', link: '/now' },
+    { name: 'Poems', link: '/poems' },
+    { name: 'Sketches', link: '/sketches' },
+    { name: 'Favourite Links', link: '/links' },
   ]
 
   const socialLinks = [
-    { name: 'Twitter', link: '/' },
-    { name: 'Instagram', link: '/' },
-    { name: 'LinkedIn', link: '/' },
+    { name: 'Twitter', link: 'https://twitter.com/abheist', newTab: true },
+    { name: 'Instagram', link: 'https://instagram.com/abheist', newTab: true },
+    {
+      name: 'LinkedIn',
+      link: 'https://www.linkedin.com/in/abheist/',
+      newTab: true,
+    },
   ]
 
   return (
