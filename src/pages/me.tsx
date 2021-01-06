@@ -4,7 +4,7 @@ import AboutMe from '../components/AboutMe'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 
-const BlogIndex = ({ data, location }) => {
+const Me = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.postsRemark.nodes
 
@@ -28,7 +28,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Me
 
 export const pageQuery = graphql`
   query {
