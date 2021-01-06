@@ -47,7 +47,7 @@ const BlogList = ({ posts, tags }) => {
           <div className="mt-16">
             <H6 className="font-bold">POPULAR CONTENT</H6>
             {posts.map(post => (
-              <Subtitle1 className="mt-4">
+              <Subtitle1 key={post.fields.slug} className="mt-4">
                 <Link to={post.fields.slug} itemProp="url">
                   <span itemProp="headline">{post.frontmatter.title}</span>
                 </Link>
