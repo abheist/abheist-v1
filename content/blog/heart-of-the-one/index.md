@@ -4,6 +4,7 @@ date: '2013-05-01'
 description:
 tags: ['poem']
 type: 'book'
+image: './heart-of-the-one.jpeg'
 ---
 
 ![Heart of the one](./heart-of-the-one.jpeg)

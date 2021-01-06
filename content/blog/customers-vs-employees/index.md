@@ -4,6 +4,7 @@ date: '2015-07-10'
 description:
 tags: ['management']
 tableContent: false
+image: './customer-employee.jpeg'
 ---
 
 ![Customers vs Employees](./customer-employee.jpeg)

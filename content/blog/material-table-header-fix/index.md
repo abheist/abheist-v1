@@ -3,6 +3,7 @@ title: Make a Material table header fix
 date: '2020-08-12'
 description:
 tags: ['angular']
+image: './i-see-that-future.jpeg'
 ---
 
 If you see the below code, you'll find out that I've removed the data rows from the first table and header row from the second table. and then added a tableHeader and tableData ids to both table.

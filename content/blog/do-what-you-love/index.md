@@ -4,6 +4,7 @@ date: '2015-10-05'
 description:
 tags: ['life']
 type: 'book'
+image: './do-what-you-love.jpeg'
 ---
 
 ![Do what you love](./do-what-you-love.jpeg)

@@ -3,6 +3,7 @@ title: 11 tips to improve notifications
 date: '2019-05-02'
 description:
 tags: ['design']
+image: './notifications.png'
 ---
 
 ![header image](./header.png)

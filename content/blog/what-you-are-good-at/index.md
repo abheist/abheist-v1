@@ -4,6 +4,7 @@ date: '2015-10-04'
 description: Not just what you’re good passionate about
 tags: ['life']
 type: 'book'
+image: './what-you-good-at.jpeg'
 ---
 
 ![What you are good at](./what-you-good-at.jpeg)

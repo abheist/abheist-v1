@@ -4,6 +4,7 @@ date: '2019-08-08'
 description:
 tags: ['design']
 tableContent: true
+image: './1.png'
 ---
 
 ## 1. Create a story:

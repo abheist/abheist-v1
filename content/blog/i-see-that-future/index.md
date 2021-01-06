@@ -4,6 +4,7 @@ date: '2019-08-18'
 description:
 tags: ['poem']
 type: 'book'
+image: './i-see-that-future.jpeg'
 ---
 
 ![I see that future](./i-see-that-future.jpeg)
