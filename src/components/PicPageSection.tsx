@@ -18,7 +18,7 @@ interface PicPageSectionProps {
       description: string
       to: string
     }
-    featured: {
+    featured?: {
       excerpt: string
       fields: {
         slug: string
@@ -86,14 +86,16 @@ const PicPageSection = ({
             </div>
           </div>
         </div>
-        <div className="mt-44">
-          <H6>FEATURED</H6>
-          <div className="flex flex-row justify-between w-full gap-8 mt-8">
-            {featured.map(card => (
-              <Card key={card.fields.slug} data={card} />
-            ))}
+        {featured && (
+          <div className="mt-44">
+            <H6>FEATURED</H6>
+            <div className="flex flex-row justify-between w-full gap-8 mt-8">
+              {featured.map(card => (
+                <Card key={card.fields.slug} data={card} />
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   )

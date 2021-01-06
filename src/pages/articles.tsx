@@ -1,10 +1,8 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import Bio from '../components/Bio'
 import BlogList from '../components/BlogList'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
-import TagList from '../components/TagList'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -14,12 +12,11 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
       {posts.length === 0 ? (
         <p>No blog posts found.</p>
       ) : (
         <>
-          <TagList tags={tags} />
+          {/* <TagList tags={tags} /> */}
           <BlogList posts={posts} />
         </>
       )}
@@ -38,6 +35,7 @@ export const pageQuery = graphql`
     }
     postsRemark: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { ne: "book" } } }
     ) {
       nodes {
         excerpt
@@ -48,6 +46,13 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          image {
+            childImageSharp {
+              sizes(maxWidth: 630) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
         }
       }
     }
