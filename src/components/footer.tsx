@@ -16,8 +16,6 @@ const Footer = () => {
   const listItems2 = [
     { name: 'Uses', link: '/uses' },
     { name: 'Now', link: '/now' },
-    { name: 'Poems', link: '/poems' },
-    { name: 'Sketches', link: '/sketches' },
     { name: 'Favourite Links', link: '/links' },
   ]
 
