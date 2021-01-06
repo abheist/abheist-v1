@@ -4,6 +4,19 @@
   --primary-color: #5945e4;
 }
 
+.strike {
+  position: relative;
+  display: inline-block;
+}
+.strike::before {
+  content: '';
+  border-bottom: 1px solid black;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 63%;
+}
+
 body {
   @apply text-gray-700;
   @apply antialiased;

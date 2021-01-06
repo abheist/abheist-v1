@@ -17,8 +17,7 @@ const HomeHeader = ({}) => {
       >
         <div className="p-10 -mb-16 bg-white -ml-52" style={{ width: '600px' }}>
           <H2>
-            Hi, I'm <span className="line-through">Abhishek</span> a Product
-            Developer
+            Hi, I'm <span className="strike">Abhishek</span> a Product Developer
           </H2>
           <Body1 className="mt-8">
             I love exploring ideas, strategies & tools to develop a good
