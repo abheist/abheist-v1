@@ -1,8 +1,9 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import Pic from './Pic'
 import { Body1, Body2, H2, H5, H6, Subtitle1 } from './typography'
 
-const AboutMe = ({ posts }) => {
+const AboutMe = ({ posts, instaImages }) => {
   return (
     <div>
       <header className="w-full">
@@ -108,6 +109,20 @@ const AboutMe = ({ posts }) => {
                   <span itemProp="headline">{post.frontmatter.title}</span>
                 </Link>
               </Subtitle1>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="bg-indigo-50">
+        <div className="container py-40 mx-auto">
+          <H2>Popular Links</H2>
+          <Subtitle1 className="mt-10">
+            To help you find something that interests you, I’ve made a list of
+            my favorite creations below.
+          </Subtitle1>
+          <div className="grid grid-cols-3 grid-rows-3 gap-8 mt-16">
+            {instaImages.map(image => (
+              <Pic key={image} url={image} />
             ))}
           </div>
         </div>

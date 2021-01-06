@@ -8,10 +8,22 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.postsRemark.nodes
 
+  const instaImages = [
+    './me0.jpeg',
+    './me1.jpeg',
+    './me2.jpeg',
+    './me3.jpeg',
+    './me4.jpeg',
+    './me5.jpeg',
+    './me6.jpeg',
+    './me7.jpeg',
+    './me8.jpeg',
+  ]
+
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <AboutMe posts={posts} />
+      <AboutMe posts={posts} instaImages={instaImages} />
     </Layout>
   )
 }
