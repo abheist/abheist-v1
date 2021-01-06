@@ -5,6 +5,7 @@ description:
 tags: ['management']
 tableContent: false
 image: './customer-employee.jpeg'
+featured: true
 ---
 
 ![Customers vs Employees](./customer-employee.jpeg)

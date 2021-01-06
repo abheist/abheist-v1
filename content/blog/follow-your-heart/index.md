@@ -4,6 +4,7 @@ date: '2015-10-25'
 description:
 tags: ['life']
 image: './follow-your-heart.jpeg'
+featured: true
 ---
 
 ![Kid hanging on baloons](./follow-your-heart.jpeg)

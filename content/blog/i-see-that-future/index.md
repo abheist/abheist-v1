@@ -5,6 +5,7 @@ description:
 tags: ['poem']
 type: 'book'
 image: './i-see-that-future.jpeg'
+featured: true
 ---
 
 ![I see that future](./i-see-that-future.jpeg)

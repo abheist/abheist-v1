@@ -5,6 +5,7 @@ description:
 tags: ['career']
 tableContent:
 image: './corp-learnings.jpg'
+featured: true
 ---
 
 1. Stay away from toxic people, I learned it hard way but half of your life will get stress free if you follow it wholeheartedly.

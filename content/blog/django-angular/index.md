@@ -5,6 +5,7 @@ description: For those times, when you ought to do things which you don’t want
 tags: ['django', 'angular']
 type: 'book'
 image: './django-angular.jpeg'
+featured: true
 ---
 
 ![Django and Angular](./django-angular.jpeg)

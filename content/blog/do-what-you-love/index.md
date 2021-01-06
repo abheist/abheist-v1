@@ -5,6 +5,7 @@ description:
 tags: ['life']
 type: 'book'
 image: './do-what-you-love.jpeg'
+featured: true
 ---
 
 ![Do what you love](./do-what-you-love.jpeg)

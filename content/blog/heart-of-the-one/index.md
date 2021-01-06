@@ -5,6 +5,7 @@ description:
 tags: ['poem']
 type: 'book'
 image: './heart-of-the-one.jpeg'
+featured: true
 ---
 
 ![Heart of the one](./heart-of-the-one.jpeg)
