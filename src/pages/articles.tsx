@@ -4,7 +4,7 @@ import BlogList from '../components/BlogList'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 
-const BlogIndex = ({ data, location }) => {
+const Articles = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.postsRemark.nodes
   const tags = data.tagsGroup.group
@@ -23,7 +23,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Articles
 
 export const pageQuery = graphql`
   query {
