@@ -7,44 +7,44 @@ import SEO from '../components/Seo'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
+  const latestPost = data.latestPostRemark.nodes[0]
   const posts = data.postsRemark.nodes
+  const latestBook = data.latestBookRemark.nodes[0]
   const books = data.booksRemark.nodes
-  const tags = data.tagsGroup.group
+  console.log({ latestPost, posts, latestBook, books })
 
   const bookNotesSection = {
     heading: 'Book Notes',
     description:
       'Most of my essays are about business, education, and what it means to be a citizen of the Internet. These essays are a record of my intellectual quest to make sense of the world. They’re the diary of my contemplative life.',
-    to: '/',
+    to: '/book-notes',
     linkName: 'All Book Notes',
     latestArticle: {
-      pic: './book-notes.jpg',
+      pic: latestBook.frontmatter.image,
       overline: 'Latest',
-      heading: 'Atomic Habits',
+      heading: latestBook.frontmatter.title,
       description:
-        'I love exploring ideas, strategies & tools to develop a good software. Expore more about happiness, health and more product life.',
-      to: '/',
+        latestBook.frontmatter.description || latestBook.frontmatter.excerpt,
+      to: latestBook.fields.slug,
     },
-    featured: [
-      {
-        pic: './1.jpeg',
-        heading: 'Pracatically generated content for this page',
-        excerpt:
-          'Hello metaDescription posts found route for this page with content for this page with content for',
-      },
-      {
-        pic: './2.jpeg',
-        heading: 'Pracatically generated content for this page',
-        excerpt:
-          'Hello metaDescription posts found route for this page with content for this page with content for',
-      },
-      {
-        pic: './3.jpeg',
-        heading: 'Pracatically generated content for this page',
-        excerpt:
-          'Hello metaDescription posts found route for this page with content for this page with content for',
-      },
-    ],
+    featured: books,
+  }
+
+  const articlesSection = {
+    heading: 'Book Notes',
+    description:
+      'Most of my essays are about business, education, and what it means to be a citizen of the Internet. These essays are a record of my intellectual quest to make sense of the world. They’re the diary of my contemplative life.',
+    to: '/book-notes',
+    linkName: 'All Book Notes',
+    latestArticle: {
+      pic: latestPost.frontmatter.image,
+      overline: 'Latest',
+      heading: latestPost.frontmatter.title,
+      description:
+        latestPost.frontmatter.description || latestPost.frontmatter.excerpt,
+      to: latestPost.fields.slug,
+    },
+    featured: posts,
   }
 
   return (
@@ -56,7 +56,7 @@ const BlogIndex = ({ data, location }) => {
         <PicPageSection
           backgroundColor="bg-indigo-50"
           picSide="right"
-          data={bookNotesSection}
+          data={articlesSection}
         />
       </div>
     </Layout>
@@ -72,9 +72,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    postsRemark: allMarkdownRemark(
+    latestPostRemark: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { ne: "book" } } }
+      limit: 1
     ) {
       nodes {
         excerpt
@@ -85,12 +86,70 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          featured
+          image {
+            childImageSharp {
+              sizes(maxWidth: 630) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
+        }
+      }
+    }
+    postsRemark: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { ne: "book" }, featured: { eq: true } } }
+      limit: 3
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          featured
+          image {
+            childImageSharp {
+              sizes(maxWidth: 630) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
+        }
+      }
+    }
+    latestBookRemark: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { in: "book" } } }
+      limit: 1
+    ) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+          image {
+            childImageSharp {
+              sizes(maxWidth: 630) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
         }
       }
     }
     booksRemark: allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { in: "book" } } }
+      filter: { frontmatter: { type: { in: "book" }, featured: { eq: true } } }
+      limit: 3
     ) {
       nodes {
         excerpt
@@ -101,13 +160,14 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          image {
+            childImageSharp {
+              sizes(maxWidth: 630) {
+                ...GatsbyImageSharpSizes
+              }
+            }
+          }
         }
-      }
-    }
-    tagsGroup: allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
       }
     }
   }

@@ -12,16 +12,24 @@ interface PicPageSectionProps {
     to: string
     linkName: string
     latestArticle: {
-      pic: string
+      pic: any
       overline: string
       heading: string
       description: string
       to: string
     }
     featured: {
-      pic: string
-      heading: string
       excerpt: string
+      fields: {
+        slug: string
+      }
+      frontmatter: {
+        data: string
+        description: string
+        featured: boolean
+        image: any
+        title: string
+      }
     }[]
   }
 }
@@ -41,7 +49,7 @@ const PicPageSection = ({
             } w-full bg-blue-400 md:w-1/2`}
             style={{
               height: '400px',
-              background: `url(${latestArticle.pic})`,
+              background: `url(${latestArticle.pic.childImageSharp.sizes.src})`,
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
@@ -82,7 +90,7 @@ const PicPageSection = ({
           <H6>FEATURED</H6>
           <div className="flex flex-row justify-between w-full gap-8 mt-8">
             {featured.map(card => (
-              <Card key={card.pic} data={card} />
+              <Card key={card.fields.slug} data={card} />
             ))}
           </div>
         </div>

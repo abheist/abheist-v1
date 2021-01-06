@@ -1,25 +1,43 @@
+import { Link } from 'gatsby'
 import React from 'react'
 import { Body1, H6 } from './typography'
 
 interface CardProp {
-  variant?: 'image-heading-body' | 'image-drop-heading-body'
-  data: { pic: string; heading: string; excerpt: string }
+  data: {
+    excerpt: string
+    fields: {
+      slug: string
+    }
+    frontmatter: {
+      data: string
+      description: string
+      featured: boolean
+      image: any
+      title: string
+    }
+  }
 }
 
-const Card = ({ variant, data: { pic, heading, excerpt } }: CardProp) => {
+const Card = ({ data }: CardProp) => {
   return (
     <div className="flex-1">
       <div
         className={`w-full bg-blue-400 h-52`}
         style={{
-          background: `url(${pic})`,
+          background: `url(${data.frontmatter.image.childImageSharp.sizes.src})`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
         }}
       ></div>
-      <H6 className="mt-4">{heading}</H6>
-      <Body1 className="mt-4">{excerpt}</Body1>
+      <Link to={data.fields.slug}>
+        <H6 className="mt-4 font-bold">{data.frontmatter.title}</H6>
+      </Link>
+      <Link to={data.fields.slug}>
+        <Body1 className="mt-4">
+          {data.frontmatter.description || data.excerpt}
+        </Body1>
+      </Link>
     </div>
   )
 }
