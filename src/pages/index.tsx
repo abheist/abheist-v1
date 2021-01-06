@@ -11,7 +11,6 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.postsRemark.nodes
   const latestBook = data.latestBookRemark.nodes[0]
   const books = data.booksRemark.nodes
-  console.log({ latestPost, posts, latestBook, books })
 
   const bookNotesSection = {
     heading: 'Book Notes',
