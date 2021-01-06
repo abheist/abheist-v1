@@ -16,8 +16,7 @@ const BlogIndex = ({ data, location }) => {
         <p>No blog posts found.</p>
       ) : (
         <>
-          {/* <TagList tags={tags} /> */}
-          <BlogList posts={posts} />
+          <BlogList posts={posts} tags={tags} />
         </>
       )}
     </Layout>
