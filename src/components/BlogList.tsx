@@ -9,11 +9,9 @@ const BlogList = ({ posts, tags }) => {
   const latestPost = posts[0]
 
   const articlesSection = {
-    heading: 'Book Notes',
+    heading: 'Articles',
     description:
       'Most of my essays are about business, education, and what it means to be a citizen of the Internet. These essays are a record of my intellectual quest to make sense of the world. They’re the diary of my contemplative life.',
-    to: '/book-notes',
-    linkName: 'All Book Notes',
     latestArticle: {
       pic: latestPost.frontmatter.image,
       overline: 'Latest',

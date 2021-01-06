@@ -9,8 +9,8 @@ interface PicPageSectionProps {
   data: {
     heading: string
     description: string
-    to: string
-    linkName: string
+    to?: string
+    linkName?: string
     latestArticle: {
       pic: any
       overline: string
@@ -76,14 +76,16 @@ const PicPageSection = ({
           <div className={`${picSide === 'left' ? 'order-2' : 'order-1'} py-8`}>
             <H3>{heading}</H3>
             <Body1 className="mt-8">{description}</Body1>
-            <div className="mt-10">
-              <Link
-                to={to}
-                className="px-10 py-3 text-lg text-indigo-500 border border-indigo-500"
-              >
-                {linkName}
-              </Link>
-            </div>
+            {to && linkName && (
+              <div className="mt-10">
+                <Link
+                  to={to}
+                  className="px-10 py-3 text-lg text-indigo-500 border border-indigo-500"
+                >
+                  {linkName}
+                </Link>
+              </div>
+            )}
           </div>
         </div>
         {featured && (
