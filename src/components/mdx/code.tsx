@@ -1,8 +1,7 @@
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import nightOwl from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
-import { css } from 'styled-components'
-import { bpDesktopOnly } from '../../lib/breakpoints'
+import { css } from 'styled-components/macro'
 
 const RE = /{([\d,-]+)}/
 
@@ -10,16 +9,16 @@ const wrapperStyles = css`
   overflow: auto;
   margin-left: -20px;
   margin-right: -20px;
-  ${bpDesktopOnly} {
-    margin-left: -80px;
-    margin-right: -80px;
-  }
+  margin-top: 40px;
+  margin-bottom: 40px;
 `
 
 const preStyles = css`
   float: left;
   min-width: 100%;
   overflow: initial;
+  padding: 10px 10px;
+  border-radius: 10px;
 `
 
 function calculateLinesToHighlight(meta) {

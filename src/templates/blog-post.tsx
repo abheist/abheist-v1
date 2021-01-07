@@ -6,6 +6,7 @@ import Bio from '../components/Bio'
 import { HitCounter } from '../components/HitCounter'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
+import { H2, H6 } from '../components/typography'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -23,7 +24,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         itemScope
         itemType="http://schema.org/Article"
       >
-        <header>
+        <header className="py-16">
           {post.frontmatter.tags.map((tag, i) => (
             <span
               style={{
@@ -37,8 +38,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               {post.frontmatter.tags.length - 1 !== i && ', '}
             </span>
           ))}
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <H2>{post.frontmatter.title}</H2>
+          <H6 className="mt-6">{post.frontmatter.title}</H6>
+          {/* <p>{post.frontmatter.date}</p> */}
         </header>
         {post.frontmatter.tableContent ? (
           <div
