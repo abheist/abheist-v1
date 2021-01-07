@@ -4,6 +4,13 @@
   --primary-color: #5945e4;
 }
 
+.highlight-line {
+  background-color: rgba(201, 167, 255, 0.2);
+  margin: 0 -10px;
+  padding: 0 5px;
+  border-left: 5px solid #c9a7ff;
+}
+
 .strike {
   position: relative;
   display: inline-block;
