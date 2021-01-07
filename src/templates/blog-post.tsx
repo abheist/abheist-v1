@@ -1,9 +1,7 @@
 import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import kebabCase from 'lodash/kebabCase'
 import * as React from 'react'
-import Bio from '../components/Bio'
 import { HitCounter } from '../components/HitCounter'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
@@ -48,57 +46,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           />
           {/* <p>{post.frontmatter.date}</p> */}
         </header>
-        {post.frontmatter.tableContent ? (
-          <div
-            style={{
-              display: 'flex',
-            }}
-          >
-            <div
-              style={{
-                minWidth: '250px',
-                position: 'sticky',
-                top: '148px',
-                maxHeight: 'calc(100vh - 148px)',
-                marginLeft: '-354px',
-                marginRight: '100px',
-              }}
-            >
-              {post.headings.map(heading => (
-                <pre key={heading.value}>
-                  <Link
-                    to={`#${kebabCase(heading.value)}/`}
-                    style={{
-                      overflow: 'hidden',
-                      display: 'inline-block',
-                      width: '250px',
-                      maxWidth: '250px',
-                      whiteSpace: 'nowrap',
-                      textOverflow: 'ellipsis',
-                    }}
-                  >
-                    {heading.value}
-                  </Link>
-                  <br />
-                </pre>
-              ))}
-            </div>
-            <div className="max-w-2xl px-4 mx-auto prose prose-indigo">
-              <MDXRenderer>{post.body}</MDXRenderer>
-            </div>
-          </div>
-        ) : (
-          <div className="max-w-2xl px-4 mx-auto prose prose-indigo">
-            <MDXRenderer>{post.body}</MDXRenderer>
-          </div>
-        )}
-        {HitCounter({ slug })}
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
+
+        <div className="max-w-2xl px-4 mx-auto prose prose-indigo">
+          <MDXRenderer>{post.body}</MDXRenderer>
+        </div>
+        <div className="px-24">{HitCounter({ slug })}</div>
       </article>
-      <nav className="blog-post-nav">
+      <nav className="container px-24 py-20 mx-auto">
         <ul
           style={{
             display: `flex`,
