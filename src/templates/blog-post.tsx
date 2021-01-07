@@ -50,7 +50,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <div className="max-w-2xl px-4 mx-auto prose prose-indigo">
           <MDXRenderer>{post.body}</MDXRenderer>
         </div>
-        <div className="px-24">{HitCounter({ slug })}</div>
+        <div className="px-24 py-8">{HitCounter({ slug })}</div>
       </article>
       <nav className="container px-24 py-20 mx-auto">
         <ul
