@@ -66,9 +66,9 @@ If you see the below code, you'll find out that I've removed the data rows from 
 
 Now, we'll get the width of each column from the second table and reflect them in the first to fix the header.
 
-```JavaScript
-const headerTable = document.querySelector("#tableHeader")
-const dataTable = document.querySelector("#tableData")
+```javascript
+const headerTable = document.querySelector('#tableHeader')
+const dataTable = document.querySelector('#tableData')
 
 /**
  * Get width of each column named "dataWidths" and
@@ -83,7 +83,7 @@ dataWidths[dataWidths.length - 1] = dataWidths[dataWidths.length - 1] - 24
 
 const headerColumns = [...headerTable.children[0].children[0].children]
 headerColumns.map(column => {
-  column.style.width = dataWidths[count] + "px"
+  column.style.width = dataWidths[count] + 'px'
   count++
 })
 ```

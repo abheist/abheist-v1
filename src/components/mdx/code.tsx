@@ -1,5 +1,5 @@
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import theme from 'prism-react-renderer/themes/nightOwl'
+import nightOwl from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
 import { css } from 'styled-components'
 import { bpDesktopOnly } from '../../lib/breakpoints'
@@ -46,7 +46,7 @@ function Code({ codeString, language, metastring }) {
       {...defaultProps}
       code={codeString}
       language={language}
-      theme={theme}
+      theme={nightOwl}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div css={wrapperStyles}>
@@ -61,7 +61,7 @@ function Code({ codeString, language, metastring }) {
                 })}
               >
                 <span
-                  css={css`
+                  css={`
                     display: inline-block;
                     width: 2em;
                     user-select: none;
