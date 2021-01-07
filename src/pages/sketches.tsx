@@ -25,9 +25,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    postsRemark: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-    ) {
+    postsRemark: allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
         fields {
@@ -40,7 +38,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    tagsGroup: allMarkdownRemark(limit: 2000) {
+    tagsGroup: allMdx(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount

@@ -1,4 +1,5 @@
 import { graphql, Link } from 'gatsby'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import kebabCase from 'lodash/kebabCase'
 import * as React from 'react'
 import Bio from '../components/Bio'
@@ -7,7 +8,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/Seo'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next, slug } = pageContext
 
@@ -74,16 +75,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 </pre>
               ))}
             </div>
-            <section
-              dangerouslySetInnerHTML={{ __html: post.html }}
-              itemProp="articleBody"
-            />
+            <MDXRenderer>{post.body}</MDXRenderer>
           </div>
         ) : (
-          <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />
+          <MDXRenderer>{post.body}</MDXRenderer>
         )}
         {HitCounter({ slug })}
         <hr />
@@ -130,10 +125,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       headings {
         value
         depth

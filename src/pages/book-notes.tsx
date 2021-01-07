@@ -29,7 +29,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    postsRemark: allMarkdownRemark(
+    postsRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { in: "book" } } }
     ) {

@@ -71,7 +71,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    latestPostRemark: allMarkdownRemark(
+    latestPostRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { ne: "book" } } }
       limit: 1
@@ -96,7 +96,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    postsRemark: allMarkdownRemark(
+    postsRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { ne: "book" }, featured: { eq: true } } }
       limit: 3
@@ -121,7 +121,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    latestBookRemark: allMarkdownRemark(
+    latestBookRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { in: "book" } } }
       limit: 1
@@ -145,7 +145,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    booksRemark: allMarkdownRemark(
+    booksRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { in: "book" }, featured: { eq: true } } }
       limit: 3
