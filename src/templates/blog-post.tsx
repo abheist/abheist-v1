@@ -1,4 +1,5 @@
 import { graphql, Link } from 'gatsby'
+import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import kebabCase from 'lodash/kebabCase'
 import * as React from 'react'
@@ -20,7 +21,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article
-        className="container px-4 mx-auto"
+        className="container mx-auto"
         itemScope
         itemType="http://schema.org/Article"
       >
@@ -40,6 +41,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           ))}
           <H2>{post.frontmatter.title}</H2>
           <H6 className="mt-6">{post.frontmatter.title}</H6>
+          <Img
+            className="mt-8"
+            fluid={post.frontmatter.image.childImageSharp.fluid}
+            alt="A corgi smiling happily"
+          />
           {/* <p>{post.frontmatter.date}</p> */}
         </header>
         {post.frontmatter.tableContent ? (
@@ -77,10 +83,14 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 </pre>
               ))}
             </div>
-            <MDXRenderer>{post.body}</MDXRenderer>
+            <div className="max-w-2xl px-4 mx-auto prose prose-indigo">
+              <MDXRenderer>{post.body}</MDXRenderer>
+            </div>
           </div>
         ) : (
-          <MDXRenderer>{post.body}</MDXRenderer>
+          <div className="max-w-2xl px-4 mx-auto prose prose-indigo">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </div>
         )}
         {HitCounter({ slug })}
         <hr />
@@ -140,6 +150,17 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         tags
+        image {
+          childImageSharp {
+            fluid {
+              srcSet
+              tracedSVG
+              aspectRatio
+              src
+              sizes
+            }
+          }
+        }
         tableContent
       }
     }

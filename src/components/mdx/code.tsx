@@ -6,18 +6,16 @@ import { css } from 'styled-components/macro'
 const RE = /{([\d,-]+)}/
 
 const wrapperStyles = css`
-  overflow: auto;
-  margin-left: -20px;
-  margin-right: -20px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-left: -40px;
+  margin-right: -40px;
 `
 
 const preStyles = css`
   float: left;
   min-width: 100%;
-  overflow: initial;
-  padding: 10px 10px;
+  width: 100%;
+  overflow: auto;
+  padding: 10px 10px !important;
   border-radius: 10px;
 `
 
