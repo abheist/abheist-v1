@@ -14,7 +14,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const result = await graphql(
     `
       {
-        postsRemark: allMarkdownRemark(
+        postsRemark: allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
           filter: { frontmatter: { type: { ne: "book" } } }
@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
-        bookRemark: allMarkdownRemark(
+        bookRemark: allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
           filter: { frontmatter: { type: { in: "book" } } }
@@ -44,7 +44,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000) {
+        tagsGroup: allMdx(limit: 2000) {
           group(field: frontmatter___tags) {
             fieldValue
           }
@@ -118,7 +118,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
 
     createNodeField({

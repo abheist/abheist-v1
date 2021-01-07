@@ -1,5 +1,4 @@
 import '@fontsource/open-sans'
 import '@fontsource/playfair-display'
-import 'prismjs/themes/prism.css'
 import 'tailwindcss/dist/base.min.css'
 import './src/style.css'
