@@ -19,7 +19,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
       />
       <article
-        className="blog-post"
+        className="container px-4 mx-auto"
         itemScope
         itemType="http://schema.org/Article"
       >
