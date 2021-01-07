@@ -154,7 +154,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       twitter: String
     }
 
-    type MarkdownRemark implements Node {
+    type Mdx implements Node {
       frontmatter: Frontmatter
       fields: Fields
     }
