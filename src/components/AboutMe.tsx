@@ -1,9 +1,9 @@
-import { Link } from 'gatsby'
+import Img from 'gatsby-image'
 import React from 'react'
-import Pic from './Pic'
-import { Body1, Body2, H2, H5, H6, Subtitle1 } from './Typography'
+import PopularContent from './PopularContent'
+import { Body1, Body2, H2, H5, Subtitle1 } from './Typography'
 
-const AboutMe = ({ posts, instaImages }) => {
+const AboutMe = ({ posts, picsGrid, headerImage }) => {
   return (
     <div>
       <header className="w-full">
@@ -21,17 +21,21 @@ const AboutMe = ({ posts, instaImages }) => {
               About Me
             </H2>
           </div>
-          <img
-            src="./me-header-1.png"
-            width="1200"
-            alt="Abhishek Kumar Singh"
+          <Img
+            fluid={headerImage}
+            style={{ width: '1200px' }}
             className="mx-auto"
+            alt="Abhishek Kumar Singh"
           />
         </div>
       </header>
       <div className="container flex flex-row mx-auto mt-52">
         <div className="flex flex-col w-1/4 gap-y-6">
-          <H5 className="mt-8 normal-case">hi@abheist.com</H5>
+          <H5 className="mt-8 normal-case">
+            <a href="mailto:hi@abheist.com" target="_blank">
+              hi@abheist.com
+            </a>
+          </H5>
           <Body2>
             ---------- <a href="https://twitter.com/abheist">Twitter</a>
           </Body2>
@@ -44,85 +48,66 @@ const AboutMe = ({ posts, instaImages }) => {
         </div>
         <div className="w-3/4">
           <H2>Hi Friends</H2>
-          <Body1 className="mt-10">
-            I’m Abhishek Kumar Singh, Product Developer and Designer who is
-            passionate about the intersection of design and technology. And, how
-            it can be used to make a positive impact on earth and its being.
-            Product Developer and Designer who is passionate about the
-            intersection of design and technology. And, how it can be used to
-            make a positive impact on earth and its being. Product Developer and
-            Designer who is passionate about the intersection of design and
-            technology. And, how it can be used to make a positive impact on
-            earth and its being.
-          </Body1>
-          <Body1 className="mt-6">
-            Product Developer and Designer who is passionate about the
-            intersection of design and technology. And, how it can be used to
-            make a positive impact on earth and its being. Product Developer and
-            Designer who is passionate about the intersection of design and
-            technology. And, how it can be used to make a positive impact on
-            earth and its being. Product Developer and Designer who is
-            passionate about the intersection of design and technology. And, how
-            it can be used to make a positive impact on earth and its being.
-          </Body1>
-          <Body1 className="mt-6">
-            Product Developer and Designer who is passionate about the
-            intersection of design and technology. And, how it can be used to
-            make a positive impact on earth and its being.
-          </Body1>
-          <Body1 className="mt-10">Thanks</Body1>
-          <Body1 className="mt-2">Abhishek Kumar Singh</Body1>
+          <div className="mt-10 prose">
+            <Body1>
+              Product Developer and Designer who is passionate about the
+              intersection of design and technology. And, how it can be used to
+              make a positive impact on earth and its being.
+            </Body1>
+            <Body1>
+              A Pragmatic, Persistent and have an eye for Innovation. I'm into
+              perfection, but also live by the quote when designing and
+              developing:
+            </Body1>
+            <blockquote>
+              First do it, then do it right, then do it better
+            </blockquote>
+            <Body1>
+              I'm a keen learner and believe in an interdisciplinary approach to
+              understanding the world with focus on Agriculture, Education and
+              Business, currently looking into economic side of world, focus on
+              personal finance and development. Four years of Engineering and 48
+              months in a Full Stack role has given me a strong foothold on the
+              technical aspects and pathways to tackle real-world problems.
+            </Body1>
+            <Body1>
+              Outside of work and academics, I’m food & nature lover, reader and
+              a writer. I have also been actively involved in sports through my
+              teenage years, represented my school at the district level Chess
+              tournaments and participated in Basketball and Table-tennis at the
+              college and company level. At times, test my hands and heart by
+              sketching and writing poems.
+            </Body1>
+            <Body1 className="mt-10">Thanks</Body1>
+            <Body1 className="mt-2">Abhishek Kumar Singh</Body1>
+          </div>
         </div>
       </div>
       <div className="container mx-auto py-52">
         <H2>Popular Links</H2>
         <Subtitle1 className="mt-10">
           To help you find something that interests you, I’ve made a list of my
-          favorite creations below.
+          favourite creations below.
         </Subtitle1>
         <div className="flex flex-row justify-between gap-16 mt-16">
-          <div className="flex-1">
-            <H6 className="font-bold uppercase">Popular blog post</H6>
-            {posts.map(post => (
-              <Subtitle1 key={post.fields.slug} className="mt-4">
-                <Link to={post.fields.slug} itemProp="url">
-                  <span itemProp="headline">{post.frontmatter.title}</span>
-                </Link>
-              </Subtitle1>
-            ))}
-          </div>
-          <div className="flex-1">
-            <H6 className="font-bold uppercase">Popular long blog post</H6>
-            {posts.map(post => (
-              <Subtitle1 key={post.fields.slug} className="mt-4">
-                <Link to={post.fields.slug} itemProp="url">
-                  <span itemProp="headline">{post.frontmatter.title}</span>
-                </Link>
-              </Subtitle1>
-            ))}
-          </div>
-          <div className="flex-1">
-            <H6 className="font-bold uppercase">Popular book notes</H6>
-            {posts.map(post => (
-              <Subtitle1 key={post.fields.slug} className="mt-4">
-                <Link to={post.fields.slug} itemProp="url">
-                  <span itemProp="headline">{post.frontmatter.title}</span>
-                </Link>
-              </Subtitle1>
-            ))}
-          </div>
+          <PopularContent posts={posts} heading="Blog post" />
+          <PopularContent posts={posts} heading="Long blog post" />
+          <PopularContent posts={posts} heading="Book notes" />
         </div>
       </div>
       <div className="bg-indigo-50">
         <div className="container py-40 mx-auto">
-          <H2>Popular Links</H2>
+          <H2>Photography</H2>
           <Subtitle1 className="mt-10">
-            To help you find something that interests you, I’ve made a list of
-            my favorite creations below.
+            Some of my favourite photography work below. To look more, you can
+            check out my Unsplash profile.
           </Subtitle1>
           <div className="grid grid-cols-3 grid-rows-3 gap-8 mt-16">
-            {instaImages.map(image => (
-              <Pic key={image} url={image} />
+            {picsGrid.map(image => (
+              <Img
+                fluid={image.node.childImageSharp.fluid}
+                key={image.node.childImageSharp.fluid.src}
+              />
             ))}
           </div>
         </div>

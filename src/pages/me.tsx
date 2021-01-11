@@ -7,23 +7,17 @@ import SEO from '../components/SEO'
 const Me = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.postsRemark.nodes
-
-  const instaImages = [
-    './me0.jpeg',
-    './me1.jpeg',
-    './me2.jpeg',
-    './me3.jpeg',
-    './me4.jpeg',
-    './me5.jpeg',
-    './me6.jpeg',
-    './me7.jpeg',
-    './me8.jpeg',
-  ]
+  const headerImage = data.headerImage.edges[0].node.fluid
+  const unsplashPics = data.unsplashPics.edges
 
   return (
     <Layout title={siteTitle}>
       <SEO title="All posts" />
-      <AboutMe posts={posts} instaImages={instaImages} />
+      <AboutMe
+        posts={posts}
+        picsGrid={unsplashPics}
+        headerImage={headerImage}
+      />
     </Layout>
   )
 }
@@ -35,6 +29,42 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    headerImage: allImageSharp(
+      filter: { fixed: { originalName: { eq: "me-header-1.png" } } }
+    ) {
+      edges {
+        node {
+          id
+          fluid {
+            src
+            srcSet
+            aspectRatio
+            sizes
+            tracedSVG
+            base64
+            srcWebp
+            srcSetWebp
+          }
+        }
+      }
+    }
+    unsplashPics: allFile(filter: { dir: { regex: "/unsplash-pics/g" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid {
+              src
+              srcSet
+              srcSetWebp
+              tracedSVG
+              base64
+              aspectRatio
+              sizes
+            }
+          }
+        }
       }
     }
     postsRemark: allMdx(
