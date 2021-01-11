@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import BookList from '../components/BookList'
 import Layout from '../components/Layout'
-import SEO from '../components/Seo'
+import SEO from '../components/SEO'
 
 const BookNotes = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`

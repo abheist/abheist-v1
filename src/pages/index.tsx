@@ -3,7 +3,7 @@ import React from 'react'
 import HomeHeader from '../components/HomeHeader'
 import Layout from '../components/Layout'
 import PicPageSection from '../components/PicPageSection'
-import SEO from '../components/Seo'
+import SEO from '../components/SEO'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`

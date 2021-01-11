@@ -4,7 +4,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
 import { HitCounter } from '../components/HitCounter'
 import Layout from '../components/Layout'
-import SEO from '../components/Seo'
+import SEO from '../components/SEO'
 import { H2, H6 } from '../components/Typography'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
