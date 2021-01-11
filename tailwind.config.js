@@ -49,7 +49,7 @@ module.exports = {
     containers: { center: true, padding: '1rem' },
     extend: {
       colors: {
-        indigo: '#5945e4',
+        'indigo-primary': '#5945e4',
       },
     },
   },
