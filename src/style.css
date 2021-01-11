@@ -42,6 +42,7 @@ h6::-moz-selection {
     0.095em 0.095em 0 #d7624e, 0.0975em 0.0975em 0 #d7624e,
     0.1em 0.1em 0 #d7624e;
 }
+
 h1::selection,
 h2::selection,
 h3::selection,
@@ -87,6 +88,7 @@ body {
   position: relative;
   display: inline-block;
 }
+
 .strike::before {
   content: '';
   border-bottom: 1px solid black;
