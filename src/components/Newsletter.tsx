@@ -5,32 +5,37 @@ import { Body1, Caption, H3, Subtitle1 } from './Typography'
 const Newsletter = () => {
   return (
     <div className="bg-yellow-50">
-      <div className="container flex flex-row mx-auto">
-        <div className="w-1/2 py-40">
+      <div className="container flex flex-row py-40 mx-auto">
+        <div className="w-1/2">
           <H3>Join Me</H3>
-          <Body1 className="mt-4">
-            I am fortunate to share my work with a broad audience. Over
-            1,000,000 people subscribe to my weekly email newsletter.
+          <Body1 className="mt-8">
+            I am fortunate enough to share my work with a you. Thanks to you and
+            other people who subscribe to my email newsletter.
           </Body1>
           <ol className="grid gap-4 mt-8 list-disc list-inside">
-            <li>The 3-2-1 Thursday newsletter (Weekly)</li>
             <li>
-              Long-form articles on how to live better (Once or twice per month)
+              The TechLife Thursday newsletter, which contains weekly updates in
+              the tech and design industry and some of the life advices from the
+              top mentors of the industry (Weekly)
             </li>
             <li>
-              Discounts and offers on my books and products (A few times per
-              year)
+              Long-form articles on how to live better and healthier as a
+              developer (Once or twice per month)
+            </li>
+            <li>
+              Discounts and offers on courses and products out there (A few
+              times per year)
             </li>
           </ol>
         </div>
-        <div className="w-1/2 h-full py-24 pl-16">
+        <div className="w-1/2 h-full pl-16">
           <div className="px-4 py-16 bg-white">
             <Subtitle1 className="px-16 font-bold text-center">
-              Self-improvement tips based on proven scientific research.
+              Design, Development & Life Improvement tips
             </Subtitle1>
             <input
               type="text"
-              placeholder="My email address is..."
+              placeholder="Email address is..."
               className="w-full p-4 mt-8 text-center border-2 border-yellow-300"
             />
             <Link to="/">
