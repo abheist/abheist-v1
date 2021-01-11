@@ -15,8 +15,8 @@ const BlogIndex = ({ data, location }) => {
   const bookNotesSection = {
     heading: 'Book Notes',
     description:
-      'Most of my essays are about business, education, and what it means to be a citizen of the Internet. These essays are a record of my intellectual quest to make sense of the world. They’re the diary of my contemplative life.',
-    to: '/book-notes',
+      'Tiny summary but detailed notes for each book, contains the gist of every book with best quotes and essence in just few words.',
+    to: '/book-notes/',
     linkName: 'All Book Notes',
     latestArticle: {
       pic: latestBook.frontmatter.image,
@@ -30,11 +30,11 @@ const BlogIndex = ({ data, location }) => {
   }
 
   const articlesSection = {
-    heading: 'Book Notes',
+    heading: 'Articles',
     description:
-      'Most of my essays are about business, education, and what it means to be a citizen of the Internet. These essays are a record of my intellectual quest to make sense of the world. They’re the diary of my contemplative life.',
-    to: '/book-notes',
-    linkName: 'All Book Notes',
+      "Most of my articles are about Software Design, Development, business, education and life. These articles are a record of my intellectual quest to make sense of the things I'm learning. They’re the diary of my contemplative life.",
+    to: '/articles/',
+    linkName: 'All Articles',
     latestArticle: {
       pic: latestPost.frontmatter.image,
       overline: 'Latest',

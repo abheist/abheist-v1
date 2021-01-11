@@ -3,7 +3,7 @@ import React from 'react'
 import { Body2, Subtitle1 } from './Typography'
 
 interface FooterListProp {
-  listItems: { name: string; link: string; newTab: boolean }[]
+  listItems: { name: string; link: string; newTab?: boolean }[]
   title?: string
   hidden?: boolean
   newTab?: boolean
@@ -19,7 +19,7 @@ const FooterList = ({
       <Subtitle1 className={`uppercase text-gray-500 ${hidden && 'invisible'}`}>
         {title}
       </Subtitle1>
-      <ol className={`grid mt-8 gap-y-4`}>
+      <ol className={`grid mt-8 gap-y-1`}>
         {listItems.map(item => (
           <li key={item.name}>
             {item.newTab ? (

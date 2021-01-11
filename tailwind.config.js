@@ -47,7 +47,11 @@ module.exports = {
       xl: '1024px',
     },
     containers: { center: true, padding: '1rem' },
-    extend: {},
+    extend: {
+      colors: {
+        indigo: '#5945e4',
+      },
+    },
   },
   variants: {
     extend: {},

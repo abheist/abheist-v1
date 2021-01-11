@@ -62,13 +62,7 @@ const PicPageSection = ({
             >
               <Overline className="mb-2">{latestArticle.overline}</Overline>
               <Link to={latestArticle.to}>
-                <H3
-                  style={{
-                    color: 'var(--primary-color)',
-                  }}
-                >
-                  {latestArticle.heading}
-                </H3>
+                <H3 className="text-indigo">{latestArticle.heading}</H3>
               </Link>
               <Body1 className="mt-8">{latestArticle.description}</Body1>
             </div>

@@ -11,7 +11,7 @@ const BlogList = ({ posts, tags }) => {
   const articlesSection = {
     heading: 'Articles',
     description:
-      'Most of my essays are about business, education, and what it means to be a citizen of the Internet. These essays are a record of my intellectual quest to make sense of the world. They’re the diary of my contemplative life.',
+      'Sort and detailed notes of my learnings of software development, design, life and world. They are the diary or record of my contemplative life. This page will constantly update as my second brain, so bookmark it if you want to check back in a few months. If you have any questions. You can also email me. Thank you 🙏',
     latestArticle: {
       pic: latestPost.frontmatter.image,
       overline: 'Latest',
