@@ -4,7 +4,7 @@ import type {} from 'styled-components/cssprop'
 import Footer from './footer'
 import mdxComponent from './mdx'
 import Navigation from './navigation'
-import Newsletter from './newletter'
+import Newsletter from './Newsletter'
 
 const Layout = ({ title, children }) => {
   return (
