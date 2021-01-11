@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { rhythm } from '../../lib/mdx_typography'
 
 export default styled.h2`
   text-align: left;
