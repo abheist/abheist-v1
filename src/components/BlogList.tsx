@@ -3,7 +3,7 @@ import React from 'react'
 import BlogCard from './BlogCard'
 import PicPageSection from './PicPageSection'
 import TagList from './TagList'
-import { H6, Subtitle1 } from './typography'
+import { H6, Subtitle1 } from './Typography'
 
 const BlogList = ({ posts, tags }) => {
   const latestPost = posts[0]

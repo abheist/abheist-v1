@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { H4, Subtitle2 } from './typography'
+import { H4, Subtitle2 } from './Typography'
 
 const BookCard = ({ post }): JSX.Element => {
   const title = post.frontmatter.title || post.fields.slug

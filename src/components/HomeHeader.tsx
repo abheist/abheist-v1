@@ -1,5 +1,5 @@
 import React from 'react'
-import { Body1, H2 } from './typography'
+import { Body1, H2 } from './Typography'
 
 const HomeHeader = ({}) => {
   return (

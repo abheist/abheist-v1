@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { Body1, Caption, H3, Subtitle1 } from './typography'
+import { Body1, Caption, H3, Subtitle1 } from './Typography'
 
 const Newsletter = () => {
   return (

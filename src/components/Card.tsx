@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { Body1, H6 } from './typography'
+import { Body1, H6 } from './Typography'
 
 interface CardProp {
   data: {

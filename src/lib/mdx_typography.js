@@ -15,7 +15,7 @@ export const fonts = {
   // boldItalic: 'Inter Bold Italic',
 }
 
-const typography = new Typography({
+const mdx_typography = new Typography({
   baseFontSize: '18px',
   baseLineHeight: 1.55,
   headerLineHeight: 1.4,
@@ -56,9 +56,9 @@ const typography = new Typography({
 })
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== 'production') {
-  typography.injectStyles()
+  mdx_typography.injectStyles()
 }
 
-export default typography
-export const rhythm = typography.rhythm
-export const scale = typography.scale
+export default mdx_typography
+export const rhythm = mdx_typography.rhythm
+export const scale = mdx_typography.scale

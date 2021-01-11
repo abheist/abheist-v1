@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import Card from './Card'
-import { Body1, H3, H6, Overline } from './typography'
+import { Body1, H3, H6, Overline } from './Typography'
 
 interface PicPageSectionProps {
   backgroundColor?: string

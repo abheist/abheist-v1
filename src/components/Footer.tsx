@@ -1,7 +1,7 @@
 import React from 'react'
 import FooterList from './FooterList'
 import Logo from './Logo'
-import { Body2, Caption } from './typography'
+import { Body2, Caption } from './Typography'
 
 const Footer = () => {
   const listItems1 = [

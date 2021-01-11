@@ -1,7 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import Pic from './Pic'
-import { Body1, Body2, H2, H5, H6, Subtitle1 } from './typography'
+import { Body1, Body2, H2, H5, H6, Subtitle1 } from './Typography'
 
 const AboutMe = ({ posts, instaImages }) => {
   return (

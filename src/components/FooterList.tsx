@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { Body2, Subtitle1 } from './typography'
+import { Body2, Subtitle1 } from './Typography'
 
 interface FooterListProp {
   listItems: { name: string; link: string; newTab: boolean }[]

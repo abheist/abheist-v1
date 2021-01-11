@@ -5,7 +5,7 @@ import * as React from 'react'
 import { HitCounter } from '../components/HitCounter'
 import Layout from '../components/Layout'
 import SEO from '../components/Seo'
-import { H2, H6 } from '../components/typography'
+import { H2, H6 } from '../components/Typography'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx

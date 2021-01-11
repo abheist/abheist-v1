@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { rhythm } from '../../lib/typography'
+import { rhythm } from '../../lib/mdx_typography'
 
 export default styled.h3`
   text-align: left;

@@ -1,7 +1,7 @@
 import React from 'react'
 import BookCard from './BookCard'
 import PicPageSection from './PicPageSection'
-import { H6 } from './typography'
+import { H6 } from './Typography'
 
 const BookList = ({ books }) => {
   const latestPost = books[0]
