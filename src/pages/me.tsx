@@ -21,7 +21,7 @@ const Me = ({ data, location }) => {
   ]
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="All posts" />
       <AboutMe posts={posts} instaImages={instaImages} />
     </Layout>

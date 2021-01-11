@@ -10,7 +10,7 @@ const Articles = ({ data, location }) => {
   const tags = data.tagsGroup.group
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="All posts" />
       {posts.length === 0 ? (
         <p>No blog posts found.</p>

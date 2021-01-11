@@ -9,7 +9,7 @@ const BookNotes = ({ data, location }) => {
   const books = data.postsRemark.nodes
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="All posts" />
       {books.length === 0 ? (
         <p>No blog books found.</p>
