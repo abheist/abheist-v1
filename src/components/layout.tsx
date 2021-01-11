@@ -6,7 +6,7 @@ import mdxComponent from './mdx'
 import Navigation from './Navigation'
 import Newsletter from './Newletter'
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ title, children }) => {
   return (
     <>
       <Navigation title={title} />
