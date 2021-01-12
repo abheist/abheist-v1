@@ -10,7 +10,7 @@ const BlogCard = ({ post }) => {
     <article
       itemScope
       itemType="http://schema.org/Article"
-      className="my-16 group"
+      className="relative my-16 group"
     >
       <Link to={post.fields.slug} itemProp="url">
         <header>

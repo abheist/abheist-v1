@@ -1,13 +1,14 @@
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 import React, { useState } from 'react'
 import { FiGrid, FiList } from 'react-icons/fi'
 import BookCard from './BookCard'
+import ImageWithShadow from './ImageWithShadow'
 import PicPageSection from './PicPageSection'
 import { H6 } from './Typography'
 
 const BookList = ({ books }) => {
   const [layout, setLayout] = useState('grid')
+
   const latestPost = books[0]
 
   const booksSection = {
@@ -67,7 +68,7 @@ const BookList = ({ books }) => {
           <div className="grid grid-cols-4 gap-x-12 gap-y-16">
             {books.map(post => (
               <Link key={post.fields.slug} to={post.fields.slug} itemProp="url">
-                <Img
+                <ImageWithShadow
                   style={{ height: '300px', width: '200px' }}
                   fluid={post.frontmatter.image.childImageSharp.fluid}
                 />
