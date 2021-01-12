@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import React, { useState } from 'react'
+import { FiGrid, FiList } from 'react-icons/fi'
 import BookCard from './BookCard'
 import PicPageSection from './PicPageSection'
 import { H6 } from './Typography'
@@ -26,19 +27,47 @@ const BookList = ({ books }) => {
   return (
     <div className="container px-4 pb-40 mx-auto">
       <PicPageSection picSide="right" data={booksSection} />
-      <input
-        type="text"
-        placeholder="Search these books..."
-        className="w-full p-3 mt-8 mb-16 border border-gray-500"
-      />
+      <div className="flex flex-row items-center justify-between">
+        <input
+          type="text"
+          placeholder="Search these books..."
+          className="w-5/6 p-3 border border-gray-500"
+        />
+        <div className="flex gap-x-2">
+          <button
+            className={`p-4 border border-gray-500 focus:outline-none focus:ring focus:border-indigo-300 ${
+              layout === 'grid' && 'bg-indigo-200'
+            }`}
+            onClick={() => setLayout('grid')}
+          >
+            <FiGrid
+              className={`fill-current ${
+                layout === 'grid' && 'text-indigo-500'
+              }`}
+            />
+          </button>
+          <button
+            className={`p-4 border focus:outline-none focus:ring focus:border-indigo-300-300 ${
+              layout === 'list' && 'bg-indigo-200'
+            }  border-gray-500
+            `}
+            onClick={() => setLayout('list')}
+          >
+            <FiList
+              className={`fill-current ${
+                layout === 'list' && 'text-indigo-500'
+              }`}
+            />
+          </button>
+        </div>
+      </div>
       <div>
-        <H6 className="mb-16 font-bold">RECENTLY READ</H6>
+        <H6 className="mt-16 mb-16 font-bold">RECENTLY READ</H6>
         {layout === 'grid' ? (
           <div className="grid grid-cols-4 gap-x-12 gap-y-16">
             {books.map(post => (
-              <Link to={post.fields.slug} itemProp="url">
+              <Link key={post.fields.slug} to={post.fields.slug} itemProp="url">
                 <Img
-                  key={post.fields.slug}
                   style={{ height: '300px', width: '200px' }}
                   fluid={post.frontmatter.image.childImageSharp.fluid}
                 />
