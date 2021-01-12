@@ -9,17 +9,17 @@ const Navigation = ({ title }) => {
         <Logo title={title} />
         <div className="flex flex-row items-center justify-end gap-x-32">
           <div>
-            <Link to="/articles" className="text-sm">
+            <Link to="/articles/" className="text-sm">
               Articles
             </Link>
           </div>
           <div>
-            <Link to="/book-notes" className="text-sm">
+            <Link to="/book-notes/" className="text-sm">
               Book Notes
             </Link>
           </div>
           <div>
-            <Link to="/me" className="text-sm">
+            <Link to="/me/" className="text-sm">
               About Me
             </Link>
           </div>

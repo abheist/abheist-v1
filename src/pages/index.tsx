@@ -88,8 +88,12 @@ export const pageQuery = graphql`
           featured
           image {
             childImageSharp {
-              sizes(maxWidth: 630) {
-                ...GatsbyImageSharpSizes
+              fluid {
+                srcSet
+                tracedSVG
+                aspectRatio
+                src
+                sizes
               }
             }
           }
@@ -113,8 +117,12 @@ export const pageQuery = graphql`
           featured
           image {
             childImageSharp {
-              sizes(maxWidth: 630) {
-                ...GatsbyImageSharpSizes
+              fluid {
+                srcSet
+                tracedSVG
+                aspectRatio
+                src
+                sizes
               }
             }
           }
@@ -137,8 +145,12 @@ export const pageQuery = graphql`
           description
           image {
             childImageSharp {
-              sizes(maxWidth: 630) {
-                ...GatsbyImageSharpSizes
+              fluid {
+                srcSet
+                tracedSVG
+                aspectRatio
+                src
+                sizes
               }
             }
           }
@@ -161,8 +173,12 @@ export const pageQuery = graphql`
           description
           image {
             childImageSharp {
-              sizes(maxWidth: 630) {
-                ...GatsbyImageSharpSizes
+              fluid {
+                srcSet
+                tracedSVG
+                aspectRatio
+                src
+                sizes
               }
             }
           }
