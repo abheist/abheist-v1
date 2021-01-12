@@ -1,4 +1,5 @@
 import { Link } from 'gatsby'
+import Img from 'gatsby-image/withIEPolyfill'
 import React from 'react'
 import { Caption, H6 } from './Typography'
 
@@ -13,21 +14,19 @@ const BlogCard = ({ post }) => {
     >
       <Link to={post.fields.slug} itemProp="url">
         <header>
-          <div
-            className={`w-full bg-blue-400 h-52`}
-            style={{
-              background: `url(${post.frontmatter.image.childImageSharp.fluid.src})`,
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-            }}
-          ></div>
-          <H6 className="mt-4 font-bold group-hover:text-indigo-700">
+          <Img
+            objectFit="cover"
+            objectPosition="center"
+            fluid={post.frontmatter.image.childImageSharp.fluid}
+            className="w-full h-52"
+          />
+        </header>
+        <section className="mt-4">
+          <H6 className="font-bold group-hover:text-indigo-700">
             <span itemProp="headline">{title}</span>
           </H6>
-        </header>
-        <section className="mt-2">
           <p
+            className="mt-2"
             dangerouslySetInnerHTML={{
               __html: post.frontmatter.description || post.excerpt,
             }}
