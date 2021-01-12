@@ -139,5 +139,29 @@ body {
   top: 63%;
 }
 
+.wrap p a {
+  position: relative;
+  text-decoration: none;
+  @apply text-indigo-600;
+  @apply font-medium;
+}
+.wrap p a::after {
+  content: '';
+  @apply bg-indigo-200;
+  position: absolute;
+  left: 12px;
+  bottom: -6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  z-index: -1;
+  transition: 0.35s cubic-bezier(0.25, 0.1, 0, 2.05);
+}
+.wrap p a:hover:after {
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 100%;
+}
+
 @tailwind components;
 @tailwind utilities;

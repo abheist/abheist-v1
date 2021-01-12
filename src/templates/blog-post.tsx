@@ -47,7 +47,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           {/* <p>{post.frontmatter.date}</p> */}
         </header>
 
-        <div className="max-w-2xl px-4 mx-auto prose prose-indigo">
+        <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
           <MDXRenderer>{post.body}</MDXRenderer>
         </div>
         <div className="px-24 py-8">{HitCounter({ slug })}</div>
