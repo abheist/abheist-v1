@@ -39,7 +39,7 @@ const Newsletter = () => {
               className="w-full p-4 mt-8 text-center border-2 border-yellow-300"
             />
             <Link to="/">
-              <div className="px-10 py-3 mt-2 text-lg font-bold text-center text-gray-900 bg-yellow-300">
+              <div className="px-10 py-3 mt-2 text-lg font-bold text-center text-gray-800 bg-yellow-300">
                 Try the free newsletter
               </div>
             </Link>

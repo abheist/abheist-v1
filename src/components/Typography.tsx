@@ -53,7 +53,7 @@ const H4 = ({ children, className, style }: Props) => {
 const H5 = ({ children, className, style }: Props) => {
   return (
     <h5
-      className={`font-serif text-2xl font-normal tracking-normal  capitalize ${className}`}
+      className={`font-sans text-2xl font-normal tracking-normal  capitalize ${className}`}
       style={style}
     >
       {children}

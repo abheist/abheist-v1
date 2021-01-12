@@ -1,14 +1,18 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { H5 } from './Typography'
+import { Caption, H6 } from './Typography'
 
 const BlogCard = ({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
 
   return (
-    <article itemScope itemType="http://schema.org/Article" className="my-16">
-      <header>
-        <Link to={post.fields.slug} itemProp="url">
+    <article
+      itemScope
+      itemType="http://schema.org/Article"
+      className="my-16 group"
+    >
+      <Link to={post.fields.slug} itemProp="url">
+        <header>
           <div
             className={`w-full bg-blue-400 h-52`}
             style={{
@@ -18,23 +22,22 @@ const BlogCard = ({ post }) => {
               backgroundSize: 'cover',
             }}
           ></div>
-        </Link>
-        <H5 className="mt-4">
-          <Link to={post.fields.slug} itemProp="url">
+          <H6 className="mt-4 font-bold group-hover:text-indigo-700">
             <span itemProp="headline">{title}</span>
-          </Link>
-        </H5>
-      </header>
-      <section className="mt-2">
-        <Link to={post.fields.slug} itemProp="url">
+          </H6>
+        </header>
+        <section className="mt-2">
           <p
             dangerouslySetInnerHTML={{
               __html: post.frontmatter.description || post.excerpt,
             }}
             itemProp="description"
           />
-        </Link>
-      </section>
+          <Caption className="flex items-end mt-2 font-bold gap-x-1 group-hover:text-indigo-700">
+            Read more
+          </Caption>
+        </section>
+      </Link>
     </article>
   )
 }

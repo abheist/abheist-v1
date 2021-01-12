@@ -6,13 +6,18 @@
 }
 
 ::-moz-selection {
-  @apply text-gray-900;
+  @apply text-gray-800;
   @apply bg-indigo-200;
 }
 
 ::selection {
-  @apply text-gray-900;
+  @apply text-gray-800;
   @apply bg-indigo-200;
+}
+
+body {
+  @apply text-gray-800;
+  @apply antialiased;
 }
 
 h1::-moz-selection,
@@ -111,11 +116,6 @@ h6::selection {
     0.0925em 0.0925em 0 var(--primary-color),
     0.095em 0.095em 0 var(--primary-color),
     0.0975em 0.0975em 0 var(--primary-color), 0.1em 0.1em 0 var(--primary-color);
-}
-
-body {
-  @apply text-gray-700;
-  @apply antialiased;
 }
 
 .highlight-line {
