@@ -13,7 +13,7 @@ const BookCard = ({ post }): JSX.Element => {
       <div
         className={`w-1/5 bg-blue-400 h-64`}
         style={{
-          background: `url(${post.frontmatter.image.childImageSharp.sizes.src})`,
+          background: `url(${post.frontmatter.image.childImageSharp.fluid.src})`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',

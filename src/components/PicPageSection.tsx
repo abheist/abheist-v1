@@ -51,7 +51,7 @@ const PicPageSection = ({
               } w-full bg-blue-400 md:w-1/2`}
               style={{
                 height: '400px',
-                background: `url(${latestArticle.pic.childImageSharp.sizes.src})`,
+                background: `url(${latestArticle.pic.childImageSharp.fluid.src})`,
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',

@@ -1,9 +1,12 @@
-import React from 'react'
+import { Link } from 'gatsby'
+import Img from 'gatsby-image'
+import React, { useState } from 'react'
 import BookCard from './BookCard'
 import PicPageSection from './PicPageSection'
 import { H6 } from './Typography'
 
 const BookList = ({ books }) => {
+  const [layout, setLayout] = useState('grid')
   const latestPost = books[0]
 
   const booksSection = {
@@ -21,22 +24,30 @@ const BookList = ({ books }) => {
   }
 
   return (
-    <div className="container px-4 mx-auto">
+    <div className="container px-4 pb-40 mx-auto">
       <PicPageSection picSide="right" data={booksSection} />
+      <input
+        type="text"
+        placeholder="Search these books..."
+        className="w-full p-3 mt-8 mb-16 border border-gray-500"
+      />
       <div>
-        <input
-          type="text"
-          placeholder="Search these books..."
-          className="w-full p-3 mt-8 mb-16 border border-gray-500"
-        />
-      </div>
-      <div className="flex flex-row gap-16 mb-32">
-        <div>
-          <H6 className="font-bold">RECENTLY READ</H6>
-          {books.map(post => (
-            <BookCard key={post.fields.slug} post={post} />
-          ))}
-        </div>
+        <H6 className="mb-16 font-bold">RECENTLY READ</H6>
+        {layout === 'grid' ? (
+          <div className="grid grid-cols-4 gap-x-12 gap-y-16">
+            {books.map(post => (
+              <Link to={post.fields.slug} itemProp="url">
+                <Img
+                  key={post.fields.slug}
+                  style={{ height: '300px', width: '200px' }}
+                  fluid={post.frontmatter.image.childImageSharp.fluid}
+                />
+              </Link>
+            ))}
+          </div>
+        ) : (
+          books.map(post => <BookCard key={post.fields.slug} post={post} />)
+        )}
       </div>
     </div>
   )
