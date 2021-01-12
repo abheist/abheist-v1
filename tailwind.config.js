@@ -55,8 +55,15 @@ module.exports = {
   },
   variants: {
     extend: {
-      display: ['hover'],
+      display: ['hover', 'group-hover'],
       visibility: ['hover'],
+      transform: ['active', 'group-hover'],
+      translate: ['active', 'group-hover'],
+      transitionProperty: ['hover', 'group-hover'],
+      transitionDuration: ['hover', 'group-hover'],
+      transitionTimingFunction: ['hover', 'group-hover'],
+      transitionDelay: ['hover', 'group-hover'],
+      animation: ['hover', 'group-hover'],
     },
   },
   plugins: [require('@tailwindcss/typography')],
