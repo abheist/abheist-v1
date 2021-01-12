@@ -9,9 +9,10 @@ interface PicPageSectionProps {
   data: {
     heading: string
     description: string
+    pic?: string
     to?: string
     linkName?: string
-    latestArticle: {
+    latestArticle?: {
       pic: any
       overline: string
       heading: string
@@ -37,36 +38,53 @@ interface PicPageSectionProps {
 const PicPageSection = ({
   backgroundColor,
   picSide = 'left',
-  data: { heading, description, to, linkName, latestArticle, featured },
+  data: { heading, description, pic, to, linkName, latestArticle, featured },
 }: PicPageSectionProps) => {
   return (
     <div className={backgroundColor}>
       <div className="container py-40 mx-auto">
         <div className="flex flex-row justify-between w-full gap-32">
-          <div
-            className={`flex flex-row items-end justify-end flex-shrink-0 ${
-              picSide === 'left' ? 'order-1' : 'order-2'
-            } w-full bg-blue-400 md:w-1/2`}
-            style={{
-              height: '400px',
-              background: `url(${latestArticle.pic.childImageSharp.sizes.src})`,
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: 'cover',
-              boxShadow: '16px 16px  var(--primary-color)',
-            }}
-          >
+          {latestArticle ? (
             <div
-              className={`p-10 pr-8 -mr-4 bg-white -mb-28 ${backgroundColor}`}
-              style={{ width: '450px' }}
+              className={`flex flex-row items-end justify-end flex-shrink-0 ${
+                picSide === 'left' ? 'order-1' : 'order-2'
+              } w-full bg-blue-400 md:w-1/2`}
+              style={{
+                height: '400px',
+                background: `url(${latestArticle.pic.childImageSharp.sizes.src})`,
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'cover',
+                boxShadow: '16px 16px  var(--primary-color)',
+              }}
             >
-              <Overline className="mb-2">{latestArticle.overline}</Overline>
-              <Link to={latestArticle.to}>
-                <H3 className="text-indigo-primary">{latestArticle.heading}</H3>
-              </Link>
-              <Body1 className="mt-8">{latestArticle.description}</Body1>
+              <div
+                className={`p-10 pr-8 -mr-4 bg-white -mb-28 ${backgroundColor}`}
+                style={{ width: '450px' }}
+              >
+                <Overline className="mb-2">{latestArticle.overline}</Overline>
+                <Link to={latestArticle.to}>
+                  <H3 className="text-indigo-primary">
+                    {latestArticle.heading}
+                  </H3>
+                </Link>
+                <Body1 className="mt-8">{latestArticle.description}</Body1>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div
+              className={`flex flex-row items-end justify-end flex-shrink-0 ${
+                picSide === 'left' ? 'order-1' : 'order-2'
+              } w-full bg-blue-400 md:w-1/2`}
+              style={{
+                height: '400px',
+                background: `url(${pic})`,
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundSize: 'contain',
+              }}
+            ></div>
+          )}
           <div className={`${picSide === 'left' ? 'order-2' : 'order-1'} py-8`}>
             <H3>{heading}</H3>
             <Body1 className="mt-8">{description}</Body1>

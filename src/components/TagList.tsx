@@ -8,7 +8,7 @@ const TagList = ({ tags, className }) => {
       {tags.map(tag => (
         <span key={tag.fieldValue}>
           <Link
-            to={`/tags/${kebabCase(tag.fieldValue)}/`}
+            to={`/${kebabCase(tag.fieldValue)}/`}
             className="inline-block px-2 py-1 m-1 text-sm capitalize bg-yellow-400 rounded-sm"
           >
             {tag.fieldValue}
