@@ -67,7 +67,12 @@ const BookList = ({ books }) => {
         {layout === 'grid' ? (
           <div className="grid grid-cols-4 gap-x-12 gap-y-16">
             {books.map(post => (
-              <Link key={post.fields.slug} to={post.fields.slug} itemProp="url">
+              <Link
+                key={post.fields.slug}
+                to={post.fields.slug}
+                itemProp="url"
+                className="transition-all duration-300 hover:-mt-2"
+              >
                 <ImageWithShadow
                   style={{ height: '300px', width: '200px' }}
                   fluid={post.frontmatter.image.childImageSharp.fluid}

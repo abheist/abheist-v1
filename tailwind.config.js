@@ -55,6 +55,7 @@ module.exports = {
   },
   variants: {
     extend: {
+      margin: ['hover', 'focus'],
       display: ['hover', 'group-hover'],
       visibility: ['hover'],
       transform: ['active', 'group-hover'],
