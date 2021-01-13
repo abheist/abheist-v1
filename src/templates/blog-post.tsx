@@ -24,19 +24,20 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         itemType="http://schema.org/Article"
       >
         <header className="py-16">
-          {post.frontmatter.tags.map((tag, i) => (
-            <span
-              style={{
-                color: 'darkgray',
-                textTransform: 'uppercase',
-                fontWeight: 700,
-              }}
-              key={tag}
-            >
-              {tag}
-              {post.frontmatter.tags.length - 1 !== i && ', '}
-            </span>
-          ))}
+          {post.frontmatter.tags &&
+            post.frontmatter.tags.map((tag, i) => (
+              <span
+                style={{
+                  color: 'darkgray',
+                  textTransform: 'uppercase',
+                  fontWeight: 700,
+                }}
+                key={tag}
+              >
+                {tag}
+                {post.frontmatter.tags.length - 1 !== i && ', '}
+              </span>
+            ))}
           <H2>{post.frontmatter.title}</H2>
           <H6 className="mt-6">{post.frontmatter.title}</H6>
           <Img
