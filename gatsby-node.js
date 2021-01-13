@@ -7,7 +7,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
-  const bookNote = path.resolve(`./src/templates/blog-post.tsx`)
+  const bookNote = path.resolve(`./src/templates/book-note.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`)
 
   // Get all markdown blog posts sorted by date

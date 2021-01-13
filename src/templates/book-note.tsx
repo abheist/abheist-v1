@@ -1,11 +1,15 @@
 import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
+import { AiOutlineBarcode } from 'react-icons/ai'
+import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
+import AmazonButton from '../components/AmazonButton'
 import { HitCounter } from '../components/HitCounter'
+import ImageWithShadow from '../components/ImageWithShadow'
 import Layout from '../components/Layout'
+import NameIcon from '../components/NameIcon'
 import SEO from '../components/SEO'
-import { H2, H6 } from '../components/Typography'
+import { H2, H6, Subtitle2 } from '../components/Typography'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -42,11 +46,58 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <H6 className="mt-6">
             {post.frontmatter.description || post.excerpt}
           </H6>
-          <Img
+          {/* <Img
             className="mt-8"
             fluid={post.frontmatter.image.childImageSharp.fluid}
             alt="A corgi smiling happily"
-          />
+          /> */}
+          <div className="flex flex-row mt-8 gap-x-12">
+            <ImageWithShadow
+              style={{ height: '400px', width: '270px' }}
+              fluid={post.frontmatter.image.childImageSharp.fluid}
+            />
+            <div className="flex flex-col justify-between w-full">
+              <div>
+                <p className="font-serif text-xl font-bold">Favourite Quote</p>
+                <div className="mt-4 prose">
+                  <blockquote>
+                    Filled with his trademark humor and straight talk, The Hard
+                    Thing About Hard Things is invaluable for veteran
+                    entrepreneurs as well as those aspiring to their own new
+                    ventures, drawing from Horowitz's personal and often
+                    humbling experiences.
+                  </blockquote>
+                </div>
+                <div className="mt-8">
+                  <Subtitle2 className="font-bold">
+                    How strongly I recommending
+                  </Subtitle2>
+                  <div className="flex flex-row mt-2 gap-x-1">
+                    <BsStarFill className="text-yellow-500 fill-current" />
+                    <BsStarFill className="text-yellow-500 fill-current" />
+                    <BsStarFill className="text-yellow-500 fill-current" />
+                    <BsStarHalf className="text-yellow-500 fill-current" />
+                    <BsStar className="text-yellow-500 fill-current" />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-row items-center justify-between w-full mt-4 gap-x-4">
+                <AmazonButton link="https://amzn.to/39nubLg" />
+                <div className="flex flex-row gap-x-12">
+                  <NameIcon
+                    name="ISBN-10"
+                    icon={<AiOutlineBarcode className="text-4xl" />}
+                    value="0062273205"
+                  />
+                  <NameIcon
+                    name="ISBN-13"
+                    icon={<AiOutlineBarcode className="text-4xl" />}
+                    value="978-0062641540"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
           {/* <p>{post.frontmatter.date}</p> */}
         </header>
 
@@ -88,7 +139,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query BookNoteBySlug($slug: String!) {
     site {
       siteMetadata {
         title
@@ -106,7 +157,9 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        tags
+        ISBN
+        rating
+        amazon
         image {
           childImageSharp {
             fluid {
