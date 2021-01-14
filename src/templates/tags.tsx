@@ -44,7 +44,7 @@ const Tags = ({ pageContext, data }) => {
       <div className="container pt-24 mx-auto">
         <div className="flex flex-row justify-between w-full gap-32"></div>
         <div className="flex flex-row items-center divide-x-4 divide-gray-900 gap-x-4 divide-solid">
-          <span>{tagImage[tag]}</span>
+          <span>{tagImage[tag.toLowerCase()]}</span>
           <H3 className="pl-4">{tag}</H3>
         </div>
       </div>
