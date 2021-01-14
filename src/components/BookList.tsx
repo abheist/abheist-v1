@@ -1,15 +1,26 @@
 import { Link } from 'gatsby'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FiGrid, FiList } from 'react-icons/fi'
 import BookCard from './BookCard'
 import BookPageSection from './BookPageSection'
 import ImageWithShadow from './ImageWithShadow'
 import { H6 } from './Typography'
 
-const BookList = ({ books }) => {
+const BookList = ({ books: bookList }) => {
+  const latestPost = bookList[0]
   const [layout, setLayout] = useState('grid')
+  const [search, setSearch] = useState('')
+  const [books, setBooks] = useState(() => bookList)
 
-  const latestPost = books[0]
+  useEffect(() => {
+    let books_ = bookList.filter(
+      book =>
+        book.frontmatter.title.toLowerCase().search(search.toLowerCase()) !== -1
+    )
+    console.log(books_)
+
+    setBooks(books_)
+  }, [search])
 
   const booksSection = {
     heading: 'Book Notes',
@@ -33,6 +44,8 @@ const BookList = ({ books }) => {
           type="text"
           placeholder="Search these books..."
           className="w-5/6 p-3 border border-gray-500"
+          value={search}
+          onChange={event => setSearch(event.target.value)}
         />
         <div className="flex gap-x-2">
           <button
