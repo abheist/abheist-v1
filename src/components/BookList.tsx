@@ -2,8 +2,8 @@ import { Link } from 'gatsby'
 import React, { useState } from 'react'
 import { FiGrid, FiList } from 'react-icons/fi'
 import BookCard from './BookCard'
+import BookPageSection from './BookPageSection'
 import ImageWithShadow from './ImageWithShadow'
-import PicPageSection from './PicPageSection'
 import { H6 } from './Typography'
 
 const BookList = ({ books }) => {
@@ -27,7 +27,7 @@ const BookList = ({ books }) => {
 
   return (
     <div className="container px-4 pb-40 mx-auto">
-      <PicPageSection picSide="right" data={booksSection} />
+      <BookPageSection picSide="right" data={booksSection} />
       <div className="flex flex-row items-center justify-between">
         <input
           type="text"
