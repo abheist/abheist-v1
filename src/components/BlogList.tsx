@@ -35,9 +35,11 @@ const BlogList = ({ posts, tags }) => {
       <div className="flex flex-row gap-16 mb-32">
         <div className="w-2/3">
           <H6 className="font-bold">RECENTLY PUBLISHED</H6>
-          {posts.map(post => (
-            <BlogCard key={post.fields.slug} post={post} />
-          ))}
+          <div className="grid mt-10 gap-y-20">
+            {posts.map(post => (
+              <BlogCard key={post.fields.slug} post={post} />
+            ))}
+          </div>
         </div>
         <div className="w-1/3">
           <div>

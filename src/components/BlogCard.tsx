@@ -7,11 +7,7 @@ const BlogCard = ({ post }) => {
   const title = post.frontmatter.title || post.fields.slug
 
   return (
-    <article
-      itemScope
-      itemType="http://schema.org/Article"
-      className="relative my-16 group"
-    >
+    <article itemScope itemType="http://schema.org/Article" className="group">
       <Link to={post.fields.slug} itemProp="url">
         <header>
           <Img
