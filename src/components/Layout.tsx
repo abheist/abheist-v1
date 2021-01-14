@@ -6,16 +6,16 @@ import mdxComponent from './mdx'
 import Navigation from './Navigation'
 import Newsletter from './Newsletter'
 
-const Layout = ({ title, children }) => {
+const Layout = ({ title, children, background = '' }) => {
   return (
-    <>
+    <div className={background}>
       <Navigation title={title} />
       <MDXProvider components={mdxComponent}>
         <main>{children}</main>
       </MDXProvider>
       <Newsletter />
       <Footer />
-    </>
+    </div>
   )
 }
 
