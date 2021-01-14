@@ -8,7 +8,7 @@ const HomeHeader = ({}) => {
         className="flex flex-row items-end w-full bg-blue-400 md:w-2/3"
         style={{
           height: '627px',
-          background: `url(./profile-pic.jpg)`,
+          background: `url(./profile-pic.jpeg)`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',

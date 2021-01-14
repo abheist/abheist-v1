@@ -1,7 +1,9 @@
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import React from 'react'
+import { BiArrowBack } from 'react-icons/bi'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
+import { H1, H5, H6 } from '../components/Typography'
 
 const NotFoundPage = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -9,8 +11,14 @@ const NotFoundPage = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <SEO title="404: Not Found" />
-      <h1>404: Not Found</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+      <div className="container py-40 mx-auto">
+        <H1>404: Not Found</H1>
+        <H5 className="mt-10">You just hit a route that doesn't exist...</H5>
+        <Link to="/articles/" className="flex flex-row items-center gap-2 mt-6">
+          <BiArrowBack className="text-2xl text-indigo-500 fill-current" />
+          <H6 className="text-indigo-500"> Bank to Articles</H6>
+        </Link>
+      </div>
     </Layout>
   )
 }
