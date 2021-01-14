@@ -81,7 +81,11 @@ const BookList = ({ books }) => {
             ))}
           </div>
         ) : (
-          books.map(post => <BookCard key={post.fields.slug} post={post} />)
+          <div className="grid gap-y-40">
+            {books.map(post => (
+              <BookCard key={post.fields.slug} post={post} />
+            ))}
+          </div>
         )}
       </div>
     </div>

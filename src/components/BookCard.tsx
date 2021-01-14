@@ -1,5 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import AmazonButton from './AmazonButton'
+import ImageWithShadow from './ImageWithShadow'
 import { H4, Subtitle2 } from './Typography'
 
 const BookCard = ({ post }): JSX.Element => {
@@ -8,26 +10,21 @@ const BookCard = ({ post }): JSX.Element => {
     <article
       itemScope
       itemType="http://schema.org/Article"
-      className="flex flex-row my-16"
+      className="flex flex-row group"
     >
-      <div
-        className={`w-1/5 bg-blue-400 h-64`}
-        style={{
-          background: `url(${post.frontmatter.image.childImageSharp.fluid.src})`,
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-        }}
-      ></div>
+      <Link to={post.fields.slug}>
+        <ImageWithShadow
+          style={{ height: '300px', width: '200px' }}
+          fluid={post.frontmatter.image.childImageSharp.fluid}
+        />
+      </Link>
       <div className="flex flex-col justify-between w-4/5 px-8">
         <div>
-          <H4>
-            <Link to={post.fields.slug} itemProp="url">
+          <Link to={post.fields.slug}>
+            <H4 className="group-hover:text-indigo-700">
               <span itemProp="headline">{title}</span>
-            </Link>
-          </H4>
-          <section className="mt-6">
-            <Subtitle2 className="font-bold uppercase">
+            </H4>
+            <Subtitle2 className="mt-6 font-bold uppercase">
               read: {post.frontmatter.date}, how strongly I recommend: 9/10
             </Subtitle2>
             <p
@@ -37,17 +34,11 @@ const BookCard = ({ post }): JSX.Element => {
               }}
               itemProp="description"
             />
-            <Link to={post.fields.slug} className="mt-2">
-              read more →
-            </Link>
-          </section>
+
+            <div className="mt-2 group-hover:text-indigo-700">read more →</div>
+          </Link>
         </div>
-        <a
-          href="/"
-          className="self-start px-4 py-2 border border-yellow-500 rounded-md bg-gradient-to-b from-yellow-400 to-yellow-500"
-        >
-          Get from Amazon
-        </a>
+        <AmazonButton link="/" />
       </div>
     </article>
   )
