@@ -1,12 +1,23 @@
 import { Link } from 'gatsby'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import BlogCard from './BlogCard'
 import PicPageSection from './PicPageSection'
 import TagList from './TagList'
 import { H6, Subtitle1 } from './Typography'
 
-const BlogList = ({ posts, tags }) => {
-  const latestPost = posts[0]
+const BlogList = ({ posts: articles, tags }) => {
+  const latestPost = articles[0]
+  const [search, setSearch] = useState('')
+  const [posts, setPosts] = useState(() => articles)
+
+  useEffect(() => {
+    let posts_ = articles.filter(
+      article =>
+        article.frontmatter.title.toLowerCase().search(search.toLowerCase()) !==
+        -1
+    )
+    setPosts(posts_)
+  }, [search])
 
   const articlesSection = {
     heading: 'Articles',
@@ -30,6 +41,8 @@ const BlogList = ({ posts, tags }) => {
           type="text"
           placeholder="Search these articles..."
           className="w-full p-3 mt-8 mb-16 border border-gray-500"
+          value={search}
+          onChange={event => setSearch(event.target.value)}
         />
       </div>
       <div className="flex flex-row gap-16 mb-32">
