@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import React from 'react'
+import BookPageSection from '../components/BookPageSection'
 import HomeHeader from '../components/HomeHeader'
 import Layout from '../components/Layout'
 import PicPageSection from '../components/PicPageSection'
@@ -11,6 +12,7 @@ const BlogIndex = ({ data, location }) => {
   const posts = data.postsRemark.nodes
   const latestBook = data.latestBookRemark.nodes[0]
   const books = data.booksRemark.nodes
+  console.log(books)
 
   const bookNotesSection = {
     heading: 'Book Notes',
@@ -51,11 +53,11 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="All posts" />
       <HomeHeader />
       <div className="mt-40">
-        <PicPageSection data={bookNotesSection} />
-        <PicPageSection
-          backgroundColor="bg-indigo-50"
+        <PicPageSection data={articlesSection} />
+        <BookPageSection
+          data={bookNotesSection}
           picSide="right"
-          data={articlesSection}
+          backgroundColor="bg-indigo-50"
         />
       </div>
     </Layout>
@@ -160,7 +162,7 @@ export const pageQuery = graphql`
     booksRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { in: "book" }, featured: { eq: true } } }
-      limit: 3
+      limit: 5
     ) {
       nodes {
         excerpt
