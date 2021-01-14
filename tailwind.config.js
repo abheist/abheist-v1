@@ -56,8 +56,12 @@ module.exports = {
   variants: {
     extend: {
       margin: ['hover', 'focus'],
+      padding: ['hover', 'focus'],
       display: ['hover', 'group-hover'],
       visibility: ['hover'],
+      borderRadius: ['hover', 'focus'],
+      borderWidth: ['hover', 'focus'],
+      borderColor: ['active'],
       transform: ['active', 'group-hover'],
       translate: ['active', 'group-hover'],
       transitionProperty: ['hover', 'group-hover'],
