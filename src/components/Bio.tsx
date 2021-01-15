@@ -1,5 +1,6 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import Image from 'gatsby-image'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
 
 const Bio = () => {
@@ -48,13 +49,13 @@ const Bio = () => {
         <p>
           Written by <strong>{author.name}</strong> {author?.summary || null}
           {` `}
-          <a
+          <OutboundLink
             href={`https://twitter.com/${social?.twitter || ``}`}
             target="_blank"
             rel="noreferrer"
           >
             Follow on Twitter for updates.
-          </a>
+          </OutboundLink>
         </p>
       )}
     </div>

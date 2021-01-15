@@ -1,4 +1,5 @@
 import { Link } from 'gatsby'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
 import { Body2, Subtitle1 } from './Typography'
 
@@ -23,9 +24,13 @@ const FooterList = ({
         {listItems.map(item => (
           <li key={item.name}>
             {item.newTab ? (
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
+              <OutboundLink
+                href={item.link}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Body2 style={{ color: '#FFFFFF' }}>{item.name}</Body2>
-              </a>
+              </OutboundLink>
             ) : (
               <Link to={item.link}>
                 <Body2 style={{ color: '#FFFFFF' }}>{item.name}</Body2>

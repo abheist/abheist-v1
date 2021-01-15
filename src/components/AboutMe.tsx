@@ -1,4 +1,5 @@
 import Img from 'gatsby-image'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
 import PopularContent from './PopularContent'
 import { Body1, Body2, H2, H5, Subtitle1 } from './Typography'
@@ -32,18 +33,27 @@ const AboutMe = ({ posts, picsGrid, headerImage }) => {
       <div className="container flex flex-row mx-auto mt-52">
         <div className="flex flex-col w-1/4 gap-y-6">
           <H5 className="mt-8 normal-case">
-            <a href="mailto:hi@abheist.com" target="_blank">
+            <OutboundLink href="mailto:hi@abheist.com" target="_blank">
               hi@abheist.com
-            </a>
+            </OutboundLink>
           </H5>
           <Body2>
-            ---------- <a href="https://twitter.com/abheist">Twitter</a>
+            ----------{' '}
+            <OutboundLink href="https://twitter.com/abheist">
+              Twitter
+            </OutboundLink>
           </Body2>
           <Body2>
-            ---------- <a href="https://instagram.com/abheist">Instagram</a>
+            ----------{' '}
+            <OutboundLink href="https://instagram.com/abheist">
+              Instagram
+            </OutboundLink>
           </Body2>
           <Body2>
-            ---------- <a href="https://linkedin.com/in/abheist">LinkedIn</a>
+            ----------{' '}
+            <OutboundLink href="https://linkedin.com/in/abheist">
+              LinkedIn
+            </OutboundLink>
           </Body2>
         </div>
         <div className="w-3/4">
