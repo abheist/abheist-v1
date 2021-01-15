@@ -10,7 +10,7 @@ const Footer = () => {
     { name: 'About', link: '/me/' },
     { name: 'Contact', link: '/contact/' },
     { name: 'SiteMap', link: '/sitemap.xml' },
-    { name: 'RSS', link: '/' },
+    { name: 'RSS', link: '/rss.xml' },
   ]
 
   const listItems2 = [
