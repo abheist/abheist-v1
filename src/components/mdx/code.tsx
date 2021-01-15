@@ -1,13 +1,19 @@
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import nightOwl from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
-import { css } from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 
 const RE = /{([\d,-]+)}/
 
 const wrapperStyles = css`
   margin-left: -40px;
   margin-right: -40px;
+`
+
+const CodeWrapper = styled.pre`
+  ::before {
+    content: '${props => props['data-language']}';
+  }
 `
 
 const preStyles = css`
@@ -46,8 +52,13 @@ function Code({ codeString, language, metastring }) {
       theme={nightOwl}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div css={wrapperStyles}>
-          <pre className={className} style={style} css={preStyles}>
+        <div className="relative gatsby-highlight" css={wrapperStyles}>
+          <CodeWrapper
+            className={className}
+            style={style}
+            css={preStyles}
+            data-language={language}
+          >
             {tokens.map((line, i) => (
               <div
                 key={i}
@@ -72,7 +83,7 @@ function Code({ codeString, language, metastring }) {
                 ))}
               </div>
             ))}
-          </pre>
+          </CodeWrapper>
         </div>
       )}
     </Highlight>
