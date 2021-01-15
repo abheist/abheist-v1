@@ -222,7 +222,7 @@ h6::selection {
   @apply right-4;
   @apply text-right;
   @apply uppercase;
-  @apply -top-2;
+  @apply top-3;
 }
 
 @tailwind components;

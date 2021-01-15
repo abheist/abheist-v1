@@ -11,18 +11,15 @@ const wrapperStyles = css`
 `
 
 const CodeWrapper = styled.pre`
-  ::before {
-    content: '${props => props['data-language']}';
-  }
-`
-
-const preStyles = css`
   float: left;
   min-width: 100%;
   width: 100%;
   overflow: auto;
   padding: 10px 10px !important;
   border-radius: 10px;
+  ::before {
+    content: '${props => props['data-language']}';
+  }
 `
 
 function calculateLinesToHighlight(meta) {
@@ -56,7 +53,6 @@ function Code({ codeString, language, metastring }) {
           <CodeWrapper
             className={className}
             style={style}
-            css={preStyles}
             data-language={language}
           >
             {tokens.map((line, i) => (
