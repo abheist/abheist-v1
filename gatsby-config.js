@@ -14,6 +14,12 @@ module.exports = {
   plugins: [
     `gatsby-plugin-postcss`,
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        createLinkInHead: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-typescript`,
       options: {
         isTSX: true, // defaults to false

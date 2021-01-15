@@ -9,7 +9,7 @@ const Footer = () => {
     { name: 'Book Notes', link: '/book-notes/' },
     { name: 'About', link: '/me/' },
     { name: 'Contact', link: '/contact/' },
-    { name: 'SiteMap', link: '/' },
+    { name: 'SiteMap', link: '/sitemap.xml' },
     { name: 'RSS', link: '/' },
   ]
 

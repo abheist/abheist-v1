@@ -17,7 +17,7 @@ import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import { H3 } from '../components/Typography'
 
-const Tags = ({ pageContext, data }) => {
+const Tags = ({ pageContext, data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { tag } = pageContext
   const { edges } = data.allMdx
@@ -39,7 +39,7 @@ const Tags = ({ pageContext, data }) => {
   }
 
   return (
-    <Layout title={siteTitle} background="bg-indigo-50">
+    <Layout title={siteTitle} background="bg-indigo-50" location={location}>
       <SEO title={tag.charAt(0).toUpperCase() + tag.slice(1)} />
       <div className="container pt-24 mx-auto">
         <div className="flex flex-row justify-between w-full gap-32"></div>

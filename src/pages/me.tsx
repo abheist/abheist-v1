@@ -11,7 +11,7 @@ const Me = ({ data, location }) => {
   const unsplashPics = data.unsplashPics.edges
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} location={location}>
       <SEO title="All posts" />
       <AboutMe
         posts={posts}

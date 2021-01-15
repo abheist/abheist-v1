@@ -6,10 +6,10 @@ import mdxComponent from './mdx'
 import Navigation from './Navigation'
 import Newsletter from './Newsletter'
 
-const Layout = ({ title, children, background = '' }) => {
+const Layout = ({ title, children, location, background = '' }) => {
   return (
     <div className={background}>
-      <Navigation title={title} />
+      <Navigation title={title} location={location} />
       <MDXProvider components={mdxComponent}>
         <main>{children}</main>
       </MDXProvider>

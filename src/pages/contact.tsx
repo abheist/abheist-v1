@@ -9,7 +9,7 @@ const BlogIndex = ({ data, location }) => {
   const tags = data.tagsGroup.group
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} location={location}>
       <SEO title="All posts" />
       About me
     </Layout>

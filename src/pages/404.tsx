@@ -5,11 +5,11 @@ import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import { H1, H5, H6 } from '../components/Typography'
 
-const NotFoundPage = ({ data }) => {
+const NotFoundPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} location={location}>
       <SEO title="404: Not Found" />
       <div className="container py-40 mx-auto">
         <H1>404: Not Found</H1>

@@ -17,7 +17,6 @@ const BookList = ({ books: bookList }) => {
       book =>
         book.frontmatter.title.toLowerCase().search(search.toLowerCase()) !== -1
     )
-    console.log(books_)
 
     setBooks(books_)
   }, [search])

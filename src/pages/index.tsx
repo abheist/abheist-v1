@@ -7,12 +7,12 @@ import PicPageSection from '../components/PicPageSection'
 import SEO from '../components/SEO'
 
 const BlogIndex = ({ data, location }) => {
+  console.log(location)
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const latestPost = data.latestPostRemark.nodes[0]
   const posts = data.postsRemark.nodes
   const latestBook = data.latestBookRemark.nodes[0]
   const books = data.booksRemark.nodes
-  console.log(books)
 
   const bookNotesSection = {
     heading: 'Book Notes',
@@ -49,7 +49,7 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout title={siteTitle}>
+    <Layout title={siteTitle} location={location}>
       <SEO title="All posts" />
       <HomeHeader />
       <div className="mt-40">
