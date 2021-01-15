@@ -43,7 +43,8 @@ const PicPageSection = ({
     <div className={backgroundColor}>
       <div className="container py-24 mx-auto">
         <div className="flex flex-row justify-between w-full gap-32">
-          <div
+          <Link
+            to={latestArticle.to}
             className={`flex flex-row items-end justify-end flex-shrink-0 ${
               picSide === 'left' ? 'order-1' : 'order-2'
             } w-full bg-blue-400 md:w-1/2`}
@@ -61,13 +62,10 @@ const PicPageSection = ({
               style={{ width: '450px' }}
             >
               <Overline className="mb-2">{latestArticle.overline}</Overline>
-              <Link to={latestArticle.to}>
-                <H3 className="text-indigo-primary">{latestArticle.heading}</H3>
-              </Link>
+              <H3 className="text-indigo-primary">{latestArticle.heading}</H3>
               <Body1 className="mt-8">{latestArticle.description}</Body1>
             </div>
-          </div>
-
+          </Link>
           <div className={`${picSide === 'left' ? 'order-2' : 'order-1'} py-8`}>
             <H3>{heading}</H3>
             <Body1 className="mt-8">{description}</Body1>
@@ -75,7 +73,7 @@ const PicPageSection = ({
               <div className="mt-10">
                 <Link
                   to={to}
-                  className="px-10 py-3 text-lg text-indigo-500 border border-indigo-500"
+                  className="px-10 py-3 text-lg text-indigo-500 border border-indigo-500 hover:bg-indigo-500 hover:text-white"
                 >
                   {linkName}
                 </Link>
