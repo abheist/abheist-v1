@@ -26,7 +26,7 @@ exports.handler = async event => {
       headers: {
         Location: '/success/',
       },
-      // body is unused in 3xx codes, but required in all function responses
+      // body is unused in 3xx codes, but required in all the function responses
       body: 'redirecting...',
     }
   } catch (error) {
