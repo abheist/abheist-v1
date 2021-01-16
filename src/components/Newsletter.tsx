@@ -1,8 +1,27 @@
-import { Link } from 'gatsby'
 import React from 'react'
 import { Body1, Caption, H3, Subtitle1 } from './Typography'
 
 const Newsletter = () => {
+  const handleSubmit = event => {
+    event.preventDefault()
+
+    console.log(event.target)
+    const data = new FormData(event.target)
+
+    fetch('/.netlify/functions/subscribe', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: data.get('email'),
+      }),
+    }).then(res => {
+      console.log(res)
+
+      if (res.status === 200 && res.redirected === true) {
+        window.location.href = res.url
+      }
+    })
+  }
+
   return (
     <div className="bg-yellow-50">
       <div className="container flex flex-row py-40 mx-auto">
@@ -33,16 +52,19 @@ const Newsletter = () => {
             <Subtitle1 className="px-16 font-bold text-center">
               Design, Development & Life Improvement tips
             </Subtitle1>
-            <input
-              type="text"
-              placeholder="Email address is..."
-              className="w-full p-4 mt-8 text-center border-2 border-yellow-300"
-            />
-            <Link to="/">
-              <div className="px-10 py-3 mt-2 text-lg font-bold text-center text-gray-800 bg-yellow-300">
+            <form action="/api/subscribe" method="POST" onSubmit={handleSubmit}>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                required
+                placeholder="Email address is..."
+                className="w-full p-4 mt-8 text-center border-2 border-yellow-300"
+              />
+              <button className="w-full py-3 mt-2 text-lg font-bold text-center text-gray-800 bg-yellow-300 hover:bg-yellow-400">
                 Try the free newsletter
-              </div>
-            </Link>
+              </button>
+            </form>
             <Caption className="px-20 mt-16 text-center">
               No spam. Just the highest quality ideas you’ll find on the web.
             </Caption>
