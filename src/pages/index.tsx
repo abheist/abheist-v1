@@ -7,7 +7,6 @@ import PicPageSection from '../components/PicPageSection'
 import SEO from '../components/SEO'
 
 const BlogIndex = ({ data, location }) => {
-  console.log(location)
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const latestPost = data.latestPostRemark.nodes[0]
   const posts = data.postsRemark.nodes
