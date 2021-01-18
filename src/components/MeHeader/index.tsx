@@ -1,10 +1,10 @@
 import React from 'react'
 import { animated, useSpring } from 'react-spring'
-import './index.css'
 
-const trans1 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
-const trans2 = (x, y) => `translate3d(${x / 8}px,${y / -30}px,0)`
-const trans3 = (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`
+const transHeading = (x, y) => `translate3d(${x / 12}px,${y / 10}px,0)`
+const trans1 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
+const trans2 = (x, y) => `translate3d(${x / 8 - 50}px,${y / -30}px,0)`
+const trans3 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 
 const arrayOfTrans = [trans1, trans2, trans3]
 
@@ -19,22 +19,53 @@ function MEHeader({}) {
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: [x, y] })}
     >
       <animated.div
-        className="absolute font-serif text-6xl font-normal tracking-normal capitalize left-80 top-24"
-        style={{ transform: props.xy.interpolate(trans1) }}
+        className="absolute z-10 font-serif text-6xl font-normal tracking-normal capitalize left-80 top-24"
+        style={{ transform: props.xy.interpolate(transHeading) }}
       >
         About Me
       </animated.div>
       <animated.div
-        className="absolute card1"
-        style={{ transform: props.xy.interpolate(trans1) }}
+        className="absolute"
+        style={{
+          width: '100%',
+          height: '500px',
+          backgroundImage: 'url(/me-header/languages.png)',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center bottom',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 2,
+          willChange: 'transform',
+          transform: props.xy.interpolate(trans1),
+        }}
       />
       <animated.div
         className="absolute card2"
-        style={{ transform: props.xy.interpolate(trans2) }}
+        style={{
+          width: '100%',
+          height: '550px',
+          backgroundImage: 'url(/me-header/rects.png)',
+          position: 'absolute',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center bottom',
+          backgroundRepeat: 'no-repeat',
+          zIndex: 1,
+          willChange: 'transform',
+          transform: props.xy.interpolate(trans2),
+        }}
       />
       <animated.div
         className="card3"
-        style={{ transform: props.xy.interpolate(trans3) }}
+        style={{
+          opacity: '0.9',
+          width: '400px',
+          height: '400px',
+          backgroundImage: 'url(/me-header/profile.png)',
+          backgroundSize: 'contain',
+          backgroundPosition: 'center bottom',
+          backgroundRepeat: 'no-repeat',
+          willChange: 'transform',
+          transform: props.xy.interpolate(trans3),
+        }}
       />
     </div>
   )
