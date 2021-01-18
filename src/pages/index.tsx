@@ -49,7 +49,18 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout title={siteTitle} location={location}>
-      <SEO title="All posts" />
+      <SEO
+        title="Home"
+        description="Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being."
+        // TODO: Need to put the articles image
+        // image={{
+        //   src: post.frontmatter.image.childImageSharp.fluid.src,
+        //   height:
+        //     post.frontmatter.image.childImageSharp.fluid.presentationHeight,
+        //   width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
+        // }}
+        pathname={location.pathname}
+      />
       <HomeHeader />
       <div className="mt-40">
         <PicPageSection data={articlesSection} />
@@ -95,6 +106,8 @@ export const pageQuery = graphql`
                 aspectRatio
                 src
                 sizes
+                presentationHeight
+                presentationWidth
               }
             }
           }
@@ -124,6 +137,8 @@ export const pageQuery = graphql`
                 aspectRatio
                 src
                 sizes
+                presentationHeight
+                presentationWidth
               }
             }
           }
@@ -152,6 +167,8 @@ export const pageQuery = graphql`
                 aspectRatio
                 src
                 sizes
+                presentationHeight
+                presentationWidth
               }
             }
           }
@@ -180,6 +197,8 @@ export const pageQuery = graphql`
                 aspectRatio
                 src
                 sizes
+                presentationHeight
+                presentationWidth
               }
             }
           }

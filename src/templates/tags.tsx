@@ -40,7 +40,17 @@ const Tags = ({ pageContext, data, location }) => {
 
   return (
     <Layout title={siteTitle} background="bg-indigo-50" location={location}>
-      <SEO title={tag.charAt(0).toUpperCase() + tag.slice(1)} />
+      <SEO
+        title={tag.charAt(0).toUpperCase() + tag.slice(1)}
+        // description={post.frontmatter.description || post.excerpt}
+        // image={{
+        //   src: post.frontmatter.image.childImageSharp.fluid.src,
+        //   height:
+        //     post.frontmatter.image.childImageSharp.fluid.presentationHeight,
+        //   width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
+        // }}
+        pathname={location.pathname}
+      />
       <div className="container pt-24 mx-auto">
         <div className="flex flex-row justify-between w-full gap-32"></div>
         <div className="flex flex-row items-center divide-x-4 divide-gray-900 gap-x-4 divide-solid">
@@ -96,6 +106,8 @@ export const pageQuery = graphql`
                   aspectRatio
                   src
                   sizes
+                  presentationHeight
+                  presentationWidth
                 }
               }
             }

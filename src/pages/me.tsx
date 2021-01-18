@@ -12,7 +12,18 @@ const Me = ({ data, location }) => {
 
   return (
     <Layout title={siteTitle} location={location}>
-      <SEO title="All posts" />
+      <SEO
+        title="About"
+        description="Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being."
+        // TODO: Need to put the articles image
+        // image={{
+        //   src: post.frontmatter.image.childImageSharp.fluid.src,
+        //   height:
+        //     post.frontmatter.image.childImageSharp.fluid.presentationHeight,
+        //   width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
+        // }}
+        pathname={location.pathname}
+      />
       <AboutMe
         posts={posts}
         picsGrid={unsplashPics}
@@ -46,6 +57,8 @@ export const pageQuery = graphql`
             base64
             srcWebp
             srcSetWebp
+            presentationHeight
+            presentationWidth
           }
         }
       }
@@ -62,6 +75,8 @@ export const pageQuery = graphql`
               base64
               aspectRatio
               sizes
+              presentationHeight
+              presentationWidth
             }
           }
         }

@@ -21,6 +21,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        image={{
+          src: post.frontmatter.image.childImageSharp.fluid.src,
+          height:
+            post.frontmatter.image.childImageSharp.fluid.presentationHeight,
+          width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
+        }}
+        pathname={location.pathname}
       />
       <article
         className="container px-2 mx-auto"
@@ -163,6 +170,8 @@ export const pageQuery = graphql`
               aspectRatio
               src
               sizes
+              presentationHeight
+              presentationWidth
             }
           }
         }

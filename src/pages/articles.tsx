@@ -11,7 +11,18 @@ const Articles = ({ data, location }) => {
 
   return (
     <Layout title={siteTitle} location={location}>
-      <SEO title="All posts" />
+      <SEO
+        title="All articles"
+        description="Sort and detailed notes of my learnings of software development, design, life and world. They are the diary or record of my contemplative life. This page will constantly update as my second brain, so bookmark it if you want to check back in a few months."
+        // TODO: Need to put the articles image
+        // image={{
+        //   src: post.frontmatter.image.childImageSharp.fluid.src,
+        //   height:
+        //     post.frontmatter.image.childImageSharp.fluid.presentationHeight,
+        //   width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
+        // }}
+        pathname={location.pathname}
+      />
       {posts.length === 0 ? (
         <p>No blog posts found.</p>
       ) : (
@@ -53,6 +64,8 @@ export const pageQuery = graphql`
                 aspectRatio
                 src
                 sizes
+                presentationHeight
+                presentationWidth
               }
             }
           }

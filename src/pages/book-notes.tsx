@@ -10,7 +10,18 @@ const BookNotes = ({ data, location }) => {
 
   return (
     <Layout title={siteTitle} location={location}>
-      <SEO title="All posts" />
+      <SEO
+        title="All Books"
+        description="Tiny summary but detailed notes for each book. Use the ISBN number to find it from your local library or use Amazon link. This page will constantly update as I read more, so bookmark it if you want to check back in a few months."
+        // TODO: Need to put the articles image
+        // image={{
+        //   src: post.frontmatter.image.childImageSharp.fluid.src,
+        //   height:
+        //     post.frontmatter.image.childImageSharp.fluid.presentationHeight,
+        //   width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
+        // }}
+        pathname={location.pathname}
+      />
       {books.length === 0 ? (
         <p>No blog books found.</p>
       ) : (
@@ -50,6 +61,8 @@ export const pageQuery = graphql`
                 aspectRatio
                 src
                 sizes
+                presentationHeight
+                presentationWidth
               }
             }
           }
