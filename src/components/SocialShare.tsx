@@ -1,3 +1,4 @@
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
 import { Overline } from './Typography'
 
@@ -9,34 +10,38 @@ const SocialShare = ({ title, location }) => {
         <div></div>
       </div>
       <Overline className="text-gray-500">Share Article</Overline>
-      <a
+      <OutboundLink
         href={`http://twitter.com/share?text=${title} by @abheist &url=${location.href}`}
         target="_blank"
+        rel="noopener noreferrer"
         className="hover:text-indigo-primary"
       >
         Twitter
-      </a>
-      <a
+      </OutboundLink>
+      <OutboundLink
         href={`http://www.facebook.com/sharer.php?u=${location.href}&p[title]=${title} by @abheist`}
         target="_blank"
+        rel="noopener noreferrer"
         className="hover:text-indigo-primary"
       >
         Facebook
-      </a>
-      <a
+      </OutboundLink>
+      <OutboundLink
         href={`http://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=${title}&source=${location.origin}`}
         target="_blank"
+        rel="noopener noreferrer"
         className="hover:text-indigo-primary"
       >
         LinkedIn
-      </a>
-      <a
+      </OutboundLink>
+      <OutboundLink
         href={`mailto:?subject=${title} | Abhishek Kumar Singh&body=${location.href}`}
         target="_blank"
+        rel="noopener noreferrer"
         className="hover:text-indigo-primary"
       >
         Mail to Friend
-      </a>
+      </OutboundLink>
     </div>
   )
 }
