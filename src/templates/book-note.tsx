@@ -22,10 +22,11 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         image={{
-          src: post.frontmatter.image.childImageSharp.fluid.src,
+          src: post.frontmatter.image?.childImageSharp.fluid.src,
           height:
-            post.frontmatter.image.childImageSharp.fluid.presentationHeight,
-          width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
+            post.frontmatter.image?.childImageSharp.fluid.presentationHeight,
+          width:
+            post.frontmatter.image?.childImageSharp.fluid.presentationWidth,
         }}
         pathname={location.pathname}
       />
