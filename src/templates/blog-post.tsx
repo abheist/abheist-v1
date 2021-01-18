@@ -39,14 +39,16 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               </span>
             ))}
           <H2>{post.frontmatter.title}</H2>
-          <H6 className="mt-6">
-            {post.frontmatter.description || post.excerpt}
-          </H6>
-          <Img
-            className="mt-8"
-            fluid={post.frontmatter.image.childImageSharp.fluid}
-            alt="A corgi smiling happily"
-          />
+          {post.frontmatter.description && (
+            <H6 className="mt-6">{post.frontmatter.description}</H6>
+          )}
+          {post.frontmatter.image && (
+            <Img
+              className="mt-8"
+              fluid={post.frontmatter.image.childImageSharp.fluid}
+              alt="A corgi smiling happily"
+            />
+          )}
           {/* <p>{post.frontmatter.date}</p> */}
         </header>
 
