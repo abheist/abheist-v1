@@ -21,15 +21,17 @@ interface CardProp {
 const Card = ({ data }: CardProp) => {
   return (
     <div className="flex-1">
-      <div
-        className={`w-full bg-blue-400 h-52`}
-        style={{
-          background: `url(${data.frontmatter.image.childImageSharp.fluid.src})`,
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-        }}
-      ></div>
+      {data.frontmatter.image && (
+        <div
+          className={`w-full bg-blue-400 h-52`}
+          style={{
+            background: `url(${data.frontmatter.image.childImageSharp.fluid.src})`,
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+          }}
+        ></div>
+      )}
       <Link to={data.fields.slug}>
         <H6 className="mt-4 font-bold">{data.frontmatter.title}</H6>
       </Link>
