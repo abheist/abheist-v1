@@ -5,7 +5,7 @@ import * as React from 'react'
 import { HitCounter } from '../components/HitCounter'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
-import { H2, H6 } from '../components/Typography'
+import { H2, H6, Overline } from '../components/Typography'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
@@ -62,6 +62,41 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
 
         <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
           <MDXRenderer>{post.body}</MDXRenderer>
+        </div>
+        <div className="flex flex-row items-center justify-end my-16 gap-x-8">
+          <div className="flex-1 divide-y divide-gray-300 bg-red-50">
+            <div></div>
+            <div></div>
+          </div>
+          <Overline className="text-gray-500">Share Article</Overline>
+          <a
+            href={`http://twitter.com/share?text=${post.frontmatter.title} by @abheist &url=${location.href}`}
+            target="_blank"
+            className="hover:text-indigo-primary"
+          >
+            Twitter
+          </a>
+          <a
+            href={`http://www.facebook.com/sharer.php?u=${location.href}&p[title]=${post.frontmatter.title} by @abheist`}
+            target="_blank"
+            className="hover:text-indigo-primary"
+          >
+            Facebook
+          </a>
+          <a
+            href={`http://www.linkedin.com/shareArticle?mini=true&url=${location.href}&title=${post.frontmatter.title}&source=${location.origin}`}
+            target="_blank"
+            className="hover:text-indigo-primary"
+          >
+            LinkedIn
+          </a>
+          <a
+            href={`mailto:?subject=${post.frontmatter.title} | Abhishek Kumar Singh&body=${location.href}`}
+            target="_blank"
+            className="hover:text-indigo-primary"
+          >
+            Mail to Friend
+          </a>
         </div>
         <div className="px-24 py-8">{HitCounter({ slug })}</div>
       </article>

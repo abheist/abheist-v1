@@ -5,7 +5,6 @@ const Newsletter = () => {
   const handleSubmit = event => {
     event.preventDefault()
 
-    console.log(event.target)
     const data = new FormData(event.target)
 
     fetch('/.netlify/functions/subscribe', {
@@ -14,8 +13,6 @@ const Newsletter = () => {
         email: data.get('email'),
       }),
     }).then(res => {
-      console.log(res)
-
       if (res.status === 200 && res.redirected === true) {
         window.location.href = res.url
       }
