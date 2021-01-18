@@ -61,7 +61,7 @@ const BlogIndex = ({ data, location }) => {
         // }}
         pathname={location.pathname}
       />
-      <HomeHeader />
+      <HomeHeader avatar={data.avatar} />
       <div className="mt-40">
         <PicPageSection data={articlesSection} />
         <BookPageSection
@@ -81,6 +81,13 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
+      childImageSharp {
+        fluid(quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
     latestPostRemark: allMdx(

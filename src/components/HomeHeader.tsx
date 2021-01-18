@@ -1,14 +1,15 @@
 import React from 'react'
 import { Body1, H2 } from './Typography'
 
-const HomeHeader = ({}) => {
+const HomeHeader = ({ avatar }) => {
+  console.log(avatar)
   return (
     <div className="flex flex-row justify-end w-full">
       <div
         className="flex flex-row items-end w-full bg-blue-400 md:w-2/3"
         style={{
           height: '627px',
-          background: `url(./profile-pic.jpeg)`,
+          background: `url(${avatar.childImageSharp.fluid.src})`,
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
