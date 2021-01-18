@@ -10,12 +10,14 @@ const BlogCard = ({ post }) => {
     <article itemScope itemType="http://schema.org/Article" className="group">
       <Link to={post.fields.slug} itemProp="url">
         <header>
-          <Img
-            objectFit="cover"
-            objectPosition="center"
-            fluid={post.frontmatter.image.childImageSharp.fluid}
-            className="w-full h-52"
-          />
+          {post.frontmatter.image && (
+            <Img
+              objectFit="cover"
+              objectPosition="center"
+              fluid={post.frontmatter.image.childImageSharp.fluid}
+              className="w-full h-52"
+            />
+          )}
         </header>
         <section className="mt-4">
           <H6 className="font-bold group-hover:text-indigo-700">

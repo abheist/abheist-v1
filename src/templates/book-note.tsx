@@ -46,11 +46,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <H6 className="mt-6">
             {post.frontmatter.description || post.excerpt}
           </H6>
-          {/* <Img
-            className="mt-8"
-            fluid={post.frontmatter.image.childImageSharp.fluid}
-            alt="A corgi smiling happily"
-          /> */}
           <div className="flex flex-row mt-8 gap-x-12">
             <ImageWithShadow
               style={{ height: '400px', width: '270px' }}

@@ -13,12 +13,14 @@ const BookCard = ({ post }): JSX.Element => {
         itemType="http://schema.org/Article"
         className="flex flex-row p-4 -m-4 transition-all duration-300 border border-gray-200 border-opacity-0 group hover:border-opacity-100"
       >
-        <Link to={post.fields.slug}>
-          <ImageWithShadow
-            style={{ height: '300px', width: '200px' }}
-            fluid={post.frontmatter.image.childImageSharp.fluid}
-          />
-        </Link>
+        {post.frontmatter.image && (
+          <Link to={post.fields.slug}>
+            <ImageWithShadow
+              style={{ height: '300px', width: '200px' }}
+              fluid={post.frontmatter.image.childImageSharp.fluid}
+            />
+          </Link>
+        )}
         <div className="flex flex-col justify-between w-4/5 px-8">
           <div>
             <Link to={post.fields.slug}>
