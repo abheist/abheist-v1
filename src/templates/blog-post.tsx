@@ -1,7 +1,9 @@
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
+import Bio from '../components/Bio'
+import BlogNav from '../components/BlogNav'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import SocialShare from '../components/SocialShare'
@@ -64,32 +66,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </div>
         <SocialShare title={post.frontmatter.title} location={location} />
       </article>
-      <nav className="container px-24 py-20 mx-auto">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+      <BlogNav previous={previous} next={next} />
+      <Bio />
     </Layout>
   )
 }

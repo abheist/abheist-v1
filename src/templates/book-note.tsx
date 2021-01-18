@@ -1,9 +1,11 @@
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
 import { AiOutlineBarcode } from 'react-icons/ai'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
 import AmazonButton from '../components/AmazonButton'
+import Bio from '../components/Bio'
+import BlogNav from '../components/BlogNav'
 import ImageWithShadow from '../components/ImageWithShadow'
 import Layout from '../components/Layout'
 import NameIcon from '../components/NameIcon'
@@ -109,32 +111,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         </div>
         <SocialShare title={post.frontmatter.title} location={location} />
       </article>
-      <nav className="container px-24 py-20 mx-auto">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+      <BlogNav previous={previous} next={next} />
+      <Bio />
     </Layout>
   )
 }

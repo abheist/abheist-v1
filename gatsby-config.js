@@ -3,7 +3,7 @@ module.exports = {
     title: `Abhishek Kumar Singh`,
     author: {
       name: `Abhishek Kumar Singh`,
-      summary: `A Full Stack Developer and a Designer.`,
+      summary: `Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being.`,
     },
     description: `Thoughts on Life, career and computer science.`,
     siteUrl: `https://abheist.com`,
