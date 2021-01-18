@@ -1,6 +1,7 @@
 import Img from 'gatsby-image'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
+import MEHeader from './MeHeader'
 import PopularContent from './PopularContent'
 import { Body1, Body2, H2, H5, Subtitle1 } from './Typography'
 
@@ -8,26 +9,8 @@ const AboutMe = ({ posts, picsGrid, headerImage }) => {
   return (
     <div>
       <header className="w-full">
-        <div
-          className={`w-full`}
-          style={{
-            height: '524px',
-            background: `#F8CD5F`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'contain',
-          }}
-        >
-          <div className="container relative mx-auto">
-            <H2 className="container absolute mx-auto top-24 left-8">
-              About Me
-            </H2>
-          </div>
-          <Img
-            fluid={headerImage}
-            style={{ width: '1200px' }}
-            className="mx-auto"
-            alt="Abhishek Kumar Singh"
-          />
+        <div style={{ height: '524px', background: `#F8CD5F` }}>
+          <MEHeader />
         </div>
       </header>
       <div className="container flex flex-row mx-auto mt-52">
