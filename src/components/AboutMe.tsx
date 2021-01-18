@@ -8,10 +8,11 @@ import { Body1, Body2, H2, H5, Subtitle1 } from './Typography'
 const AboutMe = ({ posts, picsGrid, headerImage }) => {
   return (
     <div>
-      <header className="w-full">
-        <div style={{ height: '524px', background: `#F8CD5F` }}>
-          <MEHeader />
-        </div>
+      <header
+        className="w-full"
+        style={{ height: '524px', background: `#F8CD5F` }}
+      >
+        <MEHeader />
       </header>
       <div className="container flex flex-row mx-auto mt-52">
         <div className="flex flex-col w-1/4 gap-y-6">
@@ -36,6 +37,12 @@ const AboutMe = ({ posts, picsGrid, headerImage }) => {
             ----------{' '}
             <OutboundLink href="https://linkedin.com/in/abheist">
               LinkedIn
+            </OutboundLink>
+          </Body2>
+          <Body2>
+            ----------{' '}
+            <OutboundLink href="https://unsplash.com/@abheist/">
+              Unsplash
             </OutboundLink>
           </Body2>
         </div>
