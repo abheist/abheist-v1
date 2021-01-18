@@ -15,7 +15,7 @@ function MEHeader({}) {
   }))
   return (
     <div
-      className="relative flex items-center justify-center w-full h-full top-2 left-2"
+      className="relative z-0 flex items-center justify-center w-full h-full"
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: [x, y] })}
     >
       <animated.div
@@ -39,12 +39,11 @@ function MEHeader({}) {
         }}
       />
       <animated.div
-        className="absolute card2"
+        className="absolute"
         style={{
           width: '100%',
           height: '550px',
           backgroundImage: 'url(/me-header/rects.png)',
-          position: 'absolute',
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
@@ -54,7 +53,7 @@ function MEHeader({}) {
         }}
       />
       <animated.div
-        className="card3"
+        className="absolute"
         style={{
           opacity: '0.9',
           width: '400px',
