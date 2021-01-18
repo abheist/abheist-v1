@@ -112,10 +112,13 @@ const AboutMe = ({ posts, picsGrid, headerImage }) => {
             Some of my favourite photography work below. To look more, you can
             check out my Unsplash profile.
           </Subtitle1>
-          <div className="grid grid-cols-3 grid-rows-3 gap-8 mt-16">
+          <div className="grid grid-cols-3 grid-rows-3 gap-1 mt-16">
             {picsGrid.map(image => (
               <Img
-                fluid={image.node.childImageSharp.fluid}
+                fluid={{
+                  ...image.node.childImageSharp.fluid,
+                  aspectRatio: 1 / 1,
+                }}
                 key={image.node.childImageSharp.fluid.src}
               />
             ))}
