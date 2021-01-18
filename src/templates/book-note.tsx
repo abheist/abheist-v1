@@ -9,6 +9,7 @@ import ImageWithShadow from '../components/ImageWithShadow'
 import Layout from '../components/Layout'
 import NameIcon from '../components/NameIcon'
 import SEO from '../components/SEO'
+import SocialShare from '../components/SocialShare'
 import { H2, H6, Subtitle2 } from '../components/Typography'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
@@ -107,6 +108,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
           <MDXRenderer>{post.body}</MDXRenderer>
         </div>
+        <SocialShare title={post.frontmatter.title} location={location} />
         <div className="px-24 py-8">{HitCounter({ slug })}</div>
       </article>
       <nav className="container px-24 py-20 mx-auto">
