@@ -4,7 +4,6 @@ import * as React from 'react'
 import { AiOutlineBarcode } from 'react-icons/ai'
 import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
 import AmazonButton from '../components/AmazonButton'
-import { HitCounter } from '../components/HitCounter'
 import ImageWithShadow from '../components/ImageWithShadow'
 import Layout from '../components/Layout'
 import NameIcon from '../components/NameIcon'
@@ -109,7 +108,6 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <MDXRenderer>{post.body}</MDXRenderer>
         </div>
         <SocialShare title={post.frontmatter.title} location={location} />
-        <div className="px-24 py-8">{HitCounter({ slug })}</div>
       </article>
       <nav className="container px-24 py-20 mx-auto">
         <ul

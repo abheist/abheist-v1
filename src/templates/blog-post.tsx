@@ -2,7 +2,6 @@ import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
-import { HitCounter } from '../components/HitCounter'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import SocialShare from '../components/SocialShare'
@@ -58,14 +57,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               alt="A corgi smiling happily"
             />
           )}
-          {/* <p>{post.frontmatter.date}</p> */}
         </header>
 
         <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
           <MDXRenderer>{post.body}</MDXRenderer>
         </div>
         <SocialShare title={post.frontmatter.title} location={location} />
-        <div className="px-24 py-8">{HitCounter({ slug })}</div>
       </article>
       <nav className="container px-24 py-20 mx-auto">
         <ul
