@@ -6,8 +6,6 @@ const trans1 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 const trans2 = (x, y) => `translate3d(${x / 8 - 50}px,${y / -30}px,0)`
 const trans3 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 
-const arrayOfTrans = [trans1, trans2, trans3]
-
 function MEHeader({}) {
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
