@@ -12,7 +12,7 @@ const Navigation = ({ title, location }) => {
   const pages = [
     { name: 'Articles', path: '/articles/' },
     { name: 'Book Notes', path: '/book-notes/' },
-    { name: 'About Me', path: '/me/' },
+    { name: 'About Me', path: '/about/' },
   ]
 
   return (

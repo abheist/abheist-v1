@@ -4,7 +4,7 @@ import AboutMe from '../components/AboutMe'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 
-const Me = ({ data, location }) => {
+const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.postsRemark.nodes
   const headerImage = data.headerImage.edges[0].node.fluid
@@ -33,7 +33,7 @@ const Me = ({ data, location }) => {
   )
 }
 
-export default Me
+export default About
 
 export const pageQuery = graphql`
   query {

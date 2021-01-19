@@ -7,7 +7,7 @@ const Footer = () => {
   const listItems1 = [
     { name: 'Articles', link: '/articles/' },
     { name: 'Book Notes', link: '/book-notes/' },
-    { name: 'About', link: '/me/' },
+    { name: 'About', link: '/about/' },
     { name: 'SiteMap', link: '/sitemap.xml' },
     { name: 'RSS', link: '/rss.xml' },
   ]
