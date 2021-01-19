@@ -12,7 +12,7 @@ const BookNotes = ({ data, location }) => {
     <Layout title={siteTitle} location={location}>
       <SEO
         title="All Books"
-        description="Tiny summary but detailed notes for each book. Use the ISBN number to find it from your local library or use Amazon link. This page will constantly update as I read more, so bookmark it if you want to check back in a few months."
+        description="Tiny summary but detailed notes for some of the books I read. Use the ISBN number to find it from your local library or use Amazon link. This page will constantly update as I read more, so bookmark it if you want to check back in a few months."
         // TODO: Need to put the articles image
         // image={{
         //   src: post.frontmatter.image.childImageSharp.fluid.src,
