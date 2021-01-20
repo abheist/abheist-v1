@@ -11,13 +11,18 @@ const BookList = ({ books: bookList }) => {
   const [layout, setLayout] = useState('grid')
   const [search, setSearch] = useState('')
   const [books, setBooks] = useState(() => bookList)
+  const [shake, setShake] = useState(false)
+
+  const animate = () => {
+    setShake(true)
+    setTimeout(() => setShake(false), 300)
+  }
 
   useEffect(() => {
     let books_ = bookList.filter(
       book =>
         book.frontmatter.title.toLowerCase().search(search.toLowerCase()) !== -1
     )
-
     setBooks(books_)
   }, [search])
 
@@ -83,13 +88,18 @@ const BookList = ({ books: bookList }) => {
                 <span
                   key={post.fields.slug}
                   className={`relative transition-all duration-300 hover:-mt-2 cursor-not-allowed group`}
+                  onClick={animate}
                 >
                   <ImageWithShadow
                     className={`group-hover:opacity-80`}
                     style={{ height: '300px', width: '200px' }}
                     fluid={post.frontmatter.image.childImageSharp.fluid}
                   />
-                  <Subtitle2 className="absolute z-10 px-2 py-1 -mt-1 -ml-8 transform -rotate-90 bg-yellow-500 border-r-4 rounded-l-sm top-10">
+                  <Subtitle2
+                    className={`absolute z-10 px-2 py-1 -mt-1 -ml-8 transform -rotate-90 bg-yellow-500 border-r-4 rounded-l-sm top-10 ${
+                      shake ? `shake` : null
+                    }`}
+                  >
                     Coming Soon!
                   </Subtitle2>
                 </span>
