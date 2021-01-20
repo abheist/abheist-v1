@@ -113,7 +113,7 @@ def test(param):
 
 So, up until now. We’ve done the celery integration with Django. Now, go to your terminal and install `redis` server. This is mainly the broker server, what we installed with celery before was a python package which helps us to talk 😅 to this server.
 
-```shell:Terminal-1
+```shell:terminal-1
 (env)$ brew install redis
 
 # once installed, run:
@@ -141,15 +141,15 @@ This will reflect the migrations of `django_celery_result` and `django_celery_be
 
 Once installed. Open 3 terminals and run:
 
-```shell:Terminal-1
+```shell:terminal-1
 (env)$ redis-server
 ```
 
-```shell:Terminal-2
+```shell:terminal-2
 $ python manage.py runserver
 ```
 
-```shell:Terminal-3
+```shell:terminal-3
 (env)$ flower -A meup ## here `meup` is a project name
 ```
 
