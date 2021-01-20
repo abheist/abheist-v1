@@ -68,7 +68,7 @@ module.exports = {
       transitionDuration: ['hover', 'group-hover'],
       transitionTimingFunction: ['hover', 'group-hover'],
       transitionDelay: ['hover', 'group-hover'],
-      animation: ['hover', 'group-hover'],
+      animation: ['hover', 'group-hover', 'focus'],
     },
   },
   plugins: [require('@tailwindcss/typography')],

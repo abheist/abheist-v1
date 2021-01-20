@@ -4,7 +4,7 @@ import { FiGrid, FiList } from 'react-icons/fi'
 import BookCard from './BookCard'
 import BookPageSection from './BookPageSection'
 import ImageWithShadow from './ImageWithShadow'
-import { H6 } from './Typography'
+import { H6, Subtitle2 } from './Typography'
 
 const BookList = ({ books: bookList }) => {
   const latestPost = bookList[0]
@@ -78,19 +78,36 @@ const BookList = ({ books: bookList }) => {
         <H6 className="mt-16 mb-16 font-bold">RECENTLY READ</H6>
         {layout === 'grid' ? (
           <div className="grid grid-cols-4 gap-x-12 gap-y-16">
-            {books.map(post => (
-              <Link
-                key={post.fields.slug}
-                to={post.fields.slug}
-                itemProp="url"
-                className="transition-all duration-300 hover:-mt-2"
-              >
-                <ImageWithShadow
-                  style={{ height: '300px', width: '200px' }}
-                  fluid={post.frontmatter.image.childImageSharp.fluid}
-                />
-              </Link>
-            ))}
+            {books.map(post =>
+              post.frontmatter.published === false ? (
+                <span
+                  key={post.fields.slug}
+                  className={`relative transition-all duration-300 hover:-mt-2 cursor-not-allowed group`}
+                >
+                  <ImageWithShadow
+                    className={`group-hover:opacity-80`}
+                    style={{ height: '300px', width: '200px' }}
+                    fluid={post.frontmatter.image.childImageSharp.fluid}
+                  />
+                  <Subtitle2 className="absolute z-10 px-2 py-1 -mt-1 -ml-8 transform -rotate-90 bg-yellow-500 border-r-4 rounded-l-sm top-10">
+                    Coming Soon!
+                  </Subtitle2>
+                </span>
+              ) : (
+                <Link
+                  key={post.fields.slug}
+                  to={post.fields.slug}
+                  itemProp="url"
+                  className={`relative transition-all duration-300 hover:-mt-2`}
+                >
+                  <ImageWithShadow
+                    className={`group-hover:opacity-80`}
+                    style={{ height: '300px', width: '200px' }}
+                    fluid={post.frontmatter.image.childImageSharp.fluid}
+                  />
+                </Link>
+              )
+            )}
           </div>
         ) : (
           <div className="grid gap-y-40">
