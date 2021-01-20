@@ -13,14 +13,11 @@ const wrapperStyles = css`
 `
 
 const CodeWrapper = styled.pre`
-  float: left;
-  min-width: 100%;
-  width: 100%;
-  overflow: auto;
   padding: 30px 10px 10px !important;
+  ${tw`float-left w-full`}
   ::before {
     content: '${props => props['data-language']}';
-    ${tw`bg-red-900 rounded-b-lg text-gray-800 bg-yellow-500 text-xs tracking-wide px-2 py-0.5 absolute left-8 text-center uppercase top-6`}
+    ${tw`bg-red-900 rounded-b-lg text-gray-800 bg-yellow-500 text-xs tracking-wide px-2 py-0.5 absolute left-8 text-center uppercase -mt-7`}
   }
 `
 
@@ -37,13 +34,6 @@ const confettiConfig = {
   perspective: '500px',
   colors: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'],
 }
-
-const Button = props => (
-  <button
-    className="absolute right-2 bg-indigo-200 border-none px-2 py-0.5 rounded bg-opacity-50 text-white text-xs top-8 hover:bg-indigo-400"
-    {...props}
-  />
-)
 
 function calculateLinesToHighlight(meta) {
   if (RE.test(meta)) {
@@ -87,11 +77,6 @@ function Code({ codeString, language, metastring }) {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="relative gatsby-highlight" css={wrapperStyles}>
-          {language.split(':')[1] && (
-            <div className="absolute w-full py-2 text-sm bg-indigo-100 rounded-t-lg px-9 -top-3">
-              {language.split(':')[1]}
-            </div>
-          )}
           <CodeWrapper
             className={className}
             style={style}
@@ -102,7 +87,19 @@ function Code({ codeString, language, metastring }) {
                 : '0.375rem !important'};
             `}
           >
-            <Button
+            {language.split(':')[1] && (
+              <div
+                className="absolute w-full py-2 text-sm text-gray-800 bg-indigo-100 rounded-t-lg px-9"
+                css={`
+                  margin-top: -70px;
+                  margin-left: -10px;
+                `}
+              >
+                {language.split(':')[1]}
+              </div>
+            )}
+            <button
+              className="absolute right-3 -mt-4 bg-indigo-200 border-none px-2 py-0.5 rounded bg-opacity-50 text-white text-xs hover:bg-indigo-400"
               onClick={() => {
                 copyToClipboard(codeString)
                 setIsCopied(true)
@@ -111,7 +108,7 @@ function Code({ codeString, language, metastring }) {
             >
               <Confetti active={isCopied} config={confettiConfig} />
               {isCopied ? '🎉 Copied!' : 'Copy'}
-            </Button>
+            </button>
             {tokens.map((line, i) => (
               <div
                 key={i}
