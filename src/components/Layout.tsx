@@ -8,7 +8,7 @@ import Newsletter from './Newsletter'
 
 const Layout = ({ title, children, location, background = '' }) => {
   return (
-    <div className={background}>
+    <div className={`overflow-x-hidden ${background}`}>
       <Navigation title={title} location={location} />
       <MDXProvider components={mdxComponent}>
         <main>{children}</main>
