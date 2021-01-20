@@ -32,9 +32,7 @@ Install celery into your project. As celery also need a default broker (a soluti
 
 Once installed. Head to the project folder which contains `settings.py` and create a new file called `celery.py` and put the following code into it.
 
-```python:title=src/pages/layout-example.mdx {3-4}
-### celery.py
-
+```python:celery.py {3-4}
 import os
 from celery import Celery
 
@@ -60,10 +58,7 @@ def debug_task(self):
 
 and now head over to `__init.py__` of the same folder and put the following code.
 
-```python
-
-### __init__.py
-
+```python:__init__.py
 from __future__ import absolute_import, unicode_literals
 
 # This will make sure the app is always imported when
@@ -76,10 +71,7 @@ __all__ = ('celery_app',)
 
 and now head over to `settings.py` and insert the following code into respective places.
 
-```python
-
-### settings.py
-
+```python:settings.py
 BROKER_URL = 'redis://localhost:6379'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
@@ -108,9 +100,7 @@ The periodic tasks can be managed from the Django Admin interface, where you can
 
 and now, add a basic task somewhere in your app.
 
-```python
-
-### tasks.py (in any of your app)
+```python:tasks.py
 
 from __future__ import absolute_import
 from celery import shared_task
@@ -123,9 +113,7 @@ def test(param):
 
 So, up until now. We’ve done the celery integration with Django. Now, go to your terminal and install `redis` server. This is mainly the broker server, what we installed with celery before was a python package which helps us to talk 😅 to this server.
 
-```shell
-### Terminal
-
+```shell:Terminal-1
 (env)$ brew install redis
 
 # once installed, run:
@@ -153,28 +141,15 @@ This will reflect the migrations of `django_celery_result` and `django_celery_be
 
 Once installed. Open 3 terminals and run:
 
-```shell
-
-### Terminal 1
-
+```shell:Terminal-1
 (env)$ redis-server
 ```
 
-Terminal 2:
-
-```shell
-
-### Terminal 2
-
+```shell:Terminal-2
 $ python manage.py runserver
 ```
 
-Terminal 3:
-
-```shell
-
-### Terminal 3
-
+```shell:Terminal-3
 (env)$ flower -A meup ## here `meup` is a project name
 ```
 
