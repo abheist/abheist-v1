@@ -1,9 +1,9 @@
 import Img from 'gatsby-image'
 import React from 'react'
 
-const ImageWithShadow = ({ fluid, style }) => {
+const ImageWithShadow = ({ fluid, style, className }) => {
   return (
-    <div className="relative transition-all">
+    <div className={`relative transition-all ${className}`}>
       <Img fluid={fluid} className="z-10" style={{ ...style }} />
       <Img
         fluid={fluid}
