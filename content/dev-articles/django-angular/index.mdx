@@ -32,7 +32,7 @@ if you are on windows’, please set the path of the `ng` command. Otherwise, yo
 3. Now your Angular apps\` basic structure is done, for testing, run `ng build`. This will compile your code and produce some files into dist directory which will be created into a frontend (your angular app) directory.
 4. Now go into `angular_index.html` and include these compiled files `runtime-es2015.js`, `polyfills.js`, `styles-es2015.js`, `vendor-es2015.js`, `main-es2015.js` into Django template `js block`.
 
-```django
+```js
 <script type="type/javascript" src="{% static 'frontend/dist/runtime-es2015.js' %}"></script>
 <script type="type/javascript" src="{% static 'frontend/dist/polyfills-es2015.js' %}"></script>
 <script type="type/javascript" src="{% static 'frontend/dist/styles-es2015.js' %}"></script>
