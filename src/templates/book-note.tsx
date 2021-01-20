@@ -18,6 +18,29 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next, slug } = pageContext
 
+  const getStars = times => {
+    let stars = []
+    let i = parseInt(times)
+    while (i) {
+      stars.push(
+        <BsStarFill key={i} className="text-yellow-500 fill-current" />
+      )
+      i--
+    }
+    let remaining = parseFloat(times) - parseInt(times)
+    if (remaining) {
+      stars.push(
+        <BsStarHalf key={times} className="text-yellow-500 fill-current" />
+      )
+    }
+    let j = 5
+    while (j > parseFloat(times) + remaining) {
+      stars.push(<BsStar key={j} className="text-yellow-500 fill-current" />)
+      j--
+    }
+    return stars
+  }
+
   return (
     <Layout title={siteTitle} location={location}>
       <SEO
@@ -56,11 +79,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                     How strongly I recommending
                   </Subtitle2>
                   <div className="flex flex-row mt-2 gap-x-1">
-                    <BsStarFill className="text-yellow-500 fill-current" />
-                    <BsStarFill className="text-yellow-500 fill-current" />
-                    <BsStarFill className="text-yellow-500 fill-current" />
-                    <BsStarHalf className="text-yellow-500 fill-current" />
-                    <BsStar className="text-yellow-500 fill-current" />
+                    {getStars(post.frontmatter.rating)}
                   </div>
                 </div>
               </div>
