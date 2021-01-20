@@ -165,43 +165,6 @@ h6::selection {
   height: 100%;
 }
 
-.animated-underline {
-  --uiAnimatedUnderlineWidth: var(--animatedUnderlineWidth, 100%);
-  --uiAnimatedUnderlineHeight: var(--animatedUnderlineHeight, 2px);
-  --uiAnimatedUnderlineBgColor: var(--animatedUnderlineBgColor, currentColor);
-  --uiAnimatedUnderlinePositionX: var(--animatedUnderlinePositionX, left);
-  --uiAnimatedUnderlinePositionY: var(--animatedUnderlinePositionY, bottom);
-
-  /*
-		1. For multi-line animated underline the "inline" value for the display property is compulsory.
-		2. Adds opportunity to create multi-line padding
-	*/
-
-  --rLinkDisplay: inline; /* 1 */
-
-  background-image: linear-gradient(
-    0,
-    var(--uiAnimatedUnderlineBgColor) 0,
-    var(--uiAnimatedUnderlineBgColor)
-  );
-  background-size: var(--uiAnimatedUnderlineWidth)
-    var(--uiAnimatedUnderlineHeight);
-  background-position: var(--uiAnimatedUnderlinePositionX)
-    var(--uiAnimatedUnderlinePositionY);
-  background-repeat: no-repeat;
-
-  -webkit-box-decoration-break: clone; /* 2 */
-  box-decoration-break: clone; /* 2 */
-
-  will-change: background-size;
-  transition: background-size 0.25s cubic-bezier(0.785, 0.135, 0.15, 0.86);
-  --animatedUnderlineHeight: 0;
-}
-
-.animated-underline:hover {
-  --animatedUnderlineHeight: 100%;
-}
-
 .gatsby-highlight {
   -webkit-overflow-scrolling: touch;
 }
