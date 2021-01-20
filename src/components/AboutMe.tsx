@@ -14,32 +14,72 @@ const AboutMe = ({ posts, picsGrid, headerImage }) => {
       <div className="container flex flex-row mx-auto mt-52">
         <div className="flex flex-col w-1/4 gap-y-6">
           <H5 className="mt-8 normal-case">
-            <OutboundLink href="mailto:hi@abheist.com" target="_blank">
+            <OutboundLink
+              href="mailto:hi@abheist.com"
+              className="hover:text-indigo-primary"
+              target="_blank"
+            >
               hi@abheist.com
             </OutboundLink>
           </H5>
           <Body2>
             ----------{' '}
-            <OutboundLink href="https://twitter.com/abheist">
+            <OutboundLink
+              href="https://twitter.com/abheist"
+              className="hover:text-indigo-primary"
+              target="_blank"
+            >
               Twitter
             </OutboundLink>
           </Body2>
           <Body2>
             ----------{' '}
-            <OutboundLink href="https://instagram.com/abheist">
+            <OutboundLink
+              href="https://instagram.com/abheist"
+              className="hover:text-indigo-primary"
+              target="_blank"
+            >
               Instagram
             </OutboundLink>
           </Body2>
           <Body2>
             ----------{' '}
-            <OutboundLink href="https://linkedin.com/in/abheist">
+            <OutboundLink
+              href="https://linkedin.com/in/abheist"
+              className="hover:text-indigo-primary"
+              target="_blank"
+            >
               LinkedIn
             </OutboundLink>
           </Body2>
           <Body2>
             ----------{' '}
-            <OutboundLink href="https://unsplash.com/@abheist/">
+            <OutboundLink
+              href="https://unsplash.com/@abheist/"
+              className="hover:text-indigo-primary"
+              target="_blank"
+            >
               Unsplash
+            </OutboundLink>
+          </Body2>
+          <Body2>
+            ----------{' '}
+            <OutboundLink
+              href="https://github.com/abheist/"
+              className="hover:text-indigo-primary"
+              target="_blank"
+            >
+              Github
+            </OutboundLink>
+          </Body2>
+          <Body2>
+            ----------{' '}
+            <OutboundLink
+              href="https://dribbble.com/abheist"
+              className="hover:text-indigo-primary"
+              target="_blank"
+            >
+              Dribbble
             </OutboundLink>
           </Body2>
         </div>
