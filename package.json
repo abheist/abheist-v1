@@ -50,6 +50,7 @@
     "react-retro-hit-counter": "^1.0.1",
     "react-spring": "^8.0.27",
     "styled-components": "^5.2.1",
+    "tailwind.macro": "^0.5.10",
     "typeface-merriweather": "1.1.13",
     "typeface-montserrat": "1.1.13",
     "typography": "^0.16.19",
