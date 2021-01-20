@@ -1,6 +1,7 @@
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import nightOwl from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
+import Confetti from 'react-dom-confetti'
 import styled, { css } from 'styled-components/macro'
 
 const RE = /{([\d,-]+)}/
@@ -22,6 +23,43 @@ const CodeWrapper = styled.pre`
   }
 `
 
+const confettiConfig = {
+  angle: 90,
+  spread: 360,
+  startVelocity: 40,
+  elementCount: 70,
+  dragFriction: 0.12,
+  duration: 3000,
+  stagger: 3,
+  width: '10px',
+  height: '10px',
+  perspective: '500px',
+  colors: ['#a864fd', '#29cdff', '#78ff44', '#ff718d', '#fdff6a'],
+}
+
+const Button = props => (
+  <button
+    style={{
+      position: 'absolute',
+      top: 0,
+      right: 0,
+      border: 'none',
+      boxShadow: 'none',
+      textDecoration: 'none',
+      margin: '8px',
+      padding: '8px 12px',
+      background: '#1966ca',
+      borderRadius: '8px',
+      cursor: 'pointer',
+      color: '#E2E8F0',
+      fontSize: '14px',
+      fontFamily: 'sans-serif',
+      lineHeight: '1',
+    }}
+    {...props}
+  />
+)
+
 function calculateLinesToHighlight(meta) {
   if (RE.test(meta)) {
     const lineNumbers = RE.exec(meta)[1]
@@ -40,7 +78,21 @@ function calculateLinesToHighlight(meta) {
 }
 
 function Code({ codeString, language, metastring }) {
+  const [isCopied, setIsCopied] = React.useState(false)
   const shouldHighlightLine = calculateLinesToHighlight(metastring)
+
+  const copyToClipboard = str => {
+    const el = document.createElement('textarea')
+    el.value = str
+    el.setAttribute('readonly', '')
+    el.style.position = 'absolute'
+    el.style.left = '-9999px'
+    document.body.appendChild(el)
+    el.select()
+    document.execCommand('copy')
+    document.body.removeChild(el)
+  }
+
   return (
     <Highlight
       {...defaultProps}
@@ -55,6 +107,16 @@ function Code({ codeString, language, metastring }) {
             style={style}
             data-language={language}
           >
+            <Button
+              onClick={() => {
+                copyToClipboard(codeString)
+                setIsCopied(true)
+                setTimeout(() => setIsCopied(false), 3000)
+              }}
+            >
+              <Confetti active={isCopied} config={confettiConfig} />
+              {isCopied ? '🎉 Copied!' : 'Copy'}
+            </Button>
             {tokens.map((line, i) => (
               <div
                 key={i}
