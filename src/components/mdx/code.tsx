@@ -3,6 +3,7 @@ import nightOwl from 'prism-react-renderer/themes/nightOwl'
 import * as React from 'react'
 import Confetti from 'react-dom-confetti'
 import styled, { css } from 'styled-components/macro'
+import tw from 'twin.macro'
 
 const RE = /{([\d,-]+)}/
 
@@ -18,8 +19,10 @@ const CodeWrapper = styled.pre`
   overflow: auto;
   padding: 10px 10px !important;
   border-radius: 10px;
+  ${tw`rounded`}
   ::before {
     content: '${props => props['data-language']}';
+    ${tw`bg-red-900 rounded text-gray-800 bg-yellow-500 text-xs tracking-wide px-2 py-0.5 absolute left-8 text-center uppercase top-3`}
   }
 `
 
@@ -39,23 +42,7 @@ const confettiConfig = {
 
 const Button = props => (
   <button
-    style={{
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      border: 'none',
-      boxShadow: 'none',
-      textDecoration: 'none',
-      margin: '8px',
-      padding: '8px 12px',
-      background: '#1966ca',
-      borderRadius: '8px',
-      cursor: 'pointer',
-      color: '#E2E8F0',
-      fontSize: '14px',
-      fontFamily: 'sans-serif',
-      lineHeight: '1',
-    }}
+    className="absolute right-2 bg-indigo-200 border-none px-2 py-0.5 rounded bg-opacity-50 text-white text-xs top-8 hover:bg-indigo-400"
     {...props}
   />
 )

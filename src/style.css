@@ -208,21 +208,6 @@ h6::selection {
 
 .gatsby-highlight pre[class*='language-'] {
   -webkit-overflow-scrolling: touch;
-  @apply rounded;
-}
-.gatsby-highlight pre[class*='language-']::before {
-  @apply rounded;
-  @apply text-gray-800;
-  @apply bg-yellow-500;
-  @apply text-xs;
-  @apply tracking-wide;
-  @apply px-2;
-  @apply py-0.5;
-  @apply absolute;
-  @apply left-8;
-  @apply text-center;
-  @apply uppercase;
-  @apply top-3;
 }
 
 @tailwind components;
