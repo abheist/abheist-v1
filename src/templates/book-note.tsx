@@ -38,24 +38,8 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         itemType="http://schema.org/Article"
       >
         <header className="py-16">
-          {post.frontmatter.tags &&
-            post.frontmatter.tags.map((tag, i) => (
-              <span
-                style={{
-                  color: 'darkgray',
-                  textTransform: 'uppercase',
-                  fontWeight: 700,
-                }}
-                key={tag}
-              >
-                {tag}
-                {post.frontmatter.tags.length - 1 !== i && ', '}
-              </span>
-            ))}
           <H2>{post.frontmatter.title}</H2>
-          <H6 className="mt-6">
-            {post.frontmatter.description || post.excerpt}
-          </H6>
+          <H6 className="mt-6">{post.frontmatter.description}</H6>
           <div className="flex flex-row mt-8 gap-x-12">
             <ImageWithShadow
               style={{ height: '400px', width: '270px' }}
@@ -65,13 +49,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               <div>
                 <p className="font-serif text-xl font-bold">Favourite Quote</p>
                 <div className="mt-4 prose">
-                  <blockquote>
-                    Filled with his trademark humor and straight talk, The Hard
-                    Thing About Hard Things is invaluable for veteran
-                    entrepreneurs as well as those aspiring to their own new
-                    ventures, drawing from Horowitz's personal and often
-                    humbling experiences.
-                  </blockquote>
+                  <blockquote>{post.frontmatter.favouriteQuote}</blockquote>
                 </div>
                 <div className="mt-8">
                   <Subtitle2 className="font-bold">
@@ -87,23 +65,22 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 </div>
               </div>
               <div className="flex flex-row items-center justify-between w-full mt-4 gap-x-4">
-                <AmazonButton link="https://amzn.to/39nubLg" />
+                <AmazonButton link={post?.frontmatter?.amazon} />
                 <div className="flex flex-row gap-x-12">
                   <NameIcon
                     name="ISBN-10"
                     icon={<AiOutlineBarcode className="text-4xl" />}
-                    value="0062273205"
+                    value={post.frontmatter.isbn10}
                   />
                   <NameIcon
                     name="ISBN-13"
                     icon={<AiOutlineBarcode className="text-4xl" />}
-                    value="978-0062641540"
+                    value={post.frontmatter.isbn13}
                   />
                 </div>
               </div>
             </div>
           </div>
-          {/* <p>{post.frontmatter.date}</p> */}
         </header>
 
         <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
@@ -138,9 +115,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        ISBN
+        isbn10
+        isbn13
         rating
         amazon
+        favouriteQuote
         image {
           childImageSharp {
             fluid {
