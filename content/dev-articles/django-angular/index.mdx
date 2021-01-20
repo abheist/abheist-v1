@@ -9,13 +9,11 @@ image: './django-angular.jpeg'
 featured: true
 ---
 
-![Django and Angular](./django-angular.jpeg)
-
 Requirements: Django > 1.8, Angular 8, 9 or above. I’ve done this Angular 9.
 
 Let’s jump directly into a pool, I’m guessing, you already have a basic Django setup, which is:
 
-```shell
+```md
 - Vritualenv setup
 - Django project
 - Static files and template files setup
@@ -50,7 +48,7 @@ So you might be thinking, why not use `ng serve`, yes `ng serve` is a great opti
 
 Run `ng build --watch` into a terminal and it will run hot reload your project with every file change. But now, your browser will not show anything. Because at watch state, `ng build --watch` produces different filenames without postfix of `es2015` . So you need to change those files names in the `angular_index.html` and include the following files.
 
-```django
+```js
 <script type="type/javascript" src="{% static 'frontend/dist/runtime.js' %}"></script>
 <script type="type/javascript" src="{% static 'frontend/dist/polyfills.js' %}"></script>
 <script type="type/javascript" src="{% static 'frontend/dist/styles.js' %}"></script>
