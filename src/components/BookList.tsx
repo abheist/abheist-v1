@@ -6,8 +6,19 @@ import BookPageSection from './BookPageSection'
 import ImageWithShadow from './ImageWithShadow'
 import { H6, Subtitle2 } from './Typography'
 
+const getLatestBook = books => {
+  let latest = undefined
+  for (let i = 0; i < books.length; i++) {
+    if (books[i].frontmatter.published !== false) {
+      latest = books[i]
+      break
+    }
+  }
+  return latest
+}
+
 const BookList = ({ books: bookList }) => {
-  const latestPost = bookList[0]
+  const latestPost = getLatestBook(bookList)
   const [layout, setLayout] = useState('grid')
   const [search, setSearch] = useState('')
   const [books, setBooks] = useState(() => bookList)
