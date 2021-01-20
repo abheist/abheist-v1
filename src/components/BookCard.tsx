@@ -1,17 +1,25 @@
 import { Link } from 'gatsby'
-import React from 'react'
+import React, { useState } from 'react'
 import AmazonButton from './AmazonButton'
 import ImageWithShadow from './ImageWithShadow'
 import { H4, Subtitle2 } from './Typography'
 
 const BookCard = ({ post }): JSX.Element => {
   const title = post.frontmatter.title || post.fields.slug
+  const [shake, setShake] = useState(false)
+
+  const animate = () => {
+    setShake(true)
+    setTimeout(() => setShake(false), 300)
+  }
+
   return (
     <div className="">
       {post.frontmatter.published === false ? (
         <article
           itemScope
           itemType="http://schema.org/Article"
+          onClick={animate}
           className="flex flex-row p-4 -m-4 transition-all duration-300 border border-gray-200 border-opacity-0 cursor-not-allowed hover:border-opacity-100"
         >
           {post.frontmatter.image && (
@@ -30,9 +38,13 @@ const BookCard = ({ post }): JSX.Element => {
                 {post.frontmatter.date}
               </Subtitle2>
               <br />
-              <span className="px-4 py-2 my-2 bg-yellow-400">
+              <div
+                className={`px-4 py-2 my-2 bg-yellow-400 inline-block ${
+                  shake && 'shake-horizontal'
+                }`}
+              >
                 Currently Reading, Coming Soon!
-              </span>
+              </div>
             </div>
             <AmazonButton link={post.frontmatter.amazon} />
           </div>
