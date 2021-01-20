@@ -219,8 +219,8 @@ h6::selection {
   @apply px-2;
   @apply py-0.5;
   @apply absolute;
-  @apply right-4;
-  @apply text-right;
+  @apply left-8;
+  @apply text-center;
   @apply uppercase;
   @apply top-3;
 }
