@@ -89,7 +89,7 @@ function Code({ codeString, language, metastring }) {
         <div className="relative gatsby-highlight" css={wrapperStyles}>
           {language.split(':')[1] && (
             <div className="absolute w-full py-2 text-sm bg-indigo-100 rounded-t-lg px-9 -top-3">
-              {language.split(':')[1].split('=')[1]}
+              {language.split(':')[1]}
             </div>
           )}
           <CodeWrapper
