@@ -17,12 +17,10 @@ const CodeWrapper = styled.pre`
   min-width: 100%;
   width: 100%;
   overflow: auto;
-  padding: 10px 10px !important;
-  border-radius: 10px;
-  ${tw`rounded`}
+  padding: 30px 10px 10px !important;
   ::before {
     content: '${props => props['data-language']}';
-    ${tw`bg-red-900 rounded text-gray-800 bg-yellow-500 text-xs tracking-wide px-2 py-0.5 absolute left-8 text-center uppercase top-3`}
+    ${tw`bg-red-900 rounded-b-lg text-gray-800 bg-yellow-500 text-xs tracking-wide px-2 py-0.5 absolute left-8 text-center uppercase top-6`}
   }
 `
 
@@ -89,10 +87,20 @@ function Code({ codeString, language, metastring }) {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="relative gatsby-highlight" css={wrapperStyles}>
+          {language.split(':')[1] && (
+            <div className="absolute w-full py-2 text-sm bg-indigo-100 rounded-t-lg px-9 -top-3">
+              {language.split(':')[1].split('=')[1]}
+            </div>
+          )}
           <CodeWrapper
             className={className}
             style={style}
-            data-language={language}
+            data-language={language.split(':')[0]}
+            css={`
+              border-radius: ${language.split(':')[1]
+                ? '0 0 0.375rem 0.375rem !important'
+                : '0.375rem !important'};
+            `}
           >
             <Button
               onClick={() => {
