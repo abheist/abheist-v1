@@ -82,7 +82,7 @@ function Code({ codeString, language, metastring }) {
     <Highlight
       {...defaultProps}
       code={codeString}
-      language={language}
+      language={language.split(':')[0]}
       theme={nightOwl}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
