@@ -49,14 +49,7 @@ export const pageQuery = graphql`
         node {
           id
           fluid {
-            src
-            srcSet
-            aspectRatio
-            sizes
-            tracedSVG
-            base64
-            srcWebp
-            srcSetWebp
+            ...GatsbyImageSharpFluid_withWebp_tracedSVG
             presentationHeight
             presentationWidth
           }
@@ -68,12 +61,7 @@ export const pageQuery = graphql`
         node {
           childImageSharp {
             fluid {
-              src
-              srcSet
-              srcSetWebp
-              tracedSVG
-              base64
-              aspectRatio
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
               sizes
               presentationHeight
               presentationWidth
