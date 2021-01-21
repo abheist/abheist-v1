@@ -48,7 +48,9 @@ export const pageQuery = graphql`
       edges {
         node {
           id
-          fluid {
+          fluid(
+            traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
+          ) {
             ...GatsbyImageSharpFluid_withWebp_tracedSVG
             presentationHeight
             presentationWidth
@@ -60,7 +62,9 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            fluid {
+            fluid(
+              traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
+            ) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
               sizes
               presentationHeight

@@ -96,7 +96,9 @@ export const pageQuery = graphql`
         tags
         image {
           childImageSharp {
-            fluid {
+            fluid(
+              traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
+            ) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
               presentationHeight
               presentationWidth
