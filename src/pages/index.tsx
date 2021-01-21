@@ -1,5 +1,6 @@
 import { graphql } from 'gatsby'
 import React from 'react'
+import { getLatestBook } from '../components/BookList'
 import BookPageSection from '../components/BookPageSection'
 import HomeHeader from '../components/HomeHeader'
 import Layout from '../components/Layout'
@@ -10,8 +11,12 @@ const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const latestPost = data.latestPostRemark.nodes[0]
   const posts = data.postsRemark.nodes
-  const latestBook = data.latestBookRemark.nodes[0]
-  const books = data.booksRemark.nodes
+  let books = data.booksRemark.nodes
+  const latestBook = getLatestBook(books)
+
+  books = books.filter(
+    (book: any) => book.fields.slug !== latestBook.fields.slug
+  )
 
   const bookNotesSection = {
     heading: 'Book Notes',
@@ -152,40 +157,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    latestBookRemark: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { in: "book" } } }
-      limit: 1
-    ) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          image {
-            childImageSharp {
-              fluid {
-                srcSet
-                tracedSVG
-                aspectRatio
-                src
-                sizes
-                presentationHeight
-                presentationWidth
-              }
-            }
-          }
-        }
-      }
-    }
     booksRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { in: "book" }, featured: { eq: true } } }
-      limit: 4
+      limit: 5
     ) {
       nodes {
         excerpt
@@ -196,6 +171,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          published
           image {
             childImageSharp {
               fluid {

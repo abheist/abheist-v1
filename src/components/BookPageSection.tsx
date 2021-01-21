@@ -1,5 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import BookGridCard from './BookGridCard'
 import ImageWithShadow from './ImageWithShadow'
 import { Body1, H3, H6 } from './Typography'
 
@@ -75,17 +76,7 @@ const BookPageSection = ({
             <H6>FEATURED</H6>
             <div className="grid grid-cols-4 mt-8 gap-x-12 gap-y-16">
               {featured.map(post => (
-                <Link
-                  key={post.fields.slug}
-                  to={post.fields.slug}
-                  itemProp="url"
-                  className="transition-all duration-300 hover:-mt-2"
-                >
-                  <ImageWithShadow
-                    style={{ height: '300px', width: '200px' }}
-                    fluid={post.frontmatter.image.childImageSharp.fluid}
-                  />
-                </Link>
+                <BookGridCard key={post.fields.slug} book={post} />
               ))}
             </div>
           </div>

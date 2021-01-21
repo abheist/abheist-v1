@@ -1,12 +1,11 @@
-import { Link } from 'gatsby'
 import React, { useEffect, useState } from 'react'
 import { FiGrid, FiList } from 'react-icons/fi'
 import BookCard from './BookCard'
 import BookPageSection from './BookPageSection'
-import ImageWithShadow from './ImageWithShadow'
-import { H6, Subtitle2 } from './Typography'
+import BooksGrid from './BooksGrid'
+import { H6 } from './Typography'
 
-const getLatestBook = books => {
+export const getLatestBook = books => {
   let latest = undefined
   for (let i = 0; i < books.length; i++) {
     if (books[i].frontmatter.published !== false) {
@@ -22,12 +21,6 @@ const BookList = ({ books: bookList }) => {
   const [layout, setLayout] = useState('grid')
   const [search, setSearch] = useState('')
   const [books, setBooks] = useState(() => bookList)
-  const [shake, setShake] = useState(false)
-
-  const animate = () => {
-    setShake(true)
-    setTimeout(() => setShake(false), 300)
-  }
 
   useEffect(() => {
     let books_ = bookList.filter(
@@ -93,47 +86,11 @@ const BookList = ({ books: bookList }) => {
       <div>
         <H6 className="mt-16 mb-16 font-bold">RECENTLY READ</H6>
         {layout === 'grid' ? (
-          <div className="grid grid-cols-4 gap-x-12 gap-y-16">
-            {books.map(post =>
-              post.frontmatter.published === false ? (
-                <span
-                  key={post.fields.slug}
-                  className={`relative transition-all duration-300 hover:-mt-2 cursor-not-allowed group`}
-                  onClick={animate}
-                >
-                  <ImageWithShadow
-                    className={`group-hover:opacity-80`}
-                    style={{ height: '300px', width: '200px' }}
-                    fluid={post.frontmatter.image.childImageSharp.fluid}
-                  />
-                  <Subtitle2
-                    className={`absolute z-10 px-2 py-1 -mt-1 -ml-8 transform -rotate-90 bg-yellow-500 border-r-4 rounded-l-sm top-10 ${
-                      shake ? `shake` : null
-                    }`}
-                  >
-                    Coming Soon!
-                  </Subtitle2>
-                </span>
-              ) : (
-                <Link
-                  key={post.fields.slug}
-                  to={post.fields.slug}
-                  itemProp="url"
-                  className={`relative transition-all duration-300 hover:-mt-2`}
-                >
-                  <ImageWithShadow
-                    className={`group-hover:opacity-80`}
-                    style={{ height: '300px', width: '200px' }}
-                    fluid={post.frontmatter.image.childImageSharp.fluid}
-                  />
-                </Link>
-              )
-            )}
-          </div>
+          <BooksGrid books={books} />
         ) : (
           <div className="grid gap-y-40">
-            {books.map(post => (
-              <BookCard key={post.fields.slug} post={post} />
+            {books.map(book => (
+              <BookCard key={book.fields.slug} post={book} />
             ))}
           </div>
         )}
