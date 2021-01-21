@@ -185,7 +185,7 @@ export const pageQuery = graphql`
     booksRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { in: "book" }, featured: { eq: true } } }
-      limit: 5
+      limit: 4
     ) {
       nodes {
         excerpt
