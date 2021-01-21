@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import AboutMe from '../components/AboutMe'
 import Layout from '../components/Layout'
+import { getFluid } from '../components/MeHeader'
 import SEO from '../components/SEO'
 
 const About = ({ data, location }) => {
@@ -10,18 +11,16 @@ const About = ({ data, location }) => {
   const headerImages = data.headerImages.edges
   const unsplashPics = data.unsplashPics.edges
 
+  let headerStaticImage = getFluid(headerImages, 'me-header-static')
+
   return (
     <Layout title={siteTitle} location={location}>
       <SEO
         title="About"
         description="Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being."
-        // TODO: Need to put the articles image
-        // image={{
-        //   src: post.frontmatter.image.childImageSharp.fluid.src,
-        //   height:
-        //     post.frontmatter.image.childImageSharp.fluid.presentationHeight,
-        //   width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
-        // }}
+        image={{
+          src: headerStaticImage.src,
+        }}
         pathname={location.pathname}
       />
       <AboutMe

@@ -6,7 +6,7 @@ const trans1 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 const trans2 = (x, y) => `translate3d(${x / 8 - 50}px,${y / -30}px,0)`
 const trans3 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 
-const getFluid = (images, fileName) => {
+export const getFluid = (images, fileName) => {
   let fluidImg = images.filter(image =>
     image.node.childImageSharp.fluid.originalName.includes(fileName)
   )
