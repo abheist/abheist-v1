@@ -43,7 +43,7 @@ const BookCard = ({ post }): JSX.Element => {
                   shake && 'shake-horizontal'
                 }`}
               >
-                Currently Reading, Coming Soon!
+                Notes under progress, Coming Soon!
               </div>
             </div>
             <AmazonButton link={post.frontmatter.amazon} />
