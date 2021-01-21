@@ -6,7 +6,18 @@ const trans1 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 const trans2 = (x, y) => `translate3d(${x / 8 - 50}px,${y / -30}px,0)`
 const trans3 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 
-function MEHeader({}) {
+const getFluid = (images, fileName) => {
+  let fluidImg = images.filter(image =>
+    image.node.childImageSharp.fluid.originalName.includes(fileName)
+  )
+  return fluidImg[0].node.childImageSharp.fluid
+}
+
+function MEHeader({ headerImages }) {
+  let langImg = getFluid(headerImages, 'languages')
+  let rectImg = getFluid(headerImages, 'rects')
+  let profileImg = getFluid(headerImages, 'profile')
+
   const [props, set] = useSpring(() => ({
     xy: [0, 0],
     config: { mass: 10, tension: 550, friction: 140 },
@@ -27,7 +38,7 @@ function MEHeader({}) {
         style={{
           width: '100%',
           height: '500px',
-          backgroundImage: 'url(/me-header/languages.png)',
+          backgroundImage: `url(${langImg.src})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
@@ -41,7 +52,7 @@ function MEHeader({}) {
         style={{
           width: '100%',
           height: '550px',
-          backgroundImage: 'url(/me-header/rects.png)',
+          backgroundImage: `url(${rectImg.src})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
@@ -56,7 +67,7 @@ function MEHeader({}) {
           opacity: '0.9',
           width: '400px',
           height: '400px',
-          backgroundImage: 'url(/me-header/profile.png)',
+          backgroundImage: `url(${profileImg.src})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',

@@ -7,7 +7,7 @@ import SEO from '../components/SEO'
 const About = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.postsRemark.nodes
-  const headerImage = data.headerImage.edges[0].node.fluid
+  const headerImages = data.headerImages.edges
   const unsplashPics = data.unsplashPics.edges
 
   return (
@@ -27,7 +27,7 @@ const About = ({ data, location }) => {
       <AboutMe
         posts={posts}
         picsGrid={unsplashPics}
-        headerImage={headerImage}
+        headerImages={headerImages}
       />
     </Layout>
   )
@@ -42,18 +42,18 @@ export const pageQuery = graphql`
         title
       }
     }
-    headerImage: allImageSharp(
-      filter: { fixed: { originalName: { eq: "me-header-1.png" } } }
-    ) {
+    headerImages: allFile(filter: { dir: { regex: "/me-header/g" } }) {
       edges {
         node {
-          id
-          fluid(
-            traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-          ) {
-            ...GatsbyImageSharpFluid_withWebp_tracedSVG
-            presentationHeight
-            presentationWidth
+          childImageSharp {
+            fluid(
+              traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
+            ) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              originalName
+              presentationHeight
+              presentationWidth
+            }
           }
         }
       }
@@ -66,7 +66,6 @@ export const pageQuery = graphql`
               traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
             ) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              sizes
               presentationHeight
               presentationWidth
             }
