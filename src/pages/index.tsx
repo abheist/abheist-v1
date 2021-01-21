@@ -90,8 +90,11 @@ export const pageQuery = graphql`
     }
     avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
       childImageSharp {
-        fluid(quality: 100) {
-          ...GatsbyImageSharpFluid
+        fluid(
+          quality: 80
+          traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
+        ) {
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }
