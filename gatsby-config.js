@@ -99,6 +99,11 @@ module.exports = {
             options: {
               maxWidth: 630,
               linkImagesToOriginal: false,
+              tracedSVG: {
+                color: '#5945e4',
+                turnPolicy: 'TURNPOLICY_MAJORITY',
+              },
+              withAvif: { quality: 80 },
             },
           },
           {
