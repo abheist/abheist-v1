@@ -1,16 +1,12 @@
 ---
 title: Django, Celery, Redis and Flower
-date: '2020-04-21'
+date: 2020-04-21
 description: A step-by-step guide to wiredup Django, Celery, Redis and Flower
+image: ./django-celery.jpeg
 tags:
   - Django
-  - HTML
-  - CSS
-  - React
-  - JavaScript
-  - Python
-  - NPM
-image: './django-celery.jpeg'
+  - DevOps
+tableContent: false
 featured: true
 ---
 
@@ -20,19 +16,13 @@ _**Please follow the comments to get a basic understanding of the code. And in c
 
 Install celery into your project. As celery also need a default broker (a solution to send and receive messages, and this comes in the form of separate service called a message broker). Check the list of available brokers: [BROKERS](https://docs.celeryproject.org/en/stable/getting-started/brokers/index.html#broker-overview). So you can directly install the celery bundle with the broker. [Bundles available](https://docs.celeryproject.org/en/stable/getting-started/introduction.html#bundles).
 
-1. Ordered
-2. list of
-
-- Unordered
-- List
-
 ```shell
-(env)$ pip install "celery[redis]"
+pip install "celery[redis]"
 ```
 
 Once installed. Head to the project folder which contains `settings.py` and create a new file called `celery.py` and put the following code into it.
 
-```python:celery.py {3-4}
+```python:celery.py
 import os
 from celery import Celery
 
@@ -114,15 +104,16 @@ def test(param):
 So, up until now. We’ve done the celery integration with Django. Now, go to your terminal and install `redis` server. This is mainly the broker server, what we installed with celery before was a python package which helps us to talk 😅 to this server.
 
 ```shell:terminal-1
-(env)$ brew install redis
+brew install redis
+```
 
-# once installed, run:
-(env)$ redis-server
+```shell:terminal-1
+redis-server
+```
 
-# Terminal 2, open another terminal or tab
-(env)$ redis-cli ping
+```shell:terminal-2
+redis-cli ping
 pong
-
 ```
 
 If you get the `pong` response, then you’re fine to move forward, can quit the server and close the terminals.
@@ -130,27 +121,27 @@ If you get the `pong` response, then you’re fine to move forward, can quit the
 If you’re on Windows and Linux, please check out how you can install the Redis here: https://redis.io/download. Now… run:
 
 ```shell
-(env)$ python manage.py migrate
+python manage.py migrate
 ```
 
 This will reflect the migrations of `django_celery_result` and `django_celery_beat` . Now install the `flower` with the following command.
 
 ```shell
-(env)$ pip install flower
+pip install flower
 ```
 
 Once installed. Open 3 terminals and run:
 
 ```shell:terminal-1
-(env)$ redis-server
+redis-server
 ```
 
 ```shell:terminal-2
-$ python manage.py runserver
+python manage.py runserver
 ```
 
 ```shell:terminal-3
-(env)$ flower -A meup ## here `meup` is a project name
+flower -A meup ## here `meup` is a project name
 ```
 
 Now your project will be running on `localhost:8000` , Redis will be running on port `6379` , and flower will be running on `localhost:5000`.

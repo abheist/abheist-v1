@@ -1,15 +1,17 @@
 ---
 title: Make a Material table header fix
-date: '2020-08-12'
+date: 2020-08-12
 description:
+image: ./headers.png
 tags:
   - Angular
-image: './headers.png'
+tableContent: false
+featured: true
 ---
 
 If you see the below code, you'll find out that I've removed the data rows from the first table and header row from the second table. and then added a tableHeader and tableData ids to both table.
 
-```html {1,2,7-9}
+```html
 <table
   mat-table
   [dataSource]="dataSource"
@@ -67,7 +69,7 @@ If you see the below code, you'll find out that I've removed the data rows from 
 
 Now, we'll get the width of each column from the second table and reflect them in the first to fix the header.
 
-```javascript
+```js
 const headerTable = document.querySelector('#tableHeader')
 const dataTable = document.querySelector('#tableData')
 
