@@ -9,8 +9,11 @@ import SEO from '../components/SEO'
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const latestPost = data.latestPostRemark.nodes[0]
-  const posts = data.postsRemark.nodes
+
+  let posts = data.postsRemark.nodes
+  const latestPost = posts[0]
+  posts = posts.slice(1)
+
   let books = data.booksRemark.nodes
   const latestBook = getLatestBook(books)
 
@@ -95,39 +98,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    latestPostRemark: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { ne: "book" } } }
-      limit: 1
-    ) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-          featured
-          image {
-            childImageSharp {
-              fluid(
-                traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                presentationHeight
-                presentationWidth
-              }
-            }
-          }
-        }
-      }
-    }
     postsRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { type: { ne: "book" }, featured: { eq: true } } }
-      limit: 3
+      limit: 4
     ) {
       nodes {
         excerpt
@@ -174,8 +148,6 @@ export const pageQuery = graphql`
                 traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
               ) {
                 ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                presentationHeight
-                presentationWidth
               }
             }
           }
