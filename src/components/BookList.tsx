@@ -46,57 +46,59 @@ const BookList = ({ books: bookList }) => {
   }
 
   return (
-    <Container className="pb-40">
+    <>
       <BookPageSection picSide="right" data={booksSection} />
-      <div className="flex flex-row items-center justify-between">
-        <input
-          type="text"
-          placeholder="Search these books..."
-          className="w-5/6 p-3 border border-gray-500"
-          value={search}
-          onChange={event => setSearch(event.target.value)}
-        />
-        <div className="flex gap-x-2">
-          <button
-            className={`p-4 border border-gray-500 focus:outline-none focus:ring focus:border-indigo-300 ${
-              layout === 'grid' && 'bg-indigo-200'
-            }`}
-            onClick={() => setLayout('grid')}
-          >
-            <FiGrid
-              className={`fill-current ${
-                layout === 'grid' && 'text-indigo-500'
+      <Container className="pb-40">
+        <div className="flex flex-row items-center justify-between">
+          <input
+            type="text"
+            placeholder="Search these books..."
+            className="w-5/6 p-3 border border-gray-500"
+            value={search}
+            onChange={event => setSearch(event.target.value)}
+          />
+          <div className="flex gap-x-2">
+            <button
+              className={`p-4 border border-gray-500 focus:outline-none focus:ring focus:border-indigo-300 ${
+                layout === 'grid' && 'bg-indigo-200'
               }`}
-            />
-          </button>
-          <button
-            className={`p-4 border focus:outline-none focus:ring focus:border-indigo-300-300 ${
-              layout === 'list' && 'bg-indigo-200'
-            }  border-gray-500
+              onClick={() => setLayout('grid')}
+            >
+              <FiGrid
+                className={`fill-current ${
+                  layout === 'grid' && 'text-indigo-500'
+                }`}
+              />
+            </button>
+            <button
+              className={`p-4 border focus:outline-none focus:ring focus:border-indigo-300-300 ${
+                layout === 'list' && 'bg-indigo-200'
+              }  border-gray-500
             `}
-            onClick={() => setLayout('list')}
-          >
-            <FiList
-              className={`fill-current ${
-                layout === 'list' && 'text-indigo-500'
-              }`}
-            />
-          </button>
-        </div>
-      </div>
-      <div>
-        <H6 className="mt-16 mb-16 font-bold">RECENTLY READ</H6>
-        {layout === 'grid' ? (
-          <BooksGrid books={books} />
-        ) : (
-          <div className="grid gap-y-40">
-            {books.map(book => (
-              <BookCard key={book.fields.slug} post={book} />
-            ))}
+              onClick={() => setLayout('list')}
+            >
+              <FiList
+                className={`fill-current ${
+                  layout === 'list' && 'text-indigo-500'
+                }`}
+              />
+            </button>
           </div>
-        )}
-      </div>
-    </Container>
+        </div>
+        <div>
+          <H6 className="mt-16 mb-16 font-bold">RECENTLY READ</H6>
+          {layout === 'grid' ? (
+            <BooksGrid books={books} />
+          ) : (
+            <div className="grid gap-y-40">
+              {books.map(book => (
+                <BookCard key={book.fields.slug} post={book} />
+              ))}
+            </div>
+          )}
+        </div>
+      </Container>
+    </>
   )
 }
 

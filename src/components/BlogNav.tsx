@@ -4,7 +4,7 @@ import Container from './Container'
 
 const BlogNav = ({ previous, next }) => {
   return (
-    <Container className="px-24 ">
+    <Container className="px-24">
       <nav className="px-8 py-6 pb-4 border border-gray-500 rounded-md ">
         <ul
           style={{

@@ -35,44 +35,46 @@ const BlogList = ({ posts: articles, tags }) => {
   }
 
   return (
-    <Container className="px-4">
+    <>
       <PicPageSection picSide="right" data={articlesSection} />
-      <div>
-        <input
-          type="text"
-          placeholder="Search these articles..."
-          className="w-full p-3 mt-8 mb-16 border border-gray-500"
-          value={search}
-          onChange={event => setSearch(event.target.value)}
-        />
-      </div>
-      <div className="flex flex-row gap-16 mb-32">
-        <div className="w-2/3">
-          <H6 className="font-bold">RECENTLY PUBLISHED</H6>
-          <div className="grid mt-10 gap-y-20">
-            {posts.map(post => (
-              <BlogCard key={post.fields.slug} post={post} />
-            ))}
+      <Container>
+        <div>
+          <input
+            type="text"
+            placeholder="Search these articles..."
+            className="w-full p-3 mt-8 mb-16 border border-gray-500"
+            value={search}
+            onChange={event => setSearch(event.target.value)}
+          />
+        </div>
+        <div className="flex flex-row gap-16 mb-32">
+          <div className="w-2/3">
+            <H6 className="font-bold">RECENTLY PUBLISHED</H6>
+            <div className="grid mt-10 gap-y-20">
+              {posts.map(post => (
+                <BlogCard key={post.fields.slug} post={post} />
+              ))}
+            </div>
+          </div>
+          <div className="w-1/3">
+            <div>
+              <H6 className="font-bold">TOP CATEGORIES</H6>
+              <TagList tags={tags} className="mt-8" />
+            </div>
+            <div className="mt-16">
+              <H6 className="font-bold">POPULAR CONTENT</H6>
+              {posts.map(post => (
+                <Subtitle1 key={post.fields.slug} className="mt-4">
+                  <Link to={post.fields.slug} itemProp="url">
+                    <span itemProp="headline">{post.frontmatter.title}</span>
+                  </Link>
+                </Subtitle1>
+              ))}
+            </div>
           </div>
         </div>
-        <div className="w-1/3">
-          <div>
-            <H6 className="font-bold">TOP CATEGORIES</H6>
-            <TagList tags={tags} className="mt-8" />
-          </div>
-          <div className="mt-16">
-            <H6 className="font-bold">POPULAR CONTENT</H6>
-            {posts.map(post => (
-              <Subtitle1 key={post.fields.slug} className="mt-4">
-                <Link to={post.fields.slug} itemProp="url">
-                  <span itemProp="headline">{post.frontmatter.title}</span>
-                </Link>
-              </Subtitle1>
-            ))}
-          </div>
-        </div>
-      </div>
-    </Container>
+      </Container>
+    </>
   )
 }
 
