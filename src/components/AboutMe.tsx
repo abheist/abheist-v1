@@ -1,14 +1,41 @@
 import Img from 'gatsby-image'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
-import MEHeader from './MeHeader'
+import MEHeader, { getFluid } from './MeHeader'
 import PopularContent from './PopularContent'
 import { Body1, Body2, H2, H5, Subtitle1 } from './Typography'
 
 const AboutMe = ({ posts, picsGrid, headerImages }) => {
+  let headerStaticImage = getFluid(headerImages, 'me-header-static')
+
   return (
     <div className="overflow-x-hidden">
-      <header style={{ height: '524px', background: `#F8CD5F` }}>
+      <header className="w-full xl:hidden">
+        <div
+          className={`w-full`}
+          style={{
+            background: `#F8CD5F`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'contain',
+          }}
+        >
+          <div className="container relative mx-auto">
+            <H2 className="container absolute z-10 mx-auto top-24 left-8">
+              About Me
+            </H2>
+          </div>
+          <Img
+            fluid={headerStaticImage}
+            style={{ maxWidth: '1200px' }}
+            className="self-end mx-auto"
+            alt="Abhishek Kumar Singh"
+          />
+        </div>
+      </header>
+      <header
+        className="hidden xl:block"
+        style={{ height: '524px', background: `#F8CD5F` }}
+      >
         <MEHeader headerImages={headerImages} />
       </header>
       <div className="container flex flex-row mx-auto mt-52">
