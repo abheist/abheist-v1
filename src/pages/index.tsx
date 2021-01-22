@@ -58,9 +58,7 @@ const BlogIndex = ({ data, location }) => {
         title="Home"
         description="Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being."
         image={{
-          src: data.avatar.childImageSharp.fluid.src,
-          height: data.avatar.childImageSharp.fluid.presentationHeight,
-          width: data.avatar.childImageSharp.fluid.presentationWidth,
+          src: data.avatar.childImageSharp.fixed.src,
         }}
         pathname={location.pathname}
       />
@@ -88,11 +86,12 @@ export const pageQuery = graphql`
     }
     avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
       childImageSharp {
-        fluid(
+        fixed(
+          height: 627
           quality: 80
           traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
         ) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+          ...GatsbyImageSharpFixed_withWebp_tracedSVG
         }
       }
     }

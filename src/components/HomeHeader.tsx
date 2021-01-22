@@ -6,8 +6,8 @@ const HomeHeader = ({ avatar }) => {
   return (
     <div className="flex flex-row items-end justify-end w-full">
       <div
-        className="z-10 p-10 -mb-32 bg-white -mr-80"
-        style={{ width: '600px' }}
+        className="z-10 p-10 -mb-32 bg-white -mr-60"
+        style={{ maxWidth: '600px' }}
       >
         <H2>
           Hi, I'm <span className="strike">Abhishek</span> a Product Developer
@@ -23,7 +23,7 @@ const HomeHeader = ({ avatar }) => {
           height: '627px',
           boxShadow: '-16px 16px  var(--primary-color)',
         }}
-        fluid={avatar.childImageSharp.fluid}
+        fixed={avatar.childImageSharp.fixed}
       />
     </div>
   )
