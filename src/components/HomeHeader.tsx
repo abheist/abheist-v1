@@ -6,7 +6,7 @@ const HomeHeader = ({ avatar }) => {
   return (
     <div className="flex flex-row items-end justify-end w-full">
       <div
-        className="z-10 p-10 -mb-32 bg-white -mr-60"
+        className="z-10 p-10 pl-0 -mb-32 bg-white -mr-60"
         style={{ maxWidth: '600px' }}
       >
         <H2>
