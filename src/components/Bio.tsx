@@ -9,7 +9,7 @@ const Bio = () => {
       avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
         childImageSharp {
           fixed(width: 64, height: 64, quality: 95) {
-            ...GatsbyImageSharpFixed
+            ...GatsbyImageSharpFixed_withWebp_tracedSVG
           }
         }
       }
@@ -28,6 +28,8 @@ const Bio = () => {
   `)
 
   // Set these values by editing "siteMetadata" in gatsby-config.js
+  console.log(data)
+
   const author = data.site.siteMetadata?.author
   const social = data.site.siteMetadata?.social
 
