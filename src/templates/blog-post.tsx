@@ -4,6 +4,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
 import Bio from '../components/Bio'
 import BlogNav from '../components/BlogNav'
+import Container from '../components/Container'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 import SocialShare from '../components/SocialShare'
@@ -28,44 +29,42 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         }}
         pathname={location.pathname}
       />
-      <article
-        className="container px-2 mx-auto"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header className="py-16">
-          {post.frontmatter.tags &&
-            post.frontmatter.tags.map((tag, i) => (
-              <span
-                style={{
-                  color: 'darkgray',
-                  textTransform: 'uppercase',
-                  fontWeight: 700,
-                }}
-                key={tag}
-              >
-                {tag}
-                {post.frontmatter.tags.length - 1 !== i && ', '}
-              </span>
-            ))}
-          <H2>{post.frontmatter.title}</H2>
-          {post.frontmatter.description && (
-            <H6 className="mt-6">{post.frontmatter.description}</H6>
-          )}
-          {post.frontmatter.image && (
-            <Img
-              className="mt-8"
-              fluid={post.frontmatter.image.childImageSharp.fluid}
-              alt="A corgi smiling happily"
-            />
-          )}
-        </header>
+      <Container>
+        <article itemScope itemType="http://schema.org/Article">
+          <header className="py-16">
+            {post.frontmatter.tags &&
+              post.frontmatter.tags.map((tag, i) => (
+                <span
+                  style={{
+                    color: 'darkgray',
+                    textTransform: 'uppercase',
+                    fontWeight: 700,
+                  }}
+                  key={tag}
+                >
+                  {tag}
+                  {post.frontmatter.tags.length - 1 !== i && ', '}
+                </span>
+              ))}
+            <H2>{post.frontmatter.title}</H2>
+            {post.frontmatter.description && (
+              <H6 className="mt-6">{post.frontmatter.description}</H6>
+            )}
+            {post.frontmatter.image && (
+              <Img
+                className="mt-8"
+                fluid={post.frontmatter.image.childImageSharp.fluid}
+                alt="A corgi smiling happily"
+              />
+            )}
+          </header>
 
-        <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </div>
-        <SocialShare title={post.frontmatter.title} location={location} />
-      </article>
+          <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </div>
+          <SocialShare title={post.frontmatter.title} location={location} />
+        </article>
+      </Container>
       <BlogNav previous={previous} next={next} />
       <Bio />
     </Layout>

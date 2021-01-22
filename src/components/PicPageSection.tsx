@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import Card from './Card'
+import Container from './Container'
 import { Body1, H3, H6, Overline } from './Typography'
 
 interface PicPageSectionProps {
@@ -41,7 +42,7 @@ const PicPageSection = ({
 }: PicPageSectionProps) => {
   return (
     <div className={backgroundColor}>
-      <div className="container py-24 mx-auto">
+      <Container className="py-24">
         <div className="flex flex-row justify-between w-full gap-32">
           <Link
             to={latestArticle.to}
@@ -91,7 +92,7 @@ const PicPageSection = ({
             </div>
           </div>
         )}
-      </div>
+      </Container>
     </div>
   )
 }

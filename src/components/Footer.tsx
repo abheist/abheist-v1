@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from './Container'
 import FooterList from './FooterList'
 import Logo from './Logo'
 import { Body2, Caption } from './Typography'
@@ -30,7 +31,7 @@ const Footer = () => {
 
   return (
     <footer className="text-white bg-black">
-      <div className="container mx-auto py-28">
+      <Container className="py-28">
         <div className="flex flex-row">
           <div className="w-5/12">
             <Logo color="light" />
@@ -54,7 +55,7 @@ const Footer = () => {
         <Caption className="mt-16" style={{ color: '#FFFFFF' }}>
           &copy; {new Date().getFullYear()}, ABHISHEK KUMAR SINGH 🤘
         </Caption>
-      </div>
+      </Container>
     </footer>
   )
 }

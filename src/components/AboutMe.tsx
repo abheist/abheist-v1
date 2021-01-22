@@ -1,6 +1,7 @@
 import Img from 'gatsby-image'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
+import Container from './Container'
 import MEHeader, { getFluid } from './MeHeader'
 import PopularContent from './PopularContent'
 import { Body1, Body2, H2, H5, Subtitle1 } from './Typography'
@@ -19,11 +20,9 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
             backgroundSize: 'contain',
           }}
         >
-          <div className="container relative mx-auto">
-            <H2 className="container absolute z-10 mx-auto top-24 left-8">
-              About Me
-            </H2>
-          </div>
+          <Container className="relative">
+            <H2 className="absolute z-10 top-24 left-8">About Me</H2>
+          </Container>
           <Img
             fluid={headerStaticImage}
             style={{ maxWidth: '1200px' }}
@@ -38,7 +37,7 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
       >
         <MEHeader headerImages={headerImages} />
       </header>
-      <div className="container flex flex-row mx-auto mt-52">
+      <Container className="flex flex-row mt-52">
         <div className="flex flex-col w-1/4 gap-y-6">
           <H5 className="mt-8 normal-case">
             <OutboundLink
@@ -146,8 +145,8 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
             <Body1 className="mt-2">Abhishek Kumar Singh</Body1>
           </div>
         </div>
-      </div>
-      <div className="container mx-auto py-52">
+      </Container>
+      <Container className="py-52">
         <H2>Popular Links</H2>
         <Subtitle1 className="mt-10">
           To help you find something that interests you, I’ve made a list of my
@@ -158,9 +157,9 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
           <PopularContent posts={posts} heading="Long blog post" />
           <PopularContent posts={posts} heading="Book notes" />
         </div>
-      </div>
+      </Container>
       <div className="bg-indigo-50">
-        <div className="container py-40 mx-auto">
+        <Container className="py-40">
           <H2>Photography</H2>
           <Subtitle1 className="mt-10">
             Some of my favourite photography work below. To look more, you can
@@ -177,7 +176,7 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
               />
             ))}
           </div>
-        </div>
+        </Container>
       </div>
     </div>
   )

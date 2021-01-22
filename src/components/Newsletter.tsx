@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from './Container'
 import { Body1, Caption, H3, Subtitle1 } from './Typography'
 
 const Newsletter = () => {
@@ -21,7 +22,7 @@ const Newsletter = () => {
 
   return (
     <div className="bg-yellow-50">
-      <div className="container flex flex-row py-40 mx-auto">
+      <Container className="flex flex-row py-40">
         <div className="w-1/2">
           <H3>Join Me</H3>
           <Body1 className="mt-8">
@@ -67,7 +68,7 @@ const Newsletter = () => {
             </Caption>
           </div>
         </div>
-      </div>
+      </Container>
     </div>
   )
 }

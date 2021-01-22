@@ -1,9 +1,10 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import Container from './Container'
 
 const BlogNav = ({ previous, next }) => {
   return (
-    <div className="container px-24 mx-auto">
+    <Container className="px-24 ">
       <nav className="px-8 py-6 pb-4 border border-gray-500 rounded-md ">
         <ul
           style={{
@@ -38,7 +39,7 @@ const BlogNav = ({ previous, next }) => {
           </li>
         </ul>
       </nav>
-    </div>
+    </Container>
   )
 }
 

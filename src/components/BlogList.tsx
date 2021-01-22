@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import React, { useEffect, useState } from 'react'
 import BlogCard from './BlogCard'
+import Container from './Container'
 import PicPageSection from './PicPageSection'
 import TagList from './TagList'
 import { H6, Subtitle1 } from './Typography'
@@ -34,7 +35,7 @@ const BlogList = ({ posts: articles, tags }) => {
   }
 
   return (
-    <div className="container px-4 mx-auto">
+    <Container className="px-4">
       <PicPageSection picSide="right" data={articlesSection} />
       <div>
         <input
@@ -71,7 +72,7 @@ const BlogList = ({ posts: articles, tags }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   )
 }
 

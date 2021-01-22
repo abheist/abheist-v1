@@ -6,6 +6,7 @@ import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs'
 import AmazonButton from '../components/AmazonButton'
 import Bio from '../components/Bio'
 import BlogNav from '../components/BlogNav'
+import Container from '../components/Container'
 import ImageWithShadow from '../components/ImageWithShadow'
 import Layout from '../components/Layout'
 import NameIcon from '../components/NameIcon'
@@ -55,58 +56,58 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         }}
         pathname={location.pathname}
       />
-      <article
-        className="container px-2 mx-auto"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header className="py-16">
-          <H2>{post.frontmatter.title}</H2>
-          <H6 className="mt-6">{post.frontmatter.description}</H6>
-          <div className="flex flex-row mt-8 gap-x-12">
-            <ImageWithShadow
-              style={{ height: '400px', width: '270px' }}
-              fluid={post.frontmatter.image.childImageSharp.fluid}
-            />
-            <div className="flex flex-col justify-between w-full">
-              <div>
-                <p className="font-serif text-xl font-bold">Favourite Quote</p>
-                <div className="mt-4 prose">
-                  <blockquote>{post.frontmatter.favouriteQuote}</blockquote>
+      <Container>
+        <article itemScope itemType="http://schema.org/Article">
+          <header className="py-16">
+            <H2>{post.frontmatter.title}</H2>
+            <H6 className="mt-6">{post.frontmatter.description}</H6>
+            <div className="flex flex-row mt-8 gap-x-12">
+              <ImageWithShadow
+                style={{ height: '400px', width: '270px' }}
+                fluid={post.frontmatter.image.childImageSharp.fluid}
+              />
+              <div className="flex flex-col justify-between w-full">
+                <div>
+                  <p className="font-serif text-xl font-bold">
+                    Favourite Quote
+                  </p>
+                  <div className="mt-4 prose">
+                    <blockquote>{post.frontmatter.favouriteQuote}</blockquote>
+                  </div>
+                  <div className="mt-8">
+                    <Subtitle2 className="font-bold">
+                      How strongly I recommending
+                    </Subtitle2>
+                    <div className="flex flex-row mt-2 gap-x-1">
+                      {getStars(post.frontmatter.rating)}
+                    </div>
+                  </div>
                 </div>
-                <div className="mt-8">
-                  <Subtitle2 className="font-bold">
-                    How strongly I recommending
-                  </Subtitle2>
-                  <div className="flex flex-row mt-2 gap-x-1">
-                    {getStars(post.frontmatter.rating)}
+                <div className="flex flex-row items-center justify-between w-full mt-4 gap-x-4">
+                  <AmazonButton link={post?.frontmatter?.amazon} />
+                  <div className="flex flex-row gap-x-12">
+                    <NameIcon
+                      name="ISBN-10"
+                      icon={<AiOutlineBarcode className="text-4xl" />}
+                      value={post.frontmatter.isbn10}
+                    />
+                    <NameIcon
+                      name="ISBN-13"
+                      icon={<AiOutlineBarcode className="text-4xl" />}
+                      value={post.frontmatter.isbn13}
+                    />
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row items-center justify-between w-full mt-4 gap-x-4">
-                <AmazonButton link={post?.frontmatter?.amazon} />
-                <div className="flex flex-row gap-x-12">
-                  <NameIcon
-                    name="ISBN-10"
-                    icon={<AiOutlineBarcode className="text-4xl" />}
-                    value={post.frontmatter.isbn10}
-                  />
-                  <NameIcon
-                    name="ISBN-13"
-                    icon={<AiOutlineBarcode className="text-4xl" />}
-                    value={post.frontmatter.isbn13}
-                  />
-                </div>
-              </div>
             </div>
-          </div>
-        </header>
+          </header>
 
-        <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
-          <MDXRenderer>{post.body}</MDXRenderer>
-        </div>
-        <SocialShare title={post.frontmatter.title} location={location} />
-      </article>
+          <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
+            <MDXRenderer>{post.body}</MDXRenderer>
+          </div>
+          <SocialShare title={post.frontmatter.title} location={location} />
+        </article>
+      </Container>
       <BlogNav previous={previous} next={next} />
       <Bio />
     </Layout>

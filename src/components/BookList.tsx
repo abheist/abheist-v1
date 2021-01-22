@@ -3,6 +3,7 @@ import { FiGrid, FiList } from 'react-icons/fi'
 import BookCard from './BookCard'
 import BookPageSection from './BookPageSection'
 import BooksGrid from './BooksGrid'
+import Container from './Container'
 import { H6 } from './Typography'
 
 export const getLatestBook = books => {
@@ -45,7 +46,7 @@ const BookList = ({ books: bookList }) => {
   }
 
   return (
-    <div className="container px-4 pb-40 mx-auto">
+    <Container className="pb-40">
       <BookPageSection picSide="right" data={booksSection} />
       <div className="flex flex-row items-center justify-between">
         <input
@@ -95,7 +96,7 @@ const BookList = ({ books: bookList }) => {
           </div>
         )}
       </div>
-    </div>
+    </Container>
   )
 }
 

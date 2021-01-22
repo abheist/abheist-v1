@@ -40,13 +40,6 @@ module.exports = {
         'monospace',
       ],
     },
-    screens: {
-      sm: '100%',
-      md: '640px',
-      lg: '768px',
-      xl: '1024px',
-    },
-    containers: { center: true, padding: '1rem' },
     extend: {
       colors: {
         'indigo-primary': '#5945e4',

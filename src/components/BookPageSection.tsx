@@ -1,6 +1,7 @@
 import { Link } from 'gatsby'
 import React from 'react'
 import BookGridCard from './BookGridCard'
+import Container from './Container'
 import ImageWithShadow from './ImageWithShadow'
 import { Body1, H3, H6 } from './Typography'
 
@@ -42,7 +43,7 @@ const BookPageSection = ({
 }: BookPageSectionProps) => {
   return (
     <div className={backgroundColor}>
-      <div className="container py-24 mx-auto">
+      <Container className="py-24">
         <div className="flex flex-row items-stretch justify-between w-full gap-32">
           <div
             className={`transition-all duration-300 hover:-mt-2 hover:mb-2 ${
@@ -81,7 +82,7 @@ const BookPageSection = ({
             </div>
           </div>
         )}
-      </div>
+      </Container>
     </div>
   )
 }

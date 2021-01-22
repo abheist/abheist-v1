@@ -1,5 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
+import Container from './Container'
 import Logo from './Logo'
 
 const Navigation = ({ title, location }) => {
@@ -16,7 +17,7 @@ const Navigation = ({ title, location }) => {
   ]
 
   return (
-    <div className="container px-4 mx-auto">
+    <Container>
       <nav className="flex flex-row justify-between w-full py-8">
         <Logo title={title} />
         <div className="flex flex-row items-center justify-end gap-x-32">
@@ -32,7 +33,7 @@ const Navigation = ({ title, location }) => {
           ))}
         </div>
       </nav>
-    </div>
+    </Container>
   )
 }
 
