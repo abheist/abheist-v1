@@ -18,9 +18,9 @@ const Navigation = ({ title, location }) => {
 
   return (
     <Container>
-      <nav className="flex flex-row justify-between w-full py-8">
+      <nav className="flex flex-col items-center justify-between w-full py-8 md:flex-row">
         <Logo title={title} />
-        <div className="flex flex-row items-center justify-end gap-x-32">
+        <div className="flex flex-row items-center justify-end mt-8 md:mt-auto gap-x-8 lg:gap-x-32">
           {pages.map(page => (
             <div key={page.name}>
               <Link
