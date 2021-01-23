@@ -53,11 +53,11 @@ module.exports = {
               color: theme('colors.gray.900', defaultTheme.colors.gray[900]),
               background: theme(
                 'colors.indigo.50',
-                defaultTheme.colors.gray[900]
+                defaultTheme.colors.indigo[50]
               ),
               borderRadius: '6px',
               padding: '0.2em 0.4em',
-              fontWeight: '600',
+              fontWeight: '100',
               userSelect: 'all',
             },
             'code::before': {
@@ -65,6 +65,19 @@ module.exports = {
             },
             'code::after': {
               content: '""',
+            },
+            blockquote: {
+              fontWeight: '600',
+              borderLeftColor: theme(
+                'colors.indigo.500',
+                defaultTheme.colors.indigo[500]
+              ),
+            },
+            'blockquote p:first-of-type::before': {
+              content: '',
+            },
+            'blockquote p:last-of-type::after': {
+              content: '',
             },
           },
         },

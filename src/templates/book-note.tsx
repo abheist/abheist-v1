@@ -105,7 +105,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             </div>
           </header>
 
-          <div className="max-w-2xl px-4 mx-auto prose prose-indigo wrap">
+          <div className="max-w-3xl px-4 mx-auto prose md:prose-lg prose-indigo wrap">
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
           <SocialShare title={post.frontmatter.title} location={location} />
