@@ -11,7 +11,7 @@ const HomeHeader = ({ avatar }) => {
       <div
         className="z-10 p-2 mt-8 order-2 
                   lg:p-10 lg:pl-0 lg:-mb-56 lg:bg-white lg:-mr-64 lg:order-1
-                  xl:-mb-32"
+                  xl:-mb-32 2xl:-mr-96"
         style={{ maxWidth: '560px' }}
       >
         <H2>
