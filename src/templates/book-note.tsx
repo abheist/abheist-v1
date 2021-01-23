@@ -66,7 +66,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 style={{ height: '400px', width: '270px' }}
                 fluid={post.frontmatter.image.childImageSharp.fluid}
               />
-              <div className="flex flex-col mt-8 lg:mt-auto justify-between w-full">
+              <div className="flex flex-col mt-8 lg:mt-0 justify-between w-full">
                 <div>
                   <p className="font-serif text-xl font-bold">
                     Favourite Quote
@@ -85,10 +85,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                 </div>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between w-full mt-4 gap-x-4">
                   <AmazonButton
-                    className="order-2 sm:order-1 mt-8 sm:mt-auto"
+                    className="order-2 sm:order-1 mt-8 sm:mt-0"
                     link={post?.frontmatter?.amazon}
                   />
-                  <div className="flex flex-row gap-x-12 order-1 sm:order-2 mt-8 sm:mt-auto">
+                  <div className="flex flex-row gap-x-12 order-1 sm:order-2 mt-8 sm:mt-0">
                     <NameIcon
                       name="ISBN-10"
                       icon={<AiOutlineBarcode className="text-4xl" />}

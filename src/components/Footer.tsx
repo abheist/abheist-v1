@@ -42,7 +42,7 @@ const Footer = () => {
               me and motivate me to share my knowledge to the community.
             </Body2>
           </div>
-          <div className="flex flex-row justify-between mt-16 md:mt-auto md:w-7/12">
+          <div className="flex flex-row justify-between mt-16 md:mt-0 md:w-7/12">
             <div className="grid justify-between grid-cols-2 gap-x-10">
               <FooterList title="PAGES" listItems={listItems1} />
               <FooterList listItems={listItems2} hidden />
