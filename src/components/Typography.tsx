@@ -20,7 +20,7 @@ const H1 = ({ children, className, style }: Props) => {
 const H2 = ({ children, className, style }: Props) => {
   return (
     <h2
-      className={`font-serif text-6xl font-normal leading-tight tracking-normal  capitalize ${className}`}
+      className={`font-serif text-3xl md:text-6xl font-normal leading-tight tracking-normal  capitalize ${className}`}
       style={style}
     >
       {children}
