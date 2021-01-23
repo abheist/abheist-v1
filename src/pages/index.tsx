@@ -70,7 +70,6 @@ const BlogIndex = ({ data, location }) => {
         <PicPageSection data={articlesSection} />
         <BookPageSection
           data={bookNotesSection}
-          picSide="right"
           backgroundColor="bg-indigo-50"
         />
       </div>
