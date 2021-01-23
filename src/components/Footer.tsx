@@ -1,10 +1,101 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from './Container'
 import FooterList from './FooterList'
 import Logo from './Logo'
 import { Body2, Caption } from './Typography'
 
 const Footer = () => {
+  const allowedEmoji = [
+    '✌',
+    '😂',
+    '😝',
+    '😁',
+    '😱',
+    '👉',
+    '🙌',
+    '🍻',
+    '🔥',
+    '🌈',
+    '☀',
+    '🎈',
+    '🌹',
+    '🎀',
+    '⚽',
+    '🎾',
+    '🏁',
+    '😡',
+    '👿',
+    '🐻',
+    '🐶',
+    '🐬',
+    '🐟',
+    '🍀',
+    '👀',
+    '🚗',
+    '🍎',
+    '💝',
+    '💙',
+    '👌',
+    '❤',
+    '😍',
+    '😉',
+    '💪',
+    '🍸',
+    '🔑',
+    '💖',
+    '🌟',
+    '🎉',
+    '🌺',
+    '🎶',
+    '🏈',
+    '⚾',
+    '🏆',
+    '👽',
+    '💀',
+    '🐵',
+    '🐮',
+    '🐩',
+    '🐎',
+    '💣',
+    '🍓',
+    '💘',
+    '💜',
+    '👊',
+    '😘',
+    '😜',
+    '😵',
+    '🙏',
+    '👋',
+    '💎',
+    '🚀',
+    '🌙',
+    '🎁',
+    '⛄',
+    '🌊',
+    '⛵',
+    '🏀',
+    '🎱',
+    '💰',
+    '👶',
+    '👸',
+    '🐰',
+    '🐷',
+    '🐍',
+    '🐫',
+    '🔫',
+    '🚲',
+    '🍉',
+    '💛',
+    '💚',
+  ]
+  const [emoji, setEmoji] = useState(
+    () => allowedEmoji[Math.floor(Math.random() * allowedEmoji.length)]
+  )
+
+  const handleClick = () => {
+    setEmoji(allowedEmoji[Math.floor(Math.random() * allowedEmoji.length)])
+  }
+
   const listItems1 = [
     { name: 'Articles', link: '/articles/' },
     { name: 'Book Notes', link: '/book-notes/' },
@@ -53,7 +144,10 @@ const Footer = () => {
           </div>
         </div>
         <Caption className="mt-16" style={{ color: '#FFFFFF' }}>
-          &copy; {new Date().getFullYear()}, ABHISHEK KUMAR SINGH 🤘
+          &copy; {new Date().getFullYear()}, ABHISHEK KUMAR SINGH{' '}
+          <span className="cursor-pointer" onClick={handleClick}>
+            {emoji}
+          </span>
         </Caption>
       </Container>
     </footer>
