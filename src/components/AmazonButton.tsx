@@ -2,13 +2,13 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
 import { GrAmazon } from 'react-icons/gr'
 
-const AmazonButton = ({ link }) => {
+const AmazonButton = ({ link, className }) => {
   return (
-    <div>
+    <div className={className}>
       <OutboundLink
         href={link}
         target="_blank"
-        className="flex flex-row items-center text-sm font-semibold leading-7 w-52 gap-x-4"
+        className={`flex flex-row items-center text-sm font-semibold leading-7 w-52 gap-x-4`}
         style={{
           border: '1px',
           borderStyle: 'solid',
