@@ -1,9 +1,9 @@
 import Img from 'gatsby-image'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import React from 'react'
+import Card from './Card'
 import Container from './Container'
 import MEHeader, { getFluid } from './MeHeader'
-import PopularContent from './PopularContent'
 import { Body1, Body2, H2, H5, Subtitle1 } from './Typography'
 
 const AboutMe = ({ posts, picsGrid, headerImages }) => {
@@ -147,16 +147,18 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
         </div>
       </Container>
       <Container className="py-16 md:py-52">
-        <H2>Popular Links</H2>
+        <H2>Popular Articles</H2>
         <Subtitle1 className="mt-10">
           To help you find something that interests you, I’ve made a list of my
           favourite creations below.
         </Subtitle1>
-        <div className="flex flex-col md:flex-row justify-between gap-16 mt-16">
-          <PopularContent posts={posts} heading="Blog post" />
-          <PopularContent posts={posts} heading="Long blog post" />
-          <PopularContent posts={posts} heading="Book notes" />
-        </div>
+        {posts && (
+          <div className="grid grid-col-1 lg:grid-cols-3 gap-8 mt-8">
+            {posts.map(card => (
+              <Card key={card.fields.slug} data={card} />
+            ))}
+          </div>
+        )}
       </Container>
       <div className="bg-indigo-50">
         <Container className="py-40">

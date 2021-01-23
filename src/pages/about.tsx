@@ -74,14 +74,30 @@ export const pageQuery = graphql`
     }
     postsRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { ne: "book" }, featured: { eq: true } } }
       limit: 3
     ) {
       nodes {
+        excerpt
         fields {
           slug
         }
         frontmatter {
+          date(formatString: "MMMM DD, YYYY")
           title
+          description
+          featured
+          image {
+            childImageSharp {
+              fluid(
+                traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
+              ) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                presentationHeight
+                presentationWidth
+              }
+            }
+          }
         }
       }
     }
