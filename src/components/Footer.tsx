@@ -32,8 +32,8 @@ const Footer = () => {
   return (
     <footer className="text-white bg-black">
       <Container className="py-28">
-        <div className="flex flex-row">
-          <div className="w-5/12">
+        <div className="flex flex-col md:flex-row md:gap-x-16 lg:gap-x-32">
+          <div className="md:w-5/12">
             <Logo color="light" />
             <Body2 className="mt-8 leading-7 text-gray-400">
               Thanks for reading. It makes a difference. I'll try to help as
@@ -42,7 +42,7 @@ const Footer = () => {
               me and motivate me to share my knowledge to the community.
             </Body2>
           </div>
-          <div className="flex flex-row justify-between w-7/12 pl-32">
+          <div className="flex flex-row justify-between mt-16 md:mt-auto md:w-7/12">
             <div className="grid justify-between grid-cols-2 gap-x-10">
               <FooterList title="PAGES" listItems={listItems1} />
               <FooterList listItems={listItems2} hidden />
