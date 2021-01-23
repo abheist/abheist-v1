@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   purge: ['./src/**/*.js', './src/**/*.jsx', './src/**/*.ts', './src/**/*.tsx'],
   darkMode: false, // or 'media' or 'class'
@@ -44,6 +46,29 @@ module.exports = {
       colors: {
         'indigo-primary': '#5945e4',
       },
+      typography: theme => ({
+        DEFAULT: {
+          css: {
+            code: {
+              color: theme('colors.gray.900', defaultTheme.colors.gray[900]),
+              background: theme(
+                'colors.indigo.50',
+                defaultTheme.colors.gray[900]
+              ),
+              borderRadius: '6px',
+              padding: '0.2em 0.4em',
+              fontWeight: '600',
+              userSelect: 'all',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+          },
+        },
+      }),
     },
   },
   variants: {
