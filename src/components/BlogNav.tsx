@@ -11,7 +11,7 @@ const BlogNav = ({ previous, next }) => {
             <Link
               to={previous.fields.slug}
               rel="prev"
-              className="hover:text-indigo-primary px-8 py-6 hover:bg-yellow-50 block flex-grow rounded-l-md"
+              className="hover:text-indigo-primary px-8 py-6 hover:bg-yellow-50 block flex-grow rounded-md"
             >
               ← {previous.frontmatter.title}
             </Link>
@@ -20,7 +20,7 @@ const BlogNav = ({ previous, next }) => {
             <Link
               to={next.fields.slug}
               rel="next"
-              className="hover:text-indigo-primary px-8 py-6 hover:bg-yellow-50 block flex-grow rounded-r-md"
+              className="hover:text-indigo-primary px-8 py-6 hover:bg-yellow-50 block flex-grow rounded-md"
             >
               {next.frontmatter.title} →
             </Link>
