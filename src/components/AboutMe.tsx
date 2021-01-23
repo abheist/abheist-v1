@@ -37,8 +37,8 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
       >
         <MEHeader headerImages={headerImages} />
       </header>
-      <Container className="flex flex-row mt-52">
-        <div className="flex flex-col w-1/4 gap-y-6">
+      <Container className="flex flex-col md:flex-row mt-8 md:mt-52">
+        <div className="flex flex-col md:w-1/4 gap-y-6 order-2 md:order-1">
           <H5 className="mt-8 normal-case">
             <OutboundLink
               href="mailto:hi@abheist.com"
@@ -109,7 +109,7 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
             </OutboundLink>
           </Body2>
         </div>
-        <div className="w-3/4">
+        <div className="md:w-3/4 order-1 md:order-2">
           <H2>Hi Friends</H2>
           <div className="mt-10 prose">
             <Body1>
@@ -146,13 +146,13 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
           </div>
         </div>
       </Container>
-      <Container className="py-52">
+      <Container className="py-16 md:py-52">
         <H2>Popular Links</H2>
         <Subtitle1 className="mt-10">
           To help you find something that interests you, I’ve made a list of my
           favourite creations below.
         </Subtitle1>
-        <div className="flex flex-row justify-between gap-16 mt-16">
+        <div className="flex flex-col md:flex-row justify-between gap-16 mt-16">
           <PopularContent posts={posts} heading="Blog post" />
           <PopularContent posts={posts} heading="Long blog post" />
           <PopularContent posts={posts} heading="Book notes" />
@@ -165,7 +165,7 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
             Some of my favourite photography work below. To look more, you can
             check out my Unsplash profile.
           </Subtitle1>
-          <div className="grid grid-cols-3 grid-rows-3 gap-1 mt-16">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-1 mt-16">
             {picsGrid.map(image => (
               <Img
                 fluid={{
