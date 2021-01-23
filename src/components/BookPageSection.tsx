@@ -71,7 +71,7 @@ const BookPageSection = ({
         {featured && (
           <div className="mt-28">
             <H6>FEATURED</H6>
-            <div className="grid grid-col-1 sm:grid-cols-2 lg:grid-cols-4 mt-8 gap-x-2 md:gap-x-12 gap-y-16">
+            <div className="flex flex-row justify-between flex-wrap mt-8 gap-x-2 md:gap-x-12 gap-y-16">
               {featured.map(post => (
                 <BookGridCard key={post.fields.slug} book={post} />
               ))}
