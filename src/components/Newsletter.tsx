@@ -22,8 +22,8 @@ const Newsletter = () => {
 
   return (
     <div className="bg-yellow-50">
-      <Container className="flex flex-row py-40">
-        <div className="w-1/2">
+      <Container className="flex flex-col lg:flex-row py-40 gap-x-16">
+        <div className="lg:w-1/2">
           <H3>Join Me</H3>
           <Body1 className="mt-8">
             I am fortunate enough to share my work with a you. Thanks to you and
@@ -45,9 +45,9 @@ const Newsletter = () => {
             </li>
           </ol>
         </div>
-        <div className="w-1/2 h-full pl-16">
+        <div className="lg:w-1/2 h-full">
           <div className="px-4 py-16 bg-white">
-            <Subtitle1 className="px-16 font-bold text-center">
+            <Subtitle1 className="xs:px-16 font-bold text-center">
               Design, Development & Life Improvement tips
             </Subtitle1>
             <form action="/api/subscribe" method="POST" onSubmit={handleSubmit}>
@@ -63,7 +63,7 @@ const Newsletter = () => {
                 Try the free newsletter
               </button>
             </form>
-            <Caption className="px-20 mt-16 text-center">
+            <Caption className="sm:px-20 mt-16 text-center">
               No spam. Just the highest quality ideas you’ll find on the web.
             </Caption>
           </div>
