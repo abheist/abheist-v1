@@ -47,7 +47,7 @@ const BookList = ({ books: bookList }) => {
 
   return (
     <>
-      <BookPageSection picSide="right" data={booksSection} />
+      <BookPageSection data={booksSection} />
       <Container className="pb-40">
         <div className="flex flex-row items-center justify-between">
           <input

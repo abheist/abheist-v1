@@ -17,7 +17,7 @@ const CodeWrapper = styled.pre`
   ${tw`float-left w-full`}
   ::before {
     content: '${props => props['data-language']}';
-    ${tw`bg-red-900 rounded-b-lg text-gray-800 bg-yellow-500 text-xs tracking-wide px-2 py-0.5 absolute left-8 text-center uppercase -mt-7`}
+    ${tw`rounded-t-sm bg-red-900 rounded-b-lg text-gray-800 bg-yellow-500 text-xs tracking-wide px-2 py-0.5 absolute left-8 text-center uppercase -mt-8 z-10`}
   }
 `
 
@@ -91,7 +91,7 @@ function Code({ codeString, language, metastring }) {
               <div
                 className="absolute w-full py-2 text-sm text-gray-800 bg-indigo-100 rounded-t-lg px-9"
                 css={`
-                  margin-top: -70px;
+                  margin-top: -66px;
                   margin-left: -10px;
                 `}
               >

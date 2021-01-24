@@ -4,10 +4,15 @@ import { Body1, H2 } from './Typography'
 
 const HomeHeader = ({ avatar }) => {
   return (
-    <div className="flex flex-row items-end justify-end w-full">
+    <div
+      className="flex flex-col justify-end w-full
+                  lg:flex-row lg:items-end"
+    >
       <div
-        className="z-10 p-10 pl-0 -mb-32 bg-white -mr-60"
-        style={{ maxWidth: '600px' }}
+        className="z-10 p-2 mt-8 order-2 
+                  lg:p-10 lg:pl-0 lg:-mb-56 lg:bg-white lg:-mr-64 lg:order-1
+                  xl:-mb-32 2xl:-mr-96"
+        style={{ maxWidth: '560px' }}
       >
         <H2>
           Hi, I'm <span className="strike">Abhishek</span> a Product Developer
@@ -18,12 +23,11 @@ const HomeHeader = ({ avatar }) => {
         </Body1>
       </div>
       <Img
-        className="w-full md:w-2/3"
+        className="w-full lg:w-2/3 order-1 lg:order-2"
         style={{
-          height: '627px',
           boxShadow: '-16px 16px  var(--primary-color)',
         }}
-        fixed={avatar.childImageSharp.fixed}
+        fluid={avatar.childImageSharp.fluid}
       />
     </div>
   )

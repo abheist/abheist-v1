@@ -4,8 +4,8 @@ import { Overline } from './Typography'
 
 const SocialShare = ({ title, location }) => {
   return (
-    <div className="flex flex-row items-center justify-end px-24 my-16 gap-x-8">
-      <div className="flex-1 divide-y divide-gray-300 bg-red-50">
+    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-end lg:px-24 my-16 gap-y-4 sm:gap-y-0 gap-x-2 sm:gap-x-8">
+      <div className="hidden lg:block flex-1 divide-y divide-gray-300 bg-red-50">
         <div></div>
         <div></div>
       </div>

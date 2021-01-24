@@ -47,8 +47,8 @@ const BlogList = ({ posts: articles, tags }) => {
             onChange={event => setSearch(event.target.value)}
           />
         </div>
-        <div className="flex flex-row gap-16 mb-32">
-          <div className="w-2/3">
+        <div className="flex flex-col md:flex-row gap-16 mb-32">
+          <div className="md:w-2/3">
             <H6 className="font-bold">RECENTLY PUBLISHED</H6>
             <div className="grid mt-10 gap-y-20">
               {posts.map(post => (
@@ -56,7 +56,7 @@ const BlogList = ({ posts: articles, tags }) => {
               ))}
             </div>
           </div>
-          <div className="w-1/3">
+          <div className="md:w-1/3">
             <div>
               <H6 className="font-bold">TOP CATEGORIES</H6>
               <TagList tags={tags} className="mt-8" />

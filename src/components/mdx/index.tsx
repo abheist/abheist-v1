@@ -1,18 +1,8 @@
 import * as React from 'react'
 import Code from './code'
-import List from './list'
-import Paragraph from './paragraph'
-import SmallTitle from './small-title'
-import Subtitle from './subtitle'
-import Title from './title'
 
 export default {
   wrapper: ({ children }) => children,
-  h1: props => <Title {...props} />,
-  h2: props => <Subtitle {...props} />,
-  h3: props => <SmallTitle {...props} />,
-  p: props => <Paragraph {...props} />,
-  ul: props => <List {...props} />,
   pre: preProps => {
     const props = preToCodeBlock(preProps)
     // if there's a codeString and some props, we passed the test

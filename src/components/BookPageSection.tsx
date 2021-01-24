@@ -7,7 +7,6 @@ import { Body1, H3, H6 } from './Typography'
 
 interface BookPageSectionProps {
   backgroundColor?: string
-  picSide?: 'left' | 'right'
   data: {
     heading: string
     description: string
@@ -38,26 +37,13 @@ interface BookPageSectionProps {
 
 const BookPageSection = ({
   backgroundColor,
-  picSide = 'left',
   data: { heading, description, to, linkName, latestArticle, featured },
 }: BookPageSectionProps) => {
   return (
     <div className={backgroundColor}>
       <Container className="py-24">
-        <div className="flex flex-row items-stretch justify-between w-full gap-32">
-          <div
-            className={`transition-all duration-300 hover:-mt-2 hover:mb-2 ${
-              picSide === 'left' ? 'order-1' : 'order-2'
-            }`}
-          >
-            <Link to={latestArticle.to}>
-              <ImageWithShadow
-                style={{ height: '400px', width: '270px' }}
-                fluid={latestArticle.pic.childImageSharp.fluid}
-              />
-            </Link>
-          </div>
-          <div className={`${picSide === 'left' ? 'order-2' : 'order-1'} py-8`}>
+        <div className="flex flex-col sm:flex-row items-stretch justify-between w-full sm:gap-8 md:gap-32">
+          <div className={`md:py-8  mb-20 sm:mb-auto `}>
             <H3>{heading}</H3>
             <Body1 className="mt-8">{description}</Body1>
             {to && linkName && (
@@ -71,11 +57,21 @@ const BookPageSection = ({
               </div>
             )}
           </div>
+          <div
+            className={`transition-all order-1 duration-300 sm:hover:-mt-2 sm:hover:mb-2`}
+          >
+            <Link to={latestArticle.to}>
+              <ImageWithShadow
+                style={{ height: '400px', width: '270px' }}
+                fluid={latestArticle.pic.childImageSharp.fluid}
+              />
+            </Link>
+          </div>
         </div>
         {featured && (
           <div className="mt-28">
             <H6>FEATURED</H6>
-            <div className="grid grid-cols-4 mt-8 gap-x-12 gap-y-16">
+            <div className="flex flex-row justify-between flex-wrap mt-8 gap-x-2 md:gap-x-12 gap-y-16">
               {featured.map(post => (
                 <BookGridCard key={post.fields.slug} book={post} />
               ))}

@@ -1,10 +1,97 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Container from './Container'
 import FooterList from './FooterList'
 import Logo from './Logo'
 import { Body2, Caption } from './Typography'
 
 const Footer = () => {
+  const allowedEmoji = [
+    '✌',
+    '😂',
+    '😝',
+    '😁',
+    '😱',
+    '🙌',
+    '🍻',
+    '🔥',
+    '🌈',
+    '☀',
+    '🎈',
+    '🌹',
+    '🎀',
+    '⚽',
+    '🎾',
+    '🏁',
+    '👿',
+    '🐻',
+    '🐶',
+    '🐬',
+    '🐟',
+    '🍀',
+    '👀',
+    '🚗',
+    '🍎',
+    '💝',
+    '💙',
+    '👌',
+    '❤',
+    '😍',
+    '😉',
+    '💪',
+    '🍸',
+    '🔑',
+    '💖',
+    '🌟',
+    '🎉',
+    '🌺',
+    '🎶',
+    '🏈',
+    '⚾',
+    '🏆',
+    '🐵',
+    '🐮',
+    '🐩',
+    '🐎',
+    '💣',
+    '🍓',
+    '💘',
+    '💜',
+    '👊',
+    '😘',
+    '😜',
+    '😵',
+    '🙏',
+    '👋',
+    '💎',
+    '🚀',
+    '🌙',
+    '🎁',
+    '⛄',
+    '🌊',
+    '⛵',
+    '🏀',
+    '🎱',
+    '💰',
+    '👶',
+    '👸',
+    '🐰',
+    '🐷',
+    '🐍',
+    '🐫',
+    '🔫',
+    '🚲',
+    '🍉',
+    '💛',
+    '💚',
+  ]
+  const [emoji, setEmoji] = useState(
+    () => allowedEmoji[Math.floor(Math.random() * allowedEmoji.length)]
+  )
+
+  const handleClick = () => {
+    setEmoji(allowedEmoji[Math.floor(Math.random() * allowedEmoji.length)])
+  }
+
   const listItems1 = [
     { name: 'Articles', link: '/articles/' },
     { name: 'Book Notes', link: '/book-notes/' },
@@ -32,8 +119,8 @@ const Footer = () => {
   return (
     <footer className="text-white bg-black">
       <Container className="py-28">
-        <div className="flex flex-row">
-          <div className="w-5/12">
+        <div className="flex flex-col md:flex-row md:gap-x-16 lg:gap-x-32">
+          <div className="md:w-5/12">
             <Logo color="light" />
             <Body2 className="mt-8 leading-7 text-gray-400">
               Thanks for reading. It makes a difference. I'll try to help as
@@ -42,7 +129,7 @@ const Footer = () => {
               me and motivate me to share my knowledge to the community.
             </Body2>
           </div>
-          <div className="flex flex-row justify-between w-7/12 pl-32">
+          <div className="flex flex-row justify-between mt-16 md:mt-0 md:w-7/12">
             <div className="grid justify-between grid-cols-2 gap-x-10">
               <FooterList title="PAGES" listItems={listItems1} />
               <FooterList listItems={listItems2} hidden />
@@ -53,7 +140,10 @@ const Footer = () => {
           </div>
         </div>
         <Caption className="mt-16" style={{ color: '#FFFFFF' }}>
-          &copy; {new Date().getFullYear()}, ABHISHEK KUMAR SINGH 🤘
+          &copy; {new Date().getFullYear()}, ABHISHEK KUMAR SINGH{' '}
+          <span className="text-xl cursor-pointer" onClick={handleClick}>
+            {emoji}
+          </span>
         </Caption>
       </Container>
     </footer>

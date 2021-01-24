@@ -27,16 +27,13 @@ const Bio = () => {
     }
   `)
 
-  // Set these values by editing "siteMetadata" in gatsby-config.js
-  console.log(data)
-
   const author = data.site.siteMetadata?.author
   const social = data.site.siteMetadata?.social
 
   const avatar = data?.avatar?.childImageSharp?.fixed
 
   return (
-    <div className="flex flex-row items-start justify-center mx-auto my-24 gap-x-4">
+    <div className="flex flex-col sm:flex-row items-start justify-center mx-auto my-24 px-4 gap-x-4">
       {avatar && (
         <Image
           fixed={avatar}
@@ -47,7 +44,7 @@ const Bio = () => {
         />
       )}
       {author?.name && (
-        <p className="w-10/12 py-0 prose">
+        <p className="sm:w-10/12 prose">
           <strong>{author.name}</strong>, {author?.summary || null}
           {` `}
           <OutboundLink

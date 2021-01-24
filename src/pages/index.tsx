@@ -61,7 +61,7 @@ const BlogIndex = ({ data, location }) => {
         title="Home"
         description="Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being."
         image={{
-          src: data.avatar.childImageSharp.fixed.src,
+          src: data.avatar.childImageSharp.fluid.src,
         }}
         pathname={location.pathname}
       />
@@ -70,7 +70,6 @@ const BlogIndex = ({ data, location }) => {
         <PicPageSection data={articlesSection} />
         <BookPageSection
           data={bookNotesSection}
-          picSide="right"
           backgroundColor="bg-indigo-50"
         />
       </div>
@@ -89,12 +88,11 @@ export const pageQuery = graphql`
     }
     avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
       childImageSharp {
-        fixed(
-          height: 627
-          quality: 80
+        fluid(
+          quality: 95
           traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
         ) {
-          ...GatsbyImageSharpFixed_withWebp_tracedSVG
+          ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
     }

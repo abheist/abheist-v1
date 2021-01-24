@@ -15,14 +15,13 @@ const BookGridCard = ({ book }) => {
     <>
       {book.frontmatter.published === false ? (
         <span
-          key={book.fields.slug}
           className={`relative transition-all duration-300 hover:-mt-2 cursor-not-allowed group`}
           onClick={animate}
         >
           <ImageWithShadow
             className={`group-hover:opacity-80`}
-            style={{ height: '300px', width: '200px' }}
             fluid={book.frontmatter.image.childImageSharp.fluid}
+            style={{ height: '300px', width: '200px' }}
           />
           <Subtitle2
             className={`absolute z-10 px-2 py-1 -mt-1 -ml-8 transform -rotate-90 bg-yellow-500 border-r-4 rounded-l-sm top-10 ${
