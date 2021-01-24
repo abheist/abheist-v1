@@ -11,7 +11,6 @@ const Footer = () => {
     '😝',
     '😁',
     '😱',
-    '👉',
     '🙌',
     '🍻',
     '🔥',
@@ -23,7 +22,6 @@ const Footer = () => {
     '⚽',
     '🎾',
     '🏁',
-    '😡',
     '👿',
     '🐻',
     '🐶',
@@ -50,8 +48,6 @@ const Footer = () => {
     '🏈',
     '⚾',
     '🏆',
-    '👽',
-    '💀',
     '🐵',
     '🐮',
     '🐩',
@@ -145,7 +141,7 @@ const Footer = () => {
         </div>
         <Caption className="mt-16" style={{ color: '#FFFFFF' }}>
           &copy; {new Date().getFullYear()}, ABHISHEK KUMAR SINGH{' '}
-          <span className="cursor-pointer" onClick={handleClick}>
+          <span className="text-xl cursor-pointer" onClick={handleClick}>
             {emoji}
           </span>
         </Caption>

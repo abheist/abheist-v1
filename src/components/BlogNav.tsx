@@ -6,12 +6,12 @@ const BlogNav = ({ previous, next }) => {
   return (
     <Container className="lg:px-24">
       <nav className="border border-gray-500 rounded-md">
-        <div className="flex md:flex-row justify-center">
+        <div className="flex justify-center md:flex-row">
           {previous && (
             <Link
               to={previous.fields.slug}
               rel="prev"
-              className="hover:text-indigo-primary px-8 py-6 hover:bg-yellow-50 block flex-grow rounded-md"
+              className="flex-grow block px-8 py-6 rounded-md hover:text-indigo-primary hover:bg-yellow-50"
             >
               ← {previous.frontmatter.title}
             </Link>
@@ -20,7 +20,7 @@ const BlogNav = ({ previous, next }) => {
             <Link
               to={next.fields.slug}
               rel="next"
-              className="hover:text-indigo-primary px-8 py-6 hover:bg-yellow-50 block flex-grow rounded-md"
+              className="flex-grow block px-8 py-6 text-right rounded-md hover:text-indigo-primary hover:bg-yellow-50"
             >
               {next.frontmatter.title} →
             </Link>
