@@ -61,12 +61,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
           <header className="py-16">
             <H2>{post.frontmatter.title}</H2>
             <H6 className="mt-6">{post.frontmatter.description}</H6>
-            <div className="flex flex-col lg:flex-row mt-8 gap-x-12">
+            <div className="flex flex-col mt-8 lg:flex-row gap-x-12">
               <ImageWithShadow
                 style={{ height: '400px', width: '270px' }}
                 fluid={post.frontmatter.image.childImageSharp.fluid}
               />
-              <div className="flex flex-col mt-8 lg:mt-0 justify-between w-full">
+              <div className="flex flex-col justify-between w-full mt-8 lg:mt-0">
                 <div>
                   <p className="font-serif text-xl font-bold">
                     Favourite Quote
@@ -83,12 +83,12 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between w-full mt-4 gap-x-4">
+                <div className="flex flex-col items-start w-full mt-4 sm:flex-row sm:items-center sm:justify-between gap-x-4">
                   <AmazonButton
-                    className="order-2 sm:order-1 mt-8 sm:mt-0"
+                    className="order-2 mt-8 sm:order-1 sm:mt-0"
                     link={post?.frontmatter?.amazon}
                   />
-                  <div className="flex flex-row gap-x-12 order-1 sm:order-2 mt-8 sm:mt-0">
+                  <div className="flex flex-row order-1 mt-8 gap-x-12 sm:order-2 sm:mt-0">
                     <NameIcon
                       name="ISBN-10"
                       icon={<AiOutlineBarcode className="text-4xl" />}
@@ -105,7 +105,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             </div>
           </header>
 
-          <div className="max-w-3xl px-4 mx-auto prose md:prose-lg prose-indigo wrap">
+          <div className="max-w-3xl px-4 mx-auto prose-sm prose md:prose-lg prose-indigo wrap">
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
           <SocialShare title={post.frontmatter.title} location={location} />
