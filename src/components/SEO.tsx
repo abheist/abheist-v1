@@ -68,7 +68,7 @@ const SEO = ({
         },
         {
           name: `author`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.author.name,
         },
         {
           property: `og:title`,
