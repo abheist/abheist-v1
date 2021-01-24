@@ -72,7 +72,7 @@ const SEO = ({
         },
         {
           property: `og:title`,
-          content: title,
+          content: title + ' | Abhishek Kumar Singh',
         },
         {
           property: `og:description`,
@@ -92,7 +92,7 @@ const SEO = ({
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: title + ' | Abhishek Kumar Singh',
         },
         {
           name: `twitter:description`,
