@@ -24,10 +24,11 @@ exports.handler = async event => {
     return {
       statusCode: 301,
       headers: {
-        Location: '/success/',
+        // Location: '/success/',
+        success: true,
       },
       // body is unused in 3xx codes, but required in all the function responses
-      body: 'redirecting...',
+      body: 'Success...',
     }
   } catch (error) {
     return {
