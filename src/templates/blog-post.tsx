@@ -1,123 +1,72 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { HitCounter } from "../components/hit-counter"
-import kebabCase from "lodash/kebabCase"
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
+import * as React from 'react'
+import Bio from '../components/Bio'
+import BlogNav from '../components/BlogNav'
+import Container from '../components/Container'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
+import SocialShare from '../components/SocialShare'
+import { H2, H6 } from '../components/Typography'
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
-  const post = data.markdownRemark
+  const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next, slug } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle} location={location}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
+        image={{
+          src: post.frontmatter.image?.childImageSharp.fluid.src,
+          height:
+            post.frontmatter.image?.childImageSharp.fluid.presentationHeight,
+          width:
+            post.frontmatter.image?.childImageSharp.fluid.presentationWidth,
+        }}
+        pathname={location.pathname}
       />
-      <article
-        className="blog-post"
-        itemScope
-        itemType="http://schema.org/Article"
-      >
-        <header>
-          {post.frontmatter.tags.map((tag, i) => (
-            <span
-              style={{
-                color: "darkgray",
-                textTransform: "uppercase",
-                fontWeight: 700,
-              }}
-              key={tag}
-            >
-              {tag}
-              {post.frontmatter.tags.length - 1 !== i && ", "}
-            </span>
-          ))}
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
-        </header>
-        {post.frontmatter.tableContent ? (
-          <div
-            style={{
-              display: "flex",
-            }}
-          >
-            <div
-              style={{
-                minWidth: "250px",
-                position: "sticky",
-                top: "148px",
-                maxHeight: "calc(100vh - 148px)",
-                marginLeft: "-354px",
-                marginRight: "100px",
-              }}
-            >
-              {post.headings.map(heading => (
-                <pre key={heading.value}>
-                  <Link
-                    to={`#${kebabCase(heading.value)}/`}
-                    style={{
-                      overflow: "hidden",
-                      display: "inline-block",
-                      width: "250px",
-                      maxWidth: "250px",
-                      whiteSpace: "nowrap",
-                      textOverflow: "ellipsis",
-                    }}
-                  >
-                    {heading.value}
-                  </Link>
-                  <br />
-                </pre>
+      <Container>
+        <article itemScope itemType="http://schema.org/Article">
+          <header className="py-16">
+            {post.frontmatter.tags &&
+              post.frontmatter.tags.map((tag, i) => (
+                <span
+                  style={{
+                    color: 'darkgray',
+                    textTransform: 'uppercase',
+                    fontWeight: 700,
+                  }}
+                  key={tag}
+                >
+                  {tag}
+                  {post.frontmatter.tags.length - 1 !== i && ', '}
+                </span>
               ))}
-            </div>
-            <section
-              dangerouslySetInnerHTML={{ __html: post.html }}
-              itemProp="articleBody"
-            />
+            <H2>{post.frontmatter.title}</H2>
+            {post.frontmatter.description && (
+              <H6 className="mt-6">{post.frontmatter.description}</H6>
+            )}
+            {post.frontmatter.image && (
+              <Img
+                className="mt-8"
+                fluid={post.frontmatter.image.childImageSharp.fluid}
+                alt="A corgi smiling happily"
+              />
+            )}
+          </header>
+
+          <div className="max-w-3xl px-4 mx-auto prose-sm prose md:prose-lg prose-indigo wrap">
+            <MDXRenderer>{post.body}</MDXRenderer>
           </div>
-        ) : (
-          <section
-            dangerouslySetInnerHTML={{ __html: post.html }}
-            itemProp="articleBody"
-          />
-        )}
-        {HitCounter({ slug })}
-        <hr />
-        <footer>
-          <Bio />
-        </footer>
-      </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={previous.fields.slug} rel="prev">
-                ← {previous.frontmatter.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+          <SocialShare title={post.frontmatter.title} location={location} />
+        </article>
+      </Container>
+      <BlogNav previous={previous} next={next} />
+      <Bio />
     </Layout>
   )
 }
@@ -131,10 +80,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+    mdx(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
-      html
+      body
       headings {
         value
         depth
@@ -144,7 +93,17 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         tags
-        tableContent
+        image {
+          childImageSharp {
+            fluid(
+              traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
+            ) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+              presentationHeight
+              presentationWidth
+            }
+          }
+        }
       }
     }
   }

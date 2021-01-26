@@ -1,4 +1,4 @@
-const faunadb = require("faunadb")
+const faunadb = require('faunadb')
 
 exports.handler = async event => {
   const q = faunadb.query
@@ -11,18 +11,18 @@ exports.handler = async event => {
     return {
       statusCode: 400,
       body: JSON.stringify({
-        message: "Article slug not provided",
+        message: 'Article slug not provided',
       }),
     }
   }
 
   // Check and see if the doc exists.
   const doesDocExist = await client.query(
-    q.Exists(q.Match(q.Index("hits_by_slug"), slug))
+    q.Exists(q.Match(q.Index('hits_by_slug'), slug))
   )
   if (!doesDocExist) {
     await client.query(
-      q.Create(q.Collection("hits"), {
+      q.Create(q.Collection('hits'), {
         data: { slug: slug, hits: 0 },
       })
     )
@@ -30,7 +30,7 @@ exports.handler = async event => {
 
   // Fetch the document for-real
   const document = await client.query(
-    q.Get(q.Match(q.Index("hits_by_slug"), slug))
+    q.Get(q.Match(q.Index('hits_by_slug'), slug))
   )
 
   await client.query(

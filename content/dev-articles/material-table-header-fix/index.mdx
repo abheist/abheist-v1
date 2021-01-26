@@ -1,0 +1,94 @@
+---
+title: Make a Material table header fix
+date: 2020-08-12
+description:
+image: ./headers.png
+tags:
+  - Angular
+tableContent: false
+featured: true
+---
+
+If you see the below code, you'll find out that I've removed the data rows from the first table and header row from the second table. and then added a tableHeader and tableData ids to both table.
+
+```html
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  id="tableHeader"
+>
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+  </ng-container>
+
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef>Weight</th>
+  </ng-container>
+
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef>Symbol</th>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+</table>
+
+<table
+  mat-table
+  [dataSource]="dataSource"
+  class="mat-elevation-z8"
+  id="tableData"
+>
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{element.position}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element">{{element.name}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef>Weight</th>
+    <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef>Symbol</th>
+    <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+  </ng-container>
+
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+```
+
+Now, we'll get the width of each column from the second table and reflect them in the first to fix the header.
+
+```js
+const headerTable = document.querySelector('#tableHeader')
+const dataTable = document.querySelector('#tableData')
+
+/**
+ * Get width of each column named "dataWidths" and
+ * Fix first and last column width by subtraction 24px
+ * as left and right padding was styled into the first and last column of the table
+ * */
+const dataWidths = [...dataTable.children[1].children[0].children].map(
+  cell => cell.offsetWidth
+)
+dataWidths[0] = dataWidths[0] - 24
+dataWidths[dataWidths.length - 1] = dataWidths[dataWidths.length - 1] - 24
+
+const headerColumns = [...headerTable.children[0].children[0].children]
+headerColumns.map(column => {
+  column.style.width = dataWidths[count] + 'px'
+  count++
+})
+```
+
+🙏

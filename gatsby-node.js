@@ -1,5 +1,5 @@
 const path = require(`path`)
-const _ = require("lodash")
+const _ = require('lodash')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
@@ -7,15 +7,17 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
+  const bookNote = path.resolve(`./src/templates/book-note.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`)
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
     `
       {
-        postsRemark: allMarkdownRemark(
+        postsRemark: allMdx(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
+          filter: { frontmatter: { type: { ne: "book" } } }
         ) {
           nodes {
             fields {
@@ -27,7 +29,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             }
           }
         }
-        tagsGroup: allMarkdownRemark(limit: 2000) {
+        bookRemark: allMdx(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+          filter: { frontmatter: { type: { in: "book" } } }
+        ) {
+          nodes {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              tags
+            }
+          }
+        }
+        tagsGroup: allMdx(limit: 2000) {
           group(field: frontmatter___tags) {
             fieldValue
           }
@@ -45,6 +62,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.postsRemark.nodes
+  const books = result.data.bookRemark.nodes
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -67,11 +85,28 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     })
   }
 
+  if (books.length > 0) {
+    books.forEach((book, index) => {
+      const previous = index === books.length - 1 ? null : books[index + 1]
+      const next = index === 0 ? null : books[index - 1]
+
+      createPage({
+        path: book.fields.slug,
+        component: bookNote,
+        context: {
+          slug: book.fields.slug,
+          previous,
+          next,
+        },
+      })
+    })
+  }
+
   const tags = result.data.tagsGroup.group
 
   tags.forEach(tag => {
     createPage({
-      path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+      path: `/${_.kebabCase(tag.fieldValue)}/`,
       component: tagTemplate,
       context: {
         tag: tag.fieldValue,
@@ -83,7 +118,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `Mdx`) {
     const value = createFilePath({ node, getNode })
 
     createNodeField({
@@ -119,7 +154,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       twitter: String
     }
 
-    type MarkdownRemark implements Node {
+    type Mdx implements Node {
       frontmatter: Frontmatter
       fields: Fields
     }

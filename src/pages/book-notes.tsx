@@ -1,76 +1,37 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import kebabCase from "lodash/kebabCase"
+import { graphql } from 'gatsby'
+import React from 'react'
+import BookList from '../components/BookList'
+import Layout from '../components/Layout'
+import SEO from '../components/SEO'
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-
-const BlogIndex = ({ data, location }) => {
+const BookNotes = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.postsRemark.nodes
-  const tags = data.tagsGroup.group
-
-  if (posts.length === 0) {
-    return (
-      <Layout location={location} title={siteTitle}>
-        <SEO title="All posts" />
-        <Bio />
-        <p>No blog posts found.</p>
-      </Layout>
-    )
-  }
+  const books = data.postsRemark.nodes
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <SEO title="All posts" />
-      <Bio />
-      <div>
-        {tags.map((tag, i) => (
-          <span key={tag.fieldValue}>
-            <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-              {tag.fieldValue} ({tag.totalCount})
-            </Link>
-            {tags.length - 1 !== i && ", "}
-          </span>
-        ))}
-      </div>
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-          return (
-            <li key={post.fields.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields.slug} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post.frontmatter.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+    <Layout title={siteTitle} location={location}>
+      <SEO
+        title="All Books"
+        description="Tiny summary but detailed notes for some of the books I read. Use the ISBN number to find it from your local library or use Amazon link. This page will constantly update as I read more, so bookmark it if you want to check back in a few months."
+        // TODO: Need to put the articles image
+        // image={{
+        //   src: post.frontmatter.image.childImageSharp.fluid.src,
+        //   height:
+        //     post.frontmatter.image.childImageSharp.fluid.presentationHeight,
+        //   width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
+        // }}
+        pathname={location.pathname}
+      />
+      {books.length === 0 ? (
+        <p>No blog books found.</p>
+      ) : (
+        <BookList books={books} />
+      )}
     </Layout>
   )
 }
 
-export default BlogIndex
+export default BookNotes
 
 export const pageQuery = graphql`
   query {
@@ -79,8 +40,9 @@ export const pageQuery = graphql`
         title
       }
     }
-    postsRemark: allMarkdownRemark(
+    postsRemark: allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { type: { in: "book" } } }
     ) {
       nodes {
         excerpt
@@ -91,13 +53,20 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          published
+          amazon
+          image {
+            childImageSharp {
+              fluid(
+                traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
+              ) {
+                ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                presentationHeight
+                presentationWidth
+              }
+            }
+          }
         }
-      }
-    }
-    tagsGroup: allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
       }
     }
   }
