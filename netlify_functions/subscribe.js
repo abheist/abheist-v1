@@ -28,7 +28,7 @@ exports.handler = async event => {
         // Location: '/success/',
       },
       // body is unused in 3xx codes, but required in all function responses
-      body: 'redirecting...',
+      body: 'success',
     }
   } catch (error) {
     return {
