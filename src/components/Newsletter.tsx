@@ -17,7 +17,6 @@ const Newsletter = () => {
       }),
     }).then(res => {
       if (res.status === 301) {
-        console.log(res.status)
         setStatus(true)
       }
     })
