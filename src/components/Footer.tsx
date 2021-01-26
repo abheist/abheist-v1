@@ -123,10 +123,10 @@ const Footer = () => {
           <div className="md:w-5/12">
             <Logo color="light" />
             <Body2 className="mt-8 leading-7 text-gray-400">
-              Thanks for reading. It makes a difference. I'll try to help as
-              many developers as I can with the content and problem solving who
-              are helping in to make a world a better place. And it also support
-              me and motivate me to share my knowledge to the community.
+              Thanks for reading. It makes a difference. I'll try to help
+              developers with tutorials & blogs. Blogs on design, development
+              and happy-productive life. And it will also support and motivate
+              me to share my knowledge with the community.
             </Body2>
           </div>
           <div className="flex flex-row justify-between mt-16 md:mt-0 md:w-7/12">
