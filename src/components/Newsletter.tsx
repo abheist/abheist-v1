@@ -14,10 +14,12 @@ const Newsletter = () => {
         email: data.get('email'),
       }),
     }).then(res => {
-      if (res.status === 200 && res.redirected === true) {
-        // window.location.href = res.url
-        console.log(res)
-      }
+      // if (res.body === 'success') {}
+      console.log(res)
+      // if (res.status === 200 && res.redirected === true) {
+      //   // window.location.href = res.url
+      //   console.log(res)
+      // }
     })
   }
 
