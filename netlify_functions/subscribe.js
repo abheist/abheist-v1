@@ -1,8 +1,9 @@
 const fetch = require('node-fetch')
 
 exports.handler = async event => {
-  const formId = process.env.CK_FORM_ID
+  const { CK_FORM_ID: formId, CK_API_KEY: netlifyAPIKey } = process.env
   const url = `https://api.convertkit.com/v3/forms/${formId}/subscribe`
+  console.log(url)
   const { email } = JSON.parse(event.body)
 
   try {
@@ -12,24 +13,15 @@ exports.handler = async event => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        api_key: process.env.CK_API_KEY,
+        api_key: netlifyAPIKey,
         email,
       }),
     })
       .then(res => res.json())
+      .then(res => console.log(res))
       .catch(error => {
         throw new Error(error)
       })
-
-    return {
-      statusCode: 301,
-      headers: {
-        // Location: '/success/',
-        success: true,
-      },
-      // body is unused in 3xx codes, but required in all the function responses
-      body: 'Success...',
-    }
   } catch (error) {
     return {
       statusCode: 500,
