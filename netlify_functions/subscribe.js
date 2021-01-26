@@ -22,6 +22,14 @@ exports.handler = async event => {
       .catch(error => {
         throw new Error(error)
       })
+    return {
+      statusCode: 301,
+      headers: {
+        // Location: '/success/',
+      },
+      // body is unused in 3xx codes, but required in all function responses
+      body: 'redirecting...',
+    }
   } catch (error) {
     return {
       statusCode: 500,
