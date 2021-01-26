@@ -15,14 +15,15 @@ const Newsletter = () => {
       }),
     }).then(res => {
       if (res.status === 200 && res.redirected === true) {
-        window.location.href = res.url
+        // window.location.href = res.url
+        console.log(res)
       }
     })
   }
 
   return (
     <div className="bg-yellow-50">
-      <Container className="flex flex-col lg:flex-row py-40 gap-x-16">
+      <Container className="flex flex-col py-40 lg:flex-row gap-x-16">
         <div className="lg:w-1/2">
           <H3>Join Me</H3>
           <Body1 className="mt-8">
@@ -45,9 +46,9 @@ const Newsletter = () => {
             </li>
           </ol>
         </div>
-        <div className="lg:w-1/2 h-full">
+        <div className="h-full lg:w-1/2">
           <div className="px-4 py-16 bg-white">
-            <Subtitle1 className="xs:px-16 font-bold text-center">
+            <Subtitle1 className="font-bold text-center xs:px-16">
               Design, Development & Life Improvement tips
             </Subtitle1>
             <form action="/api/subscribe" method="POST" onSubmit={handleSubmit}>
@@ -63,7 +64,7 @@ const Newsletter = () => {
                 Try the free newsletter
               </button>
             </form>
-            <Caption className="sm:px-20 mt-16 text-center">
+            <Caption className="mt-16 text-center sm:px-20">
               No spam. Just the highest quality ideas you’ll find on the web.
             </Caption>
           </div>
