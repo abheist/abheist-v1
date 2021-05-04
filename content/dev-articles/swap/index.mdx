@@ -1,0 +1,54 @@
+---
+title: Best way to swap two, three of more values in JavaScript
+date: 2021-05-04
+description: Best and easiest way to swap two, three of more values in JavaScript.
+image: ./swap.png
+tags:
+  - JavaScript
+tableContent: false
+featured: true
+---
+
+```JavaScript
+let [a, b, c] = [10, 20, 30]
+[a, b, c] = [b, c, a]
+
+// swapped: a = 20, b = 30, c = 10
+```
+
+For swapping, traditionally I used to do with temporary variable, like:
+
+```JavaScript
+let a = 10, b = 20;
+
+let temp = a;
+a = b;
+b = temp;
+
+// a = 20, b = 10
+
+```
+
+But there was a better way to same in python:
+
+```python
+
+a = 10
+b = 20
+
+a, b = b, a
+
+# a = 20, b = 10
+
+```
+
+and then come the es6 with the array destructuring, we can initialize variable with the help of an array, like:
+
+```javascript
+let [a, b] = [10, 20]
+let [c, d, e, ...rest] = [30, 40, 50, 60, 70, 80]
+
+// a = 10, b = 20, c = 30, d = 40, e = 50, rest = [60, 70, 80]
+```
+
+🙏
