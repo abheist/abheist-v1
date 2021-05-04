@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import * as React from 'react'
 import Bio from '../components/Bio'
@@ -21,11 +21,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         image={{
-          src: post.frontmatter.image?.childImageSharp.fluid.src,
+          src: post.frontmatter.image?.childImageSharp?.gatsbyImageData.src,
           height:
-            post.frontmatter.image?.childImageSharp.fluid.presentationHeight,
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData
+              .presentationHeight,
           width:
-            post.frontmatter.image?.childImageSharp.fluid.presentationWidth,
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData
+              .presentationWidth,
         }}
         pathname={location.pathname}
       />
@@ -51,9 +53,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               <H6 className="mt-6">{post.frontmatter.description}</H6>
             )}
             {post.frontmatter.image && (
-              <Img
+              <GatsbyImage
                 className="mt-8"
-                fluid={post.frontmatter.image.childImageSharp.fluid}
+                image={post.frontmatter.image.childImageSharp.gatsbyImageData}
                 alt="A corgi smiling happily"
               />
             )}
@@ -95,13 +97,14 @@ export const pageQuery = graphql`
         tags
         image {
           childImageSharp {
-            fluid(
-              traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-            ) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              presentationHeight
-              presentationWidth
-            }
+            gatsbyImageData(
+              tracedSVGOptions: {
+                turnPolicy: TURNPOLICY_MAJORITY
+                color: "#5945e4"
+              }
+              placeholder: TRACED_SVG
+              layout: FULL_WIDTH
+            )
           }
         }
       }

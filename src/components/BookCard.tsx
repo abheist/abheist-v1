@@ -25,7 +25,7 @@ const BookCard = ({ post }): JSX.Element => {
           {post.frontmatter.image && (
             <ImageWithShadow
               style={{ height: '300px', width: '200px' }}
-              fluid={post.frontmatter.image.childImageSharp.fluid}
+              image={post.frontmatter.image.childImageSharp.gatsbyImageData}
             />
           )}
           <div className="flex flex-col justify-between w-4/5 px-8">
@@ -59,7 +59,7 @@ const BookCard = ({ post }): JSX.Element => {
             <Link to={post.fields.slug}>
               <ImageWithShadow
                 style={{ height: '300px', width: '200px' }}
-                fluid={post.frontmatter.image.childImageSharp.fluid}
+                image={post.frontmatter.image.childImageSharp.gatsbyImageData}
               />
             </Link>
           )}

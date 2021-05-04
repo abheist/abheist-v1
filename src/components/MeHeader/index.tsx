@@ -8,9 +8,9 @@ const trans3 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 
 export const getFluid = (images, fileName) => {
   let fluidImg = images.filter(image =>
-    image.node.childImageSharp.fluid.originalName.includes(fileName)
+    image.node.childImageSharp.gatsbyImageData.originalName.includes(fileName)
   )
-  return fluidImg[0].node.childImageSharp.fluid
+  return fluidImg[0].node.childImageSharp.gatsbyImageData;
 }
 
 function MEHeader({ headerImages }) {

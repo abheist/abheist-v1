@@ -1,42 +1,45 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import Image from 'gatsby-image'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { GatsbyImage } from "gatsby-plugin-image"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import React from 'react'
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`
-    query BioQuery {
-      avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
-        childImageSharp {
-          fixed(width: 64, height: 64, quality: 95) {
-            ...GatsbyImageSharpFixed_withWebp_tracedSVG
-          }
-        }
+  const data = useStaticQuery(graphql`query BioQuery {
+  avatar: file(absolutePath: {regex: "/profile-pic.jpeg/"}) {
+    childImageSharp {
+      gatsbyImageData(
+        width: 64
+        height: 64
+        quality: 95
+        placeholder: TRACED_SVG
+        layout: FIXED
+      )
+    }
+  }
+  site {
+    siteMetadata {
+      author {
+        name
+        summary
       }
-      site {
-        siteMetadata {
-          author {
-            name
-            summary
-          }
-          social {
-            twitter
-          }
-        }
+      social {
+        twitter
       }
     }
-  `)
+  }
+}
+`)
 
   const author = data.site.siteMetadata?.author
   const social = data.site.siteMetadata?.social
 
-  const avatar = data?.avatar?.childImageSharp?.fixed
+  const avatar = data?.avatar?.childImageSharp?.gatsbyImageData
 
   return (
-    <div className="flex flex-col sm:flex-row items-start justify-center mx-auto my-24 px-4 gap-x-4">
+    <div className="flex flex-col items-start justify-center px-4 mx-auto my-24 sm:flex-row gap-x-4">
       {avatar && (
-        <Image
-          fixed={avatar}
+        <GatsbyImage
+          image={avatar}
           alt={author?.name || ``}
           imgStyle={{
             borderRadius: `50%`,
@@ -44,7 +47,7 @@ const Bio = () => {
         />
       )}
       {author?.name && (
-        <p className="sm:w-10/12 prose">
+        <p className="prose sm:w-10/12">
           <strong>{author.name}</strong>, {author?.summary || null}
           {` `}
           <OutboundLink

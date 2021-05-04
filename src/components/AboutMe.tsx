@@ -1,5 +1,5 @@
-import Img from 'gatsby-image'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { GatsbyImage } from "gatsby-plugin-image"
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import React from 'react'
 import Card from './Card'
 import Container from './Container'
@@ -37,8 +37,8 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
       >
         <MEHeader headerImages={headerImages} />
       </header>
-      <Container className="flex flex-col md:flex-row mt-8 md:mt-52">
-        <div className="flex flex-col md:w-1/4 gap-y-6 order-2 md:order-1">
+      <Container className="flex flex-col mt-8 md:flex-row md:mt-52">
+        <div className="flex flex-col order-2 md:w-1/4 gap-y-6 md:order-1">
           <H5 className="mt-8 normal-case">
             <OutboundLink
               href="mailto:hi@abheist.com"
@@ -109,7 +109,7 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
             </OutboundLink>
           </Body2>
         </div>
-        <div className="md:w-3/4 order-1 md:order-2">
+        <div className="order-1 md:w-3/4 md:order-2">
           <H2>Hi Friends</H2>
           <div className="mt-10 prose">
             <Body1>
@@ -153,7 +153,7 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
           favourite creations below.
         </Subtitle1>
         {posts && (
-          <div className="grid grid-col-1 lg:grid-cols-3 gap-8 mt-8">
+          <div className="grid gap-8 mt-8 grid-col-1 lg:grid-cols-3">
             {posts.map(card => (
               <Card key={card.fields.slug} data={card} />
             ))}
@@ -167,21 +167,21 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
             Some of my favourite photography work below. To look more, you can
             check out my Unsplash profile.
           </Subtitle1>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-1 mt-16">
+          <div className="grid gap-1 mt-16 sm:grid-cols-2 md:grid-cols-3">
             {picsGrid.map(image => (
               <Img
                 fluid={{
-                  ...image.node.childImageSharp.fluid,
+                  ...image.node.childImageSharp.gatsbyImageData,
                   aspectRatio: 1 / 1,
                 }}
-                key={image.node.childImageSharp.fluid.src}
+                key={image.node.childImageSharp.gatsbyImageData.src}
               />
             ))}
           </div>
         </Container>
       </div>
     </div>
-  )
+  );
 }
 
 export default AboutMe

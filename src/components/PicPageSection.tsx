@@ -42,8 +42,8 @@ const PicPageSection = ({
 }: PicPageSectionProps) => {
   return (
     <div className={backgroundColor}>
-      <Container className="pt-0 lg:pt-24 pb-24">
-        <div className="flex flex-col lg:flex-row justify-between w-full lg:gap-32">
+      <Container className="pt-0 pb-24 lg:pt-24">
+        <div className="flex flex-col justify-between w-full lg:flex-row lg:gap-32">
           <Link
             to={latestArticle.to}
             className={`flex flex-row items-end justify-end flex-shrink-0 order-2 ${
@@ -51,7 +51,7 @@ const PicPageSection = ({
             } w-full bg-blue-400 lg:w-1/2`}
             style={{
               height: '400px',
-              background: `url(${latestArticle.pic.childImageSharp.fluid.src})`,
+              background: `url(${latestArticle.pic.childImageSharp.gatsbyImageData.images.fallback.src})`,
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
@@ -88,7 +88,7 @@ const PicPageSection = ({
         {featured && (
           <div className="mt-44">
             <H6>FEATURED</H6>
-            <div className="grid grid-col-1 lg:grid-cols-3 gap-8 mt-8">
+            <div className="grid gap-8 mt-8 grid-col-1 lg:grid-cols-3">
               {featured.map(card => (
                 <Card key={card.fields.slug} data={card} />
               ))}

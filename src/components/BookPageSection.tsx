@@ -42,7 +42,7 @@ const BookPageSection = ({
   return (
     <div className={backgroundColor}>
       <Container className="py-24">
-        <div className="flex flex-col sm:flex-row items-stretch justify-between w-full sm:gap-8 md:gap-32">
+        <div className="flex flex-col items-stretch justify-between w-full sm:flex-row sm:gap-8 md:gap-32">
           <div className={`md:py-8  mb-20 sm:mb-auto `}>
             <H3>{heading}</H3>
             <Body1 className="mt-8">{description}</Body1>
@@ -63,7 +63,7 @@ const BookPageSection = ({
             <Link to={latestArticle.to}>
               <ImageWithShadow
                 style={{ height: '400px', width: '270px' }}
-                fluid={latestArticle.pic.childImageSharp.fluid}
+                image={latestArticle.pic.childImageSharp.gatsbyImageData}
               />
             </Link>
           </div>
@@ -71,7 +71,7 @@ const BookPageSection = ({
         {featured && (
           <div className="mt-28">
             <H6>FEATURED</H6>
-            <div className="flex flex-row justify-between flex-wrap mt-8 gap-x-2 md:gap-x-12 gap-y-16">
+            <div className="flex flex-row flex-wrap justify-between mt-8 gap-x-2 md:gap-x-12 gap-y-16">
               {featured.map(post => (
                 <BookGridCard key={post.fields.slug} book={post} />
               ))}

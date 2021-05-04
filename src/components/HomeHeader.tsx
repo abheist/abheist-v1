@@ -1,4 +1,4 @@
-import Img from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Body1, H2 } from './Typography'
 
@@ -17,12 +17,13 @@ const HomeHeader = ({ avatar }) => {
           strategies and more about health, happiness & more productive life.
         </Body1>
       </div>
-      <Img
+      <GatsbyImage
         className="order-1 w-full lg:w-2/3 lg:order-2"
         style={{
           boxShadow: '-16px 16px  var(--primary-color)',
         }}
-        fluid={avatar.childImageSharp.fluid}
+        image={avatar.childImageSharp.gatsbyImageData}
+        alt=""
       />
     </div>
   )

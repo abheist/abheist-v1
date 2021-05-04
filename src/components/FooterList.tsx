@@ -1,5 +1,5 @@
 import { Link } from 'gatsby'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import React from 'react'
 import { Body2, Subtitle1 } from './Typography'
 

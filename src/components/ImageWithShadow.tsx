@@ -1,12 +1,13 @@
-import Img from 'gatsby-image'
+import { GatsbyImage } from "gatsby-plugin-image"
 import React from 'react'
 
-const ImageWithShadow = ({ fluid, style, className = '' }) => {
+const ImageWithShadow = ({ image, style, className = '' }) => {
   return (
     <div className={`relative transition-all ${className}`}>
-      <Img fluid={fluid} className="z-10" style={{ ...style }} />
-      <Img
-        fluid={fluid}
+      <GatsbyImage image={image} alt="" className="z-10" style={{ ...style }} />
+      <GatsbyImage
+        image={image}
+        alt=""
         className="absolute left-2 top-32"
         style={{
           position: 'absolute',

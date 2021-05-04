@@ -1,8 +1,13 @@
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import React from 'react'
 import { GrAmazon } from 'react-icons/gr'
 
-const AmazonButton = ({ link, className }) => {
+interface AmazonButtonProps {
+  link: string
+  className?: string
+}
+
+const AmazonButton = ({ link, className }: AmazonButtonProps) => {
   return (
     <div className={className}>
       <OutboundLink
