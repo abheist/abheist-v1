@@ -1,34 +1,35 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage } from "gatsby-plugin-image"
-import { OutboundLink } from "gatsby-plugin-google-gtag"
+import { GatsbyImage } from 'gatsby-plugin-image'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import React from 'react'
 
 const Bio = () => {
-  const data = useStaticQuery(graphql`query BioQuery {
-  avatar: file(absolutePath: {regex: "/profile-pic.jpeg/"}) {
-    childImageSharp {
-      gatsbyImageData(
-        width: 64
-        height: 64
-        quality: 95
-        placeholder: TRACED_SVG
-        layout: FIXED
-      )
-    }
-  }
-  site {
-    siteMetadata {
-      author {
-        name
-        summary
+  const data = useStaticQuery(graphql`
+    query BioQuery {
+      avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 64
+            height: 64
+            quality: 95
+            placeholder: TRACED_SVG
+            layout: FIXED
+          )
+        }
       }
-      social {
-        twitter
+      site {
+        siteMetadata {
+          author {
+            name
+            summary
+          }
+          social {
+            twitter
+          }
+        }
       }
     }
-  }
-}
-`)
+  `)
 
   const author = data.site.siteMetadata?.author
   const social = data.site.siteMetadata?.social

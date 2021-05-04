@@ -1,4 +1,4 @@
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 
 const ImageWithShadow = ({ image, style, className = '' }) => {
