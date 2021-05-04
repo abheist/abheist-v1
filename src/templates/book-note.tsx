@@ -48,7 +48,9 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         image={{
-          src: post.frontmatter.image?.childImageSharp?.gatsbyImageData.src,
+          src:
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData.images
+              .fallback.src,
           height:
             post.frontmatter.image?.childImageSharp?.gatsbyImageData
               .presentationHeight,

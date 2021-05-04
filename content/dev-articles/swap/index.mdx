@@ -9,24 +9,33 @@ tableContent: false
 featured: true
 ---
 
-```JavaScript
+Here is the way:
+
+```javascript
 let [a, b, c] = [10, 20, 30]
-[a, b, c] = [b, c, a]
+
+;[a, b, c] = [b, c, a]
 
 // swapped: a = 20, b = 30, c = 10
+
+let [d, e] = [40, 50]
+
+;[d, e] = [e, d]
+
+// swapped: d = 50, e = 40
 ```
 
-For swapping, traditionally I used to do with temporary variable, like:
+Now lets jump into details. For swapping, traditionally I used to do with temporary variable, like:
 
-```JavaScript
-let a = 10, b = 20;
+```javascript
+let a = 10,
+  b = 20
 
-let temp = a;
-a = b;
-b = temp;
+let temp = a
+a = b
+b = temp
 
 // a = 20, b = 10
-
 ```
 
 But there was a better way to same in python:
@@ -42,7 +51,7 @@ a, b = b, a
 
 ```
 
-and then come the es6 with the array destructuring, we can initialize variable with the help of an array, like:
+and then come the es6 with the array destructuring, like:
 
 ```javascript
 let [a, b] = [10, 20]
@@ -50,5 +59,7 @@ let [c, d, e, ...rest] = [30, 40, 50, 60, 70, 80]
 
 // a = 10, b = 20, c = 30, d = 40, e = 50, rest = [60, 70, 80]
 ```
+
+so, we can use the array destructuring to swap the value.
 
 🙏

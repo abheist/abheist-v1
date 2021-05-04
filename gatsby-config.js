@@ -27,7 +27,6 @@ module.exports = {
     ],
   },
   flags: {
-    DEV_SSR: true,
     FAST_DEV: true,
   },
   plugins: [

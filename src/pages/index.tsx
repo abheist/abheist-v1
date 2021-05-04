@@ -61,7 +61,7 @@ const BlogIndex = ({ data, location }) => {
         title="Home"
         description="Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being."
         image={{
-          src: data.avatar.childImageSharp.gatsbyImageData,
+          src: data.avatar.childImageSharp.gatsbyImageData.images.fallback.src,
         }}
         pathname={location.pathname}
       />
