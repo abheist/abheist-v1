@@ -175,7 +175,9 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
                   aspectRatio: 1 / 1,
                 }}
                 alt=""
-                key={image.node.childImageSharp.gatsbyImageData.src}
+                key={
+                  image.node.childImageSharp.gatsbyImageData.images.fallback.src
+                }
               />
             ))}
           </div>

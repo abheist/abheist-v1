@@ -12,7 +12,6 @@ export const getFluid = (images, fileName) => {
       fileName
     )
   )
-  console.log(fluidImg)
   return fluidImg[0].node.childImageSharp.gatsbyImageData
 }
 
@@ -28,11 +27,11 @@ function MEHeader({ headerImages }) {
   return (
     <div
       className="relative z-0 flex items-center justify-center w-full h-full"
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: [x, y] })}
+      onMouseMove={({ clientX: x, clientY: y }) => set.start({ xy: [x, y] })}
     >
       <animated.div
         className="absolute z-10 font-serif text-6xl font-normal tracking-normal capitalize left-80 top-24"
-        style={{ transform: props.xy.interpolate(transHeading) }}
+        style={{ transform: props.xy.to(transHeading) }}
       >
         About Me
       </animated.div>
@@ -47,7 +46,7 @@ function MEHeader({ headerImages }) {
           backgroundRepeat: 'no-repeat',
           zIndex: 2,
           willChange: 'transform',
-          transform: props.xy.interpolate(trans1),
+          transform: props.xy.to(trans1),
         }}
       />
       <animated.div
@@ -61,7 +60,7 @@ function MEHeader({ headerImages }) {
           backgroundRepeat: 'no-repeat',
           zIndex: 1,
           willChange: 'transform',
-          transform: props.xy.interpolate(trans2),
+          transform: props.xy.to(trans2),
         }}
       />
       <animated.div
@@ -75,7 +74,7 @@ function MEHeader({ headerImages }) {
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
           willChange: 'transform',
-          transform: props.xy.interpolate(trans3),
+          transform: props.xy.to(trans3),
         }}
       />
     </div>

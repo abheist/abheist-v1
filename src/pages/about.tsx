@@ -19,7 +19,7 @@ const About = ({ data, location }) => {
         title="About"
         description="Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being."
         image={{
-          src: headerStaticImage.src,
+          src: headerStaticImage.images.fallback.src,
         }}
         pathname={location.pathname}
       />
