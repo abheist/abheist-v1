@@ -28,9 +28,13 @@ module.exports = {
   },
   flags: {
     DEV_SSR: true,
+    FAST_DEV: true,
   },
   plugins: [
     `gatsby-plugin-postcss`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
@@ -210,13 +214,13 @@ module.exports = {
       options: {
         trackingIds: [
           process.env.GOOGLE_ANALYTICS_ID, // Google Analytics / GA
-          'AW-CONVERSION_ID', // Google Ads / Adwords / AW
-          'DC-FLOODIGHT_ID', // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
+          // 'AW-CONVERSION_ID', // Google Ads / Adwords / AW
+          // 'DC-FLOODIGHT_ID', // Marketing Platform advertising products (Display & Video 360, Search Ads 360, and Campaign Manager)
         ],
         // This object gets passed directly to the gtag config command
         // This config will be shared across all trackingIds
         gtagConfig: {
-          optimize_id: 'OPT_CONTAINER_ID',
+          // optimize_id: 'OPT_CONTAINER_ID',
           anonymize_ip: true,
           cookie_expires: 0,
         },
