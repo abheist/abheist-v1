@@ -101,16 +101,14 @@ export const pageQuery = graphql`
             description
             image {
               childImageSharp {
-                fluid(
-                  traceSVG: {
+                gatsbyImageData(
+                  tracedSVGOptions: {
                     turnPolicy: TURNPOLICY_MAJORITY
                     color: "#5945e4"
                   }
-                ) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                  presentationHeight
-                  presentationWidth
-                }
+                  placeholder: TRACED_SVG
+                  layout: FULL_WIDTH
+                )
               }
             }
           }

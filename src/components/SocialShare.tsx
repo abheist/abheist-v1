@@ -1,11 +1,11 @@
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import React from 'react'
 import { Overline } from './Typography'
 
 const SocialShare = ({ title, location }) => {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-end lg:px-24 my-16 gap-y-4 sm:gap-y-0 gap-x-2 sm:gap-x-8">
-      <div className="hidden lg:block flex-1 divide-y divide-gray-300 bg-red-50">
+    <div className="flex flex-col items-center justify-center my-16 sm:flex-row lg:justify-end lg:px-24 gap-y-4 sm:gap-y-0 gap-x-2 sm:gap-x-8">
+      <div className="flex-1 hidden divide-y divide-gray-300 lg:block bg-red-50">
         <div></div>
         <div></div>
       </div>

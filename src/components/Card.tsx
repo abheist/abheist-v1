@@ -26,7 +26,7 @@ const Card = ({ data }: CardProp) => {
           <div
             className={`w-full bg-blue-400 h-52`}
             style={{
-              background: `url(${data.frontmatter.image.childImageSharp.fluid.src})`,
+              background: `url(${data.frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src})`,
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',

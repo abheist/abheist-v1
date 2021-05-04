@@ -1,5 +1,5 @@
 import { Link } from 'gatsby'
-import Img from 'gatsby-image/withIEPolyfill'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import { Caption, H6 } from './Typography'
 
@@ -11,10 +11,11 @@ const BlogCard = ({ post }) => {
       <Link to={post.fields.slug} itemProp="url">
         <header>
           {post.frontmatter.image && (
-            <Img
+            <GatsbyImage
               objectFit="cover"
               objectPosition="center"
-              fluid={post.frontmatter.image.childImageSharp.fluid}
+              image={post.frontmatter.image.childImageSharp.gatsbyImageData}
+              alt=""
               className="w-full h-52"
             />
           )}

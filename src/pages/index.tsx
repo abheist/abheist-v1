@@ -61,7 +61,7 @@ const BlogIndex = ({ data, location }) => {
         title="Home"
         description="Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being."
         image={{
-          src: data.avatar.childImageSharp.fluid.src,
+          src: data.avatar.childImageSharp.gatsbyImageData,
         }}
         pathname={location.pathname}
       />
@@ -80,7 +80,7 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -88,12 +88,15 @@ export const pageQuery = graphql`
     }
     avatar: file(absolutePath: { regex: "/profile-pic.jpeg/" }) {
       childImageSharp {
-        fluid(
+        gatsbyImageData(
           quality: 95
-          traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-        ) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
-        }
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            color: "#5945e4"
+          }
+          placeholder: TRACED_SVG
+          layout: FULL_WIDTH
+        )
       }
     }
     postsRemark: allMdx(
@@ -113,13 +116,14 @@ export const pageQuery = graphql`
           featured
           image {
             childImageSharp {
-              fluid(
-                traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                presentationHeight
-                presentationWidth
-              }
+              gatsbyImageData(
+                tracedSVGOptions: {
+                  turnPolicy: TURNPOLICY_MAJORITY
+                  color: "#5945e4"
+                }
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+              )
             }
           }
         }
@@ -142,11 +146,14 @@ export const pageQuery = graphql`
           published
           image {
             childImageSharp {
-              fluid(
-                traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              }
+              gatsbyImageData(
+                tracedSVGOptions: {
+                  turnPolicy: TURNPOLICY_MAJORITY
+                  color: "#5945e4"
+                }
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+              )
             }
           }
         }

@@ -34,7 +34,7 @@ const BookNotes = ({ data, location }) => {
 export default BookNotes
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -57,13 +57,14 @@ export const pageQuery = graphql`
           amazon
           image {
             childImageSharp {
-              fluid(
-                traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                presentationHeight
-                presentationWidth
-              }
+              gatsbyImageData(
+                tracedSVGOptions: {
+                  turnPolicy: TURNPOLICY_MAJORITY
+                  color: "#5945e4"
+                }
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+              )
             }
           }
         }

@@ -8,9 +8,11 @@ const trans3 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 
 export const getFluid = (images, fileName) => {
   let fluidImg = images.filter(image =>
-    image.node.childImageSharp.fluid.originalName.includes(fileName)
+    image.node.childImageSharp.gatsbyImageData.images.fallback.src.includes(
+      fileName
+    )
   )
-  return fluidImg[0].node.childImageSharp.fluid
+  return fluidImg[0].node.childImageSharp.gatsbyImageData
 }
 
 function MEHeader({ headerImages }) {
@@ -25,11 +27,11 @@ function MEHeader({ headerImages }) {
   return (
     <div
       className="relative z-0 flex items-center justify-center w-full h-full"
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xy: [x, y] })}
+      onMouseMove={({ clientX: x, clientY: y }) => set.start({ xy: [x, y] })}
     >
       <animated.div
         className="absolute z-10 font-serif text-6xl font-normal tracking-normal capitalize left-80 top-24"
-        style={{ transform: props.xy.interpolate(transHeading) }}
+        style={{ transform: props.xy.to(transHeading) }}
       >
         About Me
       </animated.div>
@@ -38,13 +40,13 @@ function MEHeader({ headerImages }) {
         style={{
           width: '100%',
           height: '500px',
-          backgroundImage: `url(${langImg.src})`,
+          backgroundImage: `url(${langImg.images.fallback.src})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
           zIndex: 2,
           willChange: 'transform',
-          transform: props.xy.interpolate(trans1),
+          transform: props.xy.to(trans1),
         }}
       />
       <animated.div
@@ -52,13 +54,13 @@ function MEHeader({ headerImages }) {
         style={{
           width: '100%',
           height: '550px',
-          backgroundImage: `url(${rectImg.src})`,
+          backgroundImage: `url(${rectImg.images.fallback.src})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
           zIndex: 1,
           willChange: 'transform',
-          transform: props.xy.interpolate(trans2),
+          transform: props.xy.to(trans2),
         }}
       />
       <animated.div
@@ -67,12 +69,12 @@ function MEHeader({ headerImages }) {
           opacity: '0.9',
           width: '400px',
           height: '400px',
-          backgroundImage: `url(${profileImg.src})`,
+          backgroundImage: `url(${profileImg.images.fallback.src})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
           willChange: 'transform',
-          transform: props.xy.interpolate(trans3),
+          transform: props.xy.to(trans3),
         }}
       />
     </div>

@@ -48,11 +48,13 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
         image={{
-          src: post.frontmatter.image?.childImageSharp.fluid.src,
+          src: post.frontmatter.image?.childImageSharp?.gatsbyImageData.src,
           height:
-            post.frontmatter.image?.childImageSharp.fluid.presentationHeight,
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData
+              .presentationHeight,
           width:
-            post.frontmatter.image?.childImageSharp.fluid.presentationWidth,
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData
+              .presentationWidth,
         }}
         pathname={location.pathname}
       />
@@ -64,7 +66,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
             <div className="flex flex-col mt-8 lg:flex-row gap-x-12">
               <ImageWithShadow
                 style={{ height: '400px', width: '270px' }}
-                fluid={post.frontmatter.image.childImageSharp.fluid}
+                image={post.frontmatter.image.childImageSharp.gatsbyImageData}
               />
               <div className="flex flex-col justify-between w-full mt-8 lg:mt-0">
                 <div>
@@ -145,13 +147,14 @@ export const pageQuery = graphql`
         favouriteQuote
         image {
           childImageSharp {
-            fluid(
-              traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-            ) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              presentationHeight
-              presentationWidth
-            }
+            gatsbyImageData(
+              tracedSVGOptions: {
+                turnPolicy: TURNPOLICY_MAJORITY
+                color: "#5945e4"
+              }
+              placeholder: TRACED_SVG
+              layout: FULL_WIDTH
+            )
           }
         }
       }

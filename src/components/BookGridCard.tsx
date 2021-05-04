@@ -20,7 +20,7 @@ const BookGridCard = ({ book }) => {
         >
           <ImageWithShadow
             className={`group-hover:opacity-80`}
-            fluid={book.frontmatter.image.childImageSharp.fluid}
+            image={book.frontmatter.image.childImageSharp.gatsbyImageData}
             style={{ height: '300px', width: '200px' }}
           />
           <Subtitle2
@@ -41,7 +41,7 @@ const BookGridCard = ({ book }) => {
           <ImageWithShadow
             className={`group-hover:opacity-80`}
             style={{ height: '300px', width: '200px' }}
-            fluid={book.frontmatter.image.childImageSharp.fluid}
+            image={book.frontmatter.image.childImageSharp.gatsbyImageData}
           />
         </Link>
       )}

@@ -19,7 +19,7 @@ const About = ({ data, location }) => {
         title="About"
         description="Product Developer and Designer who is passionate about the intersection of design and technology. And, how it can be used to make a positive impact on earth and its being."
         image={{
-          src: headerStaticImage.src,
+          src: headerStaticImage.images.fallback.src,
         }}
         pathname={location.pathname}
       />
@@ -35,7 +35,7 @@ const About = ({ data, location }) => {
 export default About
 
 export const pageQuery = graphql`
-  query {
+  {
     site {
       siteMetadata {
         title
@@ -45,14 +45,14 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(
-              traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-            ) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              originalName
-              presentationHeight
-              presentationWidth
-            }
+            gatsbyImageData(
+              tracedSVGOptions: {
+                turnPolicy: TURNPOLICY_MAJORITY
+                color: "#5945e4"
+              }
+              placeholder: TRACED_SVG
+              layout: FULL_WIDTH
+            )
           }
         }
       }
@@ -61,13 +61,14 @@ export const pageQuery = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(
-              traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-            ) {
-              ...GatsbyImageSharpFluid_withWebp_tracedSVG
-              presentationHeight
-              presentationWidth
-            }
+            gatsbyImageData(
+              tracedSVGOptions: {
+                turnPolicy: TURNPOLICY_MAJORITY
+                color: "#5945e4"
+              }
+              placeholder: TRACED_SVG
+              layout: FULL_WIDTH
+            )
           }
         }
       }
@@ -89,13 +90,14 @@ export const pageQuery = graphql`
           featured
           image {
             childImageSharp {
-              fluid(
-                traceSVG: { turnPolicy: TURNPOLICY_MAJORITY, color: "#5945e4" }
-              ) {
-                ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                presentationHeight
-                presentationWidth
-              }
+              gatsbyImageData(
+                tracedSVGOptions: {
+                  turnPolicy: TURNPOLICY_MAJORITY
+                  color: "#5945e4"
+                }
+                placeholder: TRACED_SVG
+                layout: FULL_WIDTH
+              )
             }
           }
         }
