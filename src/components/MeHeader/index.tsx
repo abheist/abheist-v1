@@ -8,9 +8,12 @@ const trans3 = (x, y) => `translate3d(${x / 8 - 50}px,${y / 10}px,0)`
 
 export const getFluid = (images, fileName) => {
   let fluidImg = images.filter(image =>
-    image.node.childImageSharp.gatsbyImageData.originalName.includes(fileName)
+    image.node.childImageSharp.gatsbyImageData.images.fallback.src.includes(
+      fileName
+    )
   )
-  return fluidImg[0].node.childImageSharp.gatsbyImageData;
+  console.log(fluidImg)
+  return fluidImg[0].node.childImageSharp.gatsbyImageData
 }
 
 function MEHeader({ headerImages }) {
@@ -38,7 +41,7 @@ function MEHeader({ headerImages }) {
         style={{
           width: '100%',
           height: '500px',
-          backgroundImage: `url(${langImg.src})`,
+          backgroundImage: `url(${langImg.images.fallback.src})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
@@ -52,7 +55,7 @@ function MEHeader({ headerImages }) {
         style={{
           width: '100%',
           height: '550px',
-          backgroundImage: `url(${rectImg.src})`,
+          backgroundImage: `url(${rectImg.images.fallback.src})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',
@@ -67,7 +70,7 @@ function MEHeader({ headerImages }) {
           opacity: '0.9',
           width: '400px',
           height: '400px',
-          backgroundImage: `url(${profileImg.src})`,
+          backgroundImage: `url(${profileImg.images.fallback.src})`,
           backgroundSize: 'contain',
           backgroundPosition: 'center bottom',
           backgroundRepeat: 'no-repeat',

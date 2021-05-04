@@ -1,5 +1,5 @@
-import { GatsbyImage } from "gatsby-plugin-image"
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import React from 'react'
 import Card from './Card'
 import Container from './Container'
@@ -23,8 +23,8 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
           <Container className="relative">
             <H2 className="absolute z-10 top-24 left-8">About Me</H2>
           </Container>
-          <Img
-            fluid={headerStaticImage}
+          <GatsbyImage
+            image={headerStaticImage}
             style={{ maxWidth: '1200px' }}
             className="self-end mx-auto"
             alt="Abhishek Kumar Singh"
@@ -169,11 +169,12 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
           </Subtitle1>
           <div className="grid gap-1 mt-16 sm:grid-cols-2 md:grid-cols-3">
             {picsGrid.map(image => (
-              <Img
-                fluid={{
+              <GatsbyImage
+                image={{
                   ...image.node.childImageSharp.gatsbyImageData,
                   aspectRatio: 1 / 1,
                 }}
+                alt=""
                 key={image.node.childImageSharp.gatsbyImageData.src}
               />
             ))}
@@ -181,7 +182,7 @@ const AboutMe = ({ posts, picsGrid, headerImages }) => {
         </Container>
       </div>
     </div>
-  );
+  )
 }
 
 export default AboutMe
