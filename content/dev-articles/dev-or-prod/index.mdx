@@ -1,0 +1,28 @@
+---
+title: Show component in development or production
+date: 2021-05-13
+description: Show and hide component based on environment in React or Next.js
+image: ./dev-prod.png
+tags:
+  - Javascript
+  - React
+  - Next.js
+tableContent: false
+featured: true
+---
+
+At times, there are need when we want to display some component/content in development environment and not in production, or vice-versa (yeah, chance of having vice-versa cases are very low).
+
+We can do it the following way:
+
+```jsx
+const inDev = process.env.NODE_ENV === 'development'
+
+{
+  inDev && <div>I'm in dev</div>
+}
+```
+
+That's it. `process.env.NODE_ENV` provide us with the environment we are in. We can access it anywhere in the app. Even in some js logic where we need to know the environment, we can use it.
+
+🙏
