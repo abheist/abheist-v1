@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { Body1, H6 } from './Typography'
+import { Body1, H3 } from './Typography'
 
 interface CardProp {
   data: {
@@ -25,6 +25,8 @@ const Card = ({ data }: CardProp) => {
         <Link to={data.fields.slug}>
           <div
             className={`w-full bg-blue-400 h-52`}
+            role="img"
+            aria-label={data.frontmatter.title}
             style={{
               background: `url(${data.frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src})`,
               backgroundPosition: 'center',
@@ -37,9 +39,9 @@ const Card = ({ data }: CardProp) => {
         </Link>
       )}
       <Link to={data.fields.slug}>
-        <H6 className="mt-4 font-bold group-hover:text-indigo-primary">
+        <H3 className="mt-4 font-sans text-xl font-normal tracking-normal group-hover:text-indigo-primary">
           {data.frontmatter.title}
-        </H6>
+        </H3>
       </Link>
       <Link to={data.fields.slug}>
         <Body1 className="mt-4">

@@ -4,7 +4,7 @@ import Container from './Container'
 import Logo from './Logo'
 
 const Navigation = ({ title, location }) => {
-  const activeStyle = 'text-indigo-500 font-bold'
+  const activeStyle = 'text-indigo-700 font-bold'
 
   function pathIncludes(word: string) {
     return location.pathname.includes(word) ? activeStyle : ''
