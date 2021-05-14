@@ -31,7 +31,9 @@ const Card = ({ data }: CardProp) => {
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
             }}
-          ></div>
+          >
+            <p className="hidden">{data.frontmatter.title} image</p>
+          </div>
         </Link>
       )}
       <Link to={data.fields.slug}>

@@ -68,6 +68,8 @@ const Newsletter = () => {
                   type="email"
                   name="email"
                   id="email"
+                  title="email"
+                  aria-label="email"
                   required
                   placeholder="Email address is..."
                   className="w-full p-4 mt-8 text-center border-2 border-yellow-300"

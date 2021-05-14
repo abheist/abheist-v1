@@ -17,7 +17,7 @@ const FooterList = ({
 }: FooterListProp) => {
   return (
     <div className="flex flex-col">
-      <Subtitle1 className={`uppercase text-gray-500 ${hidden && 'invisible'}`}>
+      <Subtitle1 className={`uppercase text-gray-400 ${hidden && 'invisible'}`}>
         {title}
       </Subtitle1>
       <ol className={`grid mt-8 gap-y-3`}>
