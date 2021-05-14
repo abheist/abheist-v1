@@ -4,6 +4,7 @@ interface Props {
   children: React.ReactNode
   className?: string
   style?: any
+  level?: number
 }
 
 const H1 = ({ children, className, style }: Props) => {
@@ -61,11 +62,13 @@ const H5 = ({ children, className, style }: Props) => {
   )
 }
 
-const H6 = ({ children, className, style }: Props) => {
+const H6 = ({ children, className, style, level }: Props) => {
   return (
     <h6
       className={`font-sans text-xl font-normal tracking-normal  ${className}`}
       style={style}
+      role="heading"
+      aria-level={level}
     >
       {children}
     </h6>

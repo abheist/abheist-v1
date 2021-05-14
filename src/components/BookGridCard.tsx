@@ -22,6 +22,7 @@ const BookGridCard = ({ book }) => {
             className={`group-hover:opacity-80`}
             image={book.frontmatter.image.childImageSharp.gatsbyImageData}
             style={{ height: '300px', width: '200px' }}
+            alt={book.frontmatter.title}
           />
           <Subtitle2
             className={`absolute z-10 px-2 py-1 -mt-1 -ml-8 transform -rotate-90 bg-yellow-500 border-r-4 rounded-l-sm top-10 ${
@@ -42,6 +43,7 @@ const BookGridCard = ({ book }) => {
             className={`group-hover:opacity-80`}
             style={{ height: '300px', width: '200px' }}
             image={book.frontmatter.image.childImageSharp.gatsbyImageData}
+            alt={book.frontmatter.title}
           />
         </Link>
       )}

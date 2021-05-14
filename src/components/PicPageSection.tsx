@@ -77,7 +77,7 @@ const PicPageSection = ({
               <div className="mt-10">
                 <Link
                   to={to}
-                  className="px-10 py-3 text-lg text-indigo-500 border border-indigo-500 hover:bg-indigo-500 hover:text-white"
+                  className="px-10 py-3 text-lg text-indigo-700 border border-indigo-500 hover:bg-indigo-500 hover:text-white"
                 >
                   {linkName}
                 </Link>

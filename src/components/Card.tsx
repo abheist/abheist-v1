@@ -1,6 +1,6 @@
 import { Link } from 'gatsby'
 import React from 'react'
-import { Body1, H3 } from './Typography'
+import { Body1, H6 } from './Typography'
 
 interface CardProp {
   data: {
@@ -39,9 +39,9 @@ const Card = ({ data }: CardProp) => {
         </Link>
       )}
       <Link to={data.fields.slug}>
-        <H3 className="mt-4 font-sans text-xl font-normal tracking-normal group-hover:text-indigo-primary">
+        <H6 level={3} className="mt-4 font-bold group-hover:text-indigo-primary">
           {data.frontmatter.title}
-        </H3>
+        </H6>
       </Link>
       <Link to={data.fields.slug}>
         <Body1 className="mt-4">
