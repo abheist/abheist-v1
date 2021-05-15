@@ -1,0 +1,41 @@
+---
+title: Hide Password from Django Serializer when using Depth
+date: 2021-05-15
+description: Hide password or sensitive information when using Django depth functionality in Django Rest Framework Serializer.
+image: ./hide.jpg
+tags:
+  - Django
+tableContent: false
+featured: true
+---
+
+There are times when you create an API with user in it and then when you wanna need more details, you set depth of the API and to the surprise you see some confidential fields in it. First in User serializer (or in serializer in which you wanna hide fields) you need to exclude those fields.
+
+```python
+from django.contrib.auth import get_user_model
+from rest_framework import serializers
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        exclude = ['password', 'last_login', 'is_superuser', 'is_staff',
+                   'is_active', 'date_joined', 'groups', 'user_permissions']
+```
+
+And when you want to include `user` into another serializer, instead of using `PrimaryRelated` or `StringRelated` or any other, use that serializer directly, like follows:
+
+```python
+from mymasters.models.Course import Course
+from mymasters.serializers.UserSerializer import UserSerializer
+from rest_framework import serializers
+
+class CourseSerializer(serializers.ModelSerializer):
+    teacher = UserSerializer()
+
+    class Meta:
+        model = Course
+        fields = '__all__'
+        depth = 1
+```
+
+👻
