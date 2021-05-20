@@ -39,22 +39,6 @@ module.exports = {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         createLinkInHead: true,
-        query: `
-          {
-            site {
-              siteMetadata {
-                siteUrl
-              }
-            }
-            allSitePage {
-              edges {
-                node {
-                  path
-                }
-              }
-            }
-          }
-        `,
       },
     },
     {
