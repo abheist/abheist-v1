@@ -94,8 +94,12 @@ const Footer = () => {
     { name: 'Articles', link: '/articles/' },
     { name: 'Book Notes', link: '/book-notes/' },
     { name: 'About', link: '/about/' },
-    { name: 'SiteMap', link: 'https://abheist.com/sitemap.xml', newTab: true },
-    { name: 'RSS', link: 'https://abheist.com/rss.xml', newTab: true },
+    {
+      name: 'SiteMap',
+      link: '/sitemap/sitemap-index.xml',
+      newTab: true,
+    },
+    { name: 'RSS', link: '/rss.xml', newTab: true },
   ]
 
   const listItems2 = [
