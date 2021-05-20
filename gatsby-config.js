@@ -28,6 +28,7 @@ module.exports = {
   },
   flags: {
     FAST_DEV: true,
+    DEV_SSR: false,
   },
   plugins: [
     `gatsby-plugin-postcss`,
