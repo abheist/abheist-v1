@@ -2,6 +2,11 @@ import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import React from 'react'
 import { Overline } from './Typography'
 
+interface shareProps {
+  title: string
+  location: any
+}
+
 const SocialShare = ({ title, location }) => {
   return (
     <div className="flex flex-col items-center justify-center my-16 sm:flex-row lg:justify-end lg:px-24 gap-y-4 sm:gap-y-0 gap-x-2 sm:gap-x-8">
