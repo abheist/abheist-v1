@@ -62,6 +62,17 @@ const H5 = ({ children, className, style }: Props) => {
   )
 }
 
+const Quote = ({ children, className, style }: Props) => {
+  return (
+    <h5
+      className={`font-serif text-4xl italic font-light tracking-wide leading-snug -ml-32 -mr-32 border-l-8 pl-10 ${className}`}
+      style={style}
+    >
+      {children}
+    </h5>
+  )
+}
+
 const H6 = ({ children, className, style, level }: Props) => {
   return (
     <h6
@@ -154,4 +165,5 @@ export {
   Body2,
   Caption,
   Overline,
+  Quote,
 }
