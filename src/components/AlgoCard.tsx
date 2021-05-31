@@ -21,7 +21,7 @@ import { Overline, Subtitle1 } from './Typography'
 const AlgoCard = ({ algo }) => {
   return (
     <div
-      className="px-4 py-4 border border-l-8 rounded-lg group hover:shadow-sm"
+      className="px-4 py-4 border border-l-8 group hover:shadow-sm"
       style={{
         borderLeftColor: `${
           algo.frontmatter.difficulty === 'easy'
