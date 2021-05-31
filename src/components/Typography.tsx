@@ -29,11 +29,12 @@ const H2 = ({ children, className, style }: Props) => {
   )
 }
 
-const H3 = ({ children, className, style }: Props) => {
+const H3 = ({ children, className, style, level }: Props) => {
   return (
     <h3
       className={`font-serif text-5xl font-normal tracking-normal  capitalize ${className}`}
       style={style}
+      aria-level={level}
     >
       {children}
     </h3>
