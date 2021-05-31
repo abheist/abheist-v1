@@ -2,22 +2,6 @@ import { Link } from 'gatsby'
 import React from 'react'
 import { Overline, Subtitle1 } from './Typography'
 
-// export interface AlgoCardProp {
-//   excerpt: string
-//   fields: {
-//     slug: string
-//   }
-//   frontmatter: {
-//     data: string
-//     description: string
-//     featured: boolean
-//     image: any
-//     title: string
-//     difficulty: string
-//     category: string
-//   }
-// }
-
 const AlgoCard = ({ algo }) => {
   return (
     <div
