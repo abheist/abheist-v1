@@ -5,6 +5,7 @@ interface Props {
   className?: string
   style?: any
   level?: number
+  title?: string
 }
 
 const H1 = ({ children, className, style }: Props) => {
@@ -74,13 +75,14 @@ const Quote = ({ children, className, style }: Props) => {
   )
 }
 
-const H6 = ({ children, className, style, level }: Props) => {
+const H6 = ({ children, className, style, level, title }: Props) => {
   return (
     <h6
       className={`font-sans text-xl font-normal tracking-normal  ${className}`}
       style={style}
       role="heading"
       aria-level={level}
+      title={title}
     >
       {children}
     </h6>

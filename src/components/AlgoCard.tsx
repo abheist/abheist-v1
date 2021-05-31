@@ -21,7 +21,7 @@ import { Overline, Subtitle1 } from './Typography'
 const AlgoCard = ({ algo }) => {
   return (
     <div
-      className="p-2 border border-l-8 rounded-lg group"
+      className="px-4 py-4 border border-l-8 rounded-lg group hover:shadow-sm"
       style={{
         borderLeftColor: `${
           algo.frontmatter.difficulty === 'easy'
@@ -33,10 +33,13 @@ const AlgoCard = ({ algo }) => {
       }}
     >
       <Link to={algo.fields.slug}>
-        <div className="flex flex-row items-center justify-between">
+        <div
+          className="flex flex-row items-center justify-between"
+          title={algo.frontmatter.title}
+        >
           <Subtitle1
             level={3}
-            className={`text-sm font-bold group-hover:text-indigo-primary`}
+            className={`text-sm font-bold group-hover:text-indigo-primary text-gray-600`}
           >
             {algo.frontmatter.title}
           </Subtitle1>

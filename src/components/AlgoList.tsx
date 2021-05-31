@@ -21,7 +21,7 @@ const AlgoList = ({ posts: articles }) => {
   const articlesSection = {
     heading: 'Algorithms',
     description:
-      'Here, I try to put all the algorithms which I learn and done on some platform. Mostly done on HackerRank, LeetCode, AlgoExpert or CodeChef. If you have any questions. You can also email me. Thank you 🙏',
+      'Here, I try to put all the algorithms which I learn and learned from some of the places. Mostly learned from HackerRank, LeetCode, AlgoExpert or CodeChef. If you have any questions, please email me. Thank you 🙏',
     latestArticle: {
       pic: latestPost.frontmatter.image,
       overline: 'Latest',
