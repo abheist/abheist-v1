@@ -41,8 +41,8 @@ export const pageQuery = graphql`
       }
     }
     postsRemark: allMdx(
+      filter: { fileAbsolutePath: { regex: "/content/book-notes/" } }
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { in: "book" } } }
     ) {
       nodes {
         excerpt

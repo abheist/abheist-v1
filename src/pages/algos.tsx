@@ -1,13 +1,12 @@
 import { graphql } from 'gatsby'
 import React from 'react'
-import BlogList from '../components/BlogList'
+import AlgoList from '../components/AlgoList'
 import Layout from '../components/Layout'
 import SEO from '../components/SEO'
 
-const Articles = ({ data, location }) => {
+const Algos = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.postsRemark.nodes
-  const tags = data.tagsGroup.group
+  const posts = data.algosRemark.nodes
 
   return (
     <Layout title={siteTitle} location={location}>
@@ -24,17 +23,17 @@ const Articles = ({ data, location }) => {
         pathname={location.pathname}
       />
       {posts.length === 0 ? (
-        <p>No blog posts found.</p>
+        <p>No Algorithms posts found.</p>
       ) : (
         <>
-          <BlogList posts={posts} tags={tags} />
+          <AlgoList posts={posts} />
         </>
       )}
     </Layout>
   )
 }
 
-export default Articles
+export default Algos
 
 export const pageQuery = graphql`
   {
@@ -43,8 +42,8 @@ export const pageQuery = graphql`
         title
       }
     }
-    postsRemark: allMdx(
-      filter: { fileAbsolutePath: { regex: "/content/blogs/" } }
+    algosRemark: allMdx(
+      filter: { fileAbsolutePath: { regex: "/content/algos/" } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       nodes {
@@ -56,6 +55,8 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          difficulty
+          category
           image {
             childImageSharp {
               gatsbyImageData(
@@ -69,12 +70,6 @@ export const pageQuery = graphql`
             }
           }
         }
-      }
-    }
-    tagsGroup: allMdx(limit: 2000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
       }
     }
   }

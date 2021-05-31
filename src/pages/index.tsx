@@ -100,9 +100,12 @@ export const pageQuery = graphql`
       }
     }
     postsRemark: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { ne: "book" }, featured: { eq: true } } }
+      filter: {
+        fileAbsolutePath: { regex: "/content/blogs/" }
+        frontmatter: { featured: { eq: true } }
+      }
       limit: 4
+      sort: { fields: [frontmatter___date], order: DESC }
     ) {
       nodes {
         excerpt
@@ -130,9 +133,12 @@ export const pageQuery = graphql`
       }
     }
     booksRemark: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { in: "book" }, featured: { eq: true } } }
+      filter: {
+        fileAbsolutePath: { regex: "/content/book-notes/" }
+        frontmatter: { featured: { eq: true } }
+      }
       limit: 5
+      sort: { fields: [frontmatter___date], order: DESC }
     ) {
       nodes {
         excerpt

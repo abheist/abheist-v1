@@ -7,6 +7,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Define a template for blog post
   const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
+  const algoPage = path.resolve(`./src/templates/blog-post.tsx`)
   const bookNote = path.resolve(`./src/templates/book-note.tsx`)
   const tagTemplate = path.resolve(`./src/templates/tags.tsx`)
 
@@ -15,9 +16,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
       {
         postsRemark: allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fileAbsolutePath: { regex: "/content/blogs/" } }
           limit: 1000
-          filter: { frontmatter: { type: { ne: "book" } } }
+          sort: { fields: [frontmatter___date], order: DESC }
         ) {
           nodes {
             fields {
@@ -30,9 +31,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
         bookRemark: allMdx(
-          sort: { fields: [frontmatter___date], order: DESC }
+          filter: { fileAbsolutePath: { regex: "/content/book-notes/" } }
           limit: 1000
-          filter: { frontmatter: { type: { in: "book" } } }
+          sort: { fields: [frontmatter___date], order: DESC }
+        ) {
+          nodes {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              tags
+            }
+          }
+        }
+        algosRemark: allMdx(
+          filter: { fileAbsolutePath: { regex: "/content/algos/" } }
+          limit: 1000
+          sort: { fields: [frontmatter___date], order: DESC }
         ) {
           nodes {
             fields {
@@ -62,6 +78,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = result.data.postsRemark.nodes
+  const algos = result.data.algosRemark.nodes
   const books = result.data.bookRemark.nodes
 
   // Create blog posts pages
@@ -78,6 +95,23 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
         component: blogPost,
         context: {
           slug: post.fields.slug,
+          previous,
+          next,
+        },
+      })
+    })
+  }
+
+  if (algos.length > 0) {
+    algos.forEach((algo, index) => {
+      const previous = index === algos.length - 1 ? null : algos[index + 1]
+      const next = index === 0 ? null : algos[index - 1]
+
+      createPage({
+        path: algo.fields.slug,
+        component: algoPage,
+        context: {
+          slug: algo.fields.slug,
           previous,
           next,
         },

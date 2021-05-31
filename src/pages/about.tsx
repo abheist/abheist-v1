@@ -74,9 +74,12 @@ export const pageQuery = graphql`
       }
     }
     postsRemark: allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { type: { ne: "book" }, featured: { eq: true } } }
+      filter: {
+        fileAbsolutePath: { regex: "/content/blogs/" }
+        frontmatter: { featured: { eq: true } }
+      }
       limit: 3
+      sort: { fields: [frontmatter___date], order: DESC }
     ) {
       nodes {
         excerpt
