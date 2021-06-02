@@ -90,8 +90,7 @@ function Code({ codeString, language, metastring }) {
               <div
                 className="absolute w-full py-2 text-sm text-gray-800 bg-indigo-100 rounded-t-lg px-9"
                 css={`
-                  margin-top: -66px;
-                  margin-left: -10px;
+                  margin-top: -52px;
                 `}
               >
                 {language.split(':')[1]}
