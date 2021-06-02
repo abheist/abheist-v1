@@ -13,11 +13,10 @@ const wrapperStyles = css`
 `
 
 const CodeWrapper = styled.pre`
-  padding: 30px 10px 10px !important;
-  ${tw`float-left w-full`}
+  ${tw`float-left w-full py-6`}
   ::before {
     content: '${props => props['data-language']}';
-    ${tw`rounded-t-sm bg-red-900 rounded-b-lg text-gray-800 bg-yellow-500 text-xs tracking-wide px-2 py-0.5 absolute left-8 text-center uppercase -mt-8 z-10`}
+    ${tw`rounded-t-sm bg-red-900 rounded-b-lg text-gray-800 bg-yellow-500 text-xs tracking-wide px-2 py-0.5 absolute left-8 text-center uppercase -mt-5 z-10`}
   }
 `
 
@@ -99,7 +98,7 @@ function Code({ codeString, language, metastring }) {
               </div>
             )}
             <button
-              className="absolute right-3 -mt-4 bg-indigo-200 border-none px-2 py-0.5 rounded bg-opacity-50 text-white text-xs hover:bg-indigo-400"
+              className="absolute right-3 -mt-1 bg-indigo-200 border-none px-2 py-0.5 rounded bg-opacity-50 text-white text-xs hover:bg-indigo-400"
               onClick={() => {
                 copyToClipboard(codeString)
                 setIsCopied(true)
@@ -117,6 +116,7 @@ function Code({ codeString, language, metastring }) {
                   key: i,
                   className: shouldHighlightLine(i) ? 'highlight-line' : '',
                 })}
+                className="hover:bg-indigo-50 hover:bg-opacity-5 px-5"
               >
                 <span
                   css={`
