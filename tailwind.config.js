@@ -32,6 +32,7 @@ module.exports = {
         'serif',
       ],
       mono: [
+        'dm',
         'ui-monospace',
         'SFMono-Regular',
         'Menlo',
@@ -49,6 +50,12 @@ module.exports = {
       typography: theme => ({
         DEFAULT: {
           css: {
+            pre: {
+              paddingTop: '16px !important',
+              paddingRight: '0px !important',
+              paddingBottom: '8px !important',
+              paddingLeft: '0px !important',
+            },
             code: {
               color: theme('colors.gray.900', defaultTheme.colors.gray[900]),
               background: theme(

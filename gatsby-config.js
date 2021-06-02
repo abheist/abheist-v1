@@ -36,6 +36,15 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        custom: {
+          families: ['dm'],
+          urls: ['/fonts/dmvendor.css'],
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         createLinkInHead: true,
@@ -233,6 +242,15 @@ module.exports = {
           // Avoids sending pageview hits from custom paths
           exclude: ['/preview/**'],
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-nprogress`,
+      options: {
+        // Setting a color is optional.
+        color: `#5945e4`,
+        // Disable the loading spinner.
+        showSpinner: true,
       },
     },
   ],
