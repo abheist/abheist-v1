@@ -4,7 +4,7 @@ import Container from './Container'
 import Logo from './Logo'
 
 const Navigation = ({ title, location }) => {
-  const activeStyle = 'text-indigo-700 font-bold'
+  const activeStyle = 'text-indigo-700 font-bold bg-indigo-50'
 
   function pathIncludes(word: string) {
     return location.pathname.includes(word) ? activeStyle : ''
@@ -25,7 +25,9 @@ const Navigation = ({ title, location }) => {
             <div key={page.name}>
               <Link
                 to={page.path}
-                className={`text-sm ${pathIncludes(page.path)}`}
+                className={`text-sm hover:bg-indigo-50 rounded-md py-2 px-4 ${pathIncludes(
+                  page.path
+                )}`}
               >
                 {page.name}
               </Link>
