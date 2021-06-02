@@ -13,6 +13,7 @@ const wrapperStyles = css`
 `
 
 const CodeWrapper = styled.pre`
+  box-shadow: 0 0px 12px -6px rgba(0, 24, 40, 0.3);
   ${tw`float-left w-full py-6`}
   ::before {
     content: '${props => props['data-language']}';
@@ -91,6 +92,7 @@ function Code({ codeString, language, metastring }) {
                 className="absolute w-full py-2 text-sm text-gray-800 bg-indigo-100 rounded-t-lg px-9"
                 css={`
                   margin-top: -52px;
+                  box-shadow: 0 0px 12px -6px rgba(0, 24, 40, 0.3);
                 `}
               >
                 {language.split(':')[1]}
