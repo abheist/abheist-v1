@@ -32,7 +32,7 @@ module.exports = {
         'serif',
       ],
       mono: [
-        'Dank Mono',
+        'dm',
         'ui-monospace',
         'SFMono-Regular',
         'Menlo',

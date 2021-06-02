@@ -36,6 +36,15 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
     {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        custom: {
+          families: ['dm'],
+          urls: ['/fonts/dmvendor.css'],
+        },
+      },
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         createLinkInHead: true,
