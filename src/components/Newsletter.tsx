@@ -55,7 +55,7 @@ const Newsletter = () => {
                 placeholder="Email address is..."
                 className="flex-1 p-4 border-2 border-indigo-500 rounded-l-lg focus:outline-none focus:ring focus:border-blue-500"
               />
-              <button className="flex-initial px-6 text-lg font-bold text-center bg-indigo-500 hover:bg-indigo-700 rounded-r-lg text-white">
+              <button className="flex-initial px-6 text-lg font-bold text-center bg-indigo-600 hover:bg-indigo-700 rounded-r-lg text-white">
                 Sign me up!
               </button>
             </form>
