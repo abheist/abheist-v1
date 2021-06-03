@@ -1,8 +1,8 @@
 ---
 title: Two Number Sum
-date: 2021-05-20
-description: Add alternate text to Background Images for accessibility purposes
-image:
+date: 2021-06-03 19:16:28
+description:
+image: ../algorithms.png
 tags:
 tableContent: false
 featured: true
@@ -10,25 +10,102 @@ difficulty: easy
 category: array
 ---
 
-**For those times when you need to use `background-image` instead of using `img` tag because of some design related constraints.**
+Write a function that takes in a non-empty array of distinct integers and an integer representing a target sum. If any two numbers in the input array sum up to the target sum, the function should return them in an array, in any order. If no two numbers sum up to the target sum, the function should return an empty array.
 
-With background image, there is no attribute for alternate text `alt`. But there is a way to do it.
+Note that the target sum has to be obtained by summing two different integers in the array; you can't add a single integer to itself in order to obtain the target sum.
 
-```jsx
-<div
-  role="img"
-  aria-label={article.img.title}
-  style={{
-    background: `url(${article.img.src})`,
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-  }}
->
-  <p className="hidden">{data.frontmatter.title} image</p>
-</div>
+You can assume that there will be at most one pair of numbers summing up to the target sum.
+
+### Sample Input
+
+```js
+array = [3, 5, -4, 8, 11, 1, -1, 6]
+targetSum = 10
 ```
 
-Here, the trick is using `role` and `aria-label`, that is it. We're setting the role of the div to img. And providing the alternate text with the help of aria-label.
+### Sample Output
 
-🍃
+```js
+;[-1, 11] // the numbers could be in reverse order
+```
+
+### Hints
+
+**Hint 1**
+
+Try using two for loops to sum all possible pairs of numbers in the input array. What are the time and space implications of this approach?
+
+**Hint 2**
+
+Realize that for every number X in the input array, you are essentially trying to find a corresponding number Y such that X + Y = targetSum. With two variables in this equation known to you, it shouldn't be hard to solve for Y.
+
+**Hint 3**
+
+Try storing every number in a hash table, solving the equation mentioned in Hint #2 for every number, and checking if the Y that you find is stored in the hash table. What are the time and space implications of this approach?
+
+**Optimal Space & Time Complexity**
+
+`O(n) time` | `O(n) space` - where `n` is the length of the input array
+
+```javascript:Solution-1
+function twoNumberSum(array, targetSum) {
+  // array of length n
+  if (array.length === 0) return
+
+  for (let i of array) {
+    // first n iteration
+    for (let j of array) {
+      // secind n iteration
+      if (i === j) continue
+      if (i + j === targetSum) return [i, j]
+    }
+  }
+  return []
+}
+
+// O(n ^ 2) time, since there are two iterations of array in this solution.
+// O(1) space, since all is just temporary space.
+
+//  O(n ^ 2) | O(1)
+```
+
+```javascript:Solution-2
+function twoNumberSum(array, targetSum) {
+  // array of length n
+  const nums = {}
+  for (let num of array) {
+    // first iteration of n
+    let potentialMatch = targetSum - num
+    if (potentialMatch in nums) {
+      return [potentialMatch, num]
+    } else {
+      nums[num] = true
+    }
+  }
+  return []
+}
+
+// O(n) time, wow this solution is just awesome.
+// O(n) space, since we are creating a dict of nums
+```
+
+```javascript:Solution-3
+function twoNumberSum(array, targetSum) {
+  array.sort((a, b) => a - b)
+  let left = 0
+  let right = array.length - 1
+
+  while (left < right) {
+    // sum of left index and right index
+    let currentSum = array[left] + array[right]
+    if (currentSum === targetSum) {
+      return [array[left], array[right]]
+    } else if (currentSum < targetSum) {
+      left++
+    } else if (currentSum > targetSum) {
+      right--
+    }
+  }
+  return []
+}
+```
