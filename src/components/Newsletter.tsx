@@ -24,7 +24,7 @@ const Newsletter = () => {
 
   return (
     <div className="bg-indigo-50">
-      <Container className="py-40">
+      <Container className="py-24">
         {status ? (
           <div className="flex flex-row items-center justify-center h-full bg-green-50">
             <div className="py-20 text-center w-60">
