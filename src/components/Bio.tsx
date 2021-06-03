@@ -1,7 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import { GatsbyImage } from 'gatsby-plugin-image'
 import { OutboundLink } from 'gatsby-plugin-google-gtag'
 import React from 'react'
+import Container from './Container'
+import { Subtitle2 } from './Typography'
 
 const Bio = () => {
   const data = useStaticQuery(graphql`
@@ -37,29 +38,26 @@ const Bio = () => {
   const avatar = data?.avatar?.childImageSharp?.gatsbyImageData
 
   return (
-    <div className="flex flex-col items-start justify-center px-4 mx-auto my-24 sm:flex-row gap-x-4">
-      {avatar && (
-        <GatsbyImage
-          image={avatar}
-          alt={author?.name || ``}
-          imgStyle={{
-            borderRadius: `50%`,
-          }}
-        />
-      )}
-      {author?.name && (
-        <p className="prose sm:w-10/12">
-          <strong>{author.name}</strong>, {author?.summary || null}
-          {` `}
+    <div className="mt-16 mb-16">
+      <Container className="lg:px-24 ">
+        <Subtitle2 className="text-lg leading-loose">
+          Do you have any questions, or simply wish to contact me privately?
+          Don’t hesitate to shoot me a DM on{' '}
           <OutboundLink
             href={`https://twitter.com/${social?.twitter || ``}`}
             target="_blank"
             rel="noreferrer"
+            className="text-indigo-600"
           >
-            Follow on Twitter for updates.
+            Twitter
           </OutboundLink>
+          .
+        </Subtitle2>
+        <p className="text-lg mt-8 leading-loose">
+          Have a wonderful day.
+          <br /> Abhishek 🙏
         </p>
-      )}
+      </Container>
     </div>
   )
 }

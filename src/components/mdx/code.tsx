@@ -115,9 +115,10 @@ function Code({ codeString, language, metastring }) {
                 {...getLineProps({
                   line,
                   key: i,
-                  className: shouldHighlightLine(i) ? 'highlight-line' : '',
+                  className: shouldHighlightLine(i)
+                    ? 'highlight-line hover:bg-indigo-50 hover:bg-opacity-5 px-5'
+                    : 'hover:bg-indigo-50 hover:bg-opacity-5 px-5',
                 })}
-                className="hover:bg-indigo-50 hover:bg-opacity-5 px-5"
               >
                 <span
                   css={`
