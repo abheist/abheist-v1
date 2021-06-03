@@ -23,7 +23,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
         image={{
           src:
             post.frontmatter.image?.childImageSharp?.gatsbyImageData.images
-              .fallback.src,
+              .fallback.src || '',
           height:
             post.frontmatter.image?.childImageSharp?.gatsbyImageData
               .presentationHeight,
