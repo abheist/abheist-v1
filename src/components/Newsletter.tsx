@@ -53,9 +53,9 @@ const Newsletter = () => {
                 aria-label="email"
                 required
                 placeholder="Email address is..."
-                className="flex-1 p-4 border-2 border-yellow-300 rounded-l-lg"
+                className="flex-1 p-4 border-2 border-indigo-500 rounded-l-lg focus:outline-none focus:ring focus:border-blue-500"
               />
-              <button className="flex-initial px-6 text-lg font-bold text-center text-gray-800 bg-yellow-300 hover:bg-yellow-400 rounded-r-lg">
+              <button className="flex-initial px-6 text-lg font-bold text-center bg-indigo-500 hover:bg-indigo-700 rounded-r-lg text-white">
                 Sign me up!
               </button>
             </form>
