@@ -48,7 +48,7 @@ const AlgoList = ({ posts: articles }) => {
 
         <div>
           <H6 className="font-bold">RECENTLY ADDED</H6>
-          <div className="grid grid-cols-3 mt-10 gap-y-8 gap-x-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-y-8 gap-x-8">
             {posts.map(post => (
               <AlgoCard key={post.fields.slug} algo={post} />
             ))}
