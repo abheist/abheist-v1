@@ -32,7 +32,7 @@ const Newsletter = () => {
             </div>
           </div>
         ) : (
-          <div className="px-8 py-12 bg-white rounded-xl">
+          <div className="px-4 sm:px-8 py-12 bg-white rounded-xl">
             <H5 className="font-bold xs:px-16">Subscribe to my newsletter</H5>
             <Body1 className="mt-8">
               Get email from me about my ideas, full-stack development
@@ -55,7 +55,7 @@ const Newsletter = () => {
                 placeholder="Email address is..."
                 className="flex-1 p-4 border-2 border-indigo-500 rounded-l-lg focus:outline-none focus:ring focus:border-blue-500"
               />
-              <button className="flex-initial px-6 text-lg font-bold text-center bg-indigo-600 hover:bg-indigo-700 rounded-r-lg text-white">
+              <button className="flex-initial px-6 text-sm sm:text-lg font-bold text-center bg-indigo-600 hover:bg-indigo-700 rounded-r-lg text-white">
                 Sign me up!
               </button>
             </form>
