@@ -12,14 +12,11 @@ const Algos = ({ data, location }) => {
     <Layout title={siteTitle} location={location}>
       <SEO
         title="Algorithms"
-        description="All the algorithms which I'm learning can be found here, from easy to hard."
-        // TODO: Need to put the articles image
-        // image={{
-        //   src: post.frontmatter.image.childImageSharp.fluid.src,
-        //   height:
-        //     post.frontmatter.image.childImageSharp.fluid.presentationHeight,
-        //   width: post.frontmatter.image.childImageSharp.fluid.presentationWidth,
-        // }}
+        description="All the algorithms which I'm learning can be found here, from easy, medium to hard."
+        image={{
+          src:
+            data.pageImage.childImageSharp.gatsbyImageData.images.fallback.src,
+        }}
         pathname={location.pathname}
       />
       {posts.length === 0 ? (
@@ -40,6 +37,19 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    pageImage: file(absolutePath: { regex: "/algos.png/" }) {
+      childImageSharp {
+        gatsbyImageData(
+          quality: 95
+          tracedSVGOptions: {
+            turnPolicy: TURNPOLICY_MAJORITY
+            color: "#5945e4"
+          }
+          placeholder: TRACED_SVG
+          layout: FULL_WIDTH
+        )
       }
     }
     algosRemark: allMdx(

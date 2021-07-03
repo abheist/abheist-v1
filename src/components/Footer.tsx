@@ -106,7 +106,7 @@ const Footer = () => {
     { name: 'Uses', link: '/uses/' },
     { name: 'Now', link: '/now/' },
     { name: 'Favourite Links', link: '/links/' },
-    { name: 'Algorithms', link: '/algos/' },
+    { name: 'Algorithms', link: '/algorithms/' },
   ]
 
   const socialLinks = [

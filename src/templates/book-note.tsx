@@ -14,7 +14,7 @@ import SEO from '../components/SEO'
 import SocialShare from '../components/SocialShare'
 import { H2, H6, Subtitle2 } from '../components/Typography'
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const BookNoteTemplate = ({ data, pageContext, location }) => {
   const post = data.mdx
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const { previous, next, slug } = pageContext
@@ -121,7 +121,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
   )
 }
 
-export default BlogPostTemplate
+export default BookNoteTemplate
 
 export const pageQuery = graphql`
   query BookNoteBySlug($slug: String!) {
