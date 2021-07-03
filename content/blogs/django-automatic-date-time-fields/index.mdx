@@ -1,0 +1,27 @@
+---
+title: Django automatic date time fields - created_on and updated_on
+date: 2021-07-03
+description: Automatically handling date and time fields
+image: ./date-time.jpg
+tags:
+  - Django
+tableContent: false
+featured: true
+---
+
+In Django, `DateTimeField` and `DateField` have two very useful arguments for automatically handling date and time fields. You don't need to keep track of creation and updation of data manually. Just set the `auto_now` and `auto_now_add` arguments to `True` like in the following example:
+
+```python
+class BaseMode(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+		class Meta:
+		    abstract = True
+```
+
+The `auto_now_add` will set the `timezone.now()` only when the instance is created, and `auto_now` will update the field every time the `save` method is being called on model.
+
+And at the time of creation of instance, both will be filled.
+
+✌️
