@@ -43,7 +43,7 @@ const Card = ({ data }: CardProp) => {
           {data.frontmatter.title}
         </H6>
       </Link>
-      <Link to={data.fields.slug}>
+      <Link to={data.fields.slug} aria-label={data.frontmatter.description || data.excerpt}>
         <Body1 className="mt-4">
           {data.frontmatter.description || data.excerpt}
         </Body1>
