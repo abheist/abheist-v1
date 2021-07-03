@@ -39,15 +39,27 @@ const Card = ({ data }: CardProp) => {
         </Link>
       )}
       <Link to={data.fields.slug}>
-        <H6 level={3} className="mt-4 font-bold group-hover:text-indigo-primary">
+        <H6
+          level={3}
+          className="mt-4 font-bold group-hover:text-indigo-primary"
+        >
           {data.frontmatter.title}
         </H6>
       </Link>
-      <Link to={data.fields.slug} aria-label={data.frontmatter.description || data.excerpt}>
-        <Body1 className="mt-4">
-          {data.frontmatter.description || data.excerpt}
-        </Body1>
-      </Link>
+      {(data.frontmatter.description || data.excerpt) && (
+        <Link
+          to={data.fields.slug}
+          aria-label={
+            data.frontmatter.description ||
+            data.excerpt ||
+            'Article Card Description'
+          }
+        >
+          <Body1 className="mt-4">
+            {data.frontmatter.description || data.excerpt}
+          </Body1>
+        </Link>
+      )}
     </div>
   )
 }
