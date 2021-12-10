@@ -1,8 +1,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  purge: ['./src/**/*.js', './src/**/*.jsx', './src/**/*.ts', './src/**/*.tsx'],
-  darkMode: false, // or 'media' or 'class'
+  mode: 'jit',
+  content: ['./public/**/*.html', './src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     fontFamily: {
       sans: [
@@ -57,11 +57,8 @@ module.exports = {
               paddingLeft: '0px !important',
             },
             code: {
-              color: theme('colors.gray.900', defaultTheme.colors.gray[900]),
-              background: theme(
-                'colors.indigo.50',
-                defaultTheme.colors.indigo[50]
-              ),
+              color: theme('colors.gray.900'),
+              background: theme('colors.indigo.50'),
               borderRadius: '6px',
               padding: '0.2em 0.4em',
               fontWeight: '100',
@@ -75,10 +72,7 @@ module.exports = {
             },
             blockquote: {
               fontWeight: '600',
-              borderLeftColor: theme(
-                'colors.indigo.500',
-                defaultTheme.colors.indigo[500]
-              ),
+              borderLeftColor: theme('colors.indigo.500'),
             },
             'blockquote p:first-of-type::before': {
               content: '',
@@ -89,24 +83,6 @@ module.exports = {
           },
         },
       }),
-    },
-  },
-  variants: {
-    extend: {
-      margin: ['hover', 'focus'],
-      padding: ['hover', 'focus'],
-      display: ['hover', 'group-hover'],
-      visibility: ['hover'],
-      borderRadius: ['hover', 'focus'],
-      borderWidth: ['hover', 'focus'],
-      borderColor: ['active'],
-      transform: ['active', 'group-hover'],
-      translate: ['active', 'group-hover'],
-      transitionProperty: ['hover', 'group-hover'],
-      transitionDuration: ['hover', 'group-hover'],
-      transitionTimingFunction: ['hover', 'group-hover'],
-      transitionDelay: ['hover', 'group-hover'],
-      animation: ['hover', 'group-hover', 'focus'],
     },
   },
   plugins: [require('@tailwindcss/typography')],
