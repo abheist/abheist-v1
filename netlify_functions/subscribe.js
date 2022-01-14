@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+import fetch from 'node-fetch'
 
 exports.handler = async event => {
   const { CK_FORM_ID: formId, CK_API_KEY: netlifyAPIKey } = process.env
