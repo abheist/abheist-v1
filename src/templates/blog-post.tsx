@@ -26,10 +26,10 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
               .fallback.src || '',
           height:
             post.frontmatter.image?.childImageSharp?.gatsbyImageData
-              .presentationHeight,
+              .presentationHeight || 0,
           width:
             post.frontmatter.image?.childImageSharp?.gatsbyImageData
-              .presentationWidth,
+              .presentationWidth || 0,
         }}
         pathname={location.pathname}
       />
