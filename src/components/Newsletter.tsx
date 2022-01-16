@@ -32,7 +32,10 @@ const Newsletter = () => {
             </div>
           </div>
         ) : (
-          <div className="px-4 sm:px-8 py-12 bg-white rounded-xl">
+          <div
+            className="px-4 py-12 bg-white sm:px-8 rounded-xl"
+            id="revue-embed"
+          >
             <H5 className="font-bold xs:px-16">Subscribe to my newsletter</H5>
             <Body1 className="mt-8">
               Get email from me about my ideas, full-stack development
@@ -40,24 +43,30 @@ const Newsletter = () => {
               upcoming articles.
             </Body1>
             <form
-              action="/api/subscribe"
-              method="POST"
-              onSubmit={handleSubmit}
+              action="http://newsletter.abheist.com/add_subscriber"
+              method="post"
               className="flex flex-row w-full mt-8"
+              id="revue-form"
+              name="revue-form"
+              target="_blank"
             >
               <input
                 type="email"
-                name="email"
-                id="email"
+                name="member[email]"
+                id="member_email"
                 title="email"
                 aria-label="email"
                 required
                 placeholder="Email address is..."
                 className="flex-1 p-4 border-2 border-indigo-500 rounded-l-lg focus:outline-none focus:ring focus:border-blue-500"
               />
-              <button className="flex-initial px-6 text-sm sm:text-lg font-bold text-center bg-indigo-600 hover:bg-indigo-700 rounded-r-lg text-white">
-                Sign me up!
-              </button>
+              <input
+                className="flex-initial px-6 text-sm font-bold text-center text-white bg-indigo-600 rounded-r-lg sm:text-lg hover:bg-indigo-700"
+                type="submit"
+                value="Sign me up!"
+                name="member[subscribe]"
+                id="member_submit"
+              ></input>
             </form>
             <Caption className="mt-6">
               No spam. Just the highest quality ideas you’ll find on the web.
