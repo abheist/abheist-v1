@@ -1,8 +1,10 @@
-const fetch = require('node-fetch')
+import fetch from 'node-fetch'
 
-exports.handler = async event => {
+export async function handler(event, context) {
   const { CK_FORM_ID: formId, CK_API_KEY: netlifyAPIKey } = process.env
   const url = `https://api.convertkit.com/v3/forms/${formId}/subscribe`
+  // const url = `http://localhost:8888/.netlify/functions/subscribe​`
+
   console.log(url)
   const { email } = JSON.parse(event.body)
 
