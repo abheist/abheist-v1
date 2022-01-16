@@ -5,22 +5,22 @@ import { Body1, Caption, H5 } from './Typography'
 const Newsletter = () => {
   const [status, setStatus] = useState(() => false)
 
-  const handleSubmit = event => {
-    event.preventDefault()
+  // const handleSubmit = event => {
+  //   event.preventDefault()
 
-    const data = new FormData(event.target)
+  //   const data = new FormData(event.target)
 
-    fetch('/.netlify/functions/subscribe', {
-      method: 'POST',
-      body: JSON.stringify({
-        email: data.get('email'),
-      }),
-    }).then(res => {
-      if (res.status === 301) {
-        setStatus(true)
-      }
-    })
-  }
+  //   fetch('/.netlify/functions/subscribe', {
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       email: data.get('email'),
+  //     }),
+  //   }).then(res => {
+  //     if (res.status === 301) {
+  //       setStatus(true)
+  //     }
+  //   })
+  // }
 
   return (
     <div className="bg-indigo-50">
