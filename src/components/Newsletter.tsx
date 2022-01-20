@@ -16,7 +16,7 @@ const Newsletter = () => {
         email: data.get('email'),
       }),
     }).then(res => {
-      if (res.status === 301) {
+      if (res.status === 200) {
         setStatus(true)
       }
     })
