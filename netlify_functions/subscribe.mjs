@@ -1,11 +1,9 @@
 import fetch from 'node-fetch'
 
 export async function handler(event, context) {
-  const { CK_FORM_ID: formId, CK_API_KEY: netlifyAPIKey } = process.env
-  const url = `https://api.convertkit.com/v3/forms/${formId}/subscribe`
-  // const url = `http://localhost:8888/.netlify/functions/subscribe​`
+  const { REVUE_API_KEY } = process.env
+  const url = `https://www.getrevue.co/api/v2/subscribers`
 
-  console.log(url)
   const { email } = JSON.parse(event.body)
 
   try {
@@ -13,10 +11,11 @@ export async function handler(event, context) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Token ${REVUE_API_KEY}`,
       },
       body: JSON.stringify({
-        api_key: netlifyAPIKey,
         email,
+        double_opt_in: false,
       }),
     })
       .then(res => res.json())
@@ -25,11 +24,7 @@ export async function handler(event, context) {
         throw new Error(error)
       })
     return {
-      statusCode: 301,
-      headers: {
-        // Location: '/success/',
-      },
-      // body is unused in 3xx codes, but required in all function responses
+      statusCode: 200,
       body: 'success',
     }
   } catch (error) {

@@ -1,2 +1,3 @@
 [build]
   functions = "netlify_functions"
+  node_bundler = "esbuild"
