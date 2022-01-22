@@ -104,7 +104,7 @@ const SEO = ({
         },
       ]
         .concat(
-          metaImage
+          image
             ? [
                 {
                   property: 'og:image',
