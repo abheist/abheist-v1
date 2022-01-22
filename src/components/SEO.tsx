@@ -112,11 +112,11 @@ const SEO = ({
                 },
                 {
                   property: 'og:image:width',
-                  content: metaImage.width,
+                  content: metaImage?.width || null,
                 },
                 {
                   property: 'og:image:height',
-                  content: metaImage.height,
+                  content: metaImage?.height || null,
                 },
                 {
                   name: 'twitter:card',
