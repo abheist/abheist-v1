@@ -30,7 +30,6 @@ module.exports = {
     FAST_DEV: true,
     DEV_SSR: false,
     PARALLEL_SOURCING: true,
-    PRESERVE_FILE_DOWNLOAD_CACHE: true,
   },
   plugins: [
     `gatsby-plugin-postcss`,
