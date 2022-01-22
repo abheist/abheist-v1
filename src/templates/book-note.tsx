@@ -55,14 +55,12 @@ const BookNoteTemplate = ({ data, pageContext, location }) => {
               .fallback.src,
           height:
             post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
-              .presentationHeight ||
-            post.frontmatter.image?.childImageSharp?.gatsbyImageData.images
-              .fallback.src,
+              .height ||
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData.height,
           width:
             post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
-              .presentationWidth ||
-            post.frontmatter.image?.childImageSharp?.gatsbyImageData.images
-              .fallback.src,
+              .width ||
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData.width,
         }}
         pathname={location.pathname}
       />
