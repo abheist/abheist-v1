@@ -84,7 +84,11 @@ const SEO = ({
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
+        },
+        {
+          name: `twitter:site`,
+          content: site.siteMetadata?.social?.twitter || ``,
         },
         {
           name: `twitter:creator`,

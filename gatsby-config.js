@@ -8,7 +8,7 @@ module.exports = {
     description: `Thoughts on Life, career and computer science.`,
     siteUrl: `https://abheist.com`,
     social: {
-      twitter: `abheist`,
+      twitter: `@abheist`,
     },
     keywords: [
       'Abhishek Kumar Singh',
@@ -30,6 +30,7 @@ module.exports = {
     FAST_DEV: true,
     DEV_SSR: false,
     PARALLEL_SOURCING: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
   },
   plugins: [
     `gatsby-plugin-postcss`,
