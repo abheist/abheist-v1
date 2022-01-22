@@ -49,14 +49,20 @@ const BookNoteTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
         image={{
           src:
+            post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
+              .images.fallback.src ||
             post.frontmatter.image?.childImageSharp?.gatsbyImageData.images
               .fallback.src,
           height:
-            post.frontmatter.image?.childImageSharp?.gatsbyImageData
-              .presentationHeight,
+            post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
+              .presentationHeight ||
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData.images
+              .fallback.src,
           width:
-            post.frontmatter.image?.childImageSharp?.gatsbyImageData
-              .presentationWidth,
+            post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
+              .presentationWidth ||
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData.images
+              .fallback.src,
         }}
         pathname={location.pathname}
       />
@@ -148,6 +154,18 @@ export const pageQuery = graphql`
         amazon
         favouriteQuote
         image {
+          childImageSharp {
+            gatsbyImageData(
+              tracedSVGOptions: {
+                turnPolicy: TURNPOLICY_MAJORITY
+                color: "#5945e4"
+              }
+              placeholder: TRACED_SVG
+              layout: FULL_WIDTH
+            )
+          }
+        }
+        bannerImage {
           childImageSharp {
             gatsbyImageData(
               tracedSVGOptions: {
