@@ -53,7 +53,7 @@ const Bio = () => {
           </OutboundLink>
           .
         </Subtitle2>
-        <p className="text-lg mt-8 leading-loose">
+        <p className="mt-8 text-lg leading-loose">
           Have a wonderful day.
           <br /> Abhishek 🙏
         </p>
