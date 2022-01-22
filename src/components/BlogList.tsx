@@ -47,7 +47,7 @@ const BlogList = ({ posts: articles, tags }) => {
             onChange={event => setSearch(event.target.value)}
           />
         </div>
-        <div className="flex flex-col md:flex-row gap-16 mb-32">
+        <div className="flex flex-col gap-16 mb-32 md:flex-row">
           <div className="md:w-2/3">
             <H6 className="font-bold">RECENTLY PUBLISHED</H6>
             <div className="grid mt-10 gap-y-20">

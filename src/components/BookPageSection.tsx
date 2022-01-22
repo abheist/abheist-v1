@@ -60,7 +60,7 @@ const BookPageSection = ({
           <div
             className={`transition-all order-1 duration-300 sm:hover:-mt-2 sm:hover:mb-2`}
           >
-            <Link to={latestArticle.to}>
+            <Link to={`/book-notes${latestArticle.to}`}>
               <ImageWithShadow
                 style={{ height: '400px', width: '270px' }}
                 image={latestArticle.pic.childImageSharp.gatsbyImageData}

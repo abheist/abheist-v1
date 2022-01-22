@@ -119,7 +119,7 @@ const BookNoteTemplate = ({ data, pageContext, location }) => {
           <SocialShare title={post.frontmatter.title} location={location} />
         </article>
       </Container>
-      <BlogNav previous={previous} next={next} />
+      <BlogNav previous={previous} next={next} parent="/book-notes" />
       <Bio />
     </Layout>
   )
