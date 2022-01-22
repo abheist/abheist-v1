@@ -54,12 +54,12 @@ const BookNoteTemplate = ({ data, pageContext, location }) => {
             post.frontmatter.image?.childImageSharp?.gatsbyImageData.images
               .fallback.src,
           height:
-            600 *
+            1200 *
               post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
                 .height ||
             post.frontmatter.image?.childImageSharp?.gatsbyImageData.height,
           width:
-            600 *
+            1200 *
               post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
                 .width ||
             post.frontmatter.image?.childImageSharp?.gatsbyImageData.width,
