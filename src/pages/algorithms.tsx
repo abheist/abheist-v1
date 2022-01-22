@@ -14,8 +14,8 @@ const Algos = ({ data, location }) => {
         title="Algorithms"
         description="All the algorithms which I'm learning can be found here, from easy, medium to hard."
         image={{
-          src:
-            data.pageImage.childImageSharp.gatsbyImageData.images.fallback.src,
+          src: data.pageImage.childImageSharp.gatsbyImageData.images.fallback
+            .src,
         }}
         pathname={location.pathname}
       />
@@ -43,11 +43,8 @@ export const pageQuery = graphql`
       childImageSharp {
         gatsbyImageData(
           quality: 95
-          tracedSVGOptions: {
-            turnPolicy: TURNPOLICY_MAJORITY
-            color: "#5945e4"
-          }
-          placeholder: TRACED_SVG
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
           layout: FULL_WIDTH
         )
       }
@@ -70,11 +67,8 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               gatsbyImageData(
-                tracedSVGOptions: {
-                  turnPolicy: TURNPOLICY_MAJORITY
-                  color: "#5945e4"
-                }
-                placeholder: TRACED_SVG
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
                 layout: FULL_WIDTH
               )
             }

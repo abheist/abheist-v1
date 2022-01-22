@@ -156,11 +156,8 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             gatsbyImageData(
-              tracedSVGOptions: {
-                turnPolicy: TURNPOLICY_MAJORITY
-                color: "#5945e4"
-              }
-              placeholder: TRACED_SVG
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
               layout: FULL_WIDTH
             )
           }
@@ -168,11 +165,8 @@ export const pageQuery = graphql`
         bannerImage {
           childImageSharp {
             gatsbyImageData(
-              tracedSVGOptions: {
-                turnPolicy: TURNPOLICY_MAJORITY
-                color: "#5945e4"
-              }
-              placeholder: TRACED_SVG
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
               layout: FULL_WIDTH
             )
           }
