@@ -90,7 +90,7 @@ const BookCard = ({ post }): JSX.Element => {
                 </div>
               </Link>
             </div>
-            <AmazonButton link="/" />
+            <AmazonButton link={post.frontmatter.amazon} />
           </div>
         </article>
       )}
