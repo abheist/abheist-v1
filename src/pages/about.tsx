@@ -46,9 +46,10 @@ export const pageQuery = graphql`
         node {
           childImageSharp {
             gatsbyImageData(
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-              layout: FULL_WIDTH
+              placeholder: DOMINANT_COLOR
+              formats: [AUTO, AVIF]
+              layout: CONSTRAINED
+              quality: 50
             )
           }
         }
@@ -59,9 +60,10 @@ export const pageQuery = graphql`
         node {
           childImageSharp {
             gatsbyImageData(
-              placeholder: BLURRED
-              formats: [AUTO, WEBP, AVIF]
-              layout: FULL_WIDTH
+              placeholder: DOMINANT_COLOR
+              formats: [AUTO, AVIF]
+              layout: CONSTRAINED
+              quality: 50
             )
           }
         }
@@ -88,9 +90,10 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               gatsbyImageData(
-                placeholder: BLURRED
-                formats: [AUTO, WEBP, AVIF]
-                layout: FULL_WIDTH
+                placeholder: DOMINANT_COLOR
+                formats: [AUTO, AVIF]
+                layout: CONSTRAINED
+                quality: 50
               )
             }
           }

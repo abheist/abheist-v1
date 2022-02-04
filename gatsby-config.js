@@ -31,8 +31,6 @@ module.exports = {
     DEV_SSR: false,
   },
   plugins: [
-    `gatsby-plugin-postcss`,
-    `gatsby-plugin-image`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
@@ -151,8 +149,19 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `avif`],
+          placeholder: `dominantColor`,
+          quality: 50,
+          breakpoints: [750, 1080, 1366, 1920],
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -258,5 +267,6 @@ module.exports = {
         showSpinner: true,
       },
     },
+    `gatsby-plugin-postcss`,
   ],
 }
