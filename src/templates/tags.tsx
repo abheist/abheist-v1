@@ -77,7 +77,7 @@ const Tags = ({ pageContext, data, location }) => {
 export default Tags
 
 export const pageQuery = graphql`
-  query($tag: String) {
+  query ($tag: String) {
     site {
       siteMetadata {
         title
@@ -102,11 +102,8 @@ export const pageQuery = graphql`
             image {
               childImageSharp {
                 gatsbyImageData(
-                  tracedSVGOptions: {
-                    turnPolicy: TURNPOLICY_MAJORITY
-                    color: "#5945e4"
-                  }
-                  placeholder: TRACED_SVG
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
                   layout: FULL_WIDTH
                 )
               }

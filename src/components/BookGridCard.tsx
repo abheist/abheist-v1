@@ -35,7 +35,7 @@ const BookGridCard = ({ book }) => {
       ) : (
         <Link
           key={book.fields.slug}
-          to={book.fields.slug}
+          to={`/book-notes${book.fields.slug}`}
           itemProp="url"
           className={`relative transition-all duration-300 hover:-mt-2`}
         >

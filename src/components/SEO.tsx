@@ -84,7 +84,11 @@ const SEO = ({
         },
         {
           name: `twitter:card`,
-          content: `summary`,
+          content: `summary_large_image`,
+        },
+        {
+          name: `twitter:site`,
+          content: site.siteMetadata?.social?.twitter || ``,
         },
         {
           name: `twitter:creator`,
@@ -100,7 +104,7 @@ const SEO = ({
         },
       ]
         .concat(
-          metaImage
+          image
             ? [
                 {
                   property: 'og:image',
@@ -108,11 +112,11 @@ const SEO = ({
                 },
                 {
                   property: 'og:image:width',
-                  content: metaImage.width,
+                  content: metaImage?.width || null,
                 },
                 {
                   property: 'og:image:height',
-                  content: metaImage.height,
+                  content: metaImage?.height || null,
                 },
                 {
                   name: 'twitter:card',

@@ -49,14 +49,20 @@ const BookNoteTemplate = ({ data, pageContext, location }) => {
         description={post.frontmatter.description || post.excerpt}
         image={{
           src:
+            post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
+              .images.fallback.src ||
             post.frontmatter.image?.childImageSharp?.gatsbyImageData.images
               .fallback.src,
           height:
-            post.frontmatter.image?.childImageSharp?.gatsbyImageData
-              .presentationHeight,
+            1200 *
+              post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
+                .height ||
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData.height,
           width:
-            post.frontmatter.image?.childImageSharp?.gatsbyImageData
-              .presentationWidth,
+            1200 *
+              post.frontmatter.bannerImage?.childImageSharp?.gatsbyImageData
+                .width ||
+            post.frontmatter.image?.childImageSharp?.gatsbyImageData.width,
         }}
         pathname={location.pathname}
       />
@@ -115,7 +121,7 @@ const BookNoteTemplate = ({ data, pageContext, location }) => {
           <SocialShare title={post.frontmatter.title} location={location} />
         </article>
       </Container>
-      <BlogNav previous={previous} next={next} />
+      <BlogNav previous={previous} next={next} parent="/book-notes" />
       <Bio />
     </Layout>
   )
@@ -150,11 +156,17 @@ export const pageQuery = graphql`
         image {
           childImageSharp {
             gatsbyImageData(
-              tracedSVGOptions: {
-                turnPolicy: TURNPOLICY_MAJORITY
-                color: "#5945e4"
-              }
-              placeholder: TRACED_SVG
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+              layout: FULL_WIDTH
+            )
+          }
+        }
+        bannerImage {
+          childImageSharp {
+            gatsbyImageData(
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
               layout: FULL_WIDTH
             )
           }

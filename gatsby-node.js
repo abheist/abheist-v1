@@ -125,7 +125,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const next = index === 0 ? null : books[index - 1]
 
       createPage({
-        path: book.fields.slug,
+        path: `/book-notes${book.fields.slug}`,
         component: bookNote,
         context: {
           slug: book.fields.slug,

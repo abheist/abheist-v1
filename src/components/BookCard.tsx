@@ -5,7 +5,7 @@ import ImageWithShadow from './ImageWithShadow'
 import { H4, Subtitle2 } from './Typography'
 
 const BookCard = ({ post }): JSX.Element => {
-  const title = post.frontmatter.title || post.fields.slug
+  const title = post.frontmatter.title || `/book-notes${post.fields.slug}`
   const [shake, setShake] = useState(false)
 
   const animate = () => {
@@ -56,7 +56,7 @@ const BookCard = ({ post }): JSX.Element => {
           className="flex flex-row p-4 -m-4 transition-all duration-300 border border-gray-200 border-opacity-0 group hover:border-opacity-100"
         >
           {post.frontmatter.image && (
-            <Link to={post.fields.slug}>
+            <Link to={`/book-notes${post.fields.slug}`}>
               <ImageWithShadow
                 style={{ height: '300px', width: '200px' }}
                 image={post.frontmatter.image.childImageSharp.gatsbyImageData}
@@ -65,7 +65,7 @@ const BookCard = ({ post }): JSX.Element => {
           )}
           <div className="flex flex-col justify-between w-4/5 px-8">
             <div>
-              <Link to={post.fields.slug}>
+              <Link to={`/book-notes${post.fields.slug}`}>
                 <H4 className="group-hover:text-indigo-700">
                   <span itemProp="headline">{title}</span>
                 </H4>
@@ -90,7 +90,7 @@ const BookCard = ({ post }): JSX.Element => {
                 </div>
               </Link>
             </div>
-            <AmazonButton link="/" />
+            <AmazonButton link={post.frontmatter.amazon} />
           </div>
         </article>
       )}

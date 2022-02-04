@@ -8,7 +8,7 @@ module.exports = {
     description: `Thoughts on Life, career and computer science.`,
     siteUrl: `https://abheist.com`,
     social: {
-      twitter: `abheist`,
+      twitter: `@abheist`,
     },
     keywords: [
       'Abhishek Kumar Singh',
@@ -29,13 +29,11 @@ module.exports = {
   flags: {
     FAST_DEV: true,
     DEV_SSR: false,
-    PARALLEL_SOURCING: true,
   },
   plugins: [
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`, // Needed for dynamic images
+    `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
@@ -154,8 +152,8 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -170,7 +168,7 @@ module.exports = {
     },
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-plugin-feed-mdx`,
+      resolve: `gatsby-plugin-feed`,
       options: {
         query: `
           {
