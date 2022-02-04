@@ -33,7 +33,6 @@ module.exports = {
   plugins: [
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {

@@ -13,7 +13,6 @@
     "@jimp/plugin-print": "^0.16.1",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^2.0.0",
-    "@netlify/functions": "^0.11.0",
     "@sentry/gatsby": "^6.17.4",
     "faunadb": "^4.5.0",
     "gatsby": "^4.6.2",
@@ -61,7 +60,6 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.17.0",
-    "postcss": "^8.4.5",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.4.0",
     "@tailwindcss/line-clamp": "^0.3.1",
@@ -73,7 +71,6 @@
     "@types/react-helmet": "^6.1.5",
     "@types/styled-components": "^5.1.21",
     "@vercel/node": "^1.12.1",
-    "autoprefixer": "^10.4.2",
     "babel-plugin-styled-components": "^2.0.2",
     "babel-preset-gatsby": "^2.6.0",
     "gatsby-plugin-postcss": "^5.6.0",
