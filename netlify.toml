@@ -1,3 +1,6 @@
 [build]
   functions = "netlify_functions"
   node_bundler = "esbuild"
+[build.environment]
+  YARN_VERSION = "1.22.17"
+  NODE_VERSION = "14.17.6"

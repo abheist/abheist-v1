@@ -29,11 +29,11 @@ module.exports = {
   flags: {
     FAST_DEV: true,
     DEV_SSR: false,
-    PARALLEL_QUERY_RUNNING: true,
   },
   plugins: [
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-netlify`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
