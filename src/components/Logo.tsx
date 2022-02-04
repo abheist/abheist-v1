@@ -20,7 +20,7 @@ const Logo = ({
     <div>
       <Link
         to="/"
-        className="flex-1 font-serif text-xl font-medium text-gray-800 uppercase"
+        className="flex-1 font-serif text-xl font-medium uppercase text-gray-800"
         style={{
           letterSpacing: '2.25px',
           color: fontColor,

@@ -15,7 +15,7 @@ const BookGridCard = ({ book }) => {
     <>
       {book.frontmatter.published === false ? (
         <span
-          className={`relative transition-all duration-300 hover:-mt-2 cursor-not-allowed group`}
+          className={`group relative cursor-not-allowed transition-all duration-300 hover:-mt-2`}
           onClick={animate}
         >
           <ImageWithShadow
@@ -25,7 +25,7 @@ const BookGridCard = ({ book }) => {
             alt={book.frontmatter.title}
           />
           <Subtitle2
-            className={`absolute z-10 px-2 py-1 -mt-1 -ml-8 transform -rotate-90 bg-yellow-500 border-r-4 rounded-l-sm top-10 ${
+            className={`absolute top-10 z-10 -mt-1 -ml-8 -rotate-90 transform rounded-l-sm border-r-4 bg-yellow-500 px-2 py-1 ${
               shake ? `shake` : null
             }`}
           >

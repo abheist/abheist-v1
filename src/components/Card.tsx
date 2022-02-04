@@ -20,11 +20,11 @@ interface CardProp {
 
 const Card = ({ data }: CardProp) => {
   return (
-    <div className="flex-1 group">
+    <div className="group flex-1">
       {data.frontmatter.image && (
         <Link to={data.fields.slug}>
           <div
-            className={`w-full bg-blue-400 h-52`}
+            className={`h-52 w-full bg-blue-400`}
             role="img"
             aria-label={data.frontmatter.title}
             style={{

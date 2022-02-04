@@ -4,9 +4,9 @@ import { Body1, H2 } from './Typography'
 
 const HomeHeader = ({ avatar }) => {
   return (
-    <div className="flex flex-col justify-end w-full lg:flex-row lg:items-end">
+    <div className="flex w-full flex-col justify-end lg:flex-row lg:items-end">
       <div
-        className="z-10 order-2 p-2 mt-8 lg:p-10 lg:pl-0 lg:-mb-56 lg:bg-white lg:-mr-64 lg:order-1 xl:-mb-32 2xl:-mr-96"
+        className="z-10 order-2 mt-8 p-2 lg:order-1 lg:-mb-56 lg:-mr-64 lg:bg-white lg:p-10 lg:pl-0 xl:-mb-32 2xl:-mr-96"
         style={{ maxWidth: '560px' }}
       >
         <H2>
@@ -18,7 +18,7 @@ const HomeHeader = ({ avatar }) => {
         </Body1>
       </div>
       <GatsbyImage
-        className="order-1 w-full lg:w-2/3 lg:order-2"
+        className="order-1 w-full lg:order-2 lg:w-2/3"
         style={{
           boxShadow: '-16px 16px  var(--primary-color)',
         }}

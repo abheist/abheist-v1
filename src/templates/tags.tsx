@@ -53,8 +53,8 @@ const Tags = ({ pageContext, data, location }) => {
         pathname={location.pathname}
       />
       <Container>
-        <div className="flex flex-row justify-between w-full gap-32"></div>
-        <div className="flex flex-row items-center divide-x-4 divide-gray-900 gap-x-4 divide-solid">
+        <div className="flex w-full flex-row justify-between gap-32"></div>
+        <div className="flex flex-row items-center gap-x-4 divide-x-4 divide-solid divide-gray-900">
           <span>{tagImage[tag.toLowerCase()]}</span>
           <H3 className="pl-4">{tag}</H3>
         </div>

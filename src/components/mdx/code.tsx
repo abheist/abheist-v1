@@ -76,7 +76,7 @@ function Code({ codeString, language, metastring }) {
       theme={nightOwl}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <div className="relative gatsby-highlight" css={wrapperStyles}>
+        <div className="gatsby-highlight relative" css={wrapperStyles}>
           <CodeWrapper
             className={className}
             style={style}
@@ -89,7 +89,7 @@ function Code({ codeString, language, metastring }) {
           >
             {language.split(':')[1] && (
               <div
-                className="absolute w-full py-2 text-sm text-gray-800 bg-indigo-100 rounded-t-lg px-9"
+                className="absolute w-full rounded-t-lg bg-indigo-100 py-2 px-9 text-sm text-gray-800"
                 css={`
                   margin-top: -52px;
                   box-shadow: 0 0px 12px -6px rgba(0, 24, 40, 0.3);
@@ -99,7 +99,7 @@ function Code({ codeString, language, metastring }) {
               </div>
             )}
             <button
-              className="absolute right-3 -mt-1 bg-indigo-200 border-none px-2 py-0.5 rounded bg-opacity-50 text-white text-xs hover:bg-indigo-400"
+              className="absolute right-3 -mt-1 rounded border-none bg-indigo-200 bg-opacity-50 px-2 py-0.5 text-xs text-white hover:bg-indigo-400"
               onClick={() => {
                 copyToClipboard(codeString)
                 setIsCopied(true)

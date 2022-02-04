@@ -13,7 +13,7 @@ const AmazonButton = ({ link, className }: AmazonButtonProps) => {
       <OutboundLink
         href={link}
         target="_blank"
-        className={`flex flex-row items-center text-sm font-semibold leading-7 w-52 gap-x-4`}
+        className={`flex w-52 flex-row items-center gap-x-4 text-sm font-semibold leading-7`}
         style={{
           border: '1px',
           borderStyle: 'solid',
@@ -27,7 +27,7 @@ const AmazonButton = ({ link, className }: AmazonButtonProps) => {
           background: 'linear-gradient(to bottom,#f7dfa5,#f0c14b)',
         }}
       >
-        <GrAmazon className="-mb-0.5 text-gray-900 fill-current" />
+        <GrAmazon className="-mb-0.5 fill-current text-gray-900" />
         Amazon Page
       </OutboundLink>
     </div>

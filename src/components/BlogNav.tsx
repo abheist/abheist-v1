@@ -5,13 +5,13 @@ import Container from './Container'
 const BlogNav = ({ previous, next, parent = '' }) => {
   return (
     <Container className="lg:px-24">
-      <nav className="border border-gray-500 rounded-md">
+      <nav className="rounded-md border border-gray-500">
         <div className="flex justify-center md:flex-row">
           {previous && (
             <Link
               to={parent + previous.fields.slug}
               rel="prev"
-              className="flex-grow block px-8 py-6 rounded-md hover:text-indigo-primary hover:bg-yellow-50"
+              className="block flex-grow rounded-md px-8 py-6 hover:bg-yellow-50 hover:text-indigo-primary"
             >
               ← {previous.frontmatter.title}
             </Link>
@@ -20,7 +20,7 @@ const BlogNav = ({ previous, next, parent = '' }) => {
             <Link
               to={parent + next.fields.slug}
               rel="next"
-              className="flex-grow block px-8 py-6 text-right rounded-md hover:text-indigo-primary hover:bg-yellow-50"
+              className="block flex-grow rounded-md px-8 py-6 text-right hover:bg-yellow-50 hover:text-indigo-primary"
             >
               {next.frontmatter.title} →
             </Link>

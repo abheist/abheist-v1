@@ -42,15 +42,15 @@ const BlogList = ({ posts: articles, tags }) => {
           <input
             type="text"
             placeholder="Search these articles..."
-            className="w-full p-3 mt-8 mb-16 border border-gray-500"
+            className="mt-8 mb-16 w-full border border-gray-500 p-3"
             value={search}
             onChange={event => setSearch(event.target.value)}
           />
         </div>
-        <div className="flex flex-col gap-16 mb-32 md:flex-row">
+        <div className="mb-32 flex flex-col gap-16 md:flex-row">
           <div className="md:w-2/3">
             <H6 className="font-bold">RECENTLY PUBLISHED</H6>
-            <div className="grid mt-10 gap-y-20">
+            <div className="mt-10 grid gap-y-20">
               {posts.map(post => (
                 <BlogCard key={post.fields.slug} post={post} />
               ))}

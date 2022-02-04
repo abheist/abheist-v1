@@ -26,11 +26,11 @@ function MEHeader({ headerImages }) {
   }))
   return (
     <div
-      className="relative z-0 flex items-center justify-center w-full h-full"
+      className="relative z-0 flex h-full w-full items-center justify-center"
       onMouseMove={({ clientX: x, clientY: y }) => set.start({ xy: [x, y] })}
     >
       <animated.div
-        className="absolute z-10 font-serif text-6xl font-normal tracking-normal capitalize left-80 top-24"
+        className="absolute left-80 top-24 z-10 font-serif text-6xl font-normal capitalize tracking-normal"
         style={{ transform: props.xy.to(transHeading) }}
       >
         About Me

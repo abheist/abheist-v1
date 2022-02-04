@@ -20,7 +20,7 @@ const BookCard = ({ post }): JSX.Element => {
           itemScope
           itemType="http://schema.org/Article"
           onClick={animate}
-          className="flex flex-row p-4 -m-4 transition-all duration-300 border border-gray-200 border-opacity-0 cursor-not-allowed hover:border-opacity-100"
+          className="-m-4 flex cursor-not-allowed flex-row border border-gray-200 border-opacity-0 p-4 transition-all duration-300 hover:border-opacity-100"
         >
           {post.frontmatter.image && (
             <ImageWithShadow
@@ -28,7 +28,7 @@ const BookCard = ({ post }): JSX.Element => {
               image={post.frontmatter.image.childImageSharp.gatsbyImageData}
             />
           )}
-          <div className="flex flex-col justify-between w-4/5 px-8">
+          <div className="flex w-4/5 flex-col justify-between px-8">
             <div>
               <H4>
                 <span itemProp="headline">{title}</span>
@@ -39,7 +39,7 @@ const BookCard = ({ post }): JSX.Element => {
               </Subtitle2>
               <br />
               <div
-                className={`px-4 py-2 my-2 bg-yellow-400 inline-block ${
+                className={`my-2 inline-block bg-yellow-400 px-4 py-2 ${
                   shake && 'shake-horizontal'
                 }`}
               >
@@ -53,7 +53,7 @@ const BookCard = ({ post }): JSX.Element => {
         <article
           itemScope
           itemType="http://schema.org/Article"
-          className="flex flex-row p-4 -m-4 transition-all duration-300 border border-gray-200 border-opacity-0 group hover:border-opacity-100"
+          className="group -m-4 flex flex-row border border-gray-200 border-opacity-0 p-4 transition-all duration-300 hover:border-opacity-100"
         >
           {post.frontmatter.image && (
             <Link to={`/book-notes${post.fields.slug}`}>
@@ -63,7 +63,7 @@ const BookCard = ({ post }): JSX.Element => {
               />
             </Link>
           )}
-          <div className="flex flex-col justify-between w-4/5 px-8">
+          <div className="flex w-4/5 flex-col justify-between px-8">
             <div>
               <Link to={`/book-notes${post.fields.slug}`}>
                 <H4 className="group-hover:text-indigo-700">

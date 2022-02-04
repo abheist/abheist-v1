@@ -43,10 +43,10 @@ const PicPageSection = ({
   return (
     <div className={backgroundColor}>
       <Container className="pt-0 pb-24 lg:pt-24">
-        <div className="flex flex-col justify-between w-full lg:flex-row lg:gap-32">
+        <div className="flex w-full flex-col justify-between lg:flex-row lg:gap-32">
           <Link
             to={latestArticle.to}
-            className={`flex flex-row items-end justify-end flex-shrink-0 order-2 ${
+            className={`order-2 flex flex-shrink-0 flex-row items-end justify-end ${
               picSide === 'left' ? 'lg:order-1' : 'lg:order-2'
             } w-full bg-blue-400 lg:w-1/2`}
             style={{
@@ -59,7 +59,7 @@ const PicPageSection = ({
             }}
           >
             <div
-              className={`p-10 lg:pr-8 lg:-mr-4 bg-white bg-opacity-90 lg:bg-opacity-100 lg:w-96 lg:-mb-28 ${backgroundColor}`}
+              className={`bg-white bg-opacity-90 p-10 lg:-mr-4 lg:-mb-28 lg:w-96 lg:bg-opacity-100 lg:pr-8 ${backgroundColor}`}
             >
               <Overline className="mb-2">{latestArticle.overline}</Overline>
               <H3 className="text-indigo-primary">{latestArticle.heading}</H3>
@@ -77,7 +77,7 @@ const PicPageSection = ({
               <div className="mt-10">
                 <Link
                   to={to}
-                  className="px-10 py-3 text-lg text-indigo-700 border border-indigo-500 hover:bg-indigo-500 hover:text-white"
+                  className="border border-indigo-500 px-10 py-3 text-lg text-indigo-700 hover:bg-indigo-500 hover:text-white"
                 >
                   {linkName}
                 </Link>
@@ -88,7 +88,7 @@ const PicPageSection = ({
         {featured && (
           <div className="mt-44">
             <H6>FEATURED</H6>
-            <div className="grid gap-8 mt-8 grid-col-1 lg:grid-cols-3">
+            <div className="grid-col-1 mt-8 grid gap-8 lg:grid-cols-3">
               {featured.map(card => (
                 <Card key={card.fields.slug} data={card} />
               ))}

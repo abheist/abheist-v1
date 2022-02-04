@@ -53,13 +53,13 @@ const BookList = ({ books: bookList }) => {
           <input
             type="text"
             placeholder="Search these books..."
-            className="w-5/6 p-3 border border-gray-500"
+            className="w-5/6 border border-gray-500 p-3"
             value={search}
             onChange={event => setSearch(event.target.value)}
           />
           <div className="flex gap-x-2">
             <button
-              className={`p-4 border border-gray-500 focus:outline-none focus:ring focus:border-indigo-300 ${
+              className={`border border-gray-500 p-4 focus:border-indigo-300 focus:outline-none focus:ring ${
                 layout === 'grid' && 'bg-indigo-200'
               }`}
               onClick={() => setLayout('grid')}
@@ -71,7 +71,7 @@ const BookList = ({ books: bookList }) => {
               />
             </button>
             <button
-              className={`p-4 border focus:outline-none focus:ring focus:border-indigo-300-300 ${
+              className={`focus:border-indigo-300-300 border p-4 focus:outline-none focus:ring ${
                 layout === 'list' && 'bg-indigo-200'
               }  border-gray-500
             `}

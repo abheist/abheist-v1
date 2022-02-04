@@ -40,7 +40,7 @@ const AlgoList = ({ posts: articles }) => {
           <input
             type="text"
             placeholder="Search these algos..."
-            className="w-full p-3 mb-16 border border-gray-500"
+            className="mb-16 w-full border border-gray-500 p-3"
             value={search}
             onChange={event => setSearch(event.target.value)}
           />
@@ -48,7 +48,7 @@ const AlgoList = ({ posts: articles }) => {
 
         <div>
           <H6 className="font-bold">RECENTLY ADDED</H6>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-10 gap-y-8 gap-x-8">
+          <div className="mt-10 grid grid-cols-1 gap-y-8 gap-x-8 md:grid-cols-2 lg:grid-cols-3">
             {posts.map(post => (
               <AlgoCard key={post.fields.slug} algo={post} />
             ))}

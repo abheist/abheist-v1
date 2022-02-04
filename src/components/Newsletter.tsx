@@ -26,14 +26,14 @@ const Newsletter = () => {
     <div className="bg-indigo-50">
       <Container className="py-24">
         {status ? (
-          <div className="flex flex-row items-center justify-center h-full bg-green-50">
-            <div className="py-20 text-center w-60">
+          <div className="flex h-full flex-row items-center justify-center bg-green-50">
+            <div className="w-60 py-20 text-center">
               You've signed up to the mailing list, thanks for subscribing!
             </div>
           </div>
         ) : (
-          <div className="px-4 py-12 bg-white sm:px-8 rounded-xl">
-            <H5 className="font-bold xs:px-16">Subscribe to my newsletter</H5>
+          <div className="rounded-xl bg-white px-4 py-12 sm:px-8">
+            <H5 className="xs:px-16 font-bold">Subscribe to my newsletter</H5>
             <Body1 className="mt-8">
               Get email from me about my ideas, full-stack development
               resources, tricks and tips as well as exclusive previews of
@@ -43,7 +43,7 @@ const Newsletter = () => {
               action="/api/subscribe"
               method="POST"
               onSubmit={handleSubmit}
-              className="flex flex-row w-full mt-8"
+              className="mt-8 flex w-full flex-row"
             >
               <input
                 type="email"
@@ -53,9 +53,9 @@ const Newsletter = () => {
                 aria-label="email"
                 required
                 placeholder="Email address is..."
-                className="flex-1 p-4 border-2 border-indigo-500 rounded-l-lg focus:outline-none focus:ring focus:border-blue-500"
+                className="flex-1 rounded-l-lg border-2 border-indigo-500 p-4 focus:border-blue-500 focus:outline-none focus:ring"
               />
-              <button className="flex-initial px-6 text-sm font-bold text-center text-white bg-indigo-600 rounded-r-lg sm:text-lg hover:bg-indigo-700">
+              <button className="flex-initial rounded-r-lg bg-indigo-600 px-6 text-center text-sm font-bold text-white hover:bg-indigo-700 sm:text-lg">
                 Sign me up!
               </button>
             </form>

@@ -24,19 +24,19 @@ const BookNoteTemplate = ({ data, pageContext, location }) => {
     let i = parseInt(times)
     while (i) {
       stars.push(
-        <BsStarFill key={i} className="text-yellow-500 fill-current" />
+        <BsStarFill key={i} className="fill-current text-yellow-500" />
       )
       i--
     }
     let remaining = parseFloat(times) - parseInt(times)
     if (remaining) {
       stars.push(
-        <BsStarHalf key={times} className="text-yellow-500 fill-current" />
+        <BsStarHalf key={times} className="fill-current text-yellow-500" />
       )
     }
     let j = 5
     while (j > parseFloat(times) + remaining) {
-      stars.push(<BsStar key={j} className="text-yellow-500 fill-current" />)
+      stars.push(<BsStar key={j} className="fill-current text-yellow-500" />)
       j--
     }
     return stars
@@ -71,34 +71,34 @@ const BookNoteTemplate = ({ data, pageContext, location }) => {
           <header className="py-16">
             <H2>{post.frontmatter.title}</H2>
             <H6 className="mt-6">{post.frontmatter.description}</H6>
-            <div className="flex flex-col mt-8 lg:flex-row gap-x-12">
+            <div className="mt-8 flex flex-col gap-x-12 lg:flex-row">
               <ImageWithShadow
                 style={{ height: '400px', width: '270px' }}
                 image={post.frontmatter.image.childImageSharp.gatsbyImageData}
               />
-              <div className="flex flex-col justify-between w-full mt-8 lg:mt-0">
+              <div className="mt-8 flex w-full flex-col justify-between lg:mt-0">
                 <div>
                   <p className="font-serif text-xl font-bold">
                     Favourite Quote
                   </p>
-                  <div className="mt-4 prose">
+                  <div className="prose mt-4">
                     <blockquote>{post.frontmatter.favouriteQuote}</blockquote>
                   </div>
                   <div className="mt-8">
                     <Subtitle2 className="font-bold">
                       How strongly I recommending
                     </Subtitle2>
-                    <div className="flex flex-row mt-2 gap-x-1">
+                    <div className="mt-2 flex flex-row gap-x-1">
                       {getStars(post.frontmatter.rating)}
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col items-start w-full mt-4 sm:flex-row sm:items-center sm:justify-between gap-x-4">
+                <div className="mt-4 flex w-full flex-col items-start gap-x-4 sm:flex-row sm:items-center sm:justify-between">
                   <AmazonButton
                     className="order-2 mt-8 sm:order-1 sm:mt-0"
                     link={post?.frontmatter?.amazon}
                   />
-                  <div className="flex flex-row order-1 mt-8 gap-x-12 sm:order-2 sm:mt-0">
+                  <div className="order-1 mt-8 flex flex-row gap-x-12 sm:order-2 sm:mt-0">
                     <NameIcon
                       name="ISBN-10"
                       icon={<AiOutlineBarcode className="text-4xl" />}
@@ -115,7 +115,7 @@ const BookNoteTemplate = ({ data, pageContext, location }) => {
             </div>
           </header>
 
-          <div className="max-w-3xl px-4 mx-auto prose-sm prose md:prose-lg prose-indigo wrap">
+          <div className="wrap prose prose-sm prose-indigo mx-auto max-w-3xl px-4 md:prose-lg">
             <MDXRenderer>{post.body}</MDXRenderer>
           </div>
           <SocialShare title={post.frontmatter.title} location={location} />

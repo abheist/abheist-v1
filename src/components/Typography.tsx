@@ -11,7 +11,7 @@ interface Props {
 const H1 = ({ children, className, style }: Props) => {
   return (
     <h1
-      className={`font-serif font-normal tracking-normal  capitalize text-8xl ${className}`}
+      className={`font-serif text-8xl font-normal  capitalize tracking-normal ${className}`}
       style={style}
     >
       {children}
@@ -22,7 +22,7 @@ const H1 = ({ children, className, style }: Props) => {
 const H2 = ({ children, className, style }: Props) => {
   return (
     <h2
-      className={`font-serif text-3xl md:text-6xl font-normal leading-tight tracking-normal  capitalize ${className}`}
+      className={`font-serif text-3xl font-normal capitalize leading-tight tracking-normal  md:text-6xl ${className}`}
       style={style}
     >
       {children}
@@ -33,7 +33,7 @@ const H2 = ({ children, className, style }: Props) => {
 const H3 = ({ children, className, style, level }: Props) => {
   return (
     <h3
-      className={`font-serif text-5xl font-normal tracking-normal  capitalize ${className}`}
+      className={`font-serif text-5xl font-normal capitalize  tracking-normal ${className}`}
       style={style}
       aria-level={level}
     >
@@ -45,7 +45,7 @@ const H3 = ({ children, className, style, level }: Props) => {
 const H4 = ({ children, className, style }: Props) => {
   return (
     <h4
-      className={`font-serif text-4xl font-normal tracking-normal  capitalize ${className}`}
+      className={`font-serif text-4xl font-normal capitalize  tracking-normal ${className}`}
       style={style}
     >
       {children}
@@ -56,7 +56,7 @@ const H4 = ({ children, className, style }: Props) => {
 const H5 = ({ children, className, style }: Props) => {
   return (
     <h5
-      className={`font-sans text-2xl font-normal tracking-normal  capitalize ${className}`}
+      className={`font-sans text-2xl font-normal capitalize  tracking-normal ${className}`}
       style={style}
     >
       {children}
@@ -67,7 +67,7 @@ const H5 = ({ children, className, style }: Props) => {
 const Quote = ({ children, className, style }: Props) => {
   return (
     <h5
-      className={`font-serif text-4xl italic font-light tracking-wide leading-snug -ml-32 -mr-32 border-l-8 pl-10 ${className}`}
+      className={`-ml-32 -mr-32 border-l-8 pl-10 font-serif text-4xl font-light italic leading-snug tracking-wide ${className}`}
       style={style}
     >
       {children}
@@ -147,7 +147,7 @@ const Caption = ({ children, className, style }: Props) => {
 const Overline = ({ children, className, style }: Props) => {
   return (
     <p
-      className={`font-sans text-xs font-normal tracking-normal  uppercase ${className}`}
+      className={`font-sans text-xs font-normal uppercase  tracking-normal ${className}`}
       style={style}
     >
       {children}

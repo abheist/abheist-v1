@@ -9,7 +9,7 @@ const TagList = ({ tags, className }) => {
         <span key={tag.fieldValue}>
           <Link
             to={`/${kebabCase(tag.fieldValue)}/`}
-            className="inline-block px-2 py-1 m-1 text-sm capitalize bg-yellow-400 rounded-sm"
+            className="m-1 inline-block rounded-sm bg-yellow-400 px-2 py-1 text-sm capitalize"
           >
             {tag.fieldValue}
             {/* ({tag.totalCount}) */}

@@ -15,8 +15,8 @@ const NotFoundPage = ({ data, location }) => {
       <Container className="py-40">
         <H1>404: Not Found</H1>
         <H5 className="mt-10">You just hit a route that doesn't exist...</H5>
-        <Link to="/articles/" className="flex flex-row items-center gap-2 mt-6">
-          <BiArrowBack className="text-2xl text-indigo-500 fill-current" />
+        <Link to="/articles/" className="mt-6 flex flex-row items-center gap-2">
+          <BiArrowBack className="fill-current text-2xl text-indigo-500" />
           <H6 className="text-indigo-500"> Bank to Articles</H6>
         </Link>
       </Container>

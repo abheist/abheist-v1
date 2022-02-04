@@ -42,7 +42,7 @@ const AlgoPageSection = ({
   return (
     <div className={backgroundColor}>
       <Container className="pt-0 pb-24 lg:pt-24">
-        <div className="flex flex-col justify-between w-full lg:flex-row lg:gap-32">
+        <div className="flex w-full flex-col justify-between lg:flex-row lg:gap-32">
           <div
             className={`order-1 ${
               picSide === 'left' ? 'lg:order-2' : 'lg:order-1'

@@ -16,7 +16,7 @@ const BlogCard = ({ post }) => {
               objectPosition="center"
               image={post.frontmatter.image.childImageSharp.gatsbyImageData}
               alt=""
-              className="w-full h-52"
+              className="h-52 w-full"
             />
           )}
         </header>
@@ -31,7 +31,7 @@ const BlogCard = ({ post }) => {
             }}
             itemProp="description"
           />
-          <Caption className="flex items-end mt-2 font-bold gap-x-1 group-hover:text-indigo-700">
+          <Caption className="mt-2 flex items-end gap-x-1 font-bold group-hover:text-indigo-700">
             Read more
           </Caption>
         </section>

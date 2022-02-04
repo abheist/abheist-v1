@@ -20,7 +20,7 @@ const FooterList = ({
       <Subtitle1 className={`uppercase text-gray-400 ${hidden && 'invisible'}`}>
         {title}
       </Subtitle1>
-      <ol className={`grid mt-8 gap-y-3`}>
+      <ol className={`mt-8 grid gap-y-3`}>
         {listItems.map(item => (
           <li key={item.name}>
             {item.newTab ? (

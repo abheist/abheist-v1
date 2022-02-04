@@ -120,7 +120,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="text-white bg-black">
+    <footer className="bg-black text-white">
       <Container className="py-28">
         <div className="flex flex-col md:flex-row md:gap-x-16 lg:gap-x-32">
           <div className="md:w-5/12">
@@ -132,8 +132,8 @@ const Footer = () => {
               me to share my knowledge with the community.
             </Body2>
           </div>
-          <div className="flex flex-row justify-between mt-16 md:mt-0 md:w-7/12">
-            <div className="grid justify-between grid-cols-2 gap-x-10">
+          <div className="mt-16 flex flex-row justify-between md:mt-0 md:w-7/12">
+            <div className="grid grid-cols-2 justify-between gap-x-10">
               <FooterList title="PAGES" listItems={listItems1} />
               <FooterList listItems={listItems2} hidden />
             </div>
@@ -145,7 +145,7 @@ const Footer = () => {
         <Caption className="mt-16" style={{ color: '#FFFFFF' }}>
           &copy; {new Date().getFullYear()}, ABHISHEK KUMAR SINGH{' '}
           <span
-            className="text-xl cursor-pointer"
+            className="cursor-pointer text-xl"
             onClick={() => setEmoji(getEmoji)}
           >
             {emoji}

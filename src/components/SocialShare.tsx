@@ -9,8 +9,8 @@ interface shareProps {
 
 const SocialShare = ({ title, location }) => {
   return (
-    <div className="flex flex-col items-center justify-center my-16 sm:flex-row lg:justify-end lg:px-24 gap-y-4 sm:gap-y-0 gap-x-2 sm:gap-x-8">
-      <div className="flex-1 hidden divide-y divide-gray-300 lg:block bg-red-50">
+    <div className="my-16 flex flex-col items-center justify-center gap-y-4 gap-x-2 sm:flex-row sm:gap-y-0 sm:gap-x-8 lg:justify-end lg:px-24">
+      <div className="hidden flex-1 divide-y divide-gray-300 bg-red-50 lg:block">
         <div></div>
         <div></div>
       </div>
