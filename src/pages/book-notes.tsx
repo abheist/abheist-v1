@@ -58,7 +58,11 @@ export const pageQuery = graphql`
           image {
             childImageSharp {
               gatsbyImageData(
-                placeholder: DOMINANT_COLOR
+                placeholder: TRACED_SVG
+                tracedSVGOptions: {
+                  turnPolicy: TURNPOLICY_MAJORITY
+                  color: "#5945e4"
+                }
                 formats: [AUTO, AVIF]
                 layout: CONSTRAINED
                 quality: 50

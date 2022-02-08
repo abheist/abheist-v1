@@ -40,13 +40,13 @@ module.exports = {
         },
       },
     },
-    {
-      resolve: '@sentry/gatsby',
-      options: {
-        dsn: 'https://21b00393bdd948fe988ab6425e6e93a9@o53410.ingest.sentry.io/5797918',
-        sampleRate: 0.7,
-      },
-    },
+    // {
+    //   resolve: '@sentry/gatsby',
+    //   options: {
+    //     dsn: 'https://21b00393bdd948fe988ab6425e6e93a9@o53410.ingest.sentry.io/5797918',
+    //     sampleRate: 0.7,
+    //   },
+    // },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
