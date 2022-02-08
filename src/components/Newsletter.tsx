@@ -10,7 +10,7 @@ const Newsletter = () => {
 
     const data = new FormData(event.target)
 
-    fetch('/.netlify/functions/subscribe', {
+    fetch('/api/subscribe', {
       method: 'POST',
       body: JSON.stringify({
         email: data.get('email'),
