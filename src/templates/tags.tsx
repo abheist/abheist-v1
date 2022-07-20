@@ -11,7 +11,7 @@ import {
 import { GiLifeInTheBalance, GiWaveCrest } from 'react-icons/gi'
 import { ImNpm } from 'react-icons/im'
 import { MdBusiness } from 'react-icons/md'
-import { SiDjango, SiMaterialdesignicons } from 'react-icons/si'
+import { SiDjango, SiMaterialdesignicons, SiMicrosoftsqlserver } from 'react-icons/si'
 import Card from '../components/Card'
 import Container from '../components/Container'
 import Layout from '../components/Layout'
@@ -37,6 +37,7 @@ const Tags = ({ pageContext, data, location }) => {
     html: <DiHtml5 className={tagIconClasses} />,
     npm: <ImNpm className={tagIconClasses} />,
     poem: <GiWaveCrest className={tagIconClasses} />,
+    'system design': <SiMicrosoftsqlserver className={tagIconClasses} />,
   }
 
   return (
@@ -52,7 +53,7 @@ const Tags = ({ pageContext, data, location }) => {
         // }}
         pathname={location.pathname}
       />
-      <Container>
+      <Container className="mt-16">
         <div className="flex w-full flex-row justify-between gap-32"></div>
         <div className="flex flex-row items-center gap-x-4 divide-x-4 divide-solid divide-gray-900">
           <span>{tagImage[tag.toLowerCase()]}</span>
