@@ -1,0 +1,28 @@
+---
+title: Data Centers
+date: 2022-07-20
+description: 
+image: data-center-image.jpg
+featured: true
+tags:
+
+- System Design
+- Infrastructure
+
+---
+
+In normal operations, users are geo DNS routed, also known as **geo-routed,** to the closest data center. GeoDNS is a
+DNS service that allows domain names to be resolved to IP addresses based on the location of a user.
+
+In any significant data center outrage, we direct all traffic to a healthy data center.
+
+Several technical challenges must be resolved to achieve a multi-datacenter setup:
+
+1. **Traffic redirection**: Effective tools are needed to direct traffic to the correct data center. GeoDNS.
+2. **Data synchronization**: Users from different regions could use different local databases or caches. In failover
+   cases, traffic might be routed to a data center where data is unavailable. A common strategy is to replicate data
+   across multiple data centers.
+3. **Test & deployment**: With a multi-datacenter setup, it is important to test your website/application at different
+   locations. Automated deployment tools are vital to keeping services consistent through all data centers.
+
+🥒

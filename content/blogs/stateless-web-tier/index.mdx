@@ -1,0 +1,36 @@
+---
+title: Stateless Web Tier
+date: 2022-07-20
+description:
+image: stateless-image.jpg
+featured: true
+tags:
+
+- System Design
+- Infrastructure
+
+---
+
+Now it is time to consider scaling the web tier horizontally. For this, we need to move the state out of the web tier (
+for instance, user session data). A good practice is to store session data in persistent storage such as a relational
+database or NoSQL. Each web server from the cluster can access state data from databases. This is called a stateless web
+tier.
+
+### Stateful architecture
+
+A stateful server and a stateless server have some key differences. A stateful server remembers client data (state) from
+one request to another. A stateless servers keep no state information.
+
+With stateful, the issue is that every request from the same client must be routed to the same server. This can be done
+with sticky sessions in most load balancers. However, this adds the overhead. Adding or removing servers is much more
+difficult with this approach. It is also challenging to handle server failures.
+
+### Stateless architecture
+
+HTTP requests can be sent to any server which fetches data from data storage. A stateless system is more
+straightforward, more robust, and scalable.
+
+After the state data is removed from the web server, auto-scaling of the web tier is easily achieved by adding or
+removing the server based on traffic load.
+
+🍍

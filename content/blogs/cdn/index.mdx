@@ -1,0 +1,42 @@
+---
+title: Content Delivery Network
+date: 2022-07-20
+description:
+image: cdn-image.jpg
+featured: true
+tags:
+
+- System Design
+- Infrastructure
+
+---
+
+CDN is a network of geographically dispersed servers used to deliver static content. CDN servers cache static content
+like images, videos, CSS, JS files, etc.
+
+Dynamic Content Cache: It enables the caching of HTML pages based on request path, query strings, cookies, and request
+headers.
+
+### How it works:
+
+When a user visits a website, a CDN server closest will deliver static content.
+
+### Considerations of using CDN
+
+1. Cost: Since third parties run it, it will cost you.
+2. Setting upon appropriate cache expiry, not too long, not too short.
+3. CDN fallback: If CDN fails/outrages, the client side should be able to detect the problem and request resources from
+   the origin.
+
+### Invalidating files
+
+You can remove a file from CDN before it expires by following operations:
+
+1. By using API provided by the vendor
+2. By using object versioning to serve a different version of the object, we can add parameters to the URL, such as
+   version number.
+3. Web servers no longer serve static assets (JS, CSS, images, etc.). They are fetched from the CDN for better
+   performances.
+4. The caching data lightens database load.
+
+🫐

@@ -1,0 +1,28 @@
+---
+title: Message Queue
+date: 2022-07-20
+description:
+image: message-queue-image.jpg
+featured: true
+tags:
+
+- System Design
+- Infrastructure
+
+---
+
+A message queue is a durable component stored in memory that supports asynchronous communication. It served as a buffer
+and distributed asynchronous requests. The basic architecture is simple.
+
+Decoupling makes the messages queue a preferred architecture for building scalable and reliable applications. With the
+message queue, the producer can post a message to the queue when the consumer is unavailable to process it. The consumer
+can read messages from the queue even when the producer is unavailable.
+
+Consider the following use case: your application supports photo customization, including cropping, sharpening,
+blurring, etc. Those customization tasks take time to complete in the following figure. Web servers publish photo
+processing jobs to the message queue. Photo processing workers pick up jobs from the message queue and perform photo
+customization tasks asynchronously. A producer and consumer can be scaled independently. When the queue size becomes
+large, more workers are added to reduce the processing time. However, if the queue is empty most of the time, the member
+of workers can be reduced.
+
+🍇

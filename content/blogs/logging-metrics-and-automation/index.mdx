@@ -1,0 +1,40 @@
+---
+title: Logging, Metric, and Automation
+date: 2022-07-20
+description:
+image: logging-image.jpg
+featured: true
+tags:
+
+- System Design
+- Infrastructure
+
+---
+
+### Logging
+
+Monitoring error logs are essential as they help to identify errors and problems in the system. You can monitor error
+logs at the server level or use tools to aggregate them to a centralized service for easy search and viewing.
+
+### Metrics
+
+Collecting different types of metrics help us to gain business insights and understand the system's health status. Some
+of the following are useful.
+
+- Host level metrics: CPU, memory, disk I/O, etc.
+- Aggregate level metrics: E.g., the performance of the entire database tier, cache tier, etc.
+- Key business metrics: Daily active users, retention, revenue, etc.
+
+### Automation
+
+When the system gets bugs and is complex, we need to build or leverage automation tools to improve productivity.
+Continuous Integration is a good practice in which each code check-in is verified through automation. Allow teams to
+detect problems early. Besides, automating your build, tests, deploy process, etc., could improve developer productivity
+significantly.
+
+### Adding message queues and different tools
+
+1. A design includes a message queue, which helps to make a system more loosely coupled and failure resilient.
+2. Logging: monitoring, metrics, and automation tools are included.
+
+🥥

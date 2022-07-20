@@ -1,0 +1,62 @@
+---
+title: Database Scaling
+date: 2022-07-20
+description:
+image: database-scaling-image.jpg
+featured: true
+tags:
+
+- System Design
+- Infrastructure
+
+---
+
+## Vertical scaling
+
+Also known as scaling up, is the scaling done by adding more power to an existing machine  (CPU, RAM, Disk, etc.).
+
+There are some powerful database servers. You can get DB servers which 24TB of RAM and that powerful DB can handle lots
+of data.
+
+<aside>
+💁‍♂️ Stackoverflow.com in 2013 had 10m monthly users, but it had only one master DB
+
+</aside>
+
+### However, vertical scaling comes up with some serious drawbacks
+
+- You can add more CPU, RAM, etc. But these are some hardware limits. A single server is not enough if you have a large
+  user base.
+- Greater risk of Single Point of Failure (SPOF).
+- The overall cost of vertical scaling is high. Powerful servers are much more expensive.
+
+## Horizontal scaling
+
+Also known as Sharding, it is a practice of adding more servers. Sharding separates large databases into smaller ones,
+more easily managed parts called shards. Each shard shares the same schema, though the actual data on each shard is
+unique to the shard.
+
+Data can be partitioned into shards in many ways. User data can also be allocated to the database server based on user
+ID. Anytime you access data, a hash function is used to find the corresponding shard. In our example `user_id % 4` is
+used as a hash function. If the request equals 0. Shard 0 is used to store & fetch data. If the result is equal to 1,
+shard 1 is used. The same logic applied to another shard.
+
+- **Sharding key**: The most important factor to consider when implementing a sharding strategy is the choice of
+  sharding key. The sharding key (also known as a partition key) consists of one or more columns that determine how data
+  is distributed. `user_id` is the sharding key in the previous example.
+- Sharding is a great technique to scale the database, but it is far from a perfect solution. It introduces complexities
+  and new challenges to the system.
+- **Resharding data**: it’s needed when
+    1. Single shard could not hold data due to rapid growth.
+    2. Certain shards might experience shard exhaustion faster than others due to uneven data distribution. When shard
+       exhaustion happens, it requires updating a sharding function and moving data around.
+    3. **Consistent Hashing**: is commonly used to solve this problem.
+- **Celebrity Problem**: This is also called the hotspot key problem. exercise access to a specific shard could only
+  cause server out-load. Imagine data for Katy Perry, Justin Beiber, and Lady Gaga all end up in the same shard. For
+  social media, that shard will be overwhelmed with the reading operation. To solve this problem, we may need to
+  allocate a shard for each celebrity. Each shard might need a function partition.
+- **Join and de-normalization**: Once a database has been sharded across multiple servers, it is hard to perform join
+  operations across database shards. A common workaround is to denormalize the database so that queries can be performed
+  in a single table.
+
+🌶

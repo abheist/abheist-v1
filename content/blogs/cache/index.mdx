@@ -1,0 +1,54 @@
+---
+title: Cache
+date: 2022-07-20
+description:
+image: cache-image.jpg
+featured: true
+
+tags:
+
+- System Design
+- Infrastructure
+
+---
+
+A cache is a temporary storage area that stores the result of expensive responses or frequently access data in memory so
+that subsequent requests are served more quickly.
+
+Every time a new web page loads, one or more database calls are executed to fetch data. The application is greatly
+affected by calling the database repeatedly. The cache can mitigate that problem.
+
+### Cache Tier
+
+Cache tier is a temporary data store layer much faster than the database. The benefits of having a separate cache tier
+include:
+
+- Better system performance
+- Ability to reduce database workloads
+- Ability to scale the cache tier independently
+
+### Considerations for using cache
+
+1. A cache server is not ideal for persisting data when a database is read frequently but infrequently modified since
+   cache data is stored in volatile memory.
+2. Expiration policy: It’s a good practice to set when the data expires. When not set, data will store in memory
+   permanently.
+    - **Not too short**: Have to reload data too frequently.
+    - **Not too long**: Data will be stale.
+3. Consistency: This involves keeping the data store and cache in sync. Inconsistency can happen because data
+   modifications on the data store and cache are not in a single transaction. When scaling across multiple regions,
+   maintaining consistency between the data store and cache is challenging.
+4. Mitigating failures: A single cache server represents a potential Single Point Of Failure (SPOF)
+    - A Single Point of Failure is a part of the system that, if it fails, will stop the entire system from working.
+    - As a result, multiple cache servers across different data centers are recommended to avoid SPOF. Another approach
+      is to over-provision the required memory by a certain percentage. This provides a buffer as memory usage
+      increases.
+5. Eviction Policy: Once the cache is complete, any request to add to the store might cause existing items to be
+   removed. This is called cache eviction. Least Recently Used (LRU) is the most famous cache eviction policy. Other
+   eviction policies are:
+    1. Least Frequency Used (LFU)
+    2. First in First Out (FIFO)
+
+   Any of them can be adopted according to the application use cases.
+
+🥑
