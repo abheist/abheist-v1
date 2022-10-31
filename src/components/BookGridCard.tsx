@@ -29,7 +29,7 @@ const BookGridCard = ({ book }) => {
               shake ? `shake` : null
             }`}
           >
-            Coming Soon!
+            No Summary!
           </Subtitle2>
         </span>
       ) : (
