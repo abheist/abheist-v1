@@ -5,10 +5,9 @@ import Footer from "./Footer";
 import mdxComponent from "./mdx";
 import Navigation from "./Navigation";
 import Newsletter from "./Newsletter";
+import { AnalyticsWrapper } from "./analytics";
 
 const Layout = ({ title, children, location, background = "" }) => {
-
-  inject();
 
   return (
     <div className={`overflow-x-hidden ${background}`}>
@@ -18,6 +17,7 @@ const Layout = ({ title, children, location, background = "" }) => {
       </MDXProvider>
       <Newsletter />
       <Footer />
+      <AnalyticsWrapper />
     </div>
   );
 };
