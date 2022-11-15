@@ -1,6 +1,5 @@
-import { MDXProvider } from "@mdx-js/react";
-import { inject } from "@vercel/analytics/*";
 import React from "react";
+import { MDXProvider } from "@mdx-js/react";
 import Footer from "./Footer";
 import mdxComponent from "./mdx";
 import Navigation from "./Navigation";
