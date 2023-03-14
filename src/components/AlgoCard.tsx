@@ -27,13 +27,13 @@ const AlgoCard = ({ algo }) => {
           >
             {algo.frontmatter.title}
           </Subtitle1>
-          <Overline className="rounded-xl bg-green-300 px-2 py-0.5" style={{
+          <Overline className="rounded-xl text-white px-2 py-0.5" style={{
             backgroundColor: `${
               algo.frontmatter.difficulty === "easy"
-                ? "rgba(16, 185, 129)"
+                ? "rgb(9,163,112)"
                 : algo.frontmatter.difficulty === "medium"
-                  ? "rgba(59, 130, 246)"
-                  : "rgba(239, 68, 68)"
+                  ? "rgb(55,128,246)"
+                  : "rgb(189,0,0)"
             }`
           }}>
             {algo.frontmatter.category}
