@@ -1,3 +1,4 @@
+// import type { VercelRequest, VercelResponse } from '@vercel/node'
 import fetch from "node-fetch";
 
 export default async (request, response) => {
@@ -6,39 +7,35 @@ export default async (request, response) => {
   const body = JSON.parse(request.body);
   const email = body.email;
 
-  const res = await subscribeToConvertKit(email, CONVERTKIT_API_KEY);
-  return res.status(200).send({ statusCode: 200, body: "success" });
-
-  if (res.error) {
-    console.error(res.error);
-    return res
-      .status(200)
-      .send({ statusCode: 500, body: JSON.stringify(res.error.message) });
-  }
-}
-
-export default async function subscribeToConvertKit(email, apiKey) {
   try {
-    const response = await fetch(`https://api.convertkit.com/v3/forms/1922220/subscribe`, {
+    const res = await fetch(`https://api.convertkit.com/v3/forms/1922220/subscribe`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         email: email,
-        api_key: apiKey
+        api_key: CONVERTKIT_API_KEY
       })
     });
 
-    const data = await response.json();
+    const data = await res.json();
 
-    if (!response.ok) {
+    if (!res.ok) {
       throw new Error(data.message);
     }
 
-    return data;
+    if (res.error) {
+      console.error(res.error);
+      return res
+        .status(200)
+        .send({ statusCode: 500, body: JSON.stringify(res.error.message) });
+    }
+
+    return response.status(200).send({ statusCode: 200, body: "success" });
   } catch (error) {
-    console.error(error);
-    return { error: error.message };
+    return response
+      .status(200)
+      .send({ statusCode: 500, body: JSON.stringify(error.message) });
   }
 }
