@@ -1,0 +1,37 @@
+---
+title: Django show readonly field
+date: 2023-03-25
+description: Add readonly field in Django admin, django does not show readonly fields by default.
+image: ./date-time.jpg
+tags:
+  - Django
+tableContent: false
+featured: true
+---
+
+As seen in (Add created_at and updated_at in base class)[./django-automatic-date-time-fields], we can add automatic date and time fields in Django models. But, Django does not show these fields in admin by default. We need to add them manually.
+
+## Add readonly field in Django admin
+
+```python
+class BaseAdmin(admin.ModelAdmin):
+    readonly_fields = ('created_at', 'updated_at')
+
+		class Meta:
+		    abstract = True
+```
+
+and then add this class in admin.py
+
+```python
+clss MyModelAdmin(BaseAdmin):
+    pass
+```
+
+register the model with this admin class.
+
+```python
+admin.site.register(MyModel, MyModelAdmin)
+```
+
+🐣🐣🐣
