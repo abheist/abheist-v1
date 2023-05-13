@@ -3,7 +3,7 @@
 - 🔭 into some side-projects related to ed-tech.
 - 🌱 Learning every aspect of frontend development. Not anymore interested in GraphQL.
 - 💬 Ask me about JS, Python, their libraries and packages. React, Django, Angular.
-- 📫 How to reach me: hi@abheist.com or @abheist on twitter
+- 📫 How to reach me: hi[at]abheist[dot]com or @abheist on twitter
 
 ---
 
