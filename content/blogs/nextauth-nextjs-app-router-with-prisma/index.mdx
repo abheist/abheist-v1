@@ -94,14 +94,20 @@ import type { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/lib/prisma";
-import { Adapter } from "next-auth/adapters";
 
 export const authOptions: NextAuthOptions = {
-// @ts-ignore  
+  // @ts-ignore
   adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: "jwt",
+  },
+  pages: {
+    signIn: "/",
+    signOut: "/",
+  },
   providers: [
     GoogleProvider({
-      clientId: "****",
+      clientId: "*****",
       clientSecret: "****",
       authorization: {
         params: {
@@ -124,14 +130,30 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, user, token }) {
       console.log("fire SESSION Callback");
-      return session;
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          id: token.id,
+          randomKey: token.randomKey,
+        },
+      };
     },
     async jwt({ token, user, account, profile, isNewUser }) {
       console.log("fire jwt Callback");
+      if (user) {
+        const u = user as unknown as any;
+        return {
+          ...token,
+          id: u.id,
+          randomKey: u.randomKey,
+        };
+      }
       return token;
     },
   },
 };
+
 ```
 
 - Now create a `NextAuth` route in `src/app/api/auth/[...nextauth]/route.ts`
