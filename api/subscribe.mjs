@@ -1,9 +1,11 @@
 // import type { VercelRequest, VercelResponse } from '@vercel/node'
 import fetch from "node-fetch";
 
+// this function is for newsletter subscription, calling convertkit
 export default async (request, response) => {
   const { CONVERTKIT_API_KEY } = process.env;
 
+  // getting the email out of request
   const body = JSON.parse(request.body);
   const email = body.email;
 
