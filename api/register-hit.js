@@ -1,5 +1,6 @@
 const faunadb = require('faunadb')
 
+// This function is for registering hit per page
 exports.handler = async event => {
   const q = faunadb.query
   const client = new faunadb.Client({
