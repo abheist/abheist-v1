@@ -72,7 +72,7 @@
     "babel-preset-gatsby": "^2.14.0",
     "gatsby-plugin-postcss": "^5.14.0",
     "npm-check": "^5.9.2",
-    "postcss": "^8.4.13",
+    "postcss": "^8.4.31",
     "prettier": "2.6.2",
     "prettier-plugin-tailwindcss": "^0.1.11",
     "tailwindcss": "^3.0.24",
